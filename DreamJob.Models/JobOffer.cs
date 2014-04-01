@@ -7,6 +7,7 @@
         public Candidate Oferee { get; set; }
         public JobOfferStatus JobOfferStatus { get; set; }
 
+        public string Description { get; set; }
         public string Feedback { get; set; }
     }
 }

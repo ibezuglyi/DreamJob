@@ -1,6 +1,9 @@
 ﻿namespace DreamJob.Models
 {
-    public class CurrencyType
+    using System.Globalization;
+
+    public enum CurrencyType
     {
+        
     }
 }
