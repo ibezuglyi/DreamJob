@@ -1,6 +1,6 @@
 ﻿namespace DreamJob.Models
 {
-    public class User
+    public abstract class User
     {
         public long Id { get; set; }
         public string Login { get; set; }
