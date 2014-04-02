@@ -2,8 +2,11 @@
 {
     public enum JobOfferStatus
     {
-        InProgress = 0,
-        Accepted = 1,
-        Declined = 2
+        New,
+        NotRead,
+        Read,
+        InProgress,
+        Accepted,
+        Declined,
     }
 }

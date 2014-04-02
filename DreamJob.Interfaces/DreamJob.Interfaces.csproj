@@ -39,11 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICandidateRepository.cs" />
+    <Compile Include="ICandidateSearchService.cs" />
+    <Compile Include="IOfferRepository.cs" />
+    <Compile Include="IOfferService.cs" />
     <Compile Include="IRegistrationService.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="ISession.cs" />
     <Compile Include="IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DreamJob.Models\DreamJob.Models.csproj">
+      <Project>{77084525-2C7A-4AEA-A82E-69B311877CA8}</Project>
+      <Name>DreamJob.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
