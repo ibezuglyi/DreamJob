@@ -16,7 +16,6 @@ namespace DreamJob.Models
         public List<Experience> EducationExperience { get; set; }
         public List<JobRequirement> JobRequirements { get; set; }
         public List<Tag> NotInterested { get; set; }
-
         public string AboutMe { get; set; }
     }
 }
