@@ -26,7 +26,7 @@
 
 
         [Test]
-        public void T001()
+        public void T001_Recruiter_Can_Send_Job_Offer_To_A_Candidate()
         {
             // arrange
             object recruiterIdentificationData = null;
@@ -49,7 +49,7 @@
 
 
         [Test]
-        public void T002()
+        public void T002_Candidate_Can_See_His_Offer_List()
         {
             // arrange
             object candidateIdentificationData = null;
@@ -70,7 +70,7 @@
 
 
         [Test]
-        public void T003()
+        public void T003_Candidate_Can_Read_Job_Offer_Details()
         {
             // arrange
             object offerIdentificationData = null;
@@ -90,7 +90,7 @@
 
 
         [Test]
-        public void T()
+        public void T004_Given_Job_Offer_Was_Already_Read_By_Candidate_When_He_Is_Intersted_In_Given_Position_Then_He_Can_Approve_Offer_And_Send_His_Contact_Details_To_The_Recruter()
         {
             // arrange
             object offerIdentificationData = null;
@@ -104,6 +104,30 @@
             // assert
 
             // assert-mock
+            this.mockOfferRepository.Verify(
+                x => x.UpdateOfferStatus(It.Is<JobOfferStatus>(v => v == JobOfferStatus.Accepted)),
+                Times.Once);
+        }
+
+
+        [Test]
+        public void T005_Given_Job_Offer_Send_To_Candidate_He_Can_Reject_It_Giving_Some_Information_Why_It_Was_Rejected()
+        {
+            // arrange
+            object offerIdentificationData = null;
+            object offerRejectReason = null;
+
+            // arrange-mock
+
+            // act
+            this.sut.RejectOffer(offerIdentificationData, offerRejectReason);
+
+            // assert
+
+            // assert-mock
+            this.mockOfferRepository.Verify(
+                x => x.UpdateOfferStatus(It.Is<JobOfferStatus>(v => v == JobOfferStatus.Declined)),
+                Times.Once);
         }
     }
 }
