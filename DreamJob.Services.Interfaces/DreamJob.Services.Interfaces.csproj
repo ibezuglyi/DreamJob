@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{30D5E262-45F2-4443-B011-04C3259747F4}</ProjectGuid>
+    <ProjectGuid>{A3F4DBCB-123D-4F8E-9B44-7225D314886B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DreamJob.Services.Tests</RootNamespace>
-    <AssemblyName>DreamJob.Services.Tests</AssemblyName>
+    <RootNamespace>DreamJob.Services.Interfaces</RootNamespace>
+    <AssemblyName>DreamJob.Services.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,12 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq">
-      <HintPath>..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,38 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoginServiceTest.cs" />
-    <Compile Include="JobOfferServiceTests.cs" />
-    <Compile Include="RegistrationServiceTest.cs" />
+    <Compile Include="ICandidateService.cs" />
+    <Compile Include="ILoginService.cs" />
+    <Compile Include="IJobOfferService.cs" />
+    <Compile Include="IRegistrationService.cs" />
+    <Compile Include="ISession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DreamJob.Interfaces\DreamJob.Infrastructure.Interfaces.csproj">
-      <Project>{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}</Project>
-      <Name>DreamJob.Infrastructure.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DreamJob.Models\DreamJob.Domain.Models.csproj">
-      <Project>{77084525-2C7A-4AEA-A82E-69B311877CA8}</Project>
+      <Project>{77084525-2c7a-4aea-a82e-69b311877ca8}</Project>
       <Name>DreamJob.Domain.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DreamJob.Repositories.Tests\DreamJob.Infrastructure.Repositories.Tests.csproj">
-      <Project>{6624b240-a336-4d34-b7f6-8277541162bb}</Project>
-      <Name>DreamJob.Infrastructure.Repositories.Tests</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DreamJob.Repositories\DreamJob.Infrastructure.Repositories.csproj">
-      <Project>{497A1A69-A994-4154-BA88-F29A27EE6CA0}</Project>
-      <Name>DreamJob.Infrastructure.Repositories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DreamJob.Services.CandidateSearchService\DreamJob.Services.csproj">
-      <Project>{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}</Project>
-      <Name>DreamJob.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DreamJob.Services.Interfaces\DreamJob.Services.Interfaces.csproj">
-      <Project>{a3f4dbcb-123d-4f8e-9b44-7225d314886b}</Project>
-      <Name>DreamJob.Services.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,27 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Models", "DreamJob.Models\DreamJob.Models.csproj", "{77084525-2C7A-4AEA-A82E-69B311877CA8}"
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Domain.Models", "DreamJob.Models\DreamJob.Domain.Models.csproj", "{77084525-2C7A-4AEA-A82E-69B311877CA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Interfaces", "DreamJob.Interfaces\DreamJob.Interfaces.csproj", "{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Interfaces", "DreamJob.Interfaces\DreamJob.Infrastructure.Interfaces.csproj", "{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.Tests", "DreamJob.Services.Tests\DreamJob.Services.Tests.csproj", "{30D5E262-45F2-4443-B011-04C3259747F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Repositories", "DreamJob.Repositories\DreamJob.Repositories.csproj", "{497A1A69-A994-4154-BA88-F29A27EE6CA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Repositories", "DreamJob.Repositories\DreamJob.Infrastructure.Repositories.csproj", "{497A1A69-A994-4154-BA88-F29A27EE6CA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Repositories.Tests", "DreamJob.Repositories.Tests\DreamJob.Repositories.Tests.csproj", "{6624B240-A336-4D34-B7F6-8277541162BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Repositories.Tests", "DreamJob.Repositories.Tests\DreamJob.Infrastructure.Repositories.Tests.csproj", "{6624B240-A336-4D34-B7F6-8277541162BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2049F415-697A-4166-B6B4-94A8B4377D0E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A5E30E4E-21B6-4899-A174-5EB7E1DC937F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A5E30E4E-21B6-4899-A174-5EB7E1DC937F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.Registration", "DreamJob.Services.Registration\DreamJob.Services.Registration.csproj", "{2C93CDEB-34BE-4786-B212-5F859BF87EA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services", "DreamJob.Services.CandidateSearchService\DreamJob.Services.csproj", "{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.Login", "DreamJob.Services.Login\DreamJob.Services.Login.csproj", "{7FAC7956-D286-439C-8BA1-30C532D0EB74}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{56DDFDA8-8000-4F9E-8869-1E3B28B8C031}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.CandidateSearchService", "DreamJob.Services.CandidateSearchService\DreamJob.Services.CandidateSearchService.csproj", "{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B2FA80AD-E0FB-405D-A3A7-F159D690EB4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.Interfaces", "DreamJob.Services.Interfaces\DreamJob.Services.Interfaces.csproj", "{A3F4DBCB-123D-4F8E-9B44-7225D314886B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,27 +49,25 @@ Global
 		{6624B240-A336-4D34-B7F6-8277541162BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6624B240-A336-4D34-B7F6-8277541162BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6624B240-A336-4D34-B7F6-8277541162BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C93CDEB-34BE-4786-B212-5F859BF87EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C93CDEB-34BE-4786-B212-5F859BF87EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C93CDEB-34BE-4786-B212-5F859BF87EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C93CDEB-34BE-4786-B212-5F859BF87EA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7FAC7956-D286-439C-8BA1-30C532D0EB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FAC7956-D286-439C-8BA1-30C532D0EB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FAC7956-D286-439C-8BA1-30C532D0EB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FAC7956-D286-439C-8BA1-30C532D0EB74}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6624B240-A336-4D34-B7F6-8277541162BB} = {A5E30E4E-21B6-4899-A174-5EB7E1DC937F}
-		{30D5E262-45F2-4443-B011-04C3259747F4} = {A5E30E4E-21B6-4899-A174-5EB7E1DC937F}
-		{2C93CDEB-34BE-4786-B212-5F859BF87EA8} = {2049F415-697A-4166-B6B4-94A8B4377D0E}
-		{7FAC7956-D286-439C-8BA1-30C532D0EB74} = {2049F415-697A-4166-B6B4-94A8B4377D0E}
 		{96DA0746-1FD5-4DEF-815A-AEEC30DAB386} = {2049F415-697A-4166-B6B4-94A8B4377D0E}
+		{30D5E262-45F2-4443-B011-04C3259747F4} = {2049F415-697A-4166-B6B4-94A8B4377D0E}
+		{A3F4DBCB-123D-4F8E-9B44-7225D314886B} = {2049F415-697A-4166-B6B4-94A8B4377D0E}
+		{77084525-2C7A-4AEA-A82E-69B311877CA8} = {56DDFDA8-8000-4F9E-8869-1E3B28B8C031}
+		{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967} = {B2FA80AD-E0FB-405D-A3A7-F159D690EB4A}
+		{497A1A69-A994-4154-BA88-F29A27EE6CA0} = {B2FA80AD-E0FB-405D-A3A7-F159D690EB4A}
+		{6624B240-A336-4D34-B7F6-8277541162BB} = {B2FA80AD-E0FB-405D-A3A7-F159D690EB4A}
 	EndGlobalSection
 EndGlobal

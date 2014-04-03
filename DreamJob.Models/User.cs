@@ -1,8 +1,7 @@
-﻿namespace DreamJob.Models
+﻿namespace DreamJob.Domain.Models
 {
-    public abstract class User
+    public abstract class User : BaseEntity
     {
-        public long Id { get; set; }
         public string Login { get; set; }
         public string PasswordHash { get; set; }
         public string EmailAddress { get; set; }

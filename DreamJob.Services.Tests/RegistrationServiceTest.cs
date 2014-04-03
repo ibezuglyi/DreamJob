@@ -1,10 +1,8 @@
 ﻿namespace DreamJob.Services.Tests
 {
     using DreamJob.Interfaces;
-    using DreamJob.Services.Registration;
-
+    using DreamJob.Services.Interfaces;
     using Moq;
-
     using NUnit.Framework;
 
     [TestFixture]

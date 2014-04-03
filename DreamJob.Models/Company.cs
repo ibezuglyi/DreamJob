@@ -1,8 +1,8 @@
-﻿namespace DreamJob.Models
+﻿namespace DreamJob.Domain.Models
 {
-    public class Company
+    public class Company:BaseEntity
     {
-        public long Id { get; set; }
+        
         public string Name { get; set; }
 
     }

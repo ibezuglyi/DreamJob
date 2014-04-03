@@ -1,8 +1,8 @@
-﻿namespace DreamJob.Models
+﻿namespace DreamJob.Domain.Models
 {
-    public class JobOffer
+    public class JobOffer : BaseEntity
     {
-        public long Id { get; set; }
+        
         public Recruiter Ofereer { get; set; }
         public Candidate Oferee { get; set; }
         public JobOfferStatus JobOfferStatus { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace DreamJob.Repositories.Tests
+﻿namespace DreamJob.Infrastructure.Repositories.Tests
 {
     using DreamJob.Interfaces;
 

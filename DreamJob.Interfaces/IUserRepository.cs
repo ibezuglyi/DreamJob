@@ -1,6 +1,10 @@
-﻿namespace DreamJob.Interfaces
+﻿
+namespace DreamJob.Interfaces
 {
-    public interface IUserRepository
+    using DreamJob.Domain.Models;
+    using DreamJob.Infrastructure.Interfaces.Base;
+
+    public interface IUserRepository : IBaseRepository<User>
     {
         void Insert(object userData);
         void Save();

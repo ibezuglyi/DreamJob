@@ -43,9 +43,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DreamJob.Interfaces\DreamJob.Interfaces.csproj">
+    <ProjectReference Include="..\DreamJob.Interfaces\DreamJob.Infrastructure.Interfaces.csproj">
       <Project>{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}</Project>
-      <Name>DreamJob.Interfaces</Name>
+      <Name>DreamJob.Infrastructure.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

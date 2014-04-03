@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DreamJob.Models
+namespace DreamJob.Domain.Models
 {
     public class Candidate : User
     {

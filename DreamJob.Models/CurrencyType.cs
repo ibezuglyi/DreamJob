@@ -1,4 +1,4 @@
-﻿namespace DreamJob.Models
+﻿namespace DreamJob.Domain.Models
 {
     using System.Globalization;
 

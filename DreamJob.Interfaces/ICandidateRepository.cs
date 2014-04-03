@@ -1,6 +1,11 @@
-﻿namespace DreamJob.Repositories
+﻿
+namespace DreamJob.Infrastructure.Interfaces
 {
-    public interface ICandidateRepository
+    using DreamJob.Domain.Models;
+    using DreamJob.Infrastructure.Interfaces.Base;
+
+
+    public interface ICandidateRepository : IBaseRepository<Candidate>
     {
         void AllCandidates();
         void GetCandidateFullDetails(object isAny);
