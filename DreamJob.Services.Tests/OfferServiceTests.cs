@@ -78,7 +78,7 @@
             // arrange-mock
 
             // act
-            var result = this.sut.GetOfferDetails(offerIdentificationData);
+            var result = this.sut.GetOfferDetails(offerIdentificationData, Roles.Candidate);
 
             // assert
 
@@ -95,7 +95,7 @@
             // arrange
             object offerIdentificationData = null;
             object candidateContactData = null;
-            
+
             // arrange-mock
 
             // act
@@ -115,12 +115,12 @@
         {
             // arrange
             object offerIdentificationData = null;
-            object offerRejectReason = null;
+            object offerRejectFeedback = null;
 
             // arrange-mock
 
             // act
-            this.sut.RejectOffer(offerIdentificationData, offerRejectReason);
+            this.sut.RejectOffer(offerIdentificationData, offerRejectFeedback);
 
             // assert
 
@@ -129,5 +129,30 @@
                 x => x.UpdateOfferStatus(It.Is<JobOfferStatus>(v => v == JobOfferStatus.Declined)),
                 Times.Once);
         }
+
+
+        [Test]
+        public void T006_Given_Offer_Sent_To_Candidate_When_Recruiter_Reads_It_Again_Then_Status_Must_Not_Changed()
+        {
+            // arrange
+            object offerIdentificationData = null;
+
+            // arrange-mock
+
+            // act
+            var result = this.sut.GetOfferDetails(offerIdentificationData, Roles.Recruiter);
+
+            // assert
+
+            // assert-mock
+            this.mockOfferRepository.Verify(x => x.UpdateOfferStatus(It.IsAny<JobOfferStatus>()), Times.Never);
+        }
+    }
+
+    public enum Roles
+    {
+        Recruiter,
+
+        Candidate
     }
 }
