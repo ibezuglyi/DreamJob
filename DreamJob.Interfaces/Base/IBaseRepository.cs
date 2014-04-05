@@ -1,11 +1,14 @@
 ﻿namespace DreamJob.Infrastructure.Interfaces.Base
 {
     using DreamJob.Domain.Models;
+    using System.Collections.Generic;
 
     public interface IBaseRepository<T> where T:BaseEntity
     {
-        T GetById(int id);
-        void RemoveById(int id);
-        T Save(T entity);
+        T GetById(long id);
+        void RemoveById(long id);
+        void Save(T entity);
+        void Save(IEnumerable<T> entityList);
+
     }
 }
