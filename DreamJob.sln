@@ -1,27 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Domain.Models", "DreamJob.Models\DreamJob.Domain.Models.csproj", "{77084525-2C7A-4AEA-A82E-69B311877CA8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{CA0BBC7E-817A-4543-BF3F-87EC8048E806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Interfaces", "DreamJob.Interfaces\DreamJob.Infrastructure.Interfaces.csproj", "{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Domain.Models", "Domain\DreamJob.Domain.Models.csproj", "{77084525-2C7A-4AEA-A82E-69B311877CA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.Tests", "DreamJob.Services.Tests\DreamJob.Services.Tests.csproj", "{30D5E262-45F2-4443-B011-04C3259747F4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9C58BEE4-420A-4C78-BB4C-DCB72AA7C066}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Repositories", "DreamJob.Repositories\DreamJob.Infrastructure.Repositories.csproj", "{497A1A69-A994-4154-BA88-F29A27EE6CA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Interfaces", "Infrastructure\Interfaces\DreamJob.Infrastructure.Interfaces.csproj", "{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Repositories.Tests", "DreamJob.Repositories.Tests\DreamJob.Infrastructure.Repositories.Tests.csproj", "{6624B240-A336-4D34-B7F6-8277541162BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Repositories", "Infrastructure\Repositories\DreamJob.Infrastructure.Repositories.csproj", "{497A1A69-A994-4154-BA88-F29A27EE6CA0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2049F415-697A-4166-B6B4-94A8B4377D0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Repositories.Tests", "Infrastructure\Repositories.Tests\DreamJob.Infrastructure.Repositories.Tests.csproj", "{6624B240-A336-4D34-B7F6-8277541162BB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A5E30E4E-21B6-4899-A174-5EB7E1DC937F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{88431B8D-E656-4CC1-AD7C-9D3ED3E68BC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services", "DreamJob.Services.CandidateSearchService\DreamJob.Services.csproj", "{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.Interfaces", "Services\Interfaces\DreamJob.Services.Interfaces.csproj", "{A3F4DBCB-123D-4F8E-9B44-7225D314886B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{56DDFDA8-8000-4F9E-8869-1E3B28B8C031}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services", "Services\Services\DreamJob.Services.csproj", "{C0F14B44-B63C-472A-9453-2DBA993D93BD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B2FA80AD-E0FB-405D-A3A7-F159D690EB4A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.Interfaces", "DreamJob.Services.Interfaces\DreamJob.Services.Interfaces.csproj", "{A3F4DBCB-123D-4F8E-9B44-7225D314886B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.Tests", "Services\Tests\DreamJob.Services.Tests.csproj", "{30D5E262-45F2-4443-B011-04C3259747F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +35,6 @@ Global
 		{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30D5E262-45F2-4443-B011-04C3259747F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30D5E262-45F2-4443-B011-04C3259747F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30D5E262-45F2-4443-B011-04C3259747F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30D5E262-45F2-4443-B011-04C3259747F4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{497A1A69-A994-4154-BA88-F29A27EE6CA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{497A1A69-A994-4154-BA88-F29A27EE6CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{497A1A69-A994-4154-BA88-F29A27EE6CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,25 +43,29 @@ Global
 		{6624B240-A336-4D34-B7F6-8277541162BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6624B240-A336-4D34-B7F6-8277541162BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6624B240-A336-4D34-B7F6-8277541162BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96DA0746-1FD5-4DEF-815A-AEEC30DAB386}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0F14B44-B63C-472A-9453-2DBA993D93BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0F14B44-B63C-472A-9453-2DBA993D93BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0F14B44-B63C-472A-9453-2DBA993D93BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0F14B44-B63C-472A-9453-2DBA993D93BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30D5E262-45F2-4443-B011-04C3259747F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30D5E262-45F2-4443-B011-04C3259747F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30D5E262-45F2-4443-B011-04C3259747F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30D5E262-45F2-4443-B011-04C3259747F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{96DA0746-1FD5-4DEF-815A-AEEC30DAB386} = {2049F415-697A-4166-B6B4-94A8B4377D0E}
-		{30D5E262-45F2-4443-B011-04C3259747F4} = {2049F415-697A-4166-B6B4-94A8B4377D0E}
-		{A3F4DBCB-123D-4F8E-9B44-7225D314886B} = {2049F415-697A-4166-B6B4-94A8B4377D0E}
-		{77084525-2C7A-4AEA-A82E-69B311877CA8} = {56DDFDA8-8000-4F9E-8869-1E3B28B8C031}
-		{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967} = {B2FA80AD-E0FB-405D-A3A7-F159D690EB4A}
-		{497A1A69-A994-4154-BA88-F29A27EE6CA0} = {B2FA80AD-E0FB-405D-A3A7-F159D690EB4A}
-		{6624B240-A336-4D34-B7F6-8277541162BB} = {B2FA80AD-E0FB-405D-A3A7-F159D690EB4A}
+		{77084525-2C7A-4AEA-A82E-69B311877CA8} = {CA0BBC7E-817A-4543-BF3F-87EC8048E806}
+		{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967} = {9C58BEE4-420A-4C78-BB4C-DCB72AA7C066}
+		{497A1A69-A994-4154-BA88-F29A27EE6CA0} = {9C58BEE4-420A-4C78-BB4C-DCB72AA7C066}
+		{6624B240-A336-4D34-B7F6-8277541162BB} = {9C58BEE4-420A-4C78-BB4C-DCB72AA7C066}
+		{A3F4DBCB-123D-4F8E-9B44-7225D314886B} = {88431B8D-E656-4CC1-AD7C-9D3ED3E68BC7}
+		{C0F14B44-B63C-472A-9453-2DBA993D93BD} = {88431B8D-E656-4CC1-AD7C-9D3ED3E68BC7}
+		{30D5E262-45F2-4443-B011-04C3259747F4} = {88431B8D-E656-4CC1-AD7C-9D3ED3E68BC7}
 	EndGlobalSection
 EndGlobal
