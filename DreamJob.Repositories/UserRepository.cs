@@ -7,6 +7,11 @@ namespace DreamJob.Infrastructure.Repositories
 
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
+        public UserRepository(object persistenceContext)
+            : base(persistenceContext)
+        {
+
+        }
         public void Insert(object userData)
         {
             throw new System.NotImplementedException();

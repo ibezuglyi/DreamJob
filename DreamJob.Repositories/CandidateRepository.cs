@@ -2,12 +2,19 @@
 {
     using DreamJob.Domain.Models;
     using DreamJob.Infrastructure.Interfaces;
+    using System.Collections.Generic;
 
     public class CandidateRepository : BaseRepository<Candidate>, ICandidateRepository
     {
-        public void AllCandidates()
+        public CandidateRepository(object persistenceContext)
+            : base(persistenceContext)
         {
-            throw new System.NotImplementedException();
+
+        }
+
+        public IList<Candidate> GetAllCandidates()
+        {
+            return new List<Candidate>() { (Candidate)persistenceContext };
         }
 
         public void GetCandidateFullDetails(object isAny)

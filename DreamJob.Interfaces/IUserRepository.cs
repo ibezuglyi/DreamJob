@@ -7,8 +7,6 @@ namespace DreamJob.Interfaces
     public interface IUserRepository : IBaseRepository<User>
     {
         void Insert(object userData);
-        void Save();
-
         void Find(object recruiterLoginData);
     }
 }

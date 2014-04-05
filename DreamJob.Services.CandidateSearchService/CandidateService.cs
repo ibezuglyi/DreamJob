@@ -3,18 +3,21 @@ namespace DreamJob.Services.CandidateService
     using DreamJob.Domain.Models;
     using DreamJob.Infrastructure.Interfaces;
     using DreamJob.Services.Interfaces;
+    using System.Collections.Generic;
 
 
     public class CandidateService :  ICandidateService
     {
+        private ICandidateRepository candidateRepository;
+
         public CandidateService(ICandidateRepository candidateRepository)
         {
-            throw new System.NotImplementedException();
+            this.candidateRepository = candidateRepository;
         }
 
-        public void GetAllCandidates()
+        public IList<Candidate> GetAllCandidates()
         {
-            throw new System.NotImplementedException();
+            return candidateRepository.GetAllCandidates();
         }
 
         public void GetCandidateDetails(object candidateId)

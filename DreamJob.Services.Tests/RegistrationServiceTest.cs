@@ -1,5 +1,6 @@
 ﻿namespace DreamJob.Services.Tests
 {
+    using DreamJob.Domain.Models;
     using DreamJob.Interfaces;
     using DreamJob.Services.Interfaces;
     using Moq;
@@ -41,7 +42,7 @@
 
             // assert-mock
             this.mockUserRepository.Verify(x => x.Insert(It.IsAny<object>()), Times.Once);
-            this.mockUserRepository.Verify(x => x.Save(), Times.Once);
+            this.mockUserRepository.Verify(x => x.Save(It.IsAny<User>()), Times.Once);
         }
 
         [Test]
@@ -59,7 +60,7 @@
 
             // assert-mock
             this.mockUserRepository.Verify(x => x.Insert(It.IsAny<object>()), Times.Once);
-            this.mockUserRepository.Verify(x => x.Save(), Times.Once);
+            this.mockUserRepository.Verify(x => x.Save(It.IsAny<User>()), Times.Once);
         }
     }
 }

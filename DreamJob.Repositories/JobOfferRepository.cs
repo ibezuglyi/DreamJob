@@ -7,6 +7,12 @@
 
     public class JobOfferRepository : BaseRepository<JobOffer>, IJobOfferRepository
     {
+
+        public JobOfferRepository(object persistenceContext)
+            : base(persistenceContext)
+        {
+
+        }
         public void AddOffer(object recruitedId, object candidateId, object offer)
         {
             throw new System.NotImplementedException();
