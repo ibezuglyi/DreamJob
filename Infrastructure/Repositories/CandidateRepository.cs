@@ -3,18 +3,21 @@
     using DreamJob.Domain.Models;
     using DreamJob.Infrastructure.Interfaces;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Data.Entity;
+    using DreamJob.Repositories;
 
     public class CandidateRepository : BaseRepository<Candidate>, ICandidateRepository
     {
-        public CandidateRepository(object persistenceContext)
-            : base(persistenceContext)
+        public CandidateRepository(JobContext context)
+            : base(context)
         {
 
         }
 
         public IList<Candidate> GetAllCandidates()
         {
-            return new List<Candidate>() { (Candidate)persistenceContext };
+            return Context.Set<Candidate>().ToList();
         }
 
         public void GetCandidateFullDetails(object isAny)

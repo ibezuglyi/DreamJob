@@ -15,8 +15,7 @@
         [SetUp]
         public void OncePerTest()
         {
-            persistanceContext = new Mock<Candidate>();
-            candidateRepository = new CandidateRepository(persistanceContext.Object);
+
         }
 
         [Test]
@@ -25,9 +24,7 @@
             //arrange
             //persistanceContext
 
-            var allCandidates = candidateRepository.GetAllCandidates();
 
-            Assert.AreEqual(1, allCandidates.Count);
         }
 
     }

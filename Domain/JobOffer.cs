@@ -2,6 +2,7 @@
 {
     public class JobOffer : BaseEntity
     {
+
         public Recruiter Ofereer { get; set; }
         public Candidate Oferee { get; set; }
         public JobOfferStatus JobOfferStatus { get; set; }

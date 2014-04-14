@@ -3,12 +3,13 @@ namespace DreamJob.Infrastructure.Repositories
 {
     using DreamJob.Domain.Models;
     using DreamJob.Interfaces;
+    using DreamJob.Repositories;
     
 
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        public UserRepository(object persistenceContext)
-            : base(persistenceContext)
+        public UserRepository(JobContext context)
+            : base(context)
         {
 
         }

@@ -3,13 +3,14 @@
     using DreamJob.Domain.Models;
     using DreamJob.Infrastructure.Repositories;
     using DreamJob.Interfaces;
+    using DreamJob.Repositories;
 
 
     public class JobOfferRepository : BaseRepository<JobOffer>, IJobOfferRepository
     {
 
-        public JobOfferRepository(object persistenceContext)
-            : base(persistenceContext)
+        public JobOfferRepository(JobContext context)
+            : base(context)
         {
 
         }
