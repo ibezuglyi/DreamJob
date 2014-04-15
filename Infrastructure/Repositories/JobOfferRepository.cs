@@ -1,21 +1,19 @@
 ﻿namespace DreamJob.Infrastructure.Repositories
 {
     using DreamJob.Domain.Models;
-    using DreamJob.Infrastructure.Repositories;
     using DreamJob.Interfaces;
 
 
     public class JobOfferRepository : BaseRepository<JobOffer>, IJobOfferRepository
     {
 
-        public JobOfferRepository(object persistenceContext)
-            : base(persistenceContext)
+        public JobOfferRepository(IDreamJobContext context)
+            : base(context)
         {
 
         }
         public void AddOffer(object recruitedId, object candidateId, object offer)
         {
-            throw new System.NotImplementedException();
         }
 
         public void GetAllOffersForCandidate(object isAny)

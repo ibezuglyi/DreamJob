@@ -21,6 +21,8 @@
         [SetUp]
         public void OncePerTest()
         {
+            this.mockOfferRepository = new Mock<IJobOfferRepository>();
+            this.sut = new JobOfferService(this.mockOfferRepository.Object);
         }
 
 
@@ -28,9 +30,9 @@
         public void T001()
         {
             // arrange
-            object recruiterIdentificationData = null;
-            object candidateIdentificationData = null;
-            object offerIdentificationData = null;
+            long recruiterIdentificationData = 123;
+            long candidateIdentificationData = 321;
+            long offerIdentificationData = 333;
 
             // arrange-mock
 

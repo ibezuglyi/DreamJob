@@ -7,8 +7,8 @@
     <ProjectGuid>{497A1A69-A994-4154-BA88-F29A27EE6CA0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DreamJob.Repositories</RootNamespace>
-    <AssemblyName>DreamJob.Repositories</AssemblyName>
+    <RootNamespace>DreamJob.Infrastructure.Repositories</RootNamespace>
+    <AssemblyName>DreamJob.Infrastructure.Repositories</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,7 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,14 +54,22 @@
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Interfaces\DreamJob.Infrastructure.Interfaces.csproj">
-      <Project>{f8a1c249-ceb4-4d85-8bd5-6baa8db85967}</Project>
-      <Name>DreamJob.Infrastructure.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Domain\DreamJob.Domain.Models.csproj">
-      <Project>{77084525-2c7a-4aea-a82e-69b311877ca8}</Project>
+      <Project>{77084525-2C7A-4AEA-A82E-69B311877CA8}</Project>
       <Name>DreamJob.Domain.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DreamJob.EntityFrameworkContext\DreamJob.EntityFrameworkContext.csproj">
+      <Project>{E377B69D-8FA2-40B4-8633-29D5ECE1F535}</Project>
+      <Name>DreamJob.EntityFrameworkContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\DreamJob.Infrastructure.Interfaces.csproj">
+      <Project>{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}</Project>
+      <Name>DreamJob.Infrastructure.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

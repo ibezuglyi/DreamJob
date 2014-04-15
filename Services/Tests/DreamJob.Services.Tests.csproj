@@ -63,10 +63,6 @@
       <Project>{77084525-2C7A-4AEA-A82E-69B311877CA8}</Project>
       <Name>DreamJob.Domain.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\Repositories.Tests\DreamJob.Infrastructure.Repositories.Tests.csproj">
-      <Project>{6624b240-a336-4d34-b7f6-8277541162bb}</Project>
-      <Name>DreamJob.Infrastructure.Repositories.Tests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Repositories\DreamJob.Infrastructure.Repositories.csproj">
       <Project>{497A1A69-A994-4154-BA88-F29A27EE6CA0}</Project>
       <Name>DreamJob.Infrastructure.Repositories</Name>

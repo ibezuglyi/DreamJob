@@ -1,18 +1,24 @@
 ﻿namespace DreamJob.Services
 {
-    using DreamJob.Interfaces;
+    using DreamJob.Infrastructure.Interfaces;
     using DreamJob.Services.Interfaces;
+    using DreamJob.Services.Interfaces.Model;
 
     public class LoginService : ILoginService
     {
-        public LoginService(IUserRepository userRepository, ISession session)
+        private readonly IUserRepository userRepository;
+
+        public LoginService(IUserRepository userRepository)
         {
-            throw new System.NotImplementedException();
+            this.userRepository = userRepository;
         }
 
-        public void Login(object recruiterLoginData)
+        public void Login(UserLoginData recruiterLoginData)
         {
-            throw new System.NotImplementedException();
+            var user = this.userRepository.FindUserByLoginAndHash(
+                recruiterLoginData.Login,
+                recruiterLoginData.HashedPassword);
+
         }
 
         public void Logout()

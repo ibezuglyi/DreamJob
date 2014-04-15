@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DreamJob.Repositories.Tests")]
+[assembly: AssemblyTitle("DreamJob.Businnes.Logics.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DreamJob.Repositories.Tests")]
+[assembly: AssemblyProduct("DreamJob.Businnes.Logics.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2ae14fae-56ae-4e85-96f6-5e5acfe623f6")]
+[assembly: Guid("6ea34297-9459-4edb-80e0-500731d646a0")]
 
 // Version information for an assembly consists of the following four values:
 //

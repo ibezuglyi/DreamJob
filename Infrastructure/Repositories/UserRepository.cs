@@ -1,25 +1,32 @@
-﻿
-namespace DreamJob.Infrastructure.Repositories
+﻿namespace DreamJob.Infrastructure.Repositories
 {
+    using System.Linq;
+
     using DreamJob.Domain.Models;
-    using DreamJob.Interfaces;
-    
+    using DreamJob.Infrastructure.Interfaces;
 
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        public UserRepository(object persistenceContext)
-            : base(persistenceContext)
+        public UserRepository(IDreamJobContext context)
+            : base(context)
         {
-
-        }
-        public void Insert(object userData)
-        {
-            throw new System.NotImplementedException();
         }
 
-        public void Save()
+        public void Insert(User userData)
         {
-            throw new System.NotImplementedException();
+            this.context.Users.Add(userData);
+            this.context.Save();
+        }
+
+        public User FindUserByLoginAndHash(string login, string passwordHash)
+        {
+            var user =
+                this.context.Users
+                    .Where(x => x.Login == login)
+                    .FirstOrDefault(x => x.PasswordHash == passwordHash);
+
+            return user;
+
         }
 
         public void Find(object recruiterLoginData)

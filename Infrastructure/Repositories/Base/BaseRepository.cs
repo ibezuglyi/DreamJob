@@ -1,18 +1,21 @@
 ﻿namespace DreamJob.Infrastructure.Repositories
 {
-    using DreamJob.Domain.Models;
-    using DreamJob.Infrastructure.Interfaces.Base;
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
+
+    using DreamJob.Domain.Models;
+    using DreamJob.Infrastructure.Interfaces.Base;
 
     public abstract class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
-        public object persistenceContext { get; set; }
+        protected readonly IDreamJobContext context;
 
-        public BaseRepository(object persistenceContext)
+        public BaseRepository(IDreamJobContext context)
         {
-            this.persistenceContext = persistenceContext;
+            this.context = context;
         }
+
         public T GetById(long id)
         {
             throw new NotImplementedException();

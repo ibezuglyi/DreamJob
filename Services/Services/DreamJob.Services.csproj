@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CandidateService.cs" />
+    <Compile Include="JobOfferService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="RegistrationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

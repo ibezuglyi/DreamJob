@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{CA0BBC7E-817A-4543-BF3F-87EC8048E806}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Domain.Models", "Domain\DreamJob.Domain.Models.csproj", "{77084525-2C7A-4AEA-A82E-69B311877CA8}"
@@ -11,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Repositories", "Infrastructure\Repositories\DreamJob.Infrastructure.Repositories.csproj", "{497A1A69-A994-4154-BA88-F29A27EE6CA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Infrastructure.Repositories.Tests", "Infrastructure\Repositories.Tests\DreamJob.Infrastructure.Repositories.Tests.csproj", "{6624B240-A336-4D34-B7F6-8277541162BB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{88431B8D-E656-4CC1-AD7C-9D3ED3E68BC7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.Interfaces", "Services\Interfaces\DreamJob.Services.Interfaces.csproj", "{A3F4DBCB-123D-4F8E-9B44-7225D314886B}"
@@ -20,6 +20,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services", "Services\Services\DreamJob.Services.csproj", "{C0F14B44-B63C-472A-9453-2DBA993D93BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Services.Tests", "Services\Tests\DreamJob.Services.Tests.csproj", "{30D5E262-45F2-4443-B011-04C3259747F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bussines", "Bussines", "{2D2F6EBD-AD10-4AC4-8450-F0E19A641CFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ui", "Ui", "{C537066F-48EC-4EBA-8C83-AAB05907ADD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Businnes.Interfaces", "Business\DreamJob.Businnes.Interfaces\DreamJob.Businnes.Interfaces.csproj", "{C1A03803-5774-4E99-8C32-CFD35ABC0CCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Businnes.Logics", "Business\DreamJob.Businnes.Logics\DreamJob.Businnes.Logics.csproj", "{6E6C6252-3767-4965-96C9-8A546CF34C94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Businnes.Logics.Tests", "Business\DreamJob.Businnes.Logics.Tests\DreamJob.Businnes.Logics.Tests.csproj", "{615C6148-4A49-44C3-BB5D-00EB54A73A45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.EntityFrameworkContext", "Infrastructure\DreamJob.EntityFrameworkContext\DreamJob.EntityFrameworkContext.csproj", "{E377B69D-8FA2-40B4-8633-29D5ECE1F535}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +51,6 @@ Global
 		{497A1A69-A994-4154-BA88-F29A27EE6CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{497A1A69-A994-4154-BA88-F29A27EE6CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{497A1A69-A994-4154-BA88-F29A27EE6CA0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6624B240-A336-4D34-B7F6-8277541162BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6624B240-A336-4D34-B7F6-8277541162BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6624B240-A336-4D34-B7F6-8277541162BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6624B240-A336-4D34-B7F6-8277541162BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3F4DBCB-123D-4F8E-9B44-7225D314886B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +63,22 @@ Global
 		{30D5E262-45F2-4443-B011-04C3259747F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30D5E262-45F2-4443-B011-04C3259747F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30D5E262-45F2-4443-B011-04C3259747F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1A03803-5774-4E99-8C32-CFD35ABC0CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1A03803-5774-4E99-8C32-CFD35ABC0CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1A03803-5774-4E99-8C32-CFD35ABC0CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1A03803-5774-4E99-8C32-CFD35ABC0CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E6C6252-3767-4965-96C9-8A546CF34C94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E6C6252-3767-4965-96C9-8A546CF34C94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E6C6252-3767-4965-96C9-8A546CF34C94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E6C6252-3767-4965-96C9-8A546CF34C94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{615C6148-4A49-44C3-BB5D-00EB54A73A45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{615C6148-4A49-44C3-BB5D-00EB54A73A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{615C6148-4A49-44C3-BB5D-00EB54A73A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{615C6148-4A49-44C3-BB5D-00EB54A73A45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E377B69D-8FA2-40B4-8633-29D5ECE1F535}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E377B69D-8FA2-40B4-8633-29D5ECE1F535}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E377B69D-8FA2-40B4-8633-29D5ECE1F535}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E377B69D-8FA2-40B4-8633-29D5ECE1F535}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,9 +87,12 @@ Global
 		{77084525-2C7A-4AEA-A82E-69B311877CA8} = {CA0BBC7E-817A-4543-BF3F-87EC8048E806}
 		{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967} = {9C58BEE4-420A-4C78-BB4C-DCB72AA7C066}
 		{497A1A69-A994-4154-BA88-F29A27EE6CA0} = {9C58BEE4-420A-4C78-BB4C-DCB72AA7C066}
-		{6624B240-A336-4D34-B7F6-8277541162BB} = {9C58BEE4-420A-4C78-BB4C-DCB72AA7C066}
+		{E377B69D-8FA2-40B4-8633-29D5ECE1F535} = {9C58BEE4-420A-4C78-BB4C-DCB72AA7C066}
 		{A3F4DBCB-123D-4F8E-9B44-7225D314886B} = {88431B8D-E656-4CC1-AD7C-9D3ED3E68BC7}
 		{C0F14B44-B63C-472A-9453-2DBA993D93BD} = {88431B8D-E656-4CC1-AD7C-9D3ED3E68BC7}
 		{30D5E262-45F2-4443-B011-04C3259747F4} = {88431B8D-E656-4CC1-AD7C-9D3ED3E68BC7}
+		{C1A03803-5774-4E99-8C32-CFD35ABC0CCB} = {2D2F6EBD-AD10-4AC4-8450-F0E19A641CFB}
+		{6E6C6252-3767-4965-96C9-8A546CF34C94} = {2D2F6EBD-AD10-4AC4-8450-F0E19A641CFB}
+		{615C6148-4A49-44C3-BB5D-00EB54A73A45} = {2D2F6EBD-AD10-4AC4-8450-F0E19A641CFB}
 	EndGlobalSection
 EndGlobal
