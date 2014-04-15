@@ -1,17 +1,16 @@
 ﻿namespace DreamJob.Services.Tests
 {
-    using DreamJob.Interfaces;
-    using DreamJob.Repositories;
-    using DreamJob.Services.CandidateSearchService;
+    using DreamJob.Infrastructure.Interfaces;
+    using DreamJob.Services.Interfaces;
 
     using Moq;
 
     using NUnit.Framework;
 
     [TestFixture]
-    public class CandidateSearchServiceTests
+    public class CandidateServiceTests
     {
-        private ICandidateSearchService sut;
+        private ICandidateService sut;
 
         private Mock<ICandidateRepository> mockCandidateRepository;
 
@@ -24,7 +23,7 @@
         public void OncePerTest()
         {
             this.mockCandidateRepository = new Mock<ICandidateRepository>();
-            this.sut = new CandidateSearchService(this.mockCandidateRepository.Object);
+            this.sut = new CandidateService(this.mockCandidateRepository.Object);
         }
 
 
@@ -41,7 +40,7 @@
             // assert
 
             // assert-mock
-            this.mockCandidateRepository.Verify(x => x.AllCandidates(), Times.Once());
+            this.mockCandidateRepository.Verify(x => x.GetAllCandidates(), Times.Once());
         }
 
 

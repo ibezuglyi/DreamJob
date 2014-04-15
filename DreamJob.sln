@@ -31,8 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Businnes.Logics", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Businnes.Logics.Tests", "Business\DreamJob.Businnes.Logics.Tests\DreamJob.Businnes.Logics.Tests.csproj", "{615C6148-4A49-44C3-BB5D-00EB54A73A45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.EntityFrameworkContext", "Infrastructure\DreamJob.EntityFrameworkContext\DreamJob.EntityFrameworkContext.csproj", "{E377B69D-8FA2-40B4-8633-29D5ECE1F535}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,7 +1,8 @@
 ﻿namespace DreamJob.Services.Tests
 {
+    using DreamJob.Domain.Models;
     using DreamJob.Interfaces;
-    using DreamJob.Models;
+    using DreamJob.Services.Interfaces;
 
     using Moq;
 
@@ -10,9 +11,9 @@
     [TestFixture]
     public class OfferServiceTests
     {
-        private IOfferService sut;
+        private IJobOfferService sut;
 
-        private Mock<IOfferRepository> mockOfferRepository;
+        private Mock<IJobOfferRepository> mockOfferRepository;
 
         [TestFixtureSetUp]
         public void Once()
@@ -29,9 +30,9 @@
         public void T001()
         {
             // arrange
-            object recruiterIdentificationData = null;
-            object candidateIdentificationData = null;
-            object offerIdentificationData = null;
+            long recruiterIdentificationData = 0;
+            long candidateIdentificationData = 0;
+            long offerIdentificationData = 0;
 
             // arrange-mock
 
@@ -44,7 +45,6 @@
             this.mockOfferRepository.Verify(
                 x => x.AddOffer(It.IsAny<object>(), It.IsAny<object>(), It.Is<JobOffer>(v => v.JobOfferStatus == JobOfferStatus.New)),
                 Times.Once);
-            this.mockOfferRepository.Verify(x => x.Save(), Times.Once);
         }
 
 
@@ -65,7 +65,6 @@
             // assert-mock
             this.mockOfferRepository.Verify(x => x.GetAllOffersForCandidate(It.IsAny<object>()), Times.Once);
             this.mockOfferRepository.Verify(x => x.MarkOffersRead(It.IsAny<object>()), Times.Once);
-            this.mockOfferRepository.Verify(x => x.Save(), Times.Once);
         }
 
 

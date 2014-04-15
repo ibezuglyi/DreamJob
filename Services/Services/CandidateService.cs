@@ -1,9 +1,10 @@
-namespace DreamJob.Services.CandidateService
+namespace DreamJob.Services
 {
+    using System.Collections.Generic;
+
     using DreamJob.Domain.Models;
     using DreamJob.Infrastructure.Interfaces;
     using DreamJob.Services.Interfaces;
-    using System.Collections.Generic;
 
     public class CandidateService :  ICandidateService
     {
@@ -16,7 +17,7 @@ namespace DreamJob.Services.CandidateService
 
         public IList<Candidate> GetAllCandidates()
         {
-            return candidateRepository.GetAllCandidates();
+            return this.candidateRepository.GetAllCandidates();
         }
 
         public void GetCandidateDetails(object candidateId)

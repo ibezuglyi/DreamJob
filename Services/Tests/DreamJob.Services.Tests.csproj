@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CandidateSearchServiceTests.cs" />
     <Compile Include="LoginServiceTest.cs" />
     <Compile Include="JobOfferServiceTests.cs" />
+    <Compile Include="OfferServiceTests.cs" />
     <Compile Include="RegistrationServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
