@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CandidateSearchServiceTests.cs" />
+    <Compile Include="CandidateServiceTests.cs" />
     <Compile Include="LoginServiceTest.cs" />
     <Compile Include="JobOfferServiceTests.cs" />
     <Compile Include="OfferServiceTests.cs" />

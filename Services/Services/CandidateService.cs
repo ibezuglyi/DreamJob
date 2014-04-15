@@ -8,7 +8,7 @@ namespace DreamJob.Services
 
     public class CandidateService :  ICandidateService
     {
-        private ICandidateRepository candidateRepository;
+        private readonly ICandidateRepository candidateRepository;
 
         public CandidateService(ICandidateRepository candidateRepository)
         {
