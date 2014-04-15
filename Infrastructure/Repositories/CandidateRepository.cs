@@ -1,22 +1,23 @@
 ﻿namespace DreamJob.Infrastructure.Repositories
 {
-    using System.Linq;
-
     using DreamJob.Domain.Models;
     using DreamJob.Infrastructure.Interfaces;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Data.Entity;
+    using DreamJob.Repositories;
 
     public class CandidateRepository : BaseRepository<Candidate>, ICandidateRepository
     {
-        public CandidateRepository(IDreamJobContext context)
+        public CandidateRepository(JobContext context)
             : base(context)
         {
+
         }
 
         public IList<Candidate> GetAllCandidates()
         {
-            var result = this.context.Candidates.ToList();
-            return result;
+            return Context.Set<Candidate>().ToList();
         }
 
         public void GetCandidateFullDetails(object isAny)

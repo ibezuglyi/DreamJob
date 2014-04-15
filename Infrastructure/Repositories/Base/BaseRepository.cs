@@ -1,29 +1,29 @@
 ﻿namespace DreamJob.Infrastructure.Repositories
 {
+    using DreamJob.Domain.Models;
+    using DreamJob.Infrastructure.Interfaces.Base;
+    using DreamJob.Repositories;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
 
-    using DreamJob.Domain.Models;
-    using DreamJob.Infrastructure.Interfaces.Base;
-
     public abstract class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
-        protected readonly IDreamJobContext context;
+        protected JobContext Context { get; set; }
 
-        public BaseRepository(IDreamJobContext context)
+        public BaseRepository(JobContext context)
         {
-            this.context = context;
+            this.Context = context;
         }
-
         public T GetById(long id)
         {
-            throw new NotImplementedException();
+            return Context.Set<T>().Find(id);
         }
 
         public void RemoveById(long id)
         {
-            throw new NotImplementedException();
+            T entity = GetById(id);
+            Context.Set<T>().Remove(entity);
         }
 
         public void Save(T entity)

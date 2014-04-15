@@ -49,7 +49,21 @@
   <ItemGroup>
     <Compile Include="Base\BaseRepository.cs" />
     <Compile Include="CandidateRepository.cs" />
+    <Compile Include="JobContext.cs" />
     <Compile Include="JobOfferRepository.cs" />
+    <Compile Include="Migrations\201404141949463_companies.cs" />
+    <Compile Include="Migrations\201404141949463_companies.Designer.cs">
+      <DependentUpon>201404141949463_companies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404141952139_tag_recruiter.cs" />
+    <Compile Include="Migrations\201404141952139_tag_recruiter.Designer.cs">
+      <DependentUpon>201404141952139_tag_recruiter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404141955469_candidates.cs" />
+    <Compile Include="Migrations\201404141955469_candidates.Designer.cs">
+      <DependentUpon>201404141955469_candidates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
@@ -70,6 +84,21 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201404141949463_companies.resx">
+      <DependentUpon>201404141949463_companies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404141952139_tag_recruiter.resx">
+      <DependentUpon>201404141952139_tag_recruiter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404141955469_candidates.resx">
+      <DependentUpon>201404141955469_candidates.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
