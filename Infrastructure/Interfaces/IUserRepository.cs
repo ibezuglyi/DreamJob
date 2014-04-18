@@ -5,7 +5,8 @@
 
     public interface IUserRepository : IBaseRepository<User>
     {
-        void Insert(User userData);
         User FindUserByLoginAndHash(string login, string passwordHash);
+
+        bool UserExists(string p1, string p2);
     }
 }

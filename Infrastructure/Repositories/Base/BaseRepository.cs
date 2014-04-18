@@ -1,11 +1,10 @@
-﻿namespace DreamJob.Infrastructure.Repositories
+﻿namespace DreamJob.Infrastructure.Repositories.Base
 {
+    using System.Collections.Generic;
+
     using DreamJob.Domain.Models;
     using DreamJob.Infrastructure.Interfaces.Base;
     using DreamJob.Repositories;
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
 
     public abstract class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
@@ -15,27 +14,40 @@
         {
             this.Context = context;
         }
+
         public T GetById(long id)
         {
-            return Context.Set<T>().Find(id);
+            throw new System.NotImplementedException();
         }
 
         public void RemoveById(long id)
         {
-            T entity = GetById(id);
-            Context.Set<T>().Remove(entity);
+            throw new System.NotImplementedException();
         }
 
-        public void Save(T entity)
+        public void RemoveById(IEnumerable<long> ids)
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
 
-        public void Save(IEnumerable<T> entityList)
+        public void Add(T entity)
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
 
+        public void Add(IEnumerable<T> entityList)
+        {
+            throw new System.NotImplementedException();
+        }
 
+        public void Update(T entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Update(IEnumerable<T> entityList)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

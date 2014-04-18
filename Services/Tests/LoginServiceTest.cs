@@ -97,6 +97,45 @@
             // assert-mock
             this.mockSession.Verify(x => x.SetLoggedUser(It.IsAny<object>()), Times.Once);
         }
+
+
+        [Test]
+        public void T004_Checking_User_Exists_Must_Ready_Data_From_User_Repository_And_Return_True_If_The_User_Exists()
+        {
+            // arrange
+            var userLogindata = UserLoginDataModelFactory.CreateCandidate();
+
+            // arrange-mock
+            this.mockUserRepository.Setup(x => x.UserExists(It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+
+            // act
+            var result = this.sut.UserExists(userLogindata);
+
+            // assert
+            Assert.True(result);
+
+            // assert-mock
+            this.mockUserRepository.Verify(v => v.UserExists(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
+        }
+
+        [Test]
+        public void T005_Checking_User_Exists_Must_Ready_Data_From_User_Repository_And_Return_False_If_The_User_Does_Not_Exists()
+        {
+            // arrange
+            var userLogindata = UserLoginDataModelFactory.CreateCandidate();
+
+            // arrange-mock
+            this.mockUserRepository.Setup(x => x.UserExists(It.IsAny<string>(), It.IsAny<string>())).Returns(false);
+
+            // act
+            var result = this.sut.UserExists(userLogindata);
+
+            // assert
+            Assert.False(result);
+
+            // assert-mock
+            this.mockUserRepository.Verify(v => v.UserExists(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
+        }
     }
 
     public class UserModelFactory
@@ -116,7 +155,14 @@
     {
         public static UserLoginData CreateCandidate()
         {
-            throw new System.NotImplementedException();
+            var result = new UserLoginData
+                             {
+                                 HashedPassword = "test-hashed-password-goes-here",
+                                 Login = "test-candidate-user-name",
+                                 RememberMe = true,
+                             };
+
+            return result;
         }
 
         internal static UserLoginData CreateRecruiter()

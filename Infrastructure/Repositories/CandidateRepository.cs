@@ -5,6 +5,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Data.Entity;
+
+    using DreamJob.Infrastructure.Repositories.Base;
     using DreamJob.Repositories;
 
     public class CandidateRepository : BaseRepository<Candidate>, ICandidateRepository

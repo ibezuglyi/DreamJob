@@ -42,8 +42,7 @@
             // assert
 
             // assert-mock
-            this.mockUserRepository.Verify(x => x.Insert(It.IsAny<User>()), Times.Once);
-            this.mockUserRepository.Verify(x => x.Save(It.IsAny<User>()), Times.Once);
+            this.mockUserRepository.Verify(x => x.Add(It.IsAny<User>()), Times.Once);
         }
 
         [Test]
@@ -60,8 +59,7 @@
             // assert
 
             // assert-mock
-            this.mockUserRepository.Verify(x => x.Insert(It.IsAny<User>()), Times.Once);
-            this.mockUserRepository.Verify(x => x.Save(It.IsAny<User>()), Times.Once);
+            this.mockUserRepository.Verify(x => x.Add(It.IsAny<User>()), Times.Once);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace DreamJob.Repositories
         {
 
         }
+        
         public DbSet<Company> Companies { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Recruiter> Recruiters { get; set; }
@@ -19,7 +20,7 @@ namespace DreamJob.Repositories
 
         internal void Save()
         {
-            throw new System.NotImplementedException();
+            this.SaveChanges();
         }
     }
 }

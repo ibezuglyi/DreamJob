@@ -1,6 +1,7 @@
 ﻿namespace DreamJob.Infrastructure.Repositories
 {
     using DreamJob.Domain.Models;
+    using DreamJob.Infrastructure.Repositories.Base;
     using DreamJob.Interfaces;
     using DreamJob.Repositories;
 

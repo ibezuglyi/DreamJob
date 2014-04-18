@@ -6,7 +6,6 @@
     public interface ICandidateService
     {
         IList<Candidate> GetAllCandidates();
-
         void GetCandidateDetails(object candidateId);
     }
 }

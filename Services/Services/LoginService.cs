@@ -19,11 +19,19 @@
                 recruiterLoginData.Login,
                 recruiterLoginData.HashedPassword);
 
+
+
         }
 
         public void Logout()
         {
             throw new System.NotImplementedException();
+        }
+
+        public bool UserExists(UserLoginData userLoginData)
+        {
+            var result = this.userRepository.UserExists(userLoginData.Login, userLoginData.HashedPassword);
+            return result;
         }
     }
 }

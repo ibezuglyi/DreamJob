@@ -6,9 +6,14 @@
     public interface IBaseRepository<T> where T:BaseEntity
     {
         T GetById(long id);
+        
         void RemoveById(long id);
-        void Save(T entity);
-        void Save(IEnumerable<T> entityList);
+        void RemoveById(IEnumerable<long> ids);
+        
+        void Add(T entity);
+        void Add(IEnumerable<T> entityList);
 
+        void Update(T entity);
+        void Update(IEnumerable<T> entityList);
     }
 }

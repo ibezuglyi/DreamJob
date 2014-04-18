@@ -4,6 +4,7 @@
 
     using DreamJob.Domain.Models;
     using DreamJob.Infrastructure.Interfaces;
+    using DreamJob.Infrastructure.Repositories.Base;
     using DreamJob.Repositories;
 
     public class UserRepository : BaseRepository<User>, IUserRepository
@@ -11,12 +12,6 @@
         public UserRepository(JobContext context)
             : base(context)
         {
-        }
-
-        public void Insert(User userData)
-        {
-            this.Context.Users.Add(userData);
-            this.Context.Save();
         }
 
         public User FindUserByLoginAndHash(string login, string passwordHash)
@@ -28,6 +23,16 @@
 
             return user;
 
+        }
+
+        public bool UserExists(string login, string passwordHash)
+        {
+            var user = this.Context.Users
+                .Where(x => x.Login == login)
+                .Where(x => x.PasswordHash == passwordHash)
+                .Count();
+
+            return user == 1;
         }
     }
 }

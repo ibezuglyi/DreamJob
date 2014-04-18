@@ -45,7 +45,6 @@
             this.mockOfferRepository.Verify(
                 x => x.AddOffer(It.IsAny<object>(), It.IsAny<object>(), It.Is<JobOffer>(v => v.JobOfferStatus == JobOfferStatus.New)),
                 Times.Once);
-            this.mockOfferRepository.Verify(x => x.Save(It.IsAny<JobOffer>()), Times.Once);
         }
 
 
@@ -66,7 +65,6 @@
             // assert-mock
             this.mockOfferRepository.Verify(x => x.GetAllOffersForCandidate(It.IsAny<object>()), Times.Once);
             this.mockOfferRepository.Verify(x => x.MarkOffersRead(It.IsAny<object>()), Times.Once);
-            this.mockOfferRepository.Verify(x => x.Save(It.IsAny<JobOffer>()), Times.Once);
         }
 
 

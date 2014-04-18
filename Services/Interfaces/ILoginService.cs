@@ -6,5 +6,7 @@
     {
         void Login(UserLoginData userLoginData);
         void Logout();
+
+        bool UserExists(UserLoginData userLoginData);
     }
 }
