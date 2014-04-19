@@ -26,7 +26,7 @@
 
         public void Logout()
         {
-            throw new System.NotImplementedException();
+            this.session.Logout();
         }
 
         public bool UserExists(UserLoginData userLoginData)

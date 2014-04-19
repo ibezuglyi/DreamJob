@@ -1,7 +1,5 @@
 ﻿namespace DreamJob.Services.Tests
 {
-    using System.Text;
-
     using DreamJob.Domain.Models;
     using DreamJob.Infrastructure.Interfaces;
     using DreamJob.Services.Interfaces;
@@ -33,7 +31,7 @@
         }
 
         [Test]
-        public void T001()
+        public void T001_Given_User_Exists_Must_Read_Data_From_Db_Convert_To_Public_Data_And_Set_Them_To_Session_Candidate_Version()
         {
             // arrange
             UserLoginData userLoginDataCandidate = UserLoginDataModelFactory.CreateCandidate();
@@ -57,42 +55,48 @@
                     It.Is<string>(v => v == userLoginDataCandidate.HashedPassword)),
                     Times.Once());
 
-            this.mockSession.Verify(x => x.SetLoggedUser(It.IsAny<UserPublicData>()), Times.Once);
+            this.mockSession.Verify(
+                x => x.SetLoggedUser(It.Is<UserPublicData>(v => v.AccountType == UserAccountType.Candidate)),
+                Times.Once);
         }
 
         [Test]
-        public void T002()
+        public void T002_Given_User_Exists_Must_Read_Data_From_Db_Convert_To_Public_Data_And_Set_Them_To_Session_Recruiter_Version()
         {
             // arrange
-            UserLoginData userLoginDataRecruiter = UserLoginDataModelFactory.CreateRecruiter();
-            UserPublicData userPublicData = UserPublicDateModelFactory.CreateCandidate();
+            UserLoginData userLoginDataCandidate = UserLoginDataModelFactory.CreateRecruiter();
+            UserPublicData userPublicData = UserPublicDateModelFactory.CreateRecruiter();
 
             // arrange-mock
             this.mockUserRepository.Setup(x => x.GetUserPublicDataByLoginAndHash(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(userPublicData);
+
             this.mockSession.Setup(x => x.SetLoggedUser(It.IsAny<UserPublicData>())).Verifiable();
 
             // act
-            this.sut.Login(userLoginDataRecruiter);
+            this.sut.Login(userLoginDataCandidate);
 
             // assert
-
             // assert-mock
             this.mockUserRepository.Verify(
                 x =>
                 x.GetUserPublicDataByLoginAndHash(
-                    It.Is<string>(v => v == userLoginDataRecruiter.Login),
-                    It.Is<string>(v => v == userLoginDataRecruiter.HashedPassword)),
+                    It.Is<string>(v => v == userLoginDataCandidate.Login),
+                    It.Is<string>(v => v == userLoginDataCandidate.HashedPassword)),
                     Times.Once());
-            this.mockSession.Verify(x => x.SetLoggedUser(It.IsAny<UserPublicData>()), Times.Once());
+
+            this.mockSession.Verify(
+                x => x.SetLoggedUser(It.Is<UserPublicData>(v => v.AccountType == UserAccountType.Recruiter)),
+                Times.Once);
         }
 
         [Test]
-        public void T003()
+        public void T003_Loggin_Of_Must_Call_Session_Service_Logout_Method()
         {
             // arrange
 
             // arrange-mock
+            this.mockSession.Setup(x => x.Logout()).Verifiable();
 
             // act
             this.sut.Logout();
@@ -100,7 +104,7 @@
             // assert
 
             // assert-mock
-            this.mockSession.Verify(x => x.LogOff(), Times.Once);
+            this.mockSession.Verify(x => x.Logout(), Times.Once);
         }
 
 
@@ -156,6 +160,18 @@
 
             return result;
         }
+
+        public static UserPublicData CreateRecruiter()
+        {
+            var result = new UserPublicData
+            {
+                AccountType = UserAccountType.Recruiter,
+                Id = 2233,
+                Login = "test-recruiter-user-name"
+            };
+
+            return result;
+        }
     }
 
     public class UserModelFactory
@@ -187,7 +203,14 @@
 
         internal static UserLoginData CreateRecruiter()
         {
-            throw new System.NotImplementedException();
+            var result = new UserLoginData
+            {
+                HashedPassword = "test-hashed-password-goes-here",
+                Login = "test-candidate-user-name",
+                RememberMe = true,
+            };
+
+            return result;
         }
     }
 }

@@ -5,6 +5,6 @@
     public interface ISession
     {
         void SetLoggedUser(UserPublicData userPublicData);
-        void LogOff();
+        void Logout();
     }
 }

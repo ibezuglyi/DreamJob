@@ -7,8 +7,8 @@
     <ProjectGuid>{6E6C6252-3767-4965-96C9-8A546CF34C94}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DreamJob.Businnes.Logics</RootNamespace>
-    <AssemblyName>DreamJob.Businnes.Logics</AssemblyName>
+    <RootNamespace>DreamJob.Businnes.Logic</RootNamespace>
+    <AssemblyName>DreamJob.Businnes.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
