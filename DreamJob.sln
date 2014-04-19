@@ -27,9 +27,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ui", "Ui", "{C537066F-48EC-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Businnes.Interfaces", "Business\DreamJob.Businnes.Interfaces\DreamJob.Businnes.Interfaces.csproj", "{C1A03803-5774-4E99-8C32-CFD35ABC0CCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Businnes.Logic", "Business\DreamJob.Businnes.Logics\DreamJob.Businnes.Logic.csproj", "{6E6C6252-3767-4965-96C9-8A546CF34C94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Businnes.Logic", "Business\DreamJob.Businnes.Logic\DreamJob.Businnes.Logic.csproj", "{6E6C6252-3767-4965-96C9-8A546CF34C94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Businnes.Logic.Tests", "Business\DreamJob.Businnes.Logics.Tests\DreamJob.Businnes.Logic.Tests.csproj", "{615C6148-4A49-44C3-BB5D-00EB54A73A45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Businnes.Logic.Tests", "Business\DreamJob.Businnes.Logic.Tests\DreamJob.Businnes.Logic.Tests.csproj", "{615C6148-4A49-44C3-BB5D-00EB54A73A45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
