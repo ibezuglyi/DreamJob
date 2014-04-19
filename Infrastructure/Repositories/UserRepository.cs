@@ -14,15 +14,16 @@
         {
         }
 
-        public User FindUserByLoginAndHash(string login, string passwordHash)
+        public UserPublicData GetUserPublicDataByLoginAndHash(string login, string passwordHash)
         {
             var user =
                 this.Context.Users
                     .Where(x => x.Login == login)
                     .FirstOrDefault(x => x.PasswordHash == passwordHash);
 
-            return user;
+            var result = new UserPublicData { AccountType = user.AccountType, Id = user.Id, Login = user.Login };
 
+            return result;
         }
 
         public bool UserExists(string login, string passwordHash)

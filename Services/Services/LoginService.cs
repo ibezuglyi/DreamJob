@@ -7,20 +7,21 @@
     public class LoginService : ILoginService
     {
         private readonly IUserRepository userRepository;
+        private readonly ISession session;
 
-        public LoginService(IUserRepository userRepository)
+        public LoginService(IUserRepository userRepository, ISession session)
         {
             this.userRepository = userRepository;
+            this.session = session;
         }
 
         public void Login(UserLoginData recruiterLoginData)
         {
-            var user = this.userRepository.FindUserByLoginAndHash(
+            var user = this.userRepository.GetUserPublicDataByLoginAndHash(
                 recruiterLoginData.Login,
                 recruiterLoginData.HashedPassword);
 
-
-
+            this.session.SetLoggedUser(user);
         }
 
         public void Logout()

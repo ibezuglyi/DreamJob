@@ -52,6 +52,10 @@
       <Project>{77084525-2c7a-4aea-a82e-69b311877ca8}</Project>
       <Name>DreamJob.Domain.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Interfaces\DreamJob.Infrastructure.Interfaces.csproj">
+      <Project>{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}</Project>
+      <Name>DreamJob.Infrastructure.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

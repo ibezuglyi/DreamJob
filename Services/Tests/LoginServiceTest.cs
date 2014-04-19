@@ -1,5 +1,7 @@
 ﻿namespace DreamJob.Services.Tests
 {
+    using System.Text;
+
     using DreamJob.Domain.Models;
     using DreamJob.Infrastructure.Interfaces;
     using DreamJob.Services.Interfaces;
@@ -27,7 +29,7 @@
             mockUserRepository = new Mock<IUserRepository>();
             mockSession = new Mock<ISession>();
 
-            this.sut = new LoginService(this.mockUserRepository.Object);
+            this.sut = new LoginService(this.mockUserRepository.Object, this.mockSession.Object);
         }
 
         [Test]
@@ -35,25 +37,27 @@
         {
             // arrange
             UserLoginData userLoginDataCandidate = UserLoginDataModelFactory.CreateCandidate();
-            User userToLoginCandidate = UserModelFactory.CreateCandidate();
+            UserPublicData userPublicData = UserPublicDateModelFactory.CreateCandidate();
 
             // arrange-mock
-            this.mockUserRepository.Setup(x => x.FindUserByLoginAndHash(It.IsAny<string>(), It.IsAny<string>()))
-                .Returns(userToLoginCandidate);
+            this.mockUserRepository.Setup(x => x.GetUserPublicDataByLoginAndHash(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(userPublicData);
+
+            this.mockSession.Setup(x => x.SetLoggedUser(It.IsAny<UserPublicData>())).Verifiable();
 
             // act
             this.sut.Login(userLoginDataCandidate);
 
             // assert
-
             // assert-mock
             this.mockUserRepository.Verify(
                 x =>
-                x.FindUserByLoginAndHash(
+                x.GetUserPublicDataByLoginAndHash(
                     It.Is<string>(v => v == userLoginDataCandidate.Login),
                     It.Is<string>(v => v == userLoginDataCandidate.HashedPassword)),
                     Times.Once());
 
+            this.mockSession.Verify(x => x.SetLoggedUser(It.IsAny<UserPublicData>()), Times.Once);
         }
 
         [Test]
@@ -61,11 +65,12 @@
         {
             // arrange
             UserLoginData userLoginDataRecruiter = UserLoginDataModelFactory.CreateRecruiter();
-            User userToLoginRecruiter = UserModelFactory.CreateRecruiter();
+            UserPublicData userPublicData = UserPublicDateModelFactory.CreateCandidate();
 
             // arrange-mock
-            this.mockUserRepository.Setup(x => x.FindUserByLoginAndHash(It.IsAny<string>(), It.IsAny<string>()))
-                .Returns(userToLoginRecruiter);
+            this.mockUserRepository.Setup(x => x.GetUserPublicDataByLoginAndHash(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(userPublicData);
+            this.mockSession.Setup(x => x.SetLoggedUser(It.IsAny<UserPublicData>())).Verifiable();
 
             // act
             this.sut.Login(userLoginDataRecruiter);
@@ -75,11 +80,11 @@
             // assert-mock
             this.mockUserRepository.Verify(
                 x =>
-                x.FindUserByLoginAndHash(
+                x.GetUserPublicDataByLoginAndHash(
                     It.Is<string>(v => v == userLoginDataRecruiter.Login),
                     It.Is<string>(v => v == userLoginDataRecruiter.HashedPassword)),
                     Times.Once());
-            this.mockSession.Verify(x => x.SetLoggedUser(It.IsAny<Recruiter>()), Times.Once());
+            this.mockSession.Verify(x => x.SetLoggedUser(It.IsAny<UserPublicData>()), Times.Once());
         }
 
         [Test]
@@ -95,7 +100,7 @@
             // assert
 
             // assert-mock
-            this.mockSession.Verify(x => x.SetLoggedUser(It.IsAny<object>()), Times.Once);
+            this.mockSession.Verify(x => x.LogOff(), Times.Once);
         }
 
 
@@ -135,6 +140,21 @@
 
             // assert-mock
             this.mockUserRepository.Verify(v => v.UserExists(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
+        }
+    }
+
+    public class UserPublicDateModelFactory
+    {
+        public static UserPublicData CreateCandidate()
+        {
+            var result = new UserPublicData
+                             {
+                                 AccountType = UserAccountType.Candidate,
+                                 Id = 2233,
+                                 Login = "test-candidate-user-name"
+                             };
+
+            return result;
         }
     }
 

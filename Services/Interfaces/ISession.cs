@@ -1,7 +1,10 @@
 ﻿namespace DreamJob.Services.Interfaces
 {
+    using DreamJob.Infrastructure.Interfaces;
+
     public interface ISession
     {
-        void SetLoggedUser(object isAny);
+        void SetLoggedUser(UserPublicData userPublicData);
+        void LogOff();
     }
 }
