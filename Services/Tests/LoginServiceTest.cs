@@ -8,6 +8,8 @@
     using Moq;
     using NUnit.Framework;
 
+    using Test.Model.Factories;
+
     [TestFixture]
     public class LoginServiceTest
     {
@@ -144,73 +146,6 @@
 
             // assert-mock
             this.mockUserRepository.Verify(v => v.UserExists(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
-        }
-    }
-
-    public class UserPublicDateModelFactory
-    {
-        public static UserPublicData CreateCandidate()
-        {
-            var result = new UserPublicData
-                             {
-                                 AccountType = UserAccountType.Candidate,
-                                 Id = 2233,
-                                 Login = "test-candidate-user-name"
-                             };
-
-            return result;
-        }
-
-        public static UserPublicData CreateRecruiter()
-        {
-            var result = new UserPublicData
-            {
-                AccountType = UserAccountType.Recruiter,
-                Id = 2233,
-                Login = "test-recruiter-user-name"
-            };
-
-            return result;
-        }
-    }
-
-    public class UserModelFactory
-    {
-        public static User CreateCandidate()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        internal static User CreateRecruiter()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-
-    public class UserLoginDataModelFactory
-    {
-        public static UserLoginData CreateCandidate()
-        {
-            var result = new UserLoginData
-                             {
-                                 HashedPassword = "test-hashed-password-goes-here",
-                                 Login = "test-candidate-user-name",
-                                 RememberMe = true,
-                             };
-
-            return result;
-        }
-
-        internal static UserLoginData CreateRecruiter()
-        {
-            var result = new UserLoginData
-            {
-                HashedPassword = "test-hashed-password-goes-here",
-                Login = "test-candidate-user-name",
-                RememberMe = true,
-            };
-
-            return result;
         }
     }
 }
