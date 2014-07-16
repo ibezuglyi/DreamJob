@@ -3,8 +3,44 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30516.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ui", "Ui", "{FC721BAE-B85C-45FF-B796-172E368AE509}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{31A00F7E-81FE-4D0E-992F-D6A30E5C9EFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{B39C93E5-A816-40E9-B436-DE301D20D325}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{8BC295FF-5E5F-423B-A15D-27AA8649A6E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{EDB55DDC-4C47-49DC-8F88-708519213AC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{7B4C3971-05D6-4D5E-AAB3-7D3DC34A0F17}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{D9FD24E4-5FF1-449F-988A-523633CF9FC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Ui.Web.Mvc", "Ui\DreamJob.Ui.Web.Mvc\DreamJob.Ui.Web.Mvc.csproj", "{F7E6F7AD-9BF2-402D-84ED-32A1F9F05E94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Business", "Business\DreamJob.Business\DreamJob.Business.csproj", "{CA85F98C-46FF-416A-BA97-12890DBE272A}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7E6F7AD-9BF2-402D-84ED-32A1F9F05E94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7E6F7AD-9BF2-402D-84ED-32A1F9F05E94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7E6F7AD-9BF2-402D-84ED-32A1F9F05E94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7E6F7AD-9BF2-402D-84ED-32A1F9F05E94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA85F98C-46FF-416A-BA97-12890DBE272A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA85F98C-46FF-416A-BA97-12890DBE272A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA85F98C-46FF-416A-BA97-12890DBE272A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA85F98C-46FF-416A-BA97-12890DBE272A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F7E6F7AD-9BF2-402D-84ED-32A1F9F05E94} = {FC721BAE-B85C-45FF-B796-172E368AE509}
+		{CA85F98C-46FF-416A-BA97-12890DBE272A} = {D9FD24E4-5FF1-449F-988A-523633CF9FC6}
 	EndGlobalSection
 EndGlobal
