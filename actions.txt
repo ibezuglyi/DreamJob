@@ -5,16 +5,16 @@ dreamjob/logout
 
 dreamjob/users
 dreamjob/users/909090909
-dreamjob/users/909090909/offers
-dreamjob/users/909090909/offers/1231
-dreamjob/users/909090909/offers/1231/accept
-dreamjob/users/909090909/offers/1231/reject
-dreamjob/users/909090909/offers/1231/bingo
-dreamjob/users/909090909/edit
-dreamjob/users/909090909/feedback
-dreamjob/users/434394348/sendoffer
+dreamjob/users/909090909#offers
+dreamjob/users/909090909#offers/1231
+dreamjob/users/909090909#offers/1231/accept
+dreamjob/users/909090909#offers/1231/reject
+dreamjob/users/909090909#offers/1231/bingo
+dreamjob/users/909090909#edit
+dreamjob/users/909090909#feedback
+dreamjob/users/434394348#sendoffer
 
-dreamjob/search?
+dreamjob/filter?
     min_payment:number
     max_payment:number
     skils:collection, string
@@ -27,9 +27,9 @@ dreamjob/skills
 dreamjob/skills/c#
 
 dreamjob/offers
-dreamjob/offers/filter
-dreamjob/offers/search
-dreamjob/offers/13232/edit
-dreamjob/offers/13232
-dreamjob/offers/edit
-dreamjob/offers/apply
+dreamjob/offers#filter
+dreamjob/offers#search
+dreamjob/offers#13232/edit
+dreamjob/offers#13232
+dreamjob/offers#edit
+dreamjob/offers#apply

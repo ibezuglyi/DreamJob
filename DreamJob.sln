@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Ui.Web.Mvc", "Ui\D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Model.Domain", "Model\DreamJob.Model.Domain\DreamJob.Model.Domain.csproj", "{07AB3B00-EC12-417D-A22C-D6F8251E3C9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamJob.Database.EntityFramework", "DreamJob.Database.EntityFramework\DreamJob.Database.EntityFramework.csproj", "{FEBEDA2B-822B-4203-85E8-06C578C63F3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{07AB3B00-EC12-417D-A22C-D6F8251E3C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07AB3B00-EC12-417D-A22C-D6F8251E3C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07AB3B00-EC12-417D-A22C-D6F8251E3C9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEBEDA2B-822B-4203-85E8-06C578C63F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEBEDA2B-822B-4203-85E8-06C578C63F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEBEDA2B-822B-4203-85E8-06C578C63F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEBEDA2B-822B-4203-85E8-06C578C63F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +48,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F7E6F7AD-9BF2-402D-84ED-32A1F9F05E94} = {FC721BAE-B85C-45FF-B796-172E368AE509}
 		{07AB3B00-EC12-417D-A22C-D6F8251E3C9F} = {EDB55DDC-4C47-49DC-8F88-708519213AC0}
+		{FEBEDA2B-822B-4203-85E8-06C578C63F3C} = {31A00F7E-81FE-4D0E-992F-D6A30E5C9EFA}
 	EndGlobalSection
 EndGlobal

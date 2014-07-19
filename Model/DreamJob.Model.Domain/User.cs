@@ -1,17 +1,18 @@
 ﻿namespace DreamJob.Model.Domain
 {
-    public class User
+    using System;
+
+    using DreamJob.Model.Domain.Enum;
+
+    public class User : BaseEntity
     {
-        public long Id { get; set; }
-
         public string Login { get; set; }
-
         public string DisplayName { get; set; }
-
         public string PasswordHash { get; set; }
-
         public string Email { get; set; }
-
         public UserAccountType AccountType { get; set; }
+
+        public DateTime Registered { get; set; }
+        public DateTime LastLoginDateTime { get; set; }
     }
 }
