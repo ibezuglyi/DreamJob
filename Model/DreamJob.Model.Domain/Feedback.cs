@@ -1,6 +1,6 @@
 ﻿namespace DreamJob.Model.Domain
 {
-    using DreamJob.Model.Domain.Enum;
+    using DreamJob.Common.Enum;
 
     public class Feedback : BaseEntity
     {

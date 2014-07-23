@@ -1,6 +1,7 @@
 ﻿namespace DreamJob.Model.Domain
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     public class Developer : User
     {
@@ -10,5 +11,6 @@
         public List<ProjectExperience> ProjectExperiences { get; set; }
         public List<CompanyExperience> CompanyExperiences { get; set; }
         public List<Feedback> Feedbacks { get; set; }
+        public List<JobOffer> JobOffersReceived { get; set; }
     }
 }

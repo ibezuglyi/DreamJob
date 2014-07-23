@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DreamJobContext.cs" />
-    <Compile Include="Migrations\201407192328225_Db Init.cs" />
-    <Compile Include="Migrations\201407192328225_Db Init.Designer.cs">
-      <DependentUpon>201407192328225_Db Init.cs</DependentUpon>
+    <Compile Include="Migrations\201407230005580_init.cs" />
+    <Compile Include="Migrations\201407230005580_init.Designer.cs">
+      <DependentUpon>201407230005580_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,8 +65,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407192328225_Db Init.resx">
-      <DependentUpon>201407192328225_Db Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407230005580_init.resx">
+      <DependentUpon>201407230005580_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

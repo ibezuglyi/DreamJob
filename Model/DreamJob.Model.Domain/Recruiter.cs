@@ -11,7 +11,7 @@
         public string Mobile { get; set; }
         public Company CurrentEmployer { get; set; }
         public long CurrentEmployerId { get; set; }
-
         public List<Feedback> Feedbacks { get; set; }
+        public List<JobOffer> JobOffersSent { get; set; }
     }
 }

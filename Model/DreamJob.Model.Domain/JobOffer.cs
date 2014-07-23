@@ -2,14 +2,14 @@
 {
     using System.Collections.Generic;
 
-    using DreamJob.Model.Domain.Enum;
+    using DreamJob.Common.Enum;
 
     public class JobOffer : BaseEntity
     {
-        public Recruiter From { get; set; }
-        public long FromId { get; set; }
-        public Developer To { get; set; }
-        public long ToId { get; set; }
+        public Recruiter FromRecruiter { get; set; }
+        public long FromRecruiterId { get; set; }
+        public Developer ToDeveloper { get; set; }
+        public long ToDeveloperId { get; set; }
         public string Description { get; set; }
         public OfferStatus OfferStatus { get; set; }
         public Company TargetCompany { get; set; }
@@ -19,5 +19,7 @@
         public SalaryRange SalaryRange { get; set; }
         public long SalaryRangeId { get; set; }
         public List<Skill> RequiredSkills { get; set; }
+        public bool MatchesDeveloperRequirements { get; set; }
+        public List<JobOfferComment> JobOfferComments { get; set; } 
     }
 }

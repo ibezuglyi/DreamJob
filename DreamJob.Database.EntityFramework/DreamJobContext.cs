@@ -19,6 +19,12 @@
             modelBuilder.Entity<Developer>().ToTable("Developers");
             modelBuilder.Entity<Recruiter>().ToTable("Recruiters");
 
+            modelBuilder.Entity<Developer>().HasKey(x => x.DeveloperId);
+            modelBuilder.Entity<Developer>()
+                .Property(x => x.DeveloperId)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+
             modelBuilder.Entity<Developer>().HasMany(x => x.Skills).WithMany(x => x.Developers);
             modelBuilder.Entity<Developer>().HasMany(x => x.CompanyExperiences).WithMany(x => x.Developers);
 

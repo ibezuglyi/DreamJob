@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{07AB3B00-EC12-417D-A22C-D6F8251E3C9F}</ProjectGuid>
+    <ProjectGuid>{0F052311-77C4-4D2C-A188-12B8A867F0EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DreamJob.Model.Domain</RootNamespace>
-    <AssemblyName>DreamJob.Model.Domain</AssemblyName>
+    <RootNamespace>Test.Model.Factories</RootNamespace>
+    <AssemblyName>Test.Model.Factories</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,25 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseEntity.cs" />
-    <Compile Include="Company.cs" />
-    <Compile Include="CompanyExperience.cs" />
-    <Compile Include="Developer.cs" />
-    <Compile Include="Feedback.cs" />
-    <Compile Include="JobOffer.cs" />
-    <Compile Include="JobOfferComment.cs" />
-    <Compile Include="ProjectExperience.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recruiter.cs" />
-    <Compile Include="SalaryRange.cs" />
-    <Compile Include="Skill.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="WorkPosition.cs" />
+    <Compile Include="UserLoginDataModelFactory.cs" />
+    <Compile Include="UserModelFactory.cs" />
+    <Compile Include="UserPublicDateModelFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DreamJob.Common\DreamJob.Common.csproj">
-      <Project>{FE039CA1-373E-4385-988A-C4EF90852CB6}</Project>
-      <Name>DreamJob.Common</Name>
+    <ProjectReference Include="..\..\Domain\DreamJob.Domain.Models.csproj">
+      <Project>{77084525-2C7A-4AEA-A82E-69B311877CA8}</Project>
+      <Name>DreamJob.Domain.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Interfaces\DreamJob.Infrastructure.Interfaces.csproj">
+      <Project>{F8A1C249-CEB4-4D85-8BD5-6BAA8DB85967}</Project>
+      <Name>DreamJob.Infrastructure.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Interfaces\DreamJob.Services.Interfaces.csproj">
+      <Project>{A3F4DBCB-123D-4F8E-9B44-7225D314886B}</Project>
+      <Name>DreamJob.Services.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

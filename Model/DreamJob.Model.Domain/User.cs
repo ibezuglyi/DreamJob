@@ -2,7 +2,7 @@
 {
     using System;
 
-    using DreamJob.Model.Domain.Enum;
+    using DreamJob.Common.Enum;
 
     public class User : BaseEntity
     {
