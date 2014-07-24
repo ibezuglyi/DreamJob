@@ -30,7 +30,6 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         {
             var developer = Mapper.Map<UserRegistrationDto, Developer>(model);
             developer.AccountType = UserAccountType.Developer;
-            developer.Add = this.datetime.Now;
             developer.LastLoginDateTime = this.datetime.Now;
             developer.Registered = this.datetime.Now;
             developer.PasswordHash = this.passwordHasher.GetHash(model.Password);
@@ -43,8 +42,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         public DjOperationResult<bool> AddNewRecruiter(UserRegistrationDto model)
         {
             var recruiter = Mapper.Map<UserRegistrationDto, Recruiter>(model);
-            recruiter.AccountType = UserAccountType.Developer;
-            recruiter.Add = this.datetime.Now;
+            recruiter.AccountType = UserAccountType.Recruiter;
             recruiter.LastLoginDateTime = this.datetime.Now;
             recruiter.Registered = this.datetime.Now;
             recruiter.PasswordHash = this.passwordHasher.GetHash(model.Password);

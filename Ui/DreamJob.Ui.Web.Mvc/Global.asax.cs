@@ -39,9 +39,11 @@ namespace DreamJob.Ui.Web.Mvc
         private void InitializeAutomapper()
         {
             AutoMapper.Mapper.CreateMap<UserRegistrationDto, Developer>()
-                .ForMember(r=>r.Edit, o=>o.UseValue(DateTime.Now));
+                .ForMember(r=>r.Edit, o=>o.UseValue(DateTime.Now))
+                .ForMember(r=>r.Add, o=>o.UseValue(DateTime.Now));
             AutoMapper.Mapper.CreateMap<UserRegistrationDto, Recruiter>()
-                .ForMember(r => r.Edit, o => o.UseValue(DateTime.Now)); ;
+                .ForMember(r => r.Edit, o => o.UseValue(DateTime.Now))
+                .ForMember(r => r.Add, o => o.UseValue(DateTime.Now));
         }
 
         public static IContainer AutofacInitialize()
