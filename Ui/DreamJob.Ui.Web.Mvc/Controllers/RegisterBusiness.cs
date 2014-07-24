@@ -1,4 +1,7 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Ui.Web.Mvc.Models;
+using DreamJob.Ui.Web.Mvc.Models.Dto;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using DreamJob.Common.Enum;
 
@@ -11,20 +14,20 @@
             this.registerService = registerService;
         }
 
-        public DjOperationResult<RegisterUserViewModel> GetRegisterViewModel()
+        public DjOperationResult<UserRegistrationViewModel> GetRegisterViewModel()
         {
-            var data = new RegisterUserViewModel();
-            var result = new DjOperationResult<RegisterUserViewModel>(data);
+            var data = new UserRegistrationViewModel();
+            var result = new DjOperationResult<UserRegistrationViewModel>(data);
             return result;
         }
 
-        public DjOperationResult<bool> RegisterDeveloper(RegisterUserViewModel model)
+        public DjOperationResult<bool> RegisterDeveloper(UserRegistrationDto model)
         {
             var result = this.registerService.AddNewDeveloper(model);
             return result;
         }
 
-        public DjOperationResult<bool> RegisterRecruiter(RegisterUserViewModel model)
+        public DjOperationResult<bool> RegisterRecruiter(UserRegistrationDto model)
         {
             var result = this.registerService.AddNewRecruiter(model);
             return result;

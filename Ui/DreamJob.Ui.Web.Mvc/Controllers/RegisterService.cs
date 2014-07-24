@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Ui.Web.Mvc.Models.Dto;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using AutoMapper;
 
@@ -24,12 +26,11 @@
             this.recruiterRepository = recruiterRepository;
         }
 
-        public DjOperationResult<bool> AddNewDeveloper(RegisterUserViewModel model)
+        public DjOperationResult<bool> AddNewDeveloper(UserRegistrationDto model)
         {
-            var developer = Mapper.Map<RegisterUserViewModel, Developer>(model);
+            var developer = Mapper.Map<UserRegistrationDto, Developer>(model);
             developer.AccountType = UserAccountType.Developer;
             developer.Add = this.datetime.Now;
-            developer.Edit = this.datetime.Now;
             developer.LastLoginDateTime = this.datetime.Now;
             developer.Registered = this.datetime.Now;
             developer.PasswordHash = this.passwordHasher.GetHash(model.Password);
@@ -39,12 +40,11 @@
             return DjOperationResult<bool>.Success();
         }
 
-        public DjOperationResult<bool> AddNewRecruiter(RegisterUserViewModel model)
+        public DjOperationResult<bool> AddNewRecruiter(UserRegistrationDto model)
         {
-            var recruiter = Mapper.Map<RegisterUserViewModel, Recruiter>(model);
+            var recruiter = Mapper.Map<UserRegistrationDto, Recruiter>(model);
             recruiter.AccountType = UserAccountType.Developer;
             recruiter.Add = this.datetime.Now;
-            recruiter.Edit = this.datetime.Now;
             recruiter.LastLoginDateTime = this.datetime.Now;
             recruiter.Registered = this.datetime.Now;
             recruiter.PasswordHash = this.passwordHasher.GetHash(model.Password);

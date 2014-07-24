@@ -1,20 +1,20 @@
-﻿@model DreamJob.Ui.Web.Mvc.Controllers.RegisterUserViewModel
+﻿@model DreamJob.Ui.Web.Mvc.Models.UserRegistrationViewModel
 <div class="row">
     <div class="col-md-5 col-md-offset-4">
         <form role="form" id="dj-register-form">
             @Html.AntiForgeryToken()
             <div class="row has-error" id="dj-register-users-error-container"></div>
             <div class="form-group">
-                @Html.LabelFor(x => x.Login) @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+                @Html.LabelFor(x => x.User.Login) @Html.TextBoxFor(x => x.User.Login, new { @class = "form-control" })
             </div>
             <div class="form-group">
-                @Html.LabelFor(x => x.Password) @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                @Html.LabelFor(x => x.User.Password) @Html.PasswordFor(x => x.User.Password, new { @class = "form-control" })
             </div>
             <div class="form-group">
-                @Html.LabelFor(x => x.DisplayName) @Html.TextBoxFor(x => x.DisplayName, new { @class = "form-control" })
+                @Html.LabelFor(x => x.User.DisplayName) @Html.TextBoxFor(x => x.User.DisplayName, new { @class = "form-control" })
             </div>
             <div class="form-group">
-                @Html.LabelFor(x => x.Email) @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                @Html.LabelFor(x => x.User.Email) @Html.TextBoxFor(x => x.User.Email, new { @class = "form-control" })
             </div>
         </form>
     </div>

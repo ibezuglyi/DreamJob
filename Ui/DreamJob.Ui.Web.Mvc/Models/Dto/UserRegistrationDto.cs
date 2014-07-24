@@ -1,6 +1,6 @@
-namespace DreamJob.Ui.Web.Mvc.Controllers
+namespace DreamJob.Ui.Web.Mvc.Models.Dto
 {
-    public class RegisterUserViewModel
+    public class UserRegistrationDto
     {
         public string Login { get; set; }
         public string DisplayName { get; set; }

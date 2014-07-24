@@ -4,9 +4,7 @@
 
     public class Skill : BaseEntity
     {
-        public string Name { get; set; }
-        public List<Developer> Developers { get; set; }
-        public List<ProjectExperience> ProjectExperiences { get; set; }
-        public List<JobOffer> JobOffers { get; set; }
+        public string Description { get; set; }
+        public int SelfRate { get; set; }
     }
 }

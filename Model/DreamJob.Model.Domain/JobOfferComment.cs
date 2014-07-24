@@ -7,5 +7,6 @@
         public User Author { get; set; }
         public long AuthorId { get; set; }
         public string Text { get; set; }
+        public JobOfferCommentStatus Status { get; set; }
     }
 }

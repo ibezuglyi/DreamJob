@@ -13,7 +13,7 @@ namespace DreamJob.Database.EntityFramework.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201407230005580_init"; }
+            get { return "201407241823154_init"; }
         }
         
         string IMigrationMetadata.Source

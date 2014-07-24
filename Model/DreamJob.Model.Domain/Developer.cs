@@ -6,11 +6,18 @@
     public class Developer : User
     {
         public long DeveloperId { get; set; }
-        public long UserId { get; set; }
+        public string Title { get; set; }
+        public string Profile { get; set; }
+        public string ProjectPreferences { get; set; }
+        public long MinSalary { get; set; }
+        public string City { get; set; }
         public List<Skill> Skills { get; set; }
-        public List<ProjectExperience> ProjectExperiences { get; set; }
-        public List<CompanyExperience> CompanyExperiences { get; set; }
-        public List<Feedback> Feedbacks { get; set; }
         public List<JobOffer> JobOffersReceived { get; set; }
+
+        public Developer()
+        {
+            this.Skills = new List<Skill>();            
+            this.JobOffersReceived = new List<JobOffer>();
+        }
     }
 }

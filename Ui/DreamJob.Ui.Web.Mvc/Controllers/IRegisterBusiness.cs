@@ -1,13 +1,14 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Ui.Web.Mvc.Models;
+using DreamJob.Ui.Web.Mvc.Models.Dto;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using DreamJob.Common.Enum;
 
     public interface IRegisterBusiness
     {
-        DjOperationResult<RegisterUserViewModel> GetRegisterViewModel();
-
-        DjOperationResult<bool> RegisterDeveloper(RegisterUserViewModel model);
-
-        DjOperationResult<bool> RegisterRecruiter(RegisterUserViewModel model);
+        DjOperationResult<UserRegistrationViewModel> GetRegisterViewModel();
+        DjOperationResult<bool> RegisterDeveloper(UserRegistrationDto model);
+        DjOperationResult<bool> RegisterRecruiter(UserRegistrationDto model);
     }
 }

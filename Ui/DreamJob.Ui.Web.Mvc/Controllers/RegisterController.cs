@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Ui.Web.Mvc.Models.Dto;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -22,12 +24,12 @@
         }
 
         [HttpPost]
-        public ActionResult RegisterDeveloper(RegisterUserViewModel model)
+        public ActionResult RegisterDeveloper(UserRegistrationDto user)
         {
             List<string> errors;
             if (this.ModelState.IsValid)
             {
-                var result = this.business.RegisterDeveloper(model);
+                var result = this.business.RegisterDeveloper(user);
                 if (result.IsSuccess)
                 {
                     return this.RedirectToAction("Registered", "Register");
@@ -42,12 +44,12 @@
         }
 
         [HttpPost]
-        public ActionResult RegisterRecruiter(RegisterUserViewModel model)
+        public ActionResult RegisterRecruiter(UserRegistrationDto user)
         {
             List<string> errors;
             if (this.ModelState.IsValid)
             {
-                var result = this.business.RegisterRecruiter(model);
+                var result = this.business.RegisterRecruiter(user);
                 if (result.IsSuccess)
                 {
                     return this.RedirectToAction("Registered", "Register");

@@ -4,7 +4,7 @@
 
     using DreamJob.Common.Enum;
 
-    public class User : BaseEntity
+    public abstract class User : BaseEntity
     {
         public string Login { get; set; }
         public string DisplayName { get; set; }
