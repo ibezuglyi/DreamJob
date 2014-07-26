@@ -136,15 +136,19 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IDateTimeAdapter.cs" />
     <Compile Include="Controllers\IDeveloperRepository.cs" />
+    <Compile Include="Controllers\ILoginBusiness.cs" />
     <Compile Include="Controllers\IPasswordHasher.cs" />
     <Compile Include="Controllers\IRecruiterRepository.cs" />
     <Compile Include="Controllers\IRegisterBusiness.cs" />
     <Compile Include="Controllers\IRegisterService.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginDTO.cs" />
     <Compile Include="Controllers\Md5PasswordHasher.cs" />
     <Compile Include="Controllers\RecruiterRepository.cs" />
     <Compile Include="Controllers\RegisterBusiness.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\RegisterService.cs" />
+    <Compile Include="LoginBusiness.cs" />
     <Compile Include="Models\Dto\UserRegistrationDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,6 +197,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

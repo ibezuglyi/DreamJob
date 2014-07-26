@@ -1,0 +1,22 @@
+﻿@model DreamJob.Ui.Web.Mvc.Controllers.LoginDTO
+
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <form role="form" method="post">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.LabelFor(x => x.Login)
+                @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Password)
+                @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-12">
+                <div class="btn btn-default btn-primary">login</div>
+            </div>
+
+        </form>
+    </div>
+</div>

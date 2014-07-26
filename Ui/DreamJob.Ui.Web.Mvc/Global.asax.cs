@@ -53,6 +53,7 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterControllers(Assembly.GetCallingAssembly());
 
             containerBuilder.RegisterType<RegisterBusiness>().As<IRegisterBusiness>();
+            containerBuilder.RegisterType<LoginBusiness>().As<ILoginBusiness>();
             containerBuilder.RegisterType<RegisterService>().As<IRegisterService>();
             containerBuilder.RegisterType<DeveloperRepository>().As<IDeveloperRepository>();
             containerBuilder.RegisterType<Md5PasswordHasher>().As<IPasswordHasher>();
