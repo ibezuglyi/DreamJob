@@ -1,4 +1,4 @@
-﻿using System.Web;
+using System.Web;
 using System.Web.Optimization;
 
 namespace DreamJob.Ui.Web.Mvc
@@ -19,17 +19,13 @@ namespace DreamJob.Ui.Web.Mvc
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            #region Foundation Bundles
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(Foundation.Styles());
 
-            // Set EnableOptimizations to false for debugging. For more information,
-            // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = true;
+            bundles.Add(Foundation.Scripts());
+
+            #endregion
         }
     }
 }

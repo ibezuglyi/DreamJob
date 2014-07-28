@@ -1,31 +1,35 @@
 ﻿@model DreamJob.Ui.Web.Mvc.Models.UserRegistrationViewModel
 <div class="row">
-    <div class="col-md-5 col-md-offset-4">
+    <div class="row">
         <form role="form" id="dj-register-form">
             @Html.AntiForgeryToken()
-            <div class="row has-error" id="dj-register-users-error-container"></div>
-            <div class="form-group">
-                @Html.LabelFor(x => x.User.Login) @Html.TextBoxFor(x => x.User.Login, new { @class = "form-control" })
+            <div class="row" id="dj-register-users-error-container"></div>
+            <div class="row">
+                @Html.LabelFor(x => x.User.Login)
+                @Html.TextBoxFor(x => x.User.Login)
             </div>
-            <div class="form-group">
-                @Html.LabelFor(x => x.User.Password) @Html.PasswordFor(x => x.User.Password, new { @class = "form-control" })
+            <div class="row">
+                @Html.LabelFor(x => x.User.Password)
+                @Html.PasswordFor(x => x.User.Password)
             </div>
-            <div class="form-group">
-                @Html.LabelFor(x => x.User.DisplayName) @Html.TextBoxFor(x => x.User.DisplayName, new { @class = "form-control" })
+            <div class="row">
+                @Html.LabelFor(x => x.User.DisplayName)
+                @Html.TextBoxFor(x => x.User.DisplayName)
             </div>
-            <div class="form-group">
-                @Html.LabelFor(x => x.User.Email) @Html.TextBoxFor(x => x.User.Email, new { @class = "form-control" })
+            <div class="row">
+                @Html.LabelFor(x => x.User.Email)
+                @Html.TextBoxFor(x => x.User.Email)
             </div>
         </form>
     </div>
 </div>
 <div class="row">
     <div style="line-height: 200px;">
-        <div class="col-md-2 col-md-offset-4">
-            <div id="dj-button-register-as-developer" class="btn btn-primary">Register as developer</div>
+        <div class="small-2 column small-offset-3">
+            <div id="dj-button-register-as-developer" class="button">Register as developer</div>
         </div>
-        <div class="col-md-2">
-            <div id="dj-button-register-as-recruiter" class="btn btn-default">Register as recruiter</div>
+        <div class="small-2 small-pull-3 column">
+            <div id="dj-button-register-as-recruiter" class="button">Register as recruiter</div>
         </div>
     </div>
 </div>
