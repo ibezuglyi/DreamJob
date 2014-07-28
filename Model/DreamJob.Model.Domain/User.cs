@@ -11,6 +11,7 @@
         public string PasswordHash { get; set; }
         public string Email { get; set; }
         public UserAccountType AccountType { get; set; }
+        public string ConfirmationCode { get; set; }
 
         public DateTime Registered { get; set; }
         public DateTime LastLoginDateTime { get; set; }

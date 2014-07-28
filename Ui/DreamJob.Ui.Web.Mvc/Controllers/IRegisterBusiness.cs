@@ -8,7 +8,8 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
     public interface IRegisterBusiness
     {
         DjOperationResult<UserRegistrationViewModel> GetRegisterViewModel();
-        DjOperationResult<bool> RegisterDeveloper(UserRegistrationDto model);
-        DjOperationResult<bool> RegisterRecruiter(UserRegistrationDto model);
+        DjOperationResult<string> RegisterDeveloper(UserRegistrationDto model);
+        DjOperationResult<string> RegisterRecruiter(UserRegistrationDto model);
+        void ConfirmUserRegistration(string hash);
     }
 }

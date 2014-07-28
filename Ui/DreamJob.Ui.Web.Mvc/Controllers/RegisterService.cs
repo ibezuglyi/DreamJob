@@ -1,4 +1,5 @@
-﻿using DreamJob.Ui.Web.Mvc.Models.Dto;
+﻿using System;
+using DreamJob.Ui.Web.Mvc.Models.Dto;
 
 namespace DreamJob.Ui.Web.Mvc.Controllers
 {
@@ -26,30 +27,48 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             this.recruiterRepository = recruiterRepository;
         }
 
-        public DjOperationResult<bool> AddNewDeveloper(UserRegistrationDto model)
+        public DjOperationResult<string> AddNewDeveloper(UserRegistrationDto model)
         {
             var developer = Mapper.Map<UserRegistrationDto, Developer>(model);
             developer.AccountType = UserAccountType.Developer;
             developer.LastLoginDateTime = this.datetime.Now;
             developer.Registered = this.datetime.Now;
             developer.PasswordHash = this.passwordHasher.GetHash(model.Password);
-
+            developer.ConfirmationCode =String.Format("{0}{1}","d", this.passwordHasher.GetHash(string.Format("{0}+{1}*){2}_a", developer.Login, developer.Email,
+                    developer.Registered)));
             this.developerRepository.Add(developer);
 
-            return DjOperationResult<bool>.Success();
+            return new DjOperationResult<string>(developer.ConfirmationCode);
         }
 
-        public DjOperationResult<bool> AddNewRecruiter(UserRegistrationDto model)
+        public DjOperationResult<string> AddNewRecruiter(UserRegistrationDto model)
         {
             var recruiter = Mapper.Map<UserRegistrationDto, Recruiter>(model);
             recruiter.AccountType = UserAccountType.Recruiter;
             recruiter.LastLoginDateTime = this.datetime.Now;
             recruiter.Registered = this.datetime.Now;
             recruiter.PasswordHash = this.passwordHasher.GetHash(model.Password);
-
+            recruiter.ConfirmationCode = string.Format("{0}{1}","r",
+                this.passwordHasher.GetHash(string.Format("{0}-{1}={2}_a", recruiter.Login, recruiter.Email,
+                    recruiter.Registered)));
             this.recruiterRepository.Add(recruiter);
 
-            return DjOperationResult<bool>.Success();
+            return new DjOperationResult<string>(recruiter.ConfirmationCode);
+        }
+
+        public void ConfirmUserRegistration(string hash)
+        {
+            if(string.IsNullOrWhiteSpace(hash))
+                return;
+
+            if (hash.StartsWith("r"))
+            {
+                recruiterRepository.ConfirmRecruterRegistration(hash);
+            }
+            else if(hash.StartsWith("d"))
+            {
+                developerRepository.ConfirmDeveloperRegistration(hash);
+            }
         }
     }
 }

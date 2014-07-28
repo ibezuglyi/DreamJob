@@ -6,7 +6,8 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
 
     internal interface IRegisterService
     {
-        DjOperationResult<bool> AddNewDeveloper(UserRegistrationDto model);
-        DjOperationResult<bool> AddNewRecruiter(UserRegistrationDto model);
+        DjOperationResult<string> AddNewDeveloper(UserRegistrationDto model);
+        DjOperationResult<string> AddNewRecruiter(UserRegistrationDto model);
+        void ConfirmUserRegistration(string hash);
     }
 }

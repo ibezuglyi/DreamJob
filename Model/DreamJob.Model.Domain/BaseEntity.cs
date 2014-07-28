@@ -7,5 +7,6 @@
         public long Id { get; set; }
         public DateTime Add { get; set; }
         public DateTime Edit { get; set; }
+
     }
 }

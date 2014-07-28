@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using System.Linq;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using DreamJob.Database.EntityFramework;
     using DreamJob.Model.Domain;
@@ -16,6 +18,16 @@
         {
             this.context.Developers.Add(developer);
             this.context.SaveChanges();
+        }
+
+        public void ConfirmDeveloperRegistration(string hash)
+        {
+            var developer = this.context.Developers.SingleOrDefault(r => r.ConfirmationCode == hash);
+            if (developer != null)
+            {
+                developer.ConfirmationCode = null;
+                this.context.SaveChanges();
+            }
         }
     }
 }

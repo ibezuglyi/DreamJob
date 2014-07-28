@@ -1,61 +1,97 @@
 ﻿@model DreamJob.Ui.Web.Mvc.Models.UserRegistrationViewModel
-<div class="row">
-    <div class="col-md-5 col-md-offset-4">
-        <form role="form" id="dj-register-form">
-            @Html.AntiForgeryToken()
-            <div class="row has-error" id="dj-register-users-error-container"></div>
-            <div class="form-group">
-                @Html.LabelFor(x => x.User.Login) @Html.TextBoxFor(x => x.User.Login, new { @class = "form-control" })
+<div class="registration-container">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-4">
+            <form role="form" id="dj-register-form">
+                @Html.AntiForgeryToken()
+                <div class="row has-error" id="dj-register-users-error-container"></div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.User.Login) @Html.TextBoxFor(x => x.User.Login, new { @class
+                    = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.User.Password) @Html.PasswordFor(x => x.User.Password, new
+                    { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.User.DisplayName) @Html.TextBoxFor(x => x.User.DisplayName,
+                    new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.User.Email) @Html.TextBoxFor(x => x.User.Email, new { @class
+                    = "form-control" })
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div style="line-height: 200px;">
+            <div class="col-md-2 col-md-offset-4">
+                <div id="dj-button-register-as-developer" class="btn btn-primary">Register as developer
+                </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(x => x.User.Password) @Html.PasswordFor(x => x.User.Password, new { @class = "form-control" })
+            <div class="col-md-2">
+                <div id="dj-button-register-as-recruiter" class="btn btn-default">Register as recruiter
+                </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(x => x.User.DisplayName) @Html.TextBoxFor(x => x.User.DisplayName, new { @class = "form-control" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(x => x.User.Email) @Html.TextBoxFor(x => x.User.Email, new { @class = "form-control" })
-            </div>
-        </form>
+        </div>
     </div>
 </div>
-<div class="row">
-    <div style="line-height: 200px;">
-        <div class="col-md-2 col-md-offset-4">
-            <div id="dj-button-register-as-developer" class="btn btn-primary">Register as developer</div>
-        </div>
-        <div class="col-md-2">
-            <div id="dj-button-register-as-recruiter" class="btn btn-default">Register as recruiter</div>
-        </div>
-    </div>
+<div class="confirmation-container" style="display: none">
+    <a class="confirmation-link" href="#">Confirm registration</a>
+    <input type="hidden" class="confirmation-code" />
 </div>
 
 @section scripts{
     <script type="text/javascript">
-        $('#dj-button-register-as-developer').click(function () {
-            $.ajax({
-                url: '@Url.Action("RegisterDeveloper", "Register")',
-                type: 'post',
-                data: $('#dj-register-form').serialize()
+        function onSuccess(hash) {
+            $(".confirmation-code").val(hash);
+            $(".registration-container").hide();
+            $(".confirmation-container").show();
+        };
 
-            }).always(function (response) {
-                apendErrors(response);
-            });
-        });
-
-        var apendErrors = function (response) {
+        var apendErrors = function(response) {
             $('#dj-register-users-error-container').html(response);
         };
 
-        $('#dj-button-register-as-recruiter').click(function () {
+        $(function() {
+            $(".confirmation-link").click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("Registered", "Register")',
+                    type: 'post',
+                    data: { hash: $(".confirmation-code").val() }
+                }).done(function() {
+                    $(".confirmation-link")
+                    .hide();
+                });
+            });
+        });
+
+        $('#dj-button-register-as-developer').click(function() {
+            $.ajax({
+                    url: '@Url.Action("RegisterDeveloper", "Register")',
+                    type: 'post',
+                    data: $('#dj-register-form').serialize()
+
+                })
+                .success(onSuccess)
+                .fail(function(response) {
+                    apendErrors(response);
+                });
+        });
+
+
+        $('#dj-button-register-as-recruiter').click(function() {
 
             $.ajax({
-                url: '@Url.Action("RegisterRecruiter", "Register")',
-                type: 'post',
-                data: $('#dj-register-form').serialize()
-            }).always(function (response) {
-                apendErrors(response);
-            });
+                    url: '@Url.Action("RegisterRecruiter", "Register")',
+                    type: 'post',
+                    data: $('#dj-register-form').serialize()
+                }).success(onSuccess)
+                .fail(function(response) {
+                    apendErrors(response);
+                });
         });
     </script>
 }

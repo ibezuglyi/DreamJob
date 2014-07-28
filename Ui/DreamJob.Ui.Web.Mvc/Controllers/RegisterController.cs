@@ -32,7 +32,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
                 var result = this.business.RegisterDeveloper(user);
                 if (result.IsSuccess)
                 {
-                    return this.RedirectToAction("Registered", "Register");
+                    return new JsonResult(){Data = result.Data};
                 }
                 errors = result.Errors;
             }
@@ -52,7 +52,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
                 var result = this.business.RegisterRecruiter(user);
                 if (result.IsSuccess)
                 {
-                    return this.RedirectToAction("Registered", "Register");
+                    return new JsonResult() { Data = result.Data };
                 }
                 errors = result.Errors;
             }
@@ -61,6 +61,13 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
                 errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
             }
             return Json(errors);
+        }
+
+        [HttpPost]
+        public ActionResult Registered(string hash)
+        {
+            this.business.ConfirmUserRegistration(hash);
+            return RedirectToAction("Index","Login");
         }
     }
 }

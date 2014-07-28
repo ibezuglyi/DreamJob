@@ -149,6 +149,8 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\RegisterService.cs" />
     <Compile Include="LoginBusiness.cs" />
+    <Compile Include="Models\Dto\UserConfirmationDto.cs" />
+    <Compile Include="Models\Dto\UserConfirmationViewModel.cs" />
     <Compile Include="Models\Dto\UserRegistrationDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -22,7 +22,7 @@ namespace DreamJob.Common.Enum
         private DjOperationResult()
         {
             this.IsSuccess = true;
-            ;
+            
         }
 
         public bool IsSuccess { get; set; }

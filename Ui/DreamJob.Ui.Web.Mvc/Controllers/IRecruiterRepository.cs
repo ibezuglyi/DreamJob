@@ -5,5 +5,6 @@
     public interface IRecruiterRepository
     {
         void Add(Recruiter recruiter);
+        void ConfirmRecruterRegistration(string hash);
     }
 }

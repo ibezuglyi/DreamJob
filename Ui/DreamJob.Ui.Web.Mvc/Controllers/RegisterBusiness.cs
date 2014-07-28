@@ -21,16 +21,21 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             return result;
         }
 
-        public DjOperationResult<bool> RegisterDeveloper(UserRegistrationDto model)
+        public DjOperationResult<string> RegisterDeveloper(UserRegistrationDto model)
         {
             var result = this.registerService.AddNewDeveloper(model);
             return result;
         }
 
-        public DjOperationResult<bool> RegisterRecruiter(UserRegistrationDto model)
+        public DjOperationResult<string> RegisterRecruiter(UserRegistrationDto model)
         {
             var result = this.registerService.AddNewRecruiter(model);
             return result;
+        }
+
+        public void ConfirmUserRegistration(string hash)
+        {
+            this.registerService.ConfirmUserRegistration(hash);
         }
     }
 }
