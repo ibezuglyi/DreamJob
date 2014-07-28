@@ -12,11 +12,11 @@
             HttpContext.Current.Session[DjSessionKeys.DisplayName] = data.DisplayName;
             return DjOperationResult<bool>.Success();
         }
-    }
 
-    public static class DjSessionKeys
-    {
-        public static string CurrentUser { get { return "Dj.SessionKey.CurrentUser"; } }
-        public static string DisplayName { get { return "Dj.SessionKey.DisplayName"; } }
+        public DjOperationResult<bool> ClearUserData()
+        {
+            HttpContext.Current.Session.Clear();
+            return DjOperationResult<bool>.Success();
+        }
     }
 }

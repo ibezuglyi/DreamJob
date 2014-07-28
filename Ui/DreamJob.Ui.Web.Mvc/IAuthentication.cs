@@ -5,5 +5,6 @@
     internal interface IAuthentication
     {
         DjOperationResult<bool> AuthenticateUser(LoginUserDto data);
+        DjOperationResult<bool> LogoffUser();
     }
 }

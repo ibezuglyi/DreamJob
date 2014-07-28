@@ -11,5 +11,11 @@
             FormsAuthentication.SetAuthCookie(data.DisplayName, data.PersistentLogin);
             return DjOperationResult<bool>.Success();
         }
+
+        public DjOperationResult<bool> LogoffUser()
+        {
+            FormsAuthentication.SignOut();
+            return DjOperationResult<bool>.Success();
+        }
     }
 }

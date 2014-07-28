@@ -5,12 +5,12 @@
         <li>
             <ul>
                 <li>
-                    @Html.ActionLink(Session[DjSessionKeys.DisplayName].ToString(), "Manage", "Account")
+                    @Html.ActionLink((Session[DjSessionKeys.DisplayName] as string)??"stupid session", "Manage", "Account")
                 </li>
             </ul>
         </li>
         <li>
-            <a href="#">Log off</a>
+            @Html.ActionLink("Log off", "Index", "Logoff")
         </li>
     }
     else

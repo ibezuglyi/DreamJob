@@ -70,6 +70,7 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<Session>().As<ISession>();
             containerBuilder.RegisterType<UserRepository>().As<IUserRepository>();
             containerBuilder.RegisterType<UserService>().As<IUserService>();
+            containerBuilder.RegisterType<LogoffBusiness>().As<ILogoffBusiness>();
             
             
             

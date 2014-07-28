@@ -5,5 +5,7 @@
     public interface ISession
     {
         DjOperationResult<bool> SetCurrentUser(LoginUserDto data);
+
+        DjOperationResult<bool> ClearUserData();
     }
 }
