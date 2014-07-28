@@ -8,10 +8,13 @@
 
         private readonly ISession session;
 
-        public LoginService(IAuthentication authentication, ISession session)
+        private readonly IUserRepository userRepository;
+
+        public LoginService(IAuthentication authentication, ISession session, IUserRepository userRepository)
         {
             this.authentication = authentication;
             this.session = session;
+            this.userRepository = userRepository;
         }
 
         public DjOperationResult<bool> LoginUser(LoginUserDto data)
@@ -21,6 +24,8 @@
             {
                 return authenticationResult;
             }
+
+            this.userRepository.UpdateLastLoginData(data.Id);
 
             var sessionResult = this.session.SetCurrentUser(data);
             return sessionResult;

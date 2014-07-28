@@ -6,5 +6,7 @@
     internal interface IUserRepository
     {
         DjOperationResult<User> FindUserByLoginAndPasswordHash(string login, string passwordHash);
+
+        DjOperationResult<bool> UpdateLastLoginData(long userId);
     }
 }
