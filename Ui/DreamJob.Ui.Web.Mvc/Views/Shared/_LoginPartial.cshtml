@@ -1,37 +1,11 @@
 ﻿@using System.Web
-@*@using System.Web*@
-@*@if (!Request.IsAuthenticated)*@
-@*{*@
-@*    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))*@
-@*    {*@
-@*    @Html.AntiForgeryToken()*@
-@**@
-@*    <ul>*@
-@*        <li>*@
-@*            @Html.ActionLink("Hello " + HttpContext.Current.User.Identity.Name + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })*@
-@*        </li>*@
-@*        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>*@
-@*    </ul>*@
-@*    }*@
-@*}*@
-@*else*@
-@*{*@
-@*    <ul>*@
-@*        <li>@Html.ActionLink("Register", "Index", "Register", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
-@*        <li>@Html.ActionLink("Log in", "Index", "Login", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
-@*    </ul>*@
-@*}*@
-@**@
-
-
-
 <ul class="right">
     @if (Request.IsAuthenticated)
     {
         <li>
             <ul>
                 <li>
-                    @Html.ActionLink("---user names goes here---", "Manage", "Account")
+                    @Html.ActionLink(Session[DjSessionKeys.DisplayName].ToString(), "Manage", "Account")
                 </li>
             </ul>
         </li>

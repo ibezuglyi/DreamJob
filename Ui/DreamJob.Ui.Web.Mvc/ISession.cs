@@ -2,7 +2,7 @@
 {
     using DreamJob.Common.Enum;
 
-    internal interface ISession
+    public interface ISession
     {
         DjOperationResult<bool> SetCurrentUser(LoginUserDto data);
     }
