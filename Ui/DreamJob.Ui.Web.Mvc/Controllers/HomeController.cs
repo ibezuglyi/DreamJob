@@ -27,4 +27,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             return View();
         }
     }
+
+
+    
 }
