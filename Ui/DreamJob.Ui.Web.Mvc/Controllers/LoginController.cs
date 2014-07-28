@@ -11,10 +11,29 @@
             this.business = business;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             var result = this.business.GetLoginViewModel();
             return this.View("Index", result.Data);
+        }
+
+        [HttpPost]
+        public ActionResult Index(LoginDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = this.business.LoginUser(model);
+                if (result.IsSuccess)
+                {
+                    return this.RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    result.Errors.ForEach(error => ModelState.AddModelError("", error));
+                }
+            }
+            return this.View("Index", model);
         }
     }
 }

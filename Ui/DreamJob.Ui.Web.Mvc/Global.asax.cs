@@ -44,6 +44,8 @@ namespace DreamJob.Ui.Web.Mvc
             AutoMapper.Mapper.CreateMap<UserRegistrationDto, Recruiter>()
                 .ForMember(r => r.Edit, o => o.UseValue(DateTime.Now))
                 .ForMember(r => r.Add, o => o.UseValue(DateTime.Now));
+
+            AutoMapper.Mapper.CreateMap<User, LoginUserDto>();
         }
 
         public static IContainer AutofacInitialize()
@@ -59,6 +61,19 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<Md5PasswordHasher>().As<IPasswordHasher>();
             containerBuilder.RegisterType<RecruiterRepository>().As<IRecruiterRepository>();
             containerBuilder.RegisterType<DateTimeAdapter>().As<IDateTimeAdapter>();
+
+
+
+
+            containerBuilder.RegisterType<FormAuthentication>().As<IAuthentication>();
+            containerBuilder.RegisterType<LoginService>().As<ILoginService>();
+            containerBuilder.RegisterType<Session>().As<ISession>();
+            containerBuilder.RegisterType<UserRepository>().As<IUserRepository>();
+            containerBuilder.RegisterType<UserService>().As<IUserService>();
+            
+            
+            
+            
             containerBuilder.RegisterType<DreamJobContext>().InstancePerRequest();
 
 

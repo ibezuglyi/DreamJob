@@ -12,7 +12,7 @@ namespace DreamJob.Common.Enum
             this.Errors = new List<string>();
         }
 
-        public DjOperationResult(bool success, string[] errors)
+        public DjOperationResult(bool success, IEnumerable<string> errors)
         {
             this.Data = default(T);
             this.IsSuccess = success;

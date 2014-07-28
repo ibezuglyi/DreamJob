@@ -73,6 +73,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -149,7 +150,15 @@
     <Compile Include="Controllers\RegisterBusiness.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\RegisterService.cs" />
+    <Compile Include="FormAuthentication.cs" />
+    <Compile Include="IAuthentication.cs" />
+    <Compile Include="ILoginService.cs" />
+    <Compile Include="ISession.cs" />
+    <Compile Include="IUserRepository.cs" />
+    <Compile Include="IUserService.cs" />
     <Compile Include="LoginBusiness.cs" />
+    <Compile Include="LoginService.cs" />
+    <Compile Include="LoginUserDto.cs" />
     <Compile Include="Models\Dto\UserConfirmationDto.cs" />
     <Compile Include="Models\Dto\UserConfirmationViewModel.cs" />
     <Compile Include="Models\Dto\UserRegistrationDto.cs" />
@@ -158,6 +167,9 @@
     </Compile>
     <Compile Include="Models\RegisterUserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="UserRepository.cs" />
+    <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\foundation\foundation.css" />

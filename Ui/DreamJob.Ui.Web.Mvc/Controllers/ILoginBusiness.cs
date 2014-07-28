@@ -5,5 +5,7 @@
     public interface ILoginBusiness
     {
         DjOperationResult<LoginDTO> GetLoginViewModel();
+
+        DjOperationResult<bool> LoginUser(LoginDTO model);
     }
 }
