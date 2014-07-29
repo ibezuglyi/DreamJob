@@ -1,5 +1,5 @@
 ﻿@model DreamJob.Ui.Web.Mvc.Models.UserRegistrationViewModel
-<div class="row">
+<div class="row registration-container">
     <div class="row">
         <form role="form" id="dj-register-form">
             @Html.AntiForgeryToken()
@@ -22,7 +22,7 @@
             </div>
         </form>
     </div>
-</div>
+
 <div class="row">
     <div style="line-height: 200px;">
         <div class="small-2 column small-offset-3">
@@ -33,23 +33,51 @@
         </div>
     </div>
 </div>
+</div>
+<div class="confirmation-container" style="display: none">
+    <a class="confirmation-link" href="#">Confirm registration</a>
+    <input type="hidden" class="confirmation-code" />
+</div>
 
 @section scripts{
     <script type="text/javascript">
+        function onSuccess(hash) {
+            $(".confirmation-code").val(hash);
+            $(".registration-container").hide();
+            $(".confirmation-container").show();
+        };
+
+        var apendErrors = function (response) {
+            $('#dj-register-users-error-container').html(response);
+        };
+
+        $(function () {
+            $(".confirmation-link").click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("Registered", "Register")',
+                    type: 'post',
+                    data: { hash: $(".confirmation-code").val() }
+                }).done(function () {
+                    $(".confirmation-link")
+                    .hide();
+                });
+            });
+        });
+
         $('#dj-button-register-as-developer').click(function () {
             $.ajax({
                 url: '@Url.Action("RegisterDeveloper", "Register")',
                 type: 'post',
                 data: $('#dj-register-form').serialize()
 
-            }).always(function (response) {
-                apendErrors(response);
-            });
+            })
+                .success(onSuccess)
+                .fail(function (response) {
+                    apendErrors(response);
+                });
         });
 
-        var apendErrors = function (response) {
-            $('#dj-register-users-error-container').html(response);
-        };
 
         $('#dj-button-register-as-recruiter').click(function () {
 
@@ -57,9 +85,10 @@
                 url: '@Url.Action("RegisterRecruiter", "Register")',
                 type: 'post',
                 data: $('#dj-register-form').serialize()
-            }).always(function (response) {
-                apendErrors(response);
-            });
+            }).success(onSuccess)
+                .fail(function (response) {
+                    apendErrors(response);
+                });
         });
     </script>
 }
