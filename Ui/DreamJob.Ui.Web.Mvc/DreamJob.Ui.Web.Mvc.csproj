@@ -141,6 +141,7 @@
     <Compile Include="Controllers\ILoginBusiness.cs" />
     <Compile Include="Controllers\ILogoffBusiness.cs" />
     <Compile Include="Controllers\IPasswordHasher.cs" />
+    <Compile Include="Controllers\IProfileBusiness.cs" />
     <Compile Include="Controllers\IRecruiterRepository.cs" />
     <Compile Include="Controllers\IRegisterBusiness.cs" />
     <Compile Include="Controllers\IRegisterService.cs" />
@@ -237,6 +238,7 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

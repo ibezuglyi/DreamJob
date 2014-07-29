@@ -18,5 +18,11 @@
             HttpContext.Current.Session.Clear();
             return DjOperationResult<bool>.Success();
         }
+
+        public DjOperationResult<LoginUserDto> GetCurrentUser()
+        {
+            var data = HttpContext.Current.Session[DjSessionKeys.CurrentUser] as LoginUserDto;
+            return new DjOperationResult<LoginUserDto>(data);
+        }
     }
 }

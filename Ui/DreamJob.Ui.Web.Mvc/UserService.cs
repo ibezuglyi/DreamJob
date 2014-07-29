@@ -4,6 +4,9 @@
 
     using DreamJob.Common.Enum;
     using DreamJob.Model.Domain;
+    using DreamJob.Ui.Web.Mvc.Controllers;
+
+    using Microsoft.Ajax.Utilities;
 
     class UserService : IUserService
     {
@@ -29,6 +32,18 @@
             var userDto = Mapper.Map<User, LoginUserDto>(findUserResult.Data);
             var result = new DjOperationResult<LoginUserDto>(userDto);
             return result;
+        }
+
+        public DjOperationResult<UserProfileDto> GetFullUserProfile(long userId)
+        {
+            var getUserResult = this.userRepository.GetUser(userId);
+            if (getUserResult.IsSuccess == false)
+            {
+                return new DjOperationResult<UserProfileDto>(false, getUserResult.Errors);
+            }
+
+            var userProfileDto = Mapper.Map<User, UserProfileDto>(getUserResult.Data);
+            return new DjOperationResult<UserProfileDto>(userProfileDto);
         }
     }
 }

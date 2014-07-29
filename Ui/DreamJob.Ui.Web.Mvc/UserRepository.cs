@@ -36,5 +36,12 @@
             this.context.SaveChanges();
             return DjOperationResult<bool>.Success();
         }
+
+        public DjOperationResult<User> GetUser(long userId)
+        {
+            var user = this.context.Users.SingleOrDefault(x => x.Id == userId);
+            var result = new DjOperationResult<User>(user);
+            return result;
+        }
     }
 }

@@ -46,6 +46,7 @@ namespace DreamJob.Ui.Web.Mvc
                 .ForMember(r => r.Add, o => o.UseValue(DateTime.Now));
 
             AutoMapper.Mapper.CreateMap<User, LoginUserDto>();
+            AutoMapper.Mapper.CreateMap<User, UserProfileDto>();
         }
 
         public static IContainer AutofacInitialize()
@@ -71,6 +72,7 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<UserRepository>().As<IUserRepository>();
             containerBuilder.RegisterType<UserService>().As<IUserService>();
             containerBuilder.RegisterType<LogoffBusiness>().As<ILogoffBusiness>();
+            containerBuilder.RegisterType<ProfileBusiness>().As<IProfileBusiness>();
             
             
             

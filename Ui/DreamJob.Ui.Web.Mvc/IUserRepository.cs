@@ -8,5 +8,7 @@
         DjOperationResult<User> FindUserByLoginAndPasswordHash(string login, string passwordHash);
 
         DjOperationResult<bool> UpdateLastLoginData(long userId);
+
+        DjOperationResult<User> GetUser(long userId);
     }
 }
