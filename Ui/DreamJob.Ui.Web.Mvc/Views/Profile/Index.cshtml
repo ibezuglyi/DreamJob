@@ -1,29 +1,24 @@
-﻿@model DreamJob.Ui.Web.Mvc.Controllers.UserProfileDto
+@model DreamJob.Ui.Web.Mvc.Controllers.UserProfileDto
 
 
 <div class="row">
     <div class="medium-4 columns">
         <div class="row">
-            @Html.LabelFor(m => m.DisplayName)
-            @Html.DisplayFor(m => m.DisplayName)
+            @Html.LabelFor(m => m.DisplayName) @Html.DisplayFor(m => m.DisplayName)
         </div>
         <div class="row">
-            @Html.LabelFor(m => m.Email)
-            @Html.DisplayFor(m => m.Email)
+            @Html.LabelFor(m => m.Email) @Html.DisplayFor(m => m.Email)
         </div>
         <div class="row">
-            @Html.LabelFor(m => m.Login)
-            @Html.DisplayFor(m => m.Login)
+            @Html.LabelFor(m => m.Login) @Html.DisplayFor(m => m.Login)
         </div>
     </div>
     <div class="medium-4 columns">
         <div class="row">
-            @Html.LabelFor(m => m.Registered)
-            @Html.DisplayFor(m=>m.Registered)
+            @Html.LabelFor(m => m.Registered) @Html.DisplayFor(m => m.Registered)
         </div>
         <div class="row">
-            @Html.LabelFor(m=>m.AccountType)
-            @Html.DisplayFor(m=>m.AccountType)
+            @Html.LabelFor(m => m.AccountType) @Html.DisplayFor(m => m.AccountType)
         </div>
     </div>
     <div class="medium-4 columns">
@@ -41,3 +36,18 @@
         </div>
     </div>
 </div>
+
+<div class='dj-profile-application' ng-app='djpa'>
+    <div class="row">
+        {{2+2}}
+    </div>
+</div>
+
+
+@section scripts{
+<script src="~/Scripts/angular.js"></script>
+<script type='text/javascript'>
+    angular.module('djpa', []);
+</script>
+}
+
