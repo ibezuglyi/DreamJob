@@ -37,17 +37,25 @@
     </div>
 </div>
 
-<div class='dj-profile-application' ng-app='djpa'>
+<div class='dj-profile-application' ng-app='djpa' ng-controller='ProfileController'>
     <div class="row">
         {{2+2}}
+    </div>
+    <div class="row">
+        <span>testText:</span>{{testText}}
+    </div>
+    <div class="row">
+        <span>foo:</span>{{foo()}}
     </div>
 </div>
 
 
 @section scripts{
 <script src="~/Scripts/angular.js"></script>
+
 <script type='text/javascript'>
-    angular.module('djpa', []);
+    var app = angular.module('djpa', []);
 </script>
+<script src="~/Scripts/Application/Controllers/ProfileController.js"></script>
 }
 
