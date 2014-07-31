@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Database.EntityFramework
+﻿using System.ComponentModel;
+
+namespace DreamJob.Database.EntityFramework
 {
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity;
@@ -23,6 +25,8 @@
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Developer>().HasMany(x => x.Skills);
             modelBuilder.Entity<Developer>().HasMany(x => x.JobOffersReceived);
+            modelBuilder.Entity<Recruiter>()
+                .HasMany(r => r.Confirmations);
 
             modelBuilder.Entity<JobOffer>()
                 .ToTable("JobOffer")
@@ -48,6 +52,9 @@
                 .HasMany(r => r.Feedbacks);
             modelBuilder.Entity<Recruiter>()
                 .HasMany(r => r.JobOffersSent);
+            modelBuilder.Entity<Recruiter>()
+                .HasMany(r => r.Confirmations);
+                
 
             modelBuilder.Entity<Skill>()
                 .ToTable("Skill")
@@ -64,9 +71,14 @@
             modelBuilder.Entity<Feedback>()
                 .HasRequired(x => x.Recruiter)
                 .WithMany(x => x.Feedbacks);
+
+            modelBuilder.Entity<Confirmation>()
+                .ToTable("Confirmation")
+                .HasKey(r => r.Id)
+                .Property(r => r.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
             
-
-
 
         }
 

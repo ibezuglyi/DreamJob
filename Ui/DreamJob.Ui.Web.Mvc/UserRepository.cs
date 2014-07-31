@@ -23,8 +23,7 @@
         {
             var user =
                 this.context.Users
-                    .Where(x => x.Login == login)
-                    .SingleOrDefault(x => x.PasswordHash == passwordHash);
+                    .SingleOrDefault(x =>x.Login == login && x.PasswordHash == passwordHash);
             var result = new DjOperationResult<User>(user);
             return result;
         }

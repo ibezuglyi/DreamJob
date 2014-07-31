@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="Confirmation.cs" />
     <Compile Include="Developer.cs" />
     <Compile Include="Feedback.cs" />
     <Compile Include="JobOffer.cs" />

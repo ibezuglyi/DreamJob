@@ -34,11 +34,17 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             developer.LastLoginDateTime = this.datetime.Now;
             developer.Registered = this.datetime.Now;
             developer.PasswordHash = this.passwordHasher.GetHash(model.Password);
-            developer.ConfirmationCode =String.Format("{0}{1}","d", this.passwordHasher.GetHash(string.Format("{0}+{1}*){2}_a", developer.Login, developer.Email,
-                    developer.Registered)));
+            var newConfirmation =
+                new Confirmation(String.Format("{0}{1}", "D",
+                    this.passwordHasher.GetHash(string.Format("{0}+{1}*){2}_a", developer.Login, developer.Email,
+                        developer.Registered))));
+            newConfirmation.Add = this.datetime.Now;
+            newConfirmation.Edit = this.datetime.Now;
+            developer.Confirmations.Add(newConfirmation);
+            
             this.developerRepository.Add(developer);
 
-            return new DjOperationResult<string>(developer.ConfirmationCode);
+            return new DjOperationResult<string>(newConfirmation.ConfirmationCode);
         }
 
         public DjOperationResult<string> AddNewRecruiter(UserRegistrationDto model)
@@ -48,12 +54,15 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             recruiter.LastLoginDateTime = this.datetime.Now;
             recruiter.Registered = this.datetime.Now;
             recruiter.PasswordHash = this.passwordHasher.GetHash(model.Password);
-            recruiter.ConfirmationCode = string.Format("{0}{1}","r",
+            var newConfirmation = new Confirmation(string.Format("{0}{1}", "R",
                 this.passwordHasher.GetHash(string.Format("{0}-{1}={2}_a", recruiter.Login, recruiter.Email,
-                    recruiter.Registered)));
+                    recruiter.Registered))));
+            newConfirmation.Add = this.datetime.Now;
+            newConfirmation.Edit= this.datetime.Now;
+            recruiter.Confirmations.Add(newConfirmation);
             this.recruiterRepository.Add(recruiter);
 
-            return new DjOperationResult<string>(recruiter.ConfirmationCode);
+            return new DjOperationResult<string>(newConfirmation.ConfirmationCode);
         }
 
         public void ConfirmUserRegistration(string hash)
@@ -61,11 +70,11 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             if(string.IsNullOrWhiteSpace(hash))
                 return;
 
-            if (hash.StartsWith("r"))
+            if (hash.StartsWith("R"))
             {
                 recruiterRepository.ConfirmRecruterRegistration(hash);
             }
-            else if(hash.StartsWith("d"))
+            else if(hash.StartsWith("D"))
             {
                 developerRepository.ConfirmDeveloperRegistration(hash);
             }

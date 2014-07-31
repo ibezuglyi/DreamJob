@@ -22,10 +22,13 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
 
         public void ConfirmRecruterRegistration(string hash)
         {
-            var recruter = this.context.Recruiters.SingleOrDefault(r => r.ConfirmationCode == hash);
+            var recruter = this.context.Recruiters.SingleOrDefault(r => r.Confirmations.Any(t=>t.ConfirmationCode == hash));
             if (recruter != null)
             {
-                recruter.ConfirmationCode = null;
+                context.Entry(recruter).Collection(r => r.Confirmations).Load();
+                var confirmation = recruter.Confirmations.Single(r => r.ConfirmationCode == hash);
+                recruter.Confirmations.Remove(confirmation);
+                recruter.IsActive = true;
                 this.context.SaveChanges();
             }
         }

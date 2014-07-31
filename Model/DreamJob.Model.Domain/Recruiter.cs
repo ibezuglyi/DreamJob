@@ -11,6 +11,7 @@
         public string Company { get; set; }
         public List<Feedback> Feedbacks { get; set; }
         public List<JobOffer> JobOffersSent { get; set; }
+        
 
         public Recruiter()
         {
