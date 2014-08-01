@@ -17,13 +17,13 @@ namespace DreamJob.Ui.Web.Mvc
 
     using DreamJob.Database.EntityFramework;
     using DreamJob.Model.Domain;
+    using DreamJob.Ui.Web.Mvc.Areas.Api.Controllers;
     using DreamJob.Ui.Web.Mvc.Controllers;
 
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -47,6 +47,8 @@ namespace DreamJob.Ui.Web.Mvc
 
             AutoMapper.Mapper.CreateMap<User, LoginUserDto>();
             AutoMapper.Mapper.CreateMap<User, UserProfileDto>();
+
+            AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDto>();
         }
 
         public static IContainer AutofacInitialize()
