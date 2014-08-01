@@ -1,9 +1,8 @@
 angular.module('djpa', [])
-    .controller('ProfileController', ['$scope',
-        function ($scope) {
-            $scope.testText = 'test text goes here';
+    .controller('ProfileController', function ($scope, $http) {
 
-            $scope.foo = function () {
-                return "return from foo()";
-            };
-        }]);
+
+        $scope.getOffers = function () {};
+
+
+    });

@@ -134,6 +134,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\IOfferService.cs" />
+    <Compile Include="Controllers\IOffersLogic.cs" />
+    <Compile Include="Controllers\IOffersRepository.cs" />
+    <Compile Include="Controllers\OffersController.cs" />
+    <Compile Include="Controllers\OfferService.cs" />
+    <Compile Include="Controllers\OffersLogic.cs" />
+    <Compile Include="Controllers\OffersRepository.cs" />
     <Compile Include="Controllers\DeveloperRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IDateTimeAdapter.cs" />
