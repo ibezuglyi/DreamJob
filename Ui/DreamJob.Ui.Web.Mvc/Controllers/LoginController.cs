@@ -1,4 +1,7 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Ui.Web.Mvc.BusinessServices;
+using DreamJob.Ui.Web.Mvc.Models.Dto;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
 
@@ -19,7 +22,7 @@
         }
 
         [HttpPost]
-        public ActionResult Index(LoginDTO model)
+        public ActionResult Index(LoginDto model)
         {
             if (ModelState.IsValid)
             {

@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc
+﻿using DreamJob.Ui.Web.Mvc.Models.Dto;
+
+namespace DreamJob.Ui.Web.Mvc
 {
     using System.Web;
 

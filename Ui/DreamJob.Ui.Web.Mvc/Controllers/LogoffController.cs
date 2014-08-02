@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Ui.Web.Mvc.BusinessServices;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
 

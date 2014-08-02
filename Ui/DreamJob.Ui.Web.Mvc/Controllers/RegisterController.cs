@@ -1,4 +1,5 @@
-﻿using DreamJob.Ui.Web.Mvc.Models.Dto;
+﻿using DreamJob.Ui.Web.Mvc.BusinessServices;
+using DreamJob.Ui.Web.Mvc.Models.Dto;
 
 namespace DreamJob.Ui.Web.Mvc.Controllers
 {
@@ -67,7 +68,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         public ActionResult Registered(string hash)
         {
             this.business.ConfirmUserRegistration(hash);
-            return RedirectToAction("Index","Login");
+            return new JsonResult(){ Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet};
         }
     }
 }

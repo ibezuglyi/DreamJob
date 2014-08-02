@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Areas.Api.Controllers
+﻿using DreamJob.Ui.Web.Mvc.Services;
+
+namespace DreamJob.Ui.Web.Mvc.Areas.Api.Controllers
 {
     using System.Collections.Generic;
 

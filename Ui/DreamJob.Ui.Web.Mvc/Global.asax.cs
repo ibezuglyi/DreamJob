@@ -6,7 +6,11 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using DreamJob.Ui.Web.Mvc.BusinessServices;
+using DreamJob.Ui.Web.Mvc.Helpers;
 using DreamJob.Ui.Web.Mvc.Models.Dto;
+using DreamJob.Ui.Web.Mvc.Repositories;
+using DreamJob.Ui.Web.Mvc.Services;
 
 namespace DreamJob.Ui.Web.Mvc
 {

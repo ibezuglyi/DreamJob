@@ -59,8 +59,7 @@
                     type: 'post',
                     data: { hash: $(".confirmation-code").val() }
                 }).done(function () {
-                    $(".confirmation-link")
-                    .hide();
+                    window.location = '@Url.Action("Index", "Home")';
                 });
             });
         });
@@ -70,7 +69,6 @@
                 url: '@Url.Action("RegisterDeveloper", "Register")',
                 type: 'post',
                 data: $('#dj-register-form').serialize()
-
             })
                 .success(onSuccess)
                 .fail(function (response) {
