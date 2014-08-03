@@ -1,31 +1,30 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
-    using System.Web.Http;
-    using System.Web.Http.Results;
+    using System.Web.Mvc;
 
     using DreamJob.Common.Enum;
     using DreamJob.Ui.Web.Mvc.Areas.Api.Controllers;
 
-    using Newtonsoft.Json;
-
-    public class OffersController : ApiController
+    public class OffersController : Controller
     {
         private readonly IOffersLogic profileLogic;
 
-        public OffersController(IOffersLogic profileLogic)
+        private readonly ISession session;
+
+        public OffersController(IOffersLogic profileLogic, ISession session)
         {
             this.profileLogic = profileLogic;
+            this.session = session;
         }
 
         [HttpGet]
-        public JsonResult<List<JobOfferDto>> Get()
+        [Authorize]
+        public JsonResult Get()
         {
-            var offers = this.profileLogic.GetOffersForUser(25);
-            var jsonSerializerSettings = new JsonSerializerSettings();
-            var result = new JsonResult<List<JobOfferDto>>(offers, jsonSerializerSettings, Encoding.Default, this);
+            var currentUser = this.session.GetCurrentUser().Data;
+            var offers = this.profileLogic.GetOffersForUser(currentUser.Id);
+            var result = new JsonResult { Data = offers, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             return result;
         }
     }

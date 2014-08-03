@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -18,7 +14,6 @@ namespace DreamJob.Ui.Web.Mvc
 
     using Autofac;
     using Autofac.Integration.Mvc;
-    using Autofac.Integration.WebApi;
 
     using DreamJob.Database.EntityFramework;
     using DreamJob.Model.Domain;
@@ -32,9 +27,6 @@ namespace DreamJob.Ui.Web.Mvc
 
             var container = AutofacInitialize();
 
-            var webApiResolver = new AutofacWebApiDependencyResolver(container);
-            GlobalConfiguration.Configuration.DependencyResolver = webApiResolver;
-
             var mvcResolver = new AutofacDependencyResolver(container);
             DependencyResolver.SetResolver(mvcResolver);
 
@@ -43,7 +35,6 @@ namespace DreamJob.Ui.Web.Mvc
             InitializeAutomapper();
             
             
-            GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
@@ -70,11 +61,6 @@ namespace DreamJob.Ui.Web.Mvc
             var containerBuilder = new ContainerBuilder();
 
             containerBuilder.RegisterControllers(Assembly.GetCallingAssembly());
-            containerBuilder.RegisterApiControllers(Assembly.GetCallingAssembly());
-
-
-            containerBuilder.RegisterControllers(Assembly.GetExecutingAssembly());
-            containerBuilder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             containerBuilder.RegisterType<RegisterBusiness>().As<IRegisterBusiness>();
             containerBuilder.RegisterType<LoginBusiness>().As<ILoginBusiness>();

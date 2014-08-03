@@ -33,7 +33,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
                 var result = this.business.RegisterDeveloper(user);
                 if (result.IsSuccess)
                 {
-                    return new JsonResult(){Data = result.Data};
+                    return new JsonResult { Data = result.Data };
                 }
                 errors = result.Errors;
             }
