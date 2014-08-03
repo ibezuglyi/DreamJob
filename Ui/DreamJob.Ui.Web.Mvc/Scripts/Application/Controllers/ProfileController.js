@@ -6,6 +6,4 @@ angular.module('djpa', [])
                 alert(response);
             });
         }
-
-
     });

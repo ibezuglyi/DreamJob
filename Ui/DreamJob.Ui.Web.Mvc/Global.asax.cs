@@ -31,15 +31,10 @@ namespace DreamJob.Ui.Web.Mvc
         {
 
             var container = AutofacInitialize();
-            var autofacDependencyResolver = new AutofacDependencyResolver(container);
-//            var autofacDependencyResolver = new AutofacWebApiDependencyResolver(container);
-
-//            DependencyResolver.SetResolver(autofacDependencyResolver);
 
             var webApiResolver = new AutofacWebApiDependencyResolver(container);
             GlobalConfiguration.Configuration.DependencyResolver = webApiResolver;
 
-            // Set the dependency resolver for MVC.
             var mvcResolver = new AutofacDependencyResolver(container);
             DependencyResolver.SetResolver(mvcResolver);
 

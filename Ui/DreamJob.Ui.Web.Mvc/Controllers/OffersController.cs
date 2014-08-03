@@ -21,10 +21,11 @@
         }
 
         [HttpGet]
-        public JsonResult<List<JobOfferDto>> Get(long userId)
+        public JsonResult<List<JobOfferDto>> Get()
         {
-            var offers = this.profileLogic.GetOffersForUser(userId);
-            var result = new JsonResult<List<JobOfferDto>>(offers, new JsonSerializerSettings(), Encoding.Default, this);
+            var offers = this.profileLogic.GetOffersForUser(25);
+            var jsonSerializerSettings = new JsonSerializerSettings();
+            var result = new JsonResult<List<JobOfferDto>>(offers, jsonSerializerSettings, Encoding.Default, this);
             return result;
         }
     }
