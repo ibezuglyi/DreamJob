@@ -35,6 +35,8 @@ namespace DreamJob.Ui.Web.Mvc
             InitializeAutomapper();
             
             
+            GlobalFilters.Filters.Add(new ResetSessionWhenOutOfSyncWithForms());
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

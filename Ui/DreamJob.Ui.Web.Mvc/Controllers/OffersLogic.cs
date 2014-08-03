@@ -1,13 +1,13 @@
-﻿using DreamJob.Ui.Web.Mvc.Services;
-
-namespace DreamJob.Ui.Web.Mvc.Areas.Api.Controllers
+﻿namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System.Collections.Generic;
 
     using AutoMapper;
 
     using DreamJob.Model.Domain;
-    using DreamJob.Ui.Web.Mvc.Controllers;
+    using DreamJob.Ui.Web.Mvc.Areas.Api.Controllers;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
+    using DreamJob.Ui.Web.Mvc.Services;
 
     public class OffersLogic : IOffersLogic
     {

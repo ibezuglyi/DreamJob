@@ -122,6 +122,8 @@
     <Compile Include="App_Start\Bundles\Foundation.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Models\Dto\JobOfferDto.cs" />
+    <Compile Include="Models\Dto\ResetSessionWhenOutOfSyncWithForms.cs" />
     <Compile Include="Services\IOfferService.cs" />
     <Compile Include="Controllers\IOffersLogic.cs" />
     <Compile Include="Repositories\IOffersRepository.cs" />

@@ -8,6 +8,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
 
     using DreamJob.Common.Enum;
 
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly IProfileBusiness profileBusiness;

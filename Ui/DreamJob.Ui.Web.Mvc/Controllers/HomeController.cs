@@ -6,6 +6,9 @@ using System.Web.Mvc;
 
 namespace DreamJob.Ui.Web.Mvc.Controllers
 {
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
+
+    [ResetSessionWhenOutOfSyncWithForms]
     public class HomeController : Controller
     {
         public ActionResult Index()
