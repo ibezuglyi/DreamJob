@@ -1,6 +1,8 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System;
+    using System.Text;
+    using System.Web.Helpers;
     using System.Web.Mvc;
 
     using DreamJob.Common.Enum;
@@ -20,7 +22,7 @@
 
         [HttpGet]
         [Authorize]
-        public JsonResult Get()
+        public JsonResult MyOffers()
         {
             var currentUser = this.session.GetCurrentUser().Data;
             var offers = this.profileLogic.GetOffersForUser(currentUser.Id);
@@ -32,9 +34,10 @@
     public class JobOfferDto
     {
         public long Id { get; set; }
+        public string Subject { get; set; }
         public DateTime Add { get; set; }
-        public string FromDisplayName { get; set; }
-        public string ToDisplayName { get; set; }
+        public string From { get; set; }
+        public string To{ get; set; }
         public string Description { get; set; }
         public OfferStatus OfferStatus { get; set; }
     }

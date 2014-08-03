@@ -11,7 +11,9 @@ namespace DreamJob.Database.EntityFramework
     {
         public DreamJobContext(string connectionName)
             : base(connectionName)
-        {}
+        {
+            this.Configuration.LazyLoadingEnabled = false;
+        }
 
         public DreamJobContext():this("dreamjob.db")
         { }

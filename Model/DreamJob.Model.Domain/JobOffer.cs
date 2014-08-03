@@ -10,6 +10,7 @@
         public long FromRecruiterId { get; set; }
         public Developer ToDeveloper { get; set; }
         public long ToDeveloperId { get; set; }
+        public string Subject { get; set; }
         public string Description { get; set; }
         public OfferStatus OfferStatus { get; set; }
         public long MinSalary { get; set; }

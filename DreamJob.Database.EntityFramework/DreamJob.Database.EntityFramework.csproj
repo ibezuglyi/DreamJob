@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201407311828021_AddedConfirmations.Designer.cs">
       <DependentUpon>201407311828021_AddedConfirmations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408032115102_job offer with subject.cs" />
+    <Compile Include="Migrations\201408032115102_job offer with subject.Designer.cs">
+      <DependentUpon>201408032115102_job offer with subject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -76,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407311828021_AddedConfirmations.resx">
       <DependentUpon>201407311828021_AddedConfirmations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408032115102_job offer with subject.resx">
+      <DependentUpon>201408032115102_job offer with subject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

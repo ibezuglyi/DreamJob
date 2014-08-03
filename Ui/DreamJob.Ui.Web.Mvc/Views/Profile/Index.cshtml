@@ -39,8 +39,19 @@
 
 <div class='dj-profile-application' ng-app='djpa' ng-controller='ProfileController'>
     <div class="row">
-        <button class="btn" ng-click='foo()'>fetch</button>
-    </div>"
+        <button class="btn" ng-click='foo()' ng-init=init()>fetch</button>
+        <div id='dj-offers-container' class="row">
+            <div class="medium-4 columns">
+                <div ng-repeat="offer in offers">
+                    <div class="row">
+                        <span>{{offer.Add}}</span>
+                        <span>{{offer.Subject}}</span>
+                        <span>{{offer.From}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

@@ -1,9 +1,15 @@
 angular.module('djpa', [])
     .controller('ProfileController', function ($scope, $http) {
 
+        $scope.offers = [];
+
+        $scope.init = function () {
+            this.foo();
+        }
+
         $scope.foo = function () {
-            $http.get('offers/get').success(function (response) {
-                alert(response);
+            $http.get('offers/MyOffers').success(function (response) {
+                $scope.offers = response;
             });
         }
     });

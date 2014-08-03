@@ -53,7 +53,9 @@ namespace DreamJob.Ui.Web.Mvc
             AutoMapper.Mapper.CreateMap<User, LoginUserDto>();
             AutoMapper.Mapper.CreateMap<User, UserProfileDto>();
 
-            AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDto>();
+            AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDto>()
+                .ForMember(d => d.From, o => o.MapFrom(s => s.FromRecruiter.DisplayName))
+                .ForMember(d => d.To, o => o.MapFrom(s => s.FromRecruiter.DisplayName));
         }
 
         public static IContainer AutofacInitialize()
