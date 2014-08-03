@@ -2,8 +2,6 @@
 {
     using System.Web.Mvc;
 
-    using DreamJob.Ui.Web.Mvc.Areas.Api.Controllers;
-
     public class OffersController:Controller
     {
         private readonly IOffersLogic profileLogic;
@@ -22,7 +20,16 @@
         {
             var currentUser = this.session.GetCurrentUser().Data;
             var offers = this.profileLogic.GetOffersForUser(currentUser.Id);
-            var result = new JsonResult { Data = offers, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            var result = new JsonResult { Data = offers.Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            return result;
+        }
+
+        [HttpGet]
+        [Authorize]
+        public JsonResult OfferDetails(long id)
+        {
+            var offer = this.profileLogic.GetDetailsForOffer(id);
+            var result = new JsonResult { Data = offer.Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             return result;
         }
     }

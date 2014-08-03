@@ -4,6 +4,9 @@ using DreamJob.Ui.Web.Mvc.Repositories;
 
 namespace DreamJob.Ui.Web.Mvc.Services
 {
+    using DreamJob.Common.Enum;
+    using DreamJob.Ui.Web.Mvc.Controllers;
+
     public class OfferService : IOfferService
     {
         private readonly IOffersRepository offersRepository;
@@ -13,10 +16,24 @@ namespace DreamJob.Ui.Web.Mvc.Services
             this.offersRepository = offersRepository;
         }
 
-        public List<JobOffer> GetOffers(long userId)
+        public DjOperationResult<List<JobOffer>> GetOffers(long userId)
         {
             var offers = this.offersRepository.OffersTo(userId);
-            return offers;
+            var result = new DjOperationResult<List<JobOffer>>(offers.Data);
+            return result;
+        }
+
+        public DjOperationResult<JobOfferDetailsDto> GetDetails(long offerId)
+        {
+            var offerResult = this.offersRepository.GetDetails(offerId);
+            if (offerResult.IsSuccess == false)
+            {
+                return new DjOperationResult<JobOfferDetailsDto>(false, offerResult.Errors);
+            }
+            var offerData = offerResult.Data;
+            var resultData = AutoMapper.Mapper.Map<JobOffer, JobOfferDetailsDto>(offerData);
+            var result = new DjOperationResult<JobOfferDetailsDto>(resultData);
+            return result;
         }
     }
 }

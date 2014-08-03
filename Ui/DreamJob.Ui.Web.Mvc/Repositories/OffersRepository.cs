@@ -7,6 +7,8 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
 {
     using System.Data.Entity;
 
+    using DreamJob.Common.Enum;
+
     public class OffersRepository : IOffersRepository
     {
         private readonly DreamJobContext context;
@@ -16,13 +18,26 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
             this.context = context;
         }
 
-        public List<JobOffer> OffersTo(long userId)
+        public DjOperationResult<List<JobOffer>> OffersTo(long userId)
         {
             var offers = this.context
                 .JobOffers.Where(x => x.ToDeveloperId == userId)
                 .Include(offer=>offer.FromRecruiter)
                 .ToList();
-            return offers;
+            var result = new DjOperationResult<List<JobOffer>>(offers);
+            return result;
+        }
+
+        public DjOperationResult<JobOffer> GetDetails(long offerId)
+        {
+            var jobOffer = this.context.JobOffers.Include(offer => offer.FromRecruiter)
+                .Include(offer => offer.ToDeveloper)
+                .Include(offer => offer.JobOfferComments)
+                .Include(offer => offer.JobOfferComments.Select(c => c.Author))
+                .Single(offer => offer.Id == offerId);
+
+            var result = new DjOperationResult<JobOffer>(jobOffer);
+            return result;
         }
     }
 }

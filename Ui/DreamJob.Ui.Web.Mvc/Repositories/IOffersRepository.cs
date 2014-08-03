@@ -3,8 +3,11 @@ using DreamJob.Model.Domain;
 
 namespace DreamJob.Ui.Web.Mvc.Repositories
 {
+    using DreamJob.Common.Enum;
+
     public interface IOffersRepository
     {
-        List<JobOffer> OffersTo(long userId);
+        DjOperationResult<List<JobOffer>> OffersTo(long userId);
+        DjOperationResult<JobOffer> GetDetails(long offerId);
     }
 }

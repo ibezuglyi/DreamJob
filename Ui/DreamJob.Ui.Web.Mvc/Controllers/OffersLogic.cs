@@ -4,8 +4,8 @@
 
     using AutoMapper;
 
+    using DreamJob.Common.Enum;
     using DreamJob.Model.Domain;
-    using DreamJob.Ui.Web.Mvc.Areas.Api.Controllers;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Services;
 
@@ -18,11 +18,17 @@
             this.offersService = offersService;
         }
 
-        public List<JobOfferDto> GetOffersForUser(long userId)
+        public DjOperationResult<List<JobOfferDto>> GetOffersForUser(long userId)
         {
             var offers = this.offersService.GetOffers(userId);
-            var result = Mapper.Map<List<JobOffer>, List<JobOfferDto>>(offers);
-            return result;
+            var result = Mapper.Map<List<JobOffer>, List<JobOfferDto>>(offers.Data);
+            return new DjOperationResult<List<JobOfferDto>>(result);
+        }
+
+        public DjOperationResult<JobOfferDetailsDto> GetDetailsForOffer(long offerId)
+        {
+            var offer = this.offersService.GetDetails(offerId);
+            return offer;
         }
     }
 }

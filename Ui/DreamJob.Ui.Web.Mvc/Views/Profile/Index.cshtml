@@ -41,12 +41,27 @@
     <div class="row">
         <button class="btn" ng-click='foo()' ng-init=init()>fetch</button>
         <div id='dj-offers-container' class="row">
-            <div class="medium-4 columns">
+            <div class="medium-3 columns">
                 <div ng-repeat="offer in offers">
-                    <div class="row">
+                    <div class='row' ng-click='details(offer.Id)'>
                         <span>{{offer.Add}}</span>
                         <span>{{offer.Subject}}</span>
                         <span>{{offer.From}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class='medium-9 columns'>
+                <div>{{details.From}}</div>
+                <div>{{details.To}}</div>
+                <div>{{details.Add}}</div>
+                <div>{{details.Status</div>
+                <div>{{details.Subject}}</div>
+                <div>{{details.Description}}</div>
+                <div ng-repeat='comment in details.Comments'>
+                    <div class='row'>
+                        <div>{{comment.Add}}</div>
+                        <div>{{comment.Author}}</div>
+                        <div>{{comment.Text}}</div>
                     </div>
                 </div>
             </div>
@@ -61,7 +76,7 @@
 <script type='text/javascript'>
     angular
         .module('djpa', [])
-        .constant('offersGet', '@Url.Action("Get", "Offers")');
+        .constant('offersGet', '@Url.Action("MyOffers", "Offers")');
 </script>
 <script src="~/Scripts/Application/Controllers/ProfileController.js"></script>
 }

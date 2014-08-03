@@ -17,7 +17,6 @@ namespace DreamJob.Ui.Web.Mvc
 
     using DreamJob.Database.EntityFramework;
     using DreamJob.Model.Domain;
-    using DreamJob.Ui.Web.Mvc.Areas.Api.Controllers;
     using DreamJob.Ui.Web.Mvc.Controllers;
 
     public class MvcApplication : System.Web.HttpApplication
@@ -54,6 +53,9 @@ namespace DreamJob.Ui.Web.Mvc
 
             AutoMapper.Mapper.CreateMap<User, LoginUserDto>();
             AutoMapper.Mapper.CreateMap<User, UserProfileDto>();
+
+            AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDetailsDto>();
+            AutoMapper.Mapper.CreateMap<JobOfferComment, JobOfferCommentDto>();
 
             AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDto>()
                 .ForMember(d => d.From, o => o.MapFrom(s => s.FromRecruiter.DisplayName))
