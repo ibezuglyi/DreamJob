@@ -39,14 +39,8 @@
 
 <div class='dj-profile-application' ng-app='djpa' ng-controller='ProfileController'>
     <div class="row">
-        {{2+2}}
-    </div>
-    <div class="row">
-        <span>testText:</span>{{testText}}
-    </div>
-    <div class="row">
-        <span>foo:</span>{{foo()}}
-    </div>
+        <button class="btn" ng-click='foo()'>fetch</button>
+    </div>"
 </div>
 
 
@@ -54,7 +48,9 @@
 <script src="~/Scripts/angular.js"></script>
 
 <script type='text/javascript'>
-    var app = angular.module('djpa', []);
+    angular
+        .module('djpa', [])
+        .constant('offersGet', '@Url.Action("Get", "Offers")');
 </script>
 <script src="~/Scripts/Application/Controllers/ProfileController.js"></script>
 }

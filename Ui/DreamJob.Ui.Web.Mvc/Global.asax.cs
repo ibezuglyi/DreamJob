@@ -18,6 +18,7 @@ namespace DreamJob.Ui.Web.Mvc
 
     using Autofac;
     using Autofac.Integration.Mvc;
+    using Autofac.Integration.WebApi;
 
     using DreamJob.Database.EntityFramework;
     using DreamJob.Model.Domain;
@@ -28,17 +29,31 @@ namespace DreamJob.Ui.Web.Mvc
     {
         protected void Application_Start()
         {
+
+            var container = AutofacInitialize();
+            var autofacDependencyResolver = new AutofacDependencyResolver(container);
+//            var autofacDependencyResolver = new AutofacWebApiDependencyResolver(container);
+
+//            DependencyResolver.SetResolver(autofacDependencyResolver);
+
+            var webApiResolver = new AutofacWebApiDependencyResolver(container);
+            GlobalConfiguration.Configuration.DependencyResolver = webApiResolver;
+
+            // Set the dependency resolver for MVC.
+            var mvcResolver = new AutofacDependencyResolver(container);
+            DependencyResolver.SetResolver(mvcResolver);
+
+
+
+            InitializeAutomapper();
+            
+            
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            var container = AutofacInitialize();
-            var autofacDependencyResolver = new AutofacDependencyResolver(container);
-            DependencyResolver.SetResolver(autofacDependencyResolver);
-
-            InitializeAutomapper();
-        }
+            
+}
 
         private void InitializeAutomapper()
         {
@@ -60,6 +75,11 @@ namespace DreamJob.Ui.Web.Mvc
             var containerBuilder = new ContainerBuilder();
 
             containerBuilder.RegisterControllers(Assembly.GetCallingAssembly());
+            containerBuilder.RegisterApiControllers(Assembly.GetCallingAssembly());
+
+
+            containerBuilder.RegisterControllers(Assembly.GetExecutingAssembly());
+            containerBuilder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             containerBuilder.RegisterType<RegisterBusiness>().As<IRegisterBusiness>();
             containerBuilder.RegisterType<LoginBusiness>().As<ILoginBusiness>();
@@ -68,6 +88,9 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<Md5PasswordHasher>().As<IPasswordHasher>();
             containerBuilder.RegisterType<RecruiterRepository>().As<IRecruiterRepository>();
             containerBuilder.RegisterType<DateTimeAdapter>().As<IDateTimeAdapter>();
+            containerBuilder.RegisterType<OffersLogic>().As<IOffersLogic>();
+            containerBuilder.RegisterType<OfferService>().As<IOfferService>();
+            containerBuilder.RegisterType<OffersRepository>().As<IOffersRepository>();
 
 
 
