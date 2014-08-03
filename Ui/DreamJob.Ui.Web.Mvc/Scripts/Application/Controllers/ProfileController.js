@@ -1,8 +1,11 @@
 angular.module('djpa', [])
     .controller('ProfileController', function ($scope, $http) {
 
-
-        $scope.getOffers = function () {};
+        $scope.foo = function () {
+            $http.get('api/offers').success(function (response) {
+                alert(response);
+            });
+        }
 
 
     });
