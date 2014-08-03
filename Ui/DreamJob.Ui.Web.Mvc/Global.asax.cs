@@ -54,8 +54,13 @@ namespace DreamJob.Ui.Web.Mvc
             AutoMapper.Mapper.CreateMap<User, LoginUserDto>();
             AutoMapper.Mapper.CreateMap<User, UserProfileDto>();
 
-            AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDetailsDto>();
-            AutoMapper.Mapper.CreateMap<JobOfferComment, JobOfferCommentDto>();
+            AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDetailsDto>()
+                .ForMember(d => d.From, o => o.MapFrom(s => s.FromRecruiter.DisplayName))
+                .ForMember(d => d.To, o => o.MapFrom(s => s.ToDeveloper.DisplayName))
+                .ForMember(d => d.OfferStatus, o => o.MapFrom(s => s.OfferStatus.ToString()));
+
+            AutoMapper.Mapper.CreateMap<JobOfferComment, JobOfferCommentDto>()
+                .ForMember(d => d.Author, o => o.MapFrom(s => s.Author.DisplayName));
 
             AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDto>()
                 .ForMember(d => d.From, o => o.MapFrom(s => s.FromRecruiter.DisplayName))

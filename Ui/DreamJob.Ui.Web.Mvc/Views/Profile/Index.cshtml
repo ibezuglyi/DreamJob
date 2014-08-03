@@ -42,26 +42,28 @@
         <button class="btn" ng-click='foo()' ng-init=init()>fetch</button>
         <div id='dj-offers-container' class="row">
             <div class="medium-3 columns">
-                <div ng-repeat="offer in offers">
+                <button ng-repeat="offer in offers" class="btn">
                     <div class='row' ng-click='details(offer.Id)'>
                         <span>{{offer.Add}}</span>
                         <span>{{offer.Subject}}</span>
                         <span>{{offer.From}}</span>
                     </div>
-                </div>
+                </button>
             </div>
             <div class='medium-9 columns'>
-                <div>{{details.From}}</div>
-                <div>{{details.To}}</div>
-                <div>{{details.Add}}</div>
-                <div>{{details.Status</div>
-                <div>{{details.Subject}}</div>
-                <div>{{details.Description}}</div>
-                <div ng-repeat='comment in details.Comments'>
-                    <div class='row'>
-                        <div>{{comment.Add}}</div>
-                        <div>{{comment.Author}}</div>
-                        <div>{{comment.Text}}</div>
+                <div>{{offerDetails.From}}</div>
+                <div>{{offerDetails.To}}</div>
+                <div>{{offerDetails.Add}}</div>
+                <div>{{offerDetails.OfferStatus}}</div>
+                <div>{{offerDetails.Subject}}</div>
+                <div>{{offerDetails.Description}}</div>
+                <div class="medium-10 columns medium-offset-2">
+                    <div ng-repeat='comment in offerDetails.JobOfferComments'>
+                        <div class='row'>
+                            <div>{{comment.Add}}</div>
+                            <div>{{comment.Author}}</div>
+                            <div>{{comment.Text}}</div>
+                        </div>
                     </div>
                 </div>
             </div>

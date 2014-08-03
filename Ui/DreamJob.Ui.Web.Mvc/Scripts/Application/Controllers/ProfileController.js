@@ -15,7 +15,7 @@ angular.module('djpa', [])
             $scope.details = function (offerId) {
                 $http.get('offers/OfferDetails/' + offerId)
                     .success(function (response) {
-                        $scope.details = response
+                        $scope.offerDetails = response
                     });
             };
         }
