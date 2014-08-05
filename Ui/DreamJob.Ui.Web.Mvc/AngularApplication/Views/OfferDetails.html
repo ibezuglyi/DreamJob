@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <span>{{offer.From}}</span>
+            <span>{{offer.To}}</span>
+        </div>
+        <div class="row">
+            <span>{{offer.Add}}</span>
+            <span>{{offer.Subject}}</span>
+        </div>
+        <div class="row">
+            <span>{{offer.Description}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row" ng-repeat="comment in offer.JobOfferComments">
+            <div class="medium-offset-1 columns">
+                <div class="row">
+                    <span>{{comment.Author}}</span>
+                    <span>{{comment.Add}}</span>
+                </div>
+                <div class="row">
+                    <span>{{comment.Text}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

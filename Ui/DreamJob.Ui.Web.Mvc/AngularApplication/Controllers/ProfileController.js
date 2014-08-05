@@ -2,6 +2,8 @@ angular.module('djpa', [])
     .controller('ProfileController', function ($scope, $http) {
 
         $scope.offers = [];
+        $scope.offer = '';
+
 
         $scope.init = function () {
             this.foo();
@@ -15,7 +17,7 @@ angular.module('djpa', [])
             $scope.details = function (offerId) {
                 $http.get('offers/OfferDetails/' + offerId)
                     .success(function (response) {
-                        $scope.offerDetails = response
+                        $scope.offer = response
                     });
             };
         }

@@ -37,9 +37,8 @@
     </div>
 </div>
 
-<div class='dj-profile-application' ng-app='djpa' ng-controller='ProfileController'>
+<div class='dj-profile-application' ng-app='djpa' ng-controller='ProfileController' ng-init='init()'>
     <div class="row">
-        <button class="btn" ng-click='foo()' ng-init=init()>fetch</button>
         <div id='dj-offers-container' class="row">
             <div class="medium-3 columns">
                 <button ng-repeat="offer in offers" class="btn">
@@ -50,22 +49,7 @@
                     </div>
                 </button>
             </div>
-            <div class='medium-9 columns'>
-                <div>{{offerDetails.From}}</div>
-                <div>{{offerDetails.To}}</div>
-                <div>{{offerDetails.Add}}</div>
-                <div>{{offerDetails.OfferStatus}}</div>
-                <div>{{offerDetails.Subject}}</div>
-                <div>{{offerDetails.Description}}</div>
-                <div class="medium-10 columns medium-offset-2">
-                    <div ng-repeat='comment in offerDetails.JobOfferComments'>
-                        <div class='row'>
-                            <div>{{comment.Add}}</div>
-                            <div>{{comment.Author}}</div>
-                            <div>{{comment.Text}}</div>
-                        </div>
-                    </div>
-                </div>
+            <div ng-include="'AngularApplication/Views/OfferDetails.html'" class="medium-9 columns">
             </div>
         </div>
     </div>
@@ -80,6 +64,6 @@
         .module('djpa', [])
         .constant('offersGet', '@Url.Action("MyOffers", "Offers")');
 </script>
-<script src="~/Scripts/Application/Controllers/ProfileController.js"></script>
+<script src="~/AngularApplication/Controllers/ProfileController.js"></script>
 }
 
