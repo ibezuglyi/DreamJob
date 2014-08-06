@@ -1,0 +1,15 @@
+<div class="row" ng-controller='ProfileController' ng-init='init()'>
+    <div id='dj-offers-container' class="row">
+        <div class="medium-3 columns">
+            <button ng-repeat="offer in offers" class="btn">
+                <div ng-click='details(offer.Id)'>
+                    <span>{{offer.Add}}</span>
+                    <span>{{offer.Subject}}</span>
+                    <span>{{offer.From}}</span>
+                </div>
+            </button>
+        </div>
+        <div ng-include="'AngularApplication/Views/Offers/Details.html'" class="medium-9 columns">
+        </div>
+    </div>
+</div>

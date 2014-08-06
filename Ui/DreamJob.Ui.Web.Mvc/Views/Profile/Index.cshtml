@@ -37,33 +37,13 @@
     </div>
 </div>
 
-<div class='dj-profile-application' ng-app='djpa' ng-controller='ProfileController' ng-init='init()'>
-    <div class="row">
-        <div id='dj-offers-container' class="row">
-            <div class="medium-3 columns">
-                <button ng-repeat="offer in offers" class="btn">
-                    <div ng-click='details(offer.Id)'>
-                        <span>{{offer.Add}}</span>
-                        <span>{{offer.Subject}}</span>
-                        <span>{{offer.From}}</span>
-                    </div>
-                </button>
-            </div>
-            <div ng-include="'AngularApplication/Views/OfferDetails.html'" class="medium-9 columns">
-            </div>
-        </div>
-    </div>
+<div ng-app='djpa'>
+    <div ng-include='"AngularApplication/Views/Profile/Index.html"'></div>
 </div>
 
 
 @section scripts{
 <script src="~/Scripts/angular.js"></script>
-
-<script type='text/javascript'>
-    angular
-        .module('djpa', [])
-        .constant('offersGet', '@Url.Action("MyOffers", "Offers")');
-</script>
+<script src='~/AngularApplication/profileApplication.js'></script>
 <script src="~/AngularApplication/Controllers/ProfileController.js"></script>
 }
-
