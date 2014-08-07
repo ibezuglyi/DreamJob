@@ -2,7 +2,10 @@ angular.module('djpa', [])
     .controller('ProfileController', function ($scope, $http) {
 
         $scope.offers = [];
-        $scope.offer = '';
+        $scope.offer = {};
+        $scope.comment = {
+            text: ''
+        };
 
 
         $scope.init = function () {
@@ -20,5 +23,13 @@ angular.module('djpa', [])
                         $scope.offer = response
                     });
             };
+
+            $scope.addOfferComment = function () {
+                var data = {
+                    offerId: $scope.offer.Id,
+                    text: $scope.comment.text
+                };
+                $http.post('comments/add', data);
+            }
         }
     });

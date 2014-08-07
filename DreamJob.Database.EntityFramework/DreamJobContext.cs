@@ -88,6 +88,7 @@ namespace DreamJob.Database.EntityFramework
         public DbSet<Developer> Developers { get; set; }
         public DbSet<Recruiter> Recruiters { get; set; }
         public DbSet<JobOffer> JobOffers { get; set; }
+        public DbSet<JobOfferComment> JobOffersComments { get; set; }
         public DbSet<Skill> Skills { get; set; }
     }
 }

@@ -34,6 +34,13 @@ namespace DreamJob.Ui.Web.Mvc
 
 
 
+            containerBuilder.RegisterType<CommentsLogic>().As<ICommentsLogic>();
+            containerBuilder.RegisterType<CommentService>().As<ICommentService>();
+            containerBuilder.RegisterType<CommentsRepository>().As<ICommentsRepository>();
+
+
+
+
             containerBuilder.RegisterType<FormAuthentication>().As<IAuthentication>();
             containerBuilder.RegisterType<LoginService>().As<ILoginService>();
             containerBuilder.RegisterType<Session>().As<ISession>();
