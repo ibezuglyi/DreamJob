@@ -3,6 +3,7 @@ angular.module('djpa', [])
 
         $scope.offers = [];
         $scope.offer = {};
+        $scope.offerComments = [];
         $scope.comment = {
             text: ''
         };
@@ -21,6 +22,7 @@ angular.module('djpa', [])
                 $http.get('offers/OfferDetails/' + offerId)
                     .success(function (response) {
                         $scope.offer = response
+                        $scope.offerComments = response.JobOfferComments;
                     });
             };
 
@@ -29,7 +31,13 @@ angular.module('djpa', [])
                     offerId: $scope.offer.Id,
                     text: $scope.comment.text
                 };
-                $http.post('comments/add', data);
+                $http.post('comments/add', data)
+                    .success(function (response) {
+                        if (response.IsSuccess) {
+                            $scope.offerComments.push(response.Data);
+                            $scope.comment.text = '';
+                        }
+                    });
             }
         }
     });

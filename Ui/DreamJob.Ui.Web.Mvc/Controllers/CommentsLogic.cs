@@ -14,19 +14,26 @@
             this.serviceComment = serviceComment;
         }
 
-        public DjOperationResult<long> AddNewComment(long offerId, string text)
+        public DjOperationResult<JobOfferCommentDto> AddNewComment(long offerId, string text)
         {
             var getUserResult = this.session.GetCurrentUser();
             if (getUserResult.IsSuccess == false)
             {
-                return new DjOperationResult<long>(false, getUserResult.Errors);
+                return new DjOperationResult<JobOfferCommentDto>(false, getUserResult.Errors);
             }
 
             var currentUser = getUserResult.Data;
             var currentUserId = currentUser.Id;
 
             var addCommentResult = this.serviceComment.AddNewComment(offerId, text, currentUserId);
-            return addCommentResult;
+            if (addCommentResult.IsSuccess == false)
+            {
+                return new DjOperationResult<JobOfferCommentDto>(false, addCommentResult.Errors);
+                
+            }
+
+            var getCommentResult = this.serviceComment.GetWithAuthor(addCommentResult.Data);
+            return getCommentResult;
         }
     }
 }

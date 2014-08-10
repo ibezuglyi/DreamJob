@@ -1,5 +1,9 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.Controllers
 {
+    using System.Data.Entity.Migrations.Infrastructure;
+
+    using AutoMapper;
+
     using DreamJob.Common.Enum;
     using DreamJob.Model.Domain;
     using DreamJob.Ui.Web.Mvc.Helpers;
@@ -30,6 +34,20 @@
 
             var insertResult = this.repositoryComments.Insert(jobOfferComment);
             return insertResult;
+        }
+
+        public DjOperationResult<JobOfferCommentDto> GetWithAuthor(long commentId)
+        {
+            var getOfferCommentResult = this.repositoryComments.GetWithAuthor(commentId);
+            if (getOfferCommentResult.IsSuccess == false)
+            {
+                return new DjOperationResult<JobOfferCommentDto>(false, getOfferCommentResult.Errors);
+            }
+
+            var dtoObject = Mapper.Map<JobOfferComment, JobOfferCommentDto>(getOfferCommentResult.Data);
+
+            var result = new DjOperationResult<JobOfferCommentDto>(dtoObject);
+            return result;
         }
     }
 }

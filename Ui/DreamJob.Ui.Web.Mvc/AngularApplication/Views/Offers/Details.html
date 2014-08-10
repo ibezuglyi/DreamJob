@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="row" ng-repeat="comment in offer.JobOfferComments">
+        <div class="row" ng-repeat="comment in offerComments">
             <div class="medium-offset-1 columns">
                 <div class="row">
                     <span>{{comment.Author}}</span>
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    <div class='row'>
+    <div class='row' id='dj-submit-comment'>
         <textarea ng-model='comment.text'></textarea>
         <button class='btn tiny' ng-click='addOfferComment()'>reply</button>
     </div>

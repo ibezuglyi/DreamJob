@@ -126,6 +126,7 @@
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\CommentService.cs" />
     <Compile Include="Controllers\CommentsLogic.cs" />
+    <Compile Include="Controllers\CommentsRepository.cs" />
     <Compile Include="Controllers\ICommentService.cs" />
     <Compile Include="Controllers\ICommentsLogic.cs" />
     <Compile Include="Controllers\ICommentsRepository.cs" />

@@ -4,6 +4,6 @@
 
     public interface ICommentsLogic
     {
-        DjOperationResult<long> AddNewComment(long offerId, string text);
+        DjOperationResult<JobOfferCommentDto> AddNewComment(long offerId, string text);
     }
 }
