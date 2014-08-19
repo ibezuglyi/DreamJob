@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using DreamJob.Model.Domain;
-
-namespace DreamJob.Ui.Web.Mvc.Services
+﻿namespace DreamJob.Ui.Web.Mvc.Services
 {
+    using System.Collections.Generic;
+
     using DreamJob.Common.Enum;
+    using DreamJob.Model.Domain;
     using DreamJob.Ui.Web.Mvc.Controllers;
 
     public interface IOfferService

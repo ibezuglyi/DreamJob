@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using DreamJob.Model.Domain;
-using DreamJob.Ui.Web.Mvc.Repositories;
-
-namespace DreamJob.Ui.Web.Mvc.Services
+﻿namespace DreamJob.Ui.Web.Mvc.Services
 {
+    using System.Collections.Generic;
+
     using DreamJob.Common.Enum;
+    using DreamJob.Model.Domain;
     using DreamJob.Ui.Web.Mvc.Controllers;
+    using DreamJob.Ui.Web.Mvc.Repositories;
 
     public class OfferService : IOfferService
     {

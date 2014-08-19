@@ -1,9 +1,9 @@
-﻿using DreamJob.Common.Enum;
-using DreamJob.Ui.Web.Mvc.Models.Dto;
-using DreamJob.Ui.Web.Mvc.Repositories;
-
-namespace DreamJob.Ui.Web.Mvc.Services
+﻿namespace DreamJob.Ui.Web.Mvc.Services
 {
+    using DreamJob.Common.Enum;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
+    using DreamJob.Ui.Web.Mvc.Repositories;
+
     class LoginService : ILoginService
     {
         private readonly IAuthentication authentication;

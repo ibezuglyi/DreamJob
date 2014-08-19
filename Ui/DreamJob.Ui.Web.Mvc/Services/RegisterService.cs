@@ -1,13 +1,15 @@
-﻿using System;
-using AutoMapper;
-using DreamJob.Common.Enum;
-using DreamJob.Model.Domain;
-using DreamJob.Ui.Web.Mvc.Helpers;
-using DreamJob.Ui.Web.Mvc.Models.Dto;
-using DreamJob.Ui.Web.Mvc.Repositories;
-
-namespace DreamJob.Ui.Web.Mvc.Services
+﻿namespace DreamJob.Ui.Web.Mvc.Services
 {
+    using System;
+
+    using AutoMapper;
+
+    using DreamJob.Common.Enum;
+    using DreamJob.Model.Domain;
+    using DreamJob.Ui.Web.Mvc.Helpers;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
+    using DreamJob.Ui.Web.Mvc.Repositories;
+
     public class RegisterService : IRegisterService
     {
         private readonly IDateTimeAdapter datetime;
@@ -41,7 +43,7 @@ namespace DreamJob.Ui.Web.Mvc.Services
             newConfirmation.Add = this.datetime.Now;
             newConfirmation.Edit = this.datetime.Now;
             developer.Confirmations.Add(newConfirmation);
-            
+
             this.developerRepository.Add(developer);
 
             return new DjOperationResult<string>(newConfirmation.ConfirmationCode);
@@ -58,7 +60,7 @@ namespace DreamJob.Ui.Web.Mvc.Services
                 this.passwordHasher.GetHash(string.Format("{0}-{1}={2}_a", recruiter.Login, recruiter.Email,
                     recruiter.Registered))));
             newConfirmation.Add = this.datetime.Now;
-            newConfirmation.Edit= this.datetime.Now;
+            newConfirmation.Edit = this.datetime.Now;
             recruiter.Confirmations.Add(newConfirmation);
             this.recruiterRepository.Add(recruiter);
 
@@ -67,16 +69,18 @@ namespace DreamJob.Ui.Web.Mvc.Services
 
         public void ConfirmUserRegistration(string hash)
         {
-            if(string.IsNullOrWhiteSpace(hash))
+            if (string.IsNullOrWhiteSpace(hash))
+            {
                 return;
+            }
 
             if (hash.StartsWith("R"))
             {
-                recruiterRepository.ConfirmRecruterRegistration(hash);
+                this.recruiterRepository.ConfirmRecruiterRegistration(hash);
             }
-            else if(hash.StartsWith("D"))
+            else if (hash.StartsWith("D"))
             {
-                developerRepository.ConfirmDeveloperRegistration(hash);
+                this.developerRepository.ConfirmDeveloperRegistration(hash);
             }
         }
     }
