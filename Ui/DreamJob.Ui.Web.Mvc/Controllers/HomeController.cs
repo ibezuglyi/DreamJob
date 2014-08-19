@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿namespace DreamJob.Ui.Web.Mvc.Controllers
 {
+    using System.Web.Mvc;
+
     using DreamJob.Ui.Web.Mvc.Models.Dto;
 
     [ResetSessionWhenOutOfSyncWithForms]
@@ -13,24 +9,21 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return this.View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
-            return View();
+            return this.View();
         }
     }
-
-
-    
 }

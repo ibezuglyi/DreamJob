@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    public class OffersController:Controller
+    public class OffersController : Controller
     {
         private readonly IOffersLogic profileLogic;
 

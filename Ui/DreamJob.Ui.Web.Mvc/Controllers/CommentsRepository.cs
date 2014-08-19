@@ -1,11 +1,11 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.Controllers
 {
+    using System.Data.Entity;
     using System.Linq;
 
     using DreamJob.Common.Enum;
     using DreamJob.Database.EntityFramework;
     using DreamJob.Model.Domain;
-    using System.Data.Entity;
 
     public class CommentsRepository : ICommentsRepository
     {

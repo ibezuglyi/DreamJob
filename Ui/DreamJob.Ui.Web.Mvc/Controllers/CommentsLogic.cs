@@ -29,7 +29,6 @@
             if (addCommentResult.IsSuccess == false)
             {
                 return new DjOperationResult<JobOfferCommentDto>(false, addCommentResult.Errors);
-                
             }
 
             var getCommentResult = this.serviceComment.GetWithAuthor(addCommentResult.Data);

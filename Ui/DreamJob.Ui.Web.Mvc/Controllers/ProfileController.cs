@@ -1,12 +1,9 @@
-﻿using DreamJob.Ui.Web.Mvc.BusinessServices;
-
-namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System;
-    using System.Linq;
     using System.Web.Mvc;
 
-    using DreamJob.Common.Enum;
+    using DreamJob.Ui.Web.Mvc.BusinessServices;
 
     [Authorize]
     public class ProfileController : Controller
@@ -21,29 +18,21 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            return this.View("Index");
+        }
 
+        [HttpGet]
+        public JsonResult CurrentUser()
+        {
             var getprofileResult = this.profileBusiness.GetCurrentUserProfile();
             if (getprofileResult.IsSuccess)
             {
-                return this.View("Index", getprofileResult.Data);
+                var result = this.Json(getprofileResult.Data, JsonRequestBehavior.AllowGet);
             }
 
             throw new InvalidOperationException(
                 string.Join(
-                    ";",getprofileResult.Errors));
+                    ";", getprofileResult.Errors));
         }
-    }
-
-    public class UserProfileDto
-    {
-        public string DisplayName { get; set; }
-
-        public string Email { get; set; }
-
-        public string Login { get; set; }
-
-        public DateTime Registered { get; set; }
-
-        public UserAccountType AccountType { get; set; }
     }
 }

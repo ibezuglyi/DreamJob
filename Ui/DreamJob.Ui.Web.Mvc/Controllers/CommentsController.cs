@@ -16,7 +16,7 @@
         public JsonResult Add(long offerId, string text)
         {
             var result = this.commentsLogic.AddNewComment(offerId, text);
-            return Json(result);
+            return this.Json(result);
         }
     }
 }

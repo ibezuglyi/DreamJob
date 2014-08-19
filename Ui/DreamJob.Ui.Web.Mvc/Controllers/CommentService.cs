@@ -1,7 +1,5 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.Controllers
 {
-    using System.Data.Entity.Migrations.Infrastructure;
-
     using AutoMapper;
 
     using DreamJob.Common.Enum;
