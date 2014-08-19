@@ -1,9 +1,9 @@
-﻿using System.Security.Cryptography;
-using System.Text;
-
-namespace DreamJob.Ui.Web.Mvc.Helpers
+﻿namespace DreamJob.Ui.Web.Mvc.Helpers
 {
-    class Md5PasswordHasher : IPasswordHasher
+    using System.Security.Cryptography;
+    using System.Text;
+
+    public class Md5PasswordHasher : IPasswordHasher
     {
         public string GetHash(string password)
         {
@@ -11,11 +11,12 @@ namespace DreamJob.Ui.Web.Mvc.Helpers
             byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(password);
             byte[] hash = md5.ComputeHash(inputBytes);
 
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             for (int i = 0; i < hash.Length; i++)
             {
                 sb.Append(hash[i].ToString("X2"));
             }
+
             return sb.ToString();
         }
     }

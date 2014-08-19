@@ -1,20 +1,9 @@
-﻿using System;
-
-namespace DreamJob.Ui.Web.Mvc.Helpers
+﻿namespace DreamJob.Ui.Web.Mvc.Helpers
 {
+    using System;
+
     public interface IDateTimeAdapter
     {
         DateTime Now { get; }
-    }
-
-    class DateTimeAdapter : IDateTimeAdapter
-    {
-        public DateTime Now
-        {
-            get
-            {
-                return DateTime.Now;
-            }
-        }
     }
 }
