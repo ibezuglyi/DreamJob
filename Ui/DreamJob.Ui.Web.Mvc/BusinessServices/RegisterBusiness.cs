@@ -1,12 +1,11 @@
-﻿using DreamJob.Common.Enum;
-using DreamJob.Ui.Web.Mvc.Controllers;
-using DreamJob.Ui.Web.Mvc.Models;
-using DreamJob.Ui.Web.Mvc.Models.Dto;
-using DreamJob.Ui.Web.Mvc.Services;
-
-namespace DreamJob.Ui.Web.Mvc.BusinessServices
+﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
-    class RegisterBusiness : IRegisterBusiness
+    using DreamJob.Common.Enum;
+    using DreamJob.Ui.Web.Mvc.Models;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
+    using DreamJob.Ui.Web.Mvc.Services;
+
+    public class RegisterBusiness : IRegisterBusiness
     {
         private readonly IRegisterService registerService;
 

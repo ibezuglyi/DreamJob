@@ -1,11 +1,10 @@
-﻿using DreamJob.Common.Enum;
-using DreamJob.Ui.Web.Mvc.Controllers;
-using DreamJob.Ui.Web.Mvc.Helpers;
-using DreamJob.Ui.Web.Mvc.Models.Dto;
-using DreamJob.Ui.Web.Mvc.Services;
-
-namespace DreamJob.Ui.Web.Mvc.BusinessServices
+﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
+    using DreamJob.Common.Enum;
+    using DreamJob.Ui.Web.Mvc.Helpers;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
+    using DreamJob.Ui.Web.Mvc.Services;
+
     public class LoginBusiness : ILoginBusiness
     {
         private readonly IPasswordHasher passwordHasher;

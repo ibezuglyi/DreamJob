@@ -1,8 +1,8 @@
-﻿using DreamJob.Common.Enum;
-
-namespace DreamJob.Ui.Web.Mvc.BusinessServices
+﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
-    class LogoffBusiness : ILogoffBusiness
+    using DreamJob.Common.Enum;
+
+    public class LogoffBusiness : ILogoffBusiness
     {
         private readonly IAuthentication authentication;
 
