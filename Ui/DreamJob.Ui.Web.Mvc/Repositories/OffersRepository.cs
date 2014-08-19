@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using DreamJob.Database.EntityFramework;
-using DreamJob.Model.Domain;
-
-namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿namespace DreamJob.Ui.Web.Mvc.Repositories
 {
+    using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Linq;
 
     using DreamJob.Common.Enum;
+    using DreamJob.Database.EntityFramework;
+    using DreamJob.Model.Domain;
 
     public class OffersRepository : IOffersRepository
     {
@@ -22,7 +21,7 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
         {
             var offers = this.context
                 .JobOffers.Where(x => x.ToDeveloperId == userId)
-                .Include(offer=>offer.FromRecruiter)
+                .Include(offer => offer.FromRecruiter)
                 .ToList();
             var result = new DjOperationResult<List<JobOffer>>(offers);
             return result;

@@ -1,12 +1,13 @@
-﻿using System.Linq;
-using DreamJob.Common.Enum;
-using DreamJob.Database.EntityFramework;
-using DreamJob.Model.Domain;
-using DreamJob.Ui.Web.Mvc.Helpers;
-
-namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿namespace DreamJob.Ui.Web.Mvc.Repositories
 {
-    class UserRepository : IUserRepository
+    using System.Linq;
+
+    using DreamJob.Common.Enum;
+    using DreamJob.Database.EntityFramework;
+    using DreamJob.Model.Domain;
+    using DreamJob.Ui.Web.Mvc.Helpers;
+
+    public class UserRepository : IUserRepository
     {
         private readonly DreamJobContext context;
 
@@ -22,7 +23,7 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
         {
             var user =
                 this.context.Users
-                    .SingleOrDefault(x =>x.Login == login && x.PasswordHash == passwordHash);
+                    .SingleOrDefault(x => x.Login == login && x.PasswordHash == passwordHash);
             var result = new DjOperationResult<User>(user);
             return result;
         }

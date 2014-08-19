@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using DreamJob.Model.Domain;
-
-namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿namespace DreamJob.Ui.Web.Mvc.Repositories
 {
+    using System.Collections.Generic;
+
     using DreamJob.Common.Enum;
+    using DreamJob.Model.Domain;
 
     public interface IOffersRepository
     {

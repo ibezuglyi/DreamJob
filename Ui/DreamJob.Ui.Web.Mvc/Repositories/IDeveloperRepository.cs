@@ -1,7 +1,7 @@
-﻿using DreamJob.Model.Domain;
-
-namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿namespace DreamJob.Ui.Web.Mvc.Repositories
 {
+    using DreamJob.Model.Domain;
+
     public interface IDeveloperRepository
     {
         void Add(Developer developer);

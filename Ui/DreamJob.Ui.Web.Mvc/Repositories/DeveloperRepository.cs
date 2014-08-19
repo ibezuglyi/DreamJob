@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using DreamJob.Database.EntityFramework;
-using DreamJob.Model.Domain;
-using DreamJob.Ui.Web.Mvc.Controllers;
-
-namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿namespace DreamJob.Ui.Web.Mvc.Repositories
 {
-    class DeveloperRepository : IDeveloperRepository
+    using System.Linq;
+
+    using DreamJob.Database.EntityFramework;
+    using DreamJob.Model.Domain;
+
+    public class DeveloperRepository : IDeveloperRepository
     {
         private readonly DreamJobContext context;
 
@@ -22,10 +22,10 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
 
         public void ConfirmDeveloperRegistration(string hash)
         {
-            var developer = this.context.Developers.SingleOrDefault(r => r.Confirmations.Any(t=>t.ConfirmationCode == hash));
+            var developer = this.context.Developers.SingleOrDefault(r => r.Confirmations.Any(t => t.ConfirmationCode == hash));
             if (developer != null)
             {
-                context.Entry(developer).Collection(r => r.Confirmations).Load();
+                this.context.Entry(developer).Collection(r => r.Confirmations).Load();
                 var confirmation = developer.Confirmations.Single(r => r.ConfirmationCode == hash);
                 developer.Confirmations.Remove(confirmation);
                 developer.IsActive = true;

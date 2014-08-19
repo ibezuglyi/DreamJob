@@ -1,10 +1,10 @@
-﻿using DreamJob.Model.Domain;
-
-namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿namespace DreamJob.Ui.Web.Mvc.Repositories
 {
+    using DreamJob.Model.Domain;
+
     public interface IRecruiterRepository
     {
         void Add(Recruiter recruiter);
-        void ConfirmRecruterRegistration(string hash);
+        void ConfirmRecruiterRegistration(string hash);
     }
 }

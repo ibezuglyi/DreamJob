@@ -1,10 +1,11 @@
-﻿using System.Linq;
-using DreamJob.Database.EntityFramework;
-using DreamJob.Model.Domain;
-
-namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿namespace DreamJob.Ui.Web.Mvc.Repositories
 {
-    class RecruiterRepository : IRecruiterRepository
+    using System.Linq;
+
+    using DreamJob.Database.EntityFramework;
+    using DreamJob.Model.Domain;
+
+    public class RecruiterRepository : IRecruiterRepository
     {
         private readonly DreamJobContext context;
 
@@ -19,15 +20,15 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
             this.context.SaveChanges();
         }
 
-        public void ConfirmRecruterRegistration(string hash)
+        public void ConfirmRecruiterRegistration(string hash)
         {
-            var recruter = this.context.Recruiters.SingleOrDefault(r => r.Confirmations.Any(t=>t.ConfirmationCode == hash));
-            if (recruter != null)
+            var recruiter = this.context.Recruiters.SingleOrDefault(r => r.Confirmations.Any(t => t.ConfirmationCode == hash));
+            if (recruiter != null)
             {
-                context.Entry(recruter).Collection(r => r.Confirmations).Load();
-                var confirmation = recruter.Confirmations.Single(r => r.ConfirmationCode == hash);
-                recruter.Confirmations.Remove(confirmation);
-                recruter.IsActive = true;
+                this.context.Entry(recruiter).Collection(r => r.Confirmations).Load();
+                var confirmation = recruiter.Confirmations.Single(r => r.ConfirmationCode == hash);
+                recruiter.Confirmations.Remove(confirmation);
+                recruiter.IsActive = true;
                 this.context.SaveChanges();
             }
         }
