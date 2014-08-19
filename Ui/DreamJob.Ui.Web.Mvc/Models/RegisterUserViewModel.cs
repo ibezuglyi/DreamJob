@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Web;
-using DreamJob.Ui.Web.Mvc.Models.Dto;
-
-namespace DreamJob.Ui.Web.Mvc.Models
+﻿namespace DreamJob.Ui.Web.Mvc.Models
 {
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
+
     public class UserRegistrationViewModel
     {
-        public UserRegistrationDto User { get; set; }
-
         public UserRegistrationViewModel()
         {
             this.User = new UserRegistrationDto();
         }
+
+        public UserRegistrationDto User { get; set; }
     }
 }

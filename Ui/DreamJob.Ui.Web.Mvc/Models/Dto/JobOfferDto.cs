@@ -1,8 +1,6 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.Models.Dto
 {
     using System;
-    using System.Net;
-    using System.Security.Policy;
 
     using DreamJob.Common.Enum;
 

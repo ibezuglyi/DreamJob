@@ -16,7 +16,9 @@
                 {
                     session.Clear();
                     FormsAuthentication.SignOut();
-                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Login", action = "Index" }));
+                    filterContext.Result =
+                        new RedirectToRouteResult(
+                            new RouteValueDictionary(new { controller = "Login", action = "Index" }));
                     filterContext.Result.ExecuteResult(filterContext.Controller.ControllerContext);
 
                 }
