@@ -1,4 +1,4 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿namespace DreamJob.Ui.Web.Mvc.Models.Dto
 {
     using System;
     using System.Collections.Generic;

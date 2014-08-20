@@ -123,6 +123,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AutofacDI.cs" />
+    <Compile Include="BusinessServices\ProfileBusiness.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\CommentService.cs" />
     <Compile Include="Controllers\CommentsLogic.cs" />
@@ -130,6 +131,10 @@
     <Compile Include="Controllers\ICommentService.cs" />
     <Compile Include="Controllers\ICommentsLogic.cs" />
     <Compile Include="Controllers\ICommentsRepository.cs" />
+    <Compile Include="Helpers\DateTimeAdapter.cs" />
+    <Compile Include="Models\Dto\JobOfferCommentDto.cs" />
+    <Compile Include="Models\Dto\JobOfferDetailsDto.cs" />
+    <Compile Include="Models\Dto\UserProfileDto.cs" />
     <Compile Include="DjAutoMapper.cs" />
     <Compile Include="Models\Dto\JobOfferDto.cs" />
     <Compile Include="Models\Dto\ResetSessionWhenOutOfSyncWithForms.cs" />

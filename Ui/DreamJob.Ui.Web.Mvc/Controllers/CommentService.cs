@@ -5,6 +5,7 @@
     using DreamJob.Common.Enum;
     using DreamJob.Model.Domain;
     using DreamJob.Ui.Web.Mvc.Helpers;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
 
     public class CommentService : ICommentService
     {

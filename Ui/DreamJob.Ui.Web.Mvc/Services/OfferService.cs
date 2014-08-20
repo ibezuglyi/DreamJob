@@ -5,6 +5,7 @@
     using DreamJob.Common.Enum;
     using DreamJob.Model.Domain;
     using DreamJob.Ui.Web.Mvc.Controllers;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Repositories;
 
     public class OfferService : IOfferService

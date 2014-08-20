@@ -3,7 +3,7 @@
     using DreamJob.Common.Enum;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
 
-    internal interface IRegisterService
+    public interface IRegisterService
     {
         DjOperationResult<string> AddNewDeveloper(UserRegistrationDto model);
         DjOperationResult<string> AddNewRecruiter(UserRegistrationDto model);
