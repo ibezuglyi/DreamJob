@@ -1,4 +1,4 @@
 (function () {
     var profileApplication = angular
-        .module('djpa', ['ngRoute']);        
+        .module('djpa', ['ngRoute']);
 })()

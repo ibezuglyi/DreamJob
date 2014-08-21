@@ -1,6 +1,5 @@
 @model DreamJob.Ui.Web.Mvc.Models.Dto.UserProfileDto
 
-
 <div class="row">
     <div class="medium-4 columns">
         <div class="row">
@@ -36,14 +35,12 @@
         </div>
     </div>
 </div>
-
 <div ng-app='djpa'>
     <div ng-include='"AngularApplication/Views/Profile/Index.html"'></div>
 </div>
 
-
 @section scripts{
-<script src="~/Scripts/angular.js"></script>
-<script src='~/AngularApplication/profileApplication.js'></script>
-<script src="~/AngularApplication/Controllers/OffersController.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src='~/AngularApplication/profileApplication.js'></script>
+    <script src="~/AngularApplication/Controllers/OffersController.js"></script>
 }
