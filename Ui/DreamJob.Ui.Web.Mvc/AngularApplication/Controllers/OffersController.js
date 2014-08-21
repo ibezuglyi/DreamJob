@@ -1,5 +1,5 @@
 angular.module('djpa', [])
-    .controller('OffersController', function ($scope, $http) {
+    .controller('OfferController', function ($scope, $http) {
 
         $scope.offers = [];
         $scope.offer = {};

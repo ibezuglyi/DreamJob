@@ -1,9 +1,9 @@
-﻿using DreamJob.Ui.Web.Mvc.BusinessServices;
-using DreamJob.Ui.Web.Mvc.Models.Dto;
-
-namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
+
+    using DreamJob.Ui.Web.Mvc.BusinessServices;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
 
     public class LoginController : Controller
     {

@@ -1,7 +1,9 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.Repositories
 {
+    using System.Collections.Generic;
     using System.Linq;
 
+    using DreamJob.Common.Enum;
     using DreamJob.Database.EntityFramework;
     using DreamJob.Model.Domain;
 
@@ -31,6 +33,13 @@
                 developer.IsActive = true;
                 this.context.SaveChanges();
             }
+        }
+
+        public DjOperationResult<List<Developer>> All()
+        {
+            var all = this.context.Developers.ToList();
+            var operationResult = new DjOperationResult<List<Developer>>(all);
+            return operationResult;
         }
     }
 }

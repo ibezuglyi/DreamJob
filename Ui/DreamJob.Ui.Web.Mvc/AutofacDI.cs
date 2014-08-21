@@ -27,14 +27,14 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<Md5PasswordHasher>().As<IPasswordHasher>();
             containerBuilder.RegisterType<RecruiterRepository>().As<IRecruiterRepository>();
             containerBuilder.RegisterType<DateTimeAdapter>().As<IDateTimeAdapter>();
-            containerBuilder.RegisterType<OffersLogic>().As<IOffersLogic>();
+            containerBuilder.RegisterType<OffersBusiness>().As<IOffersBusiness>();
             containerBuilder.RegisterType<OfferService>().As<IOfferService>();
             containerBuilder.RegisterType<OffersRepository>().As<IOffersRepository>();
 
 
 
 
-            containerBuilder.RegisterType<CommentsLogic>().As<ICommentsLogic>();
+            containerBuilder.RegisterType<CommentsBusiness>().As<ICommentBusiness>();
             containerBuilder.RegisterType<CommentService>().As<ICommentService>();
             containerBuilder.RegisterType<CommentsRepository>().As<ICommentsRepository>();
 
@@ -48,14 +48,15 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<UserService>().As<IUserService>();
             containerBuilder.RegisterType<LogoffBusiness>().As<ILogoffBusiness>();
             containerBuilder.RegisterType<ProfileBusiness>().As<IProfileBusiness>();
-            
-            
-            
-            
+
+            containerBuilder.RegisterType<DeveloperBusiness>().As<IDeveloperBusiness>();
+            containerBuilder.RegisterType<DeveloperService>().As<IDeveloperService>();
+            containerBuilder.RegisterType<DeveloperRepository>().As<IDeveloperRepository>();
+
             containerBuilder.RegisterType<DreamJobContext>().InstancePerRequest();
 
 
-            var container= containerBuilder.Build();
+            var container = containerBuilder.Build();
             return container;
         }
     }

@@ -124,13 +124,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AutofacDI.cs" />
     <Compile Include="BusinessServices\ProfileBusiness.cs" />
-    <Compile Include="Controllers\CommentsController.cs" />
-    <Compile Include="Controllers\CommentService.cs" />
-    <Compile Include="Controllers\CommentsLogic.cs" />
-    <Compile Include="Controllers\CommentsRepository.cs" />
-    <Compile Include="Controllers\ICommentService.cs" />
-    <Compile Include="Controllers\ICommentsLogic.cs" />
-    <Compile Include="Controllers\ICommentsRepository.cs" />
+    <Compile Include="Controllers\AllDevelopersViewModel.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\DeveloperBusiness.cs" />
+    <Compile Include="Controllers\DeveloperController.cs" />
+    <Compile Include="Controllers\IDeveloperBusiness.cs" />
+    <Compile Include="Controllers\IDeveloperService.cs" />
+    <Compile Include="Services\CommentService.cs" />
+    <Compile Include="BusinessServices\CommentsBusiness.cs" />
+    <Compile Include="Repositories\CommentsRepository.cs" />
+    <Compile Include="Services\ICommentService.cs" />
+    <Compile Include="BusinessServices\ICommentBusiness.cs" />
+    <Compile Include="Repositories\ICommentsRepository.cs" />
     <Compile Include="Helpers\DateTimeAdapter.cs" />
     <Compile Include="Models\Dto\JobOfferCommentDto.cs" />
     <Compile Include="Models\Dto\JobOfferDetailsDto.cs" />
@@ -139,11 +144,11 @@
     <Compile Include="Models\Dto\JobOfferDto.cs" />
     <Compile Include="Models\Dto\ResetSessionWhenOutOfSyncWithForms.cs" />
     <Compile Include="Services\IOfferService.cs" />
-    <Compile Include="Controllers\IOffersLogic.cs" />
+    <Compile Include="BusinessServices\IOffersBusiness.cs" />
     <Compile Include="Repositories\IOffersRepository.cs" />
-    <Compile Include="Controllers\OffersController.cs" />
+    <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Services\OfferService.cs" />
-    <Compile Include="Controllers\OffersLogic.cs" />
+    <Compile Include="BusinessServices\OffersBusiness.cs" />
     <Compile Include="Repositories\OffersRepository.cs" />
     <Compile Include="Repositories\DeveloperRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -563,6 +568,8 @@
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Developer\Index.cshtml" />
+    <Content Include="Views\Developer\_DeveloperShortInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

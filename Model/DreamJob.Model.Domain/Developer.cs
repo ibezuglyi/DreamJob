@@ -1,10 +1,15 @@
 ﻿namespace DreamJob.Model.Domain
 {
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
 
     public class Developer : User
     {
+        public Developer()
+        {
+            this.Skills = new List<Skill>();
+            this.JobOffersReceived = new List<JobOffer>();
+        }
+        
         public long DeveloperId { get; set; }
         public string Title { get; set; }
         public string Profile { get; set; }
@@ -13,11 +18,5 @@
         public string City { get; set; }
         public List<Skill> Skills { get; set; }
         public List<JobOffer> JobOffersReceived { get; set; }
-
-        public Developer()
-        {
-            this.Skills = new List<Skill>();            
-            this.JobOffersReceived = new List<JobOffer>();
-        }
     }
 }

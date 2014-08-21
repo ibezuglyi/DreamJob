@@ -13,11 +13,13 @@ namespace DreamJob.Ui.Web.Mvc
             AutoMapper.Mapper.CreateMap<UserRegistrationDto, Developer>()
                 .ForMember(r => r.Edit, o => o.UseValue(DateTime.Now))
                 .ForMember(r => r.Add, o => o.UseValue(DateTime.Now));
+
             AutoMapper.Mapper.CreateMap<UserRegistrationDto, Recruiter>()
                 .ForMember(r => r.Edit, o => o.UseValue(DateTime.Now))
                 .ForMember(r => r.Add, o => o.UseValue(DateTime.Now));
 
             AutoMapper.Mapper.CreateMap<User, LoginUserDto>();
+
             AutoMapper.Mapper.CreateMap<User, UserProfileDto>();
 
             AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDetailsDto>()
@@ -31,6 +33,8 @@ namespace DreamJob.Ui.Web.Mvc
             AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDto>()
                 .ForMember(d => d.From, o => o.MapFrom(s => s.FromRecruiter.DisplayName))
                 .ForMember(d => d.To, o => o.MapFrom(s => s.FromRecruiter.DisplayName));
-        } 
+
+            AutoMapper.Mapper.CreateMap<Developer, DeveloperShortInformationDto>();
+        }
     }
 }

@@ -1,0 +1,6 @@
+﻿@model DreamJob.Ui.Web.Mvc.Controllers.AllDevelopersViewModel
+
+@foreach (var devShortInfo in Model.Developers)
+{
+    @Html.Partial("_DeveloperShortInfo", devShortInfo)
+}
