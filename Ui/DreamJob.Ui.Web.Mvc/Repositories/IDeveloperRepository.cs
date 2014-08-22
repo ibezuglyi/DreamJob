@@ -11,5 +11,7 @@
         void ConfirmDeveloperRegistration(string hash);
 
         DjOperationResult<List<Developer>> All();
+
+        DjOperationResult<Developer> GetById(long developerId);
     }
 }

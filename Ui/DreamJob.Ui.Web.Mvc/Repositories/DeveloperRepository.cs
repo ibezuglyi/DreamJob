@@ -41,5 +41,13 @@
             var operationResult = new DjOperationResult<List<Developer>>(all);
             return operationResult;
         }
+
+        public DjOperationResult<Developer> GetById(long developerId)
+        {
+            var developer = this.context.Developers.SingleOrDefault(d => d.DeveloperId == developerId);
+            var result = new DjOperationResult<Developer>(developer);
+            return result;
+
+        }
     }
 }

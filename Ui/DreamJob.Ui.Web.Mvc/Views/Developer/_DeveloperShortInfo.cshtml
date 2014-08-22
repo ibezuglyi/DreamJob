@@ -4,7 +4,7 @@
     <div class="row">
         <div class="row">
             <div class="medium-3 columns">
-                @Model.DisplayName
+                @Html.ActionLink(Model.DisplayName, "Profile", "Developer", new { id = Model.DeveloperId }, null)
             </div>
             <div class="medium-3 medium-offset-9 columns right-align">
                 @Model.City

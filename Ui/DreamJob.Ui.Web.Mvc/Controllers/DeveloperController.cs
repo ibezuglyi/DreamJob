@@ -25,5 +25,15 @@
 
             throw new Exception("Index");
         }
+
+        public ActionResult Profile(long id)
+        {
+            var getDeveloperProfileResult = this.businessDeveloper.GetDeveloperPublicViewModel(id);
+            if (getDeveloperProfileResult.IsSuccess == false)
+            {
+                throw new Exception("Developer");
+            }
+            return this.View("Developer", getDeveloperProfileResult.Data);
+        }
     }
 }

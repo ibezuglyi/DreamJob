@@ -33,5 +33,18 @@ namespace DreamJob.Ui.Web.Mvc.Services
             var result = new DjOperationResult<List<DeveloperShortInformationDto>>(developersShortInfoList);
             return result;
         }
+
+        public DjOperationResult<DeveloperPublicDataDto> GetDeveloperPublicData(long developerId)
+        {
+            var getByIdResult = this.repositoryDeveloper.GetById(developerId);
+            if (getByIdResult.IsSuccess == false)
+            {
+                return new DjOperationResult<DeveloperPublicDataDto>(false, getByIdResult.Errors);
+            }
+
+            var developerPublicData = Mapper.Map<Developer, DeveloperPublicDataDto>(getByIdResult.Data);
+            var result = new DjOperationResult<DeveloperPublicDataDto>(developerPublicData);
+            return result;
+        }
     }
 }

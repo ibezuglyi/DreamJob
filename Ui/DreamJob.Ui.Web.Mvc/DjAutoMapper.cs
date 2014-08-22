@@ -3,8 +3,8 @@ namespace DreamJob.Ui.Web.Mvc
     using System;
 
     using DreamJob.Model.Domain;
-    using DreamJob.Ui.Web.Mvc.Controllers;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
+    using DreamJob.Ui.Web.Mvc.Services;
 
     public static class DjAutoMapper
     {
@@ -35,6 +35,8 @@ namespace DreamJob.Ui.Web.Mvc
                 .ForMember(d => d.To, o => o.MapFrom(s => s.FromRecruiter.DisplayName));
 
             AutoMapper.Mapper.CreateMap<Developer, DeveloperShortInformationDto>();
+            
+            AutoMapper.Mapper.CreateMap<Developer, DeveloperPublicDataDto>();
         }
     }
 }

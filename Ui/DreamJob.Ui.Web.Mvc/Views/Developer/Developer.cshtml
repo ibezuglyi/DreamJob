@@ -1,0 +1,28 @@
+﻿@model DreamJob.Ui.Web.Mvc.BusinessServices.DeveloperPublicProfileViewModel
+
+
+<div>
+    <div class="row">
+        <div class="row">
+            @Model.DeveloperPublicDataDto.DisplayName
+        </div>
+        <div class="row">
+            @Model.DeveloperPublicDataDto.Title
+        </div>
+        <div class="row">
+            @Model.DeveloperPublicDataDto.Profile
+        </div>
+        <div class="row">
+            @Model.DeveloperPublicDataDto.ProjectPreferences
+        </div>
+        <div class="row">
+            <div class="medium-4 columns">
+                @Model.DeveloperPublicDataDto.City
+            </div>
+            <div class="medium-4 columns">
+                @Model.DeveloperPublicDataDto.MinSalary
+            </div>
+        </div>
+    </div>
+
+</div>

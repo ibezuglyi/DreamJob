@@ -26,5 +26,18 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             return result;
 
         }
+
+        public DjOperationResult<DeveloperPublicProfileViewModel> GetDeveloperPublicViewModel(long id)
+        {
+            var getDeveloperPublicDataResult = this.serviceDeveloper.GetDeveloperPublicData(id);
+            if (getDeveloperPublicDataResult.IsSuccess == false)
+            {
+                return new DjOperationResult<DeveloperPublicProfileViewModel>(false, getDeveloperPublicDataResult.Errors);
+            }
+
+            var viewModel = new DeveloperPublicProfileViewModel(getDeveloperPublicDataResult.Data);
+            var result = new DjOperationResult<DeveloperPublicProfileViewModel>(viewModel);
+            return result;
+        }
     }
 }
