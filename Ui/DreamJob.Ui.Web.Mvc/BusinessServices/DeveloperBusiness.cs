@@ -8,9 +8,12 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
     {
         private readonly IDeveloperService serviceDeveloper;
 
-        public DeveloperBusiness(IDeveloperService serviceDeveloper)
+        private readonly ISession session;
+
+        public DeveloperBusiness(IDeveloperService serviceDeveloper, ISession session)
         {
             this.serviceDeveloper = serviceDeveloper;
+            this.session = session;
         }
 
         public DjOperationResult<AllDevelopersViewModel> GetAllDevelopersViewModel()
@@ -35,7 +38,17 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
                 return new DjOperationResult<DeveloperPublicProfileViewModel>(false, getDeveloperPublicDataResult.Errors);
             }
 
-            var viewModel = new DeveloperPublicProfileViewModel(getDeveloperPublicDataResult.Data);
+            var getCurrentUserResult = this.session.GetCurrentUser();
+            if (getCurrentUserResult.IsSuccess == false)
+            {
+                return new DjOperationResult<DeveloperPublicProfileViewModel>(false, getDeveloperPublicDataResult.Errors);
+            }
+
+
+            var viewModel = new DeveloperPublicProfileViewModel(
+                getDeveloperPublicDataResult.Data,
+                getCurrentUserResult.Data.AccountType);
+
             var result = new DjOperationResult<DeveloperPublicProfileViewModel>(viewModel);
             return result;
         }

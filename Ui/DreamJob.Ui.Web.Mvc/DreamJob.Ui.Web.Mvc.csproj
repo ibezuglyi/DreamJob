@@ -573,6 +573,7 @@
     <Content Include="Views\Developer\Index.cshtml" />
     <Content Include="Views\Developer\_DeveloperShortInfo.cshtml" />
     <Content Include="Views\Developer\Developer.cshtml" />
+    <Content Include="Views\Developer\_DeveloperProfileRecruiterOptionPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

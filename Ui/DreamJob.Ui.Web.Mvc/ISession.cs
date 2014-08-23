@@ -1,8 +1,7 @@
-﻿using DreamJob.Ui.Web.Mvc.Models.Dto;
-
-namespace DreamJob.Ui.Web.Mvc
+﻿namespace DreamJob.Ui.Web.Mvc
 {
     using DreamJob.Common.Enum;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
 
     public interface ISession
     {

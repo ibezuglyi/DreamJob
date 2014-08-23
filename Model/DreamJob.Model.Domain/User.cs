@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace DreamJob.Model.Domain
+﻿namespace DreamJob.Model.Domain
 {
     using System;
+    using System.Collections.Generic;
 
     using DreamJob.Common.Enum;
 

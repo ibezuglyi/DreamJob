@@ -4,7 +4,7 @@
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Repositories;
 
-    class LoginService : ILoginService
+    public class LoginService : ILoginService
     {
         private readonly IAuthentication authentication;
 

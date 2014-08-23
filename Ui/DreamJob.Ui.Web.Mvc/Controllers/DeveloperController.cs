@@ -3,16 +3,19 @@
     using System;
     using System.Web.Mvc;
 
+    using DreamJob.Common.Enum;
     using DreamJob.Ui.Web.Mvc.BusinessServices;
 
     [Authorize]
     public class DeveloperController : Controller
     {
         private readonly IDeveloperBusiness businessDeveloper;
+        private readonly ISession session;
 
-        public DeveloperController(IDeveloperBusiness businessDeveloper)
+        public DeveloperController(IDeveloperBusiness businessDeveloper, ISession session)
         {
             this.businessDeveloper = businessDeveloper;
+            this.session = session;
         }
 
         public ActionResult Index()
@@ -33,6 +36,7 @@
             {
                 throw new Exception("Developer");
             }
+
             return this.View("Developer", getDeveloperProfileResult.Data);
         }
     }
