@@ -7,13 +7,13 @@
         MatchesDeveloperRequirements: false
     };
 
-    $modalInstance.ok = function () {
+    $scope.ok = function () {
         alert('ok');
         $modalInstance.close($scope.JobOffer);
     };
 
-    $modalInstance.cancel = function () {
-        $modalInstance.close('canceled');
-
+    $scope.cancel = function () {
+        alert('cancel');
+        $modalInstance.dismiss('canceled');
     };
 };
