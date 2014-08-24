@@ -1,5 +1,5 @@
-angular.module('djpa', [])
-    .controller('OfferController', function ($scope, $http) {
+angular.module('djapp', [])
+    .controller('OfferController', function($scope, $http) {
 
         $scope.offers = [];
         $scope.offer = {};
@@ -9,26 +9,26 @@ angular.module('djpa', [])
         };
 
 
-        $scope.init = function () {
-            $http.get('offers/MyOffers').success(function (response) {
+        $scope.init = function() {
+            $http.get('offers/MyOffers').success(function(response) {
                 $scope.offers = response;
             });
 
-            $scope.details = function (offerId) {
+            $scope.details = function(offerId) {
                 $http.get('offers/OfferDetails/' + offerId)
-                    .success(function (response) {
+                    .success(function(response) {
                         $scope.offer = response
                         $scope.offerComments = response.JobOfferComments;
                     });
             };
 
-            $scope.addOfferComment = function () {
+            $scope.addOfferComment = function() {
                 var data = {
                     offerId: $scope.offer.Id,
                     text: $scope.comment.text
                 };
                 $http.post('comments/add', data)
-                    .success(function (response) {
+                    .success(function(response) {
                         if (response.IsSuccess) {
                             $scope.offerComments.push(response.Data);
                             $scope.comment.text = '';

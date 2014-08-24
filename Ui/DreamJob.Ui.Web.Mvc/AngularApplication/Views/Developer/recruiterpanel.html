@@ -1,0 +1,13 @@
+<div class="row" ng-controller='RecruiterPanelController' ng-init='init()'>
+    <div class="button" data-ng-click="prepareJobOffer()">send job offer</div>
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <h3>Job Offer Editor</h3>
+        <textarea></textarea>
+        <input type="text" name='minsalary'></input>
+        <input type="text" name='maxsalary></input>
+        <input type='checkbox' />
+        <button class="button" ng-click="ok()">OK</button>
+        <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+    </script>
+</div>

@@ -3,7 +3,6 @@
     using System;
     using System.Web.Mvc;
 
-    using DreamJob.Common.Enum;
     using DreamJob.Ui.Web.Mvc.BusinessServices;
 
     [Authorize]

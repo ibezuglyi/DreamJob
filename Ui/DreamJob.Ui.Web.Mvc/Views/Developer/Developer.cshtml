@@ -1,5 +1,4 @@
-﻿@using DreamJob.Common.Enum
-@model DreamJob.Ui.Web.Mvc.BusinessServices.DeveloperPublicProfileViewModel
+@using DreamJob.Common.Enum @model DreamJob.Ui.Web.Mvc.BusinessServices.DeveloperPublicProfileViewModel
 
 
 <div>
@@ -26,7 +25,13 @@
         </div>
     </div>
     @if (Model.UserAccountType == UserAccountType.Recruiter)
-    {
-        @Html.Partial("_DeveloperProfileRecruiterOptionPanel", null)
-    }
+    { @Html.Partial("_DeveloperProfileRecruiterOptionPanel", null) }
 </div>
+
+@section scripts{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/foundation-angular/mm-foundation-tpls-0.3.1.min.js"></script>
+    <script src='~/AngularApplication/dreamjobapplication.js'></script>
+    <script src="~/AngularApplication/Controllers/RecruiterPanelJobEditorController.js"></script>
+    <script src="~/AngularApplication/Controllers/RecruiterPanelController.js"></script>
+}

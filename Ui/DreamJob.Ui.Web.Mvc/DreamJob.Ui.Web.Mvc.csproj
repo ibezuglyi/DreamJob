@@ -196,8 +196,11 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularApplication\Controllers\RecruiterPanelJobEditorController.js" />
     <Content Include="AngularApplication\Controllers\OffersController.js" />
-    <Content Include="AngularApplication\profileApplication.js" />
+    <Content Include="AngularApplication\Controllers\RecruiterPanelController.js" />
+    <Content Include="AngularApplication\dreamjobapplication.js" />
+    <Content Include="AngularApplication\Views\Developer\recruiterpanel.html" />
     <Content Include="AngularApplication\Views\Offers\Details.html" />
     <Content Include="AngularApplication\Views\Profile\Index.html" />
     <Content Include="Content\foundation\foundation.css" />
