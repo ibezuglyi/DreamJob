@@ -10,7 +10,6 @@ angular.module('djapp', ['mm.foundation'])
             });
 
             modalInstance.result.then(function (result) {
-                alert('submited!');
             }, function () {
                 alert('canceled');
                 // canceled
