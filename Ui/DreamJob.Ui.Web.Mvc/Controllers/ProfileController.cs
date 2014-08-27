@@ -27,12 +27,10 @@
             var getprofileResult = this.profileBusiness.GetCurrentUserProfile();
             if (getprofileResult.IsSuccess)
             {
-                var result = this.Json(getprofileResult.Data, JsonRequestBehavior.AllowGet);
+                return new JsonResult() { Data = getprofileResult.Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
 
-            throw new InvalidOperationException(
-                string.Join(
-                    ";", getprofileResult.Errors));
+            throw new InvalidOperationException(string.Join(";", getprofileResult.Errors));
         }
     }
 }

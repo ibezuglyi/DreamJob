@@ -1,4 +1,4 @@
-angular.module('djapp', [])
+window.djApplication
     .controller('OfferController', function($scope, $http) {
 
         $scope.offers = [];
@@ -17,7 +17,7 @@ angular.module('djapp', [])
             $scope.details = function(offerId) {
                 $http.get('offers/OfferDetails/' + offerId)
                     .success(function(response) {
-                        $scope.offer = response
+                    $scope.offer = response;
                         $scope.offerComments = response.JobOfferComments;
                     });
             };

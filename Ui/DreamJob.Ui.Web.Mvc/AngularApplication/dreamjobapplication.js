@@ -1,4 +1,3 @@
 (function() {
-    var profileApplication = angular
-        .module('djapp', ['ngRoute', 'mm.foundation']);
+    window.djApplication = angular.module('djapp', ['ngRoute', 'mm.foundation']);
 })()
