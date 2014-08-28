@@ -124,6 +124,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AutofacDI.cs" />
     <Compile Include="BusinessServices\ProfileBusiness.cs" />
+    <Compile Include="Helpers\ControllerHelper.cs" />
     <Compile Include="Models\AllDevelopersViewModel.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="BusinessServices\DeveloperBusiness.cs" />
@@ -203,7 +204,7 @@
     <Content Include="AngularApplication\dreamjobapplication.js" />
     <Content Include="AngularApplication\Views\Developer\recruiterpanel.html" />
     <Content Include="AngularApplication\Views\Offers\Details.html" />
-    <Content Include="AngularApplication\Views\Profile\Details.html" />
+    <Content Include="AngularApplication\Views\Profile\DeveloperDetails.html" />
     <Content Include="AngularApplication\Views\Profile\Index.html" />
     <Content Include="Content\foundation\foundation.css" />
     <Content Include="Content\foundation\foundation.mvc.css" />

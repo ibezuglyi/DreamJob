@@ -1,4 +1,8 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Common.Enum;
+using DreamJob.Ui.Web.Mvc.Models.Dto;
+using  DreamJob.Ui.Web.Mvc.Helpers;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System;
     using System.Web.Mvc;
@@ -21,16 +25,20 @@
             return this.View("Index");
         }
 
+        [HttpPost]
+        public JsonResult CurrentUser(UserProfileDto profile)
+        {
+            var updateResult = this.profileBusiness.UpdateProfile(profile);
+            return this.DjJson(updateResult);
+        }
+
         [HttpGet]
         public JsonResult CurrentUser()
         {
             var getprofileResult = this.profileBusiness.GetCurrentUserProfile();
-            if (getprofileResult.IsSuccess)
-            {
-                return new JsonResult() { Data = getprofileResult.Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
-
-            throw new InvalidOperationException(string.Join(";", getprofileResult.Errors));
+            return this.DjJson(getprofileResult);
         }
+
+        
     }
 }

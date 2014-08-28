@@ -28,5 +28,11 @@
             var currentUserProfile = this.userService.GetFullUserProfile(getCurrentUserResult.Data.Id);
             return currentUserProfile;
         }
+
+        public DjOperationResult<bool> UpdateProfile(UserProfileDto profile)
+        {
+            
+            return  new DjOperationResult<bool>(true);
+        }
     }
 }

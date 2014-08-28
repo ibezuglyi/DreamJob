@@ -10,7 +10,7 @@
         public string Email { get; set; }
         public string Login { get; set; }
         public DateTime Registered { get; set; }
-        public UserAccountType AccountType { get; set; }
+        public string AccountType { get; set; }
         public string Title { get; set; }
         public string Profile { get; set; }
         public string ProjectPreferences { get; set; }
