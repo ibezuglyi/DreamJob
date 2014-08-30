@@ -36,7 +36,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             }
             else
             {
-                
+                updateResult = this.profileBusiness.UpdateRecruiterProfile(currentUser.Id, profile);
             }
             return this.DjJson(updateResult);
         }

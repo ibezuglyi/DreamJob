@@ -150,6 +150,7 @@
     <Compile Include="BusinessServices\IOffersBusiness.cs" />
     <Compile Include="Repositories\IOffersRepository.cs" />
     <Compile Include="Controllers\OfferController.cs" />
+    <Compile Include="Services\IRecruiterService.cs" />
     <Compile Include="Services\OfferService.cs" />
     <Compile Include="BusinessServices\OffersBusiness.cs" />
     <Compile Include="Repositories\OffersRepository.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Repositories\RecruiterRepository.cs" />
     <Compile Include="BusinessServices\RegisterBusiness.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Services\RecruiterService.cs" />
     <Compile Include="Services\RegisterService.cs" />
     <Compile Include="DjSessionKeys.cs" />
     <Compile Include="FormAuthentication.cs" />
@@ -208,6 +210,7 @@
     <Content Include="AngularApplication\Views\Profile\Details.html" />
     <Content Include="AngularApplication\Views\Profile\DeveloperDetails.html" />
     <Content Include="AngularApplication\Views\Profile\Index.html" />
+    <Content Include="AngularApplication\Views\Profile\RecruiterDetails.html" />
     <Content Include="Content\foundation\foundation.css" />
     <Content Include="Content\foundation\foundation.mvc.css" />
     <Content Include="Content\foundation\normalize.css" />

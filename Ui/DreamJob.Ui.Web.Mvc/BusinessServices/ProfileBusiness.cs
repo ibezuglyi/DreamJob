@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DreamJob.Ui.Web.Mvc.Repositories;
 
 namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
@@ -13,12 +14,14 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
 
         private readonly IUserService userService;
         private readonly IDeveloperService developerService;
+        private readonly IRecruiterService recruiterService;
 
-        public ProfileBusiness(ISession session, IUserService userService, IDeveloperService developerService)
+        public ProfileBusiness(ISession session, IUserService userService, IDeveloperService developerService, IRecruiterService recruiterService)
         {
             this.session = session;
             this.userService = userService;
             this.developerService = developerService;
+            this.recruiterService = recruiterService;
         }
 
         public DjOperationResult<UserProfileDto> GetCurrentUserProfile()
@@ -28,19 +31,33 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             {
                 return new DjOperationResult<UserProfileDto>(false, getCurrentUserResult.Errors);
             }
+            var currentUserProfile = GetUserProfile(getCurrentUserResult.Data);
+            return new DjOperationResult<UserProfileDto>(currentUserProfile);
+        }
+
+        private UserProfileDto GetUserProfile(LoginUserDto loginUserDto)
+        {
             UserProfileDto currentUserProfile = null;
-            if(getCurrentUserResult.Data.AccountType == UserAccountType.Developer)
-                currentUserProfile = this.developerService.GetDeveloperPublicProfile(getCurrentUserResult.Data.Id).Data;
+            if (loginUserDto.AccountType == UserAccountType.Developer)
+            {
+                currentUserProfile = this.developerService.GetDeveloperPublicProfile(loginUserDto.Id).Data;
+            }
             else
             {
-                
+                currentUserProfile = this.recruiterService.GetRecruiterPublicProfile(loginUserDto.Id).Data;
             }
-            return new DjOperationResult<UserProfileDto>(currentUserProfile);
+            return currentUserProfile;
         }
 
         public DjOperationResult<bool> UpdateDeveloperProfile(long id, UserProfileDto profile)
         {
             this.developerService.UpdateDeveloper(id, profile);
+            return new DjOperationResult<bool>(true);
+        }
+
+        public DjOperationResult<bool> UpdateRecruiterProfile(long id, UserProfileDto profile)
+        {
+            this.recruiterService.UpdateRecruiterProfile(id, profile);
             return new DjOperationResult<bool>(true);
         }
 

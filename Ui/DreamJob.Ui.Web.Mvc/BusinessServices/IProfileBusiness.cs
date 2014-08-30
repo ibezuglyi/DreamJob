@@ -9,6 +9,8 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
     {
         DjOperationResult<UserProfileDto> GetCurrentUserProfile();
         DjOperationResult<bool> UpdateDeveloperProfile(long id, UserProfileDto profile);
+        DjOperationResult<bool> UpdateRecruiterProfile(long id, UserProfileDto profile);
         DjOperationResult<List<string>> GetDeveloperCities(string cityPart);
+        
     }
 }
