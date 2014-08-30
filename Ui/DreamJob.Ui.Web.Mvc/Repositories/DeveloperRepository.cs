@@ -76,7 +76,7 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
             }
             if (!string.IsNullOrEmpty(city))
             {
-                query.Where(r => r.City == city);
+                query = query.Where(r => r.City == city);
             }
 
             return query
