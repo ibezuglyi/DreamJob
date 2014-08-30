@@ -79,7 +79,10 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
                 query.Where(r => r.City == city);
             }
 
-            return query.ToList();
+            return query
+                .OrderByDescending(r=>r.Registered)
+                .Take(50)
+                .ToList();
 
         }
     }
