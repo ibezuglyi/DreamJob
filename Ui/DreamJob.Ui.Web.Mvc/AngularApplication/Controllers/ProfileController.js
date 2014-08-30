@@ -1,8 +1,9 @@
 (function (messages) {
     window.djApplication.controller('ProfileController', function ($scope, $http) {
         $scope.profile = { City: "" };
-        
-        $scope.alerts = [];;
+        $scope.preferredTitle = messages.preferredTitle;
+        $scope.minSalary = messages.minSalary;
+        $scope.alerts = [];
         $scope.closeAlert = function (index) {
             $scope.alerts.splice(index, 1);
         };
@@ -21,7 +22,6 @@
             $http.get('profile/CurrentUser')
                  .success(function (response) {
                      $scope.profile = response;
-
                  });
         };
         $scope.getCities = function(val) {

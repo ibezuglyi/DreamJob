@@ -28,3 +28,9 @@
     border-color: #c4d2dd;
     color: #363634;
 }
+.joyride-tip-guide {
+    background: #363634;
+}
+.joyride-tip-guide p {
+    color: #e2e9ee;
+}

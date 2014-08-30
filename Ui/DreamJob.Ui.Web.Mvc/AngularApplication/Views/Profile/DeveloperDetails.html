@@ -8,7 +8,7 @@
                         <label class="inline">Title: </label>
                     </div>
                     <div class="small-10 columns">
-                        <input type="text" ng-model="profile.Title" />
+                        <input type="text" ng-model="profile.Title" popover="{{preferredTitle}}" popover-trigger="mouseenter" />
                     </div>
                     <div class="columns"></div>
                 </div>
@@ -17,7 +17,7 @@
                         <label class="inline">Minimal salary: </label>
                     </div>
                     <div class="small-10 columns">
-                        <input type="number" ng-model="profile.MinSalary" />
+                        <input type="number" popover="{{minSalary}}" popover-trigger="mouseenter" ng-model="profile.MinSalary" />
                     </div>
                     <div class="columns"></div>
                 </div>
@@ -26,7 +26,16 @@
                         <label>Your profile (expirience): </label>
                     </div>
                     <div class="small-10 columns">
-                        <textarea rows="5" ng-model="profile.Profile" />
+                        <textarea rows="6" ng-model="profile.Profile" />
+                    </div>
+                    <div class="columns"></div>
+                </div>
+                  <div class="row collapse">
+                    <div class="small-2 columns">
+                        <label>Project preferences: </label>
+                    </div>
+                    <div class="small-10 columns">
+                        <textarea rows="8" ng-model="profile.ProjectPreferences" />
                     </div>
                     <div class="columns"></div>
                 </div>
