@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿using DreamJob.Ui.Web.Mvc.Models.Dto;
+
+namespace DreamJob.Ui.Web.Mvc.Repositories
 {
     using System.Collections.Generic;
 
@@ -15,5 +17,6 @@
         DjOperationResult<Developer> GetById(long developerId);
         void UpdateDeveloper(Developer developer);
         List<string> GetDeveloperCities(string cityPart);
+        List<Developer> SearchForDevelopers(string technology, string city);
     }
 }

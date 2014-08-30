@@ -7,8 +7,6 @@ window.djApplication
         $scope.comment = {
             text: ''
         };
-
-
         $scope.init = function() {
             $http.get('offers/MyOffers').success(function(response) {
                 $scope.offers = response;

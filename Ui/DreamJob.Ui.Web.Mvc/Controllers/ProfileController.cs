@@ -55,5 +55,11 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             return this.DjJson(cities);
         }
 
+        public JsonResult Search(string technology, string city)
+        {
+            var developers = profileBusiness.SearchForDevelopers(technology, city);
+            return this.DjJson(developers);
+        }
+
     }
 }

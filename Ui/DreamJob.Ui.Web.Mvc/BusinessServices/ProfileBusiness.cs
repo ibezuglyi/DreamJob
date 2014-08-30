@@ -66,5 +66,12 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             var result = developerService.GetDeveloperCities(cityPart);
             return new DjOperationResult<List<string>>(result);
         }
+
+        public DjOperationResult<List<DeveloperProfileDto>> SearchForDevelopers(string technology, string city)
+        {
+            var result = developerService.SearchForDevelopers(technology, city);
+            return new DjOperationResult<List<DeveloperProfileDto>>(result);
+
+        }
     }
 }

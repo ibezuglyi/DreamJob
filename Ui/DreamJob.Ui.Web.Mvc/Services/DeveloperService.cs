@@ -63,7 +63,12 @@ namespace DreamJob.Ui.Web.Mvc.Services
         {
             var result = repositoryDeveloper.GetDeveloperCities(cityPart);
             return result;
+        }
 
+        public List<DeveloperProfileDto> SearchForDevelopers(string technology, string city)
+        {
+            var developers = repositoryDeveloper.SearchForDevelopers(technology, city);
+            return Mapper.Map<List<DeveloperProfileDto>>(developers);
         }
     }
 }

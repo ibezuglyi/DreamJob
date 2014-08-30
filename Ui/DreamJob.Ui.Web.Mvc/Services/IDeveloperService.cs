@@ -11,5 +11,6 @@ namespace DreamJob.Ui.Web.Mvc.Services
         DjOperationResult<UserProfileDto> GetDeveloperPublicProfile(long developerId);
         void UpdateDeveloper(long id, UserProfileDto profile);
         List<string> GetDeveloperCities(string cityPart);
+        List<DeveloperProfileDto> SearchForDevelopers(string technology, string city);
     }
 }

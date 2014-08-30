@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity.Migrations;
+using DreamJob.Ui.Web.Mvc.Models.Dto;
 
 namespace DreamJob.Ui.Web.Mvc.Repositories
 {
@@ -60,9 +61,26 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
         public List<string> GetDeveloperCities(string cityPart)
         {
             return context.Developers.Select(r => r.City)
-                .Where(t=>t.Contains(cityPart))
+                .Where(t => t.Contains(cityPart))
                 .Distinct()
                 .ToList();
+        }
+
+        public List<Developer> SearchForDevelopers(string technology, string city)
+        {
+            var query = context.Developers.Where(r => r.IsActive);
+
+            if (!string.IsNullOrEmpty(technology))
+            {
+                query = query.Where(r => r.Profile.Contains(technology) || r.ProjectPreferences.Contains(technology));
+            }
+            if (!string.IsNullOrEmpty(city))
+            {
+                query.Where(r => r.City == city);
+            }
+
+            return query.ToList();
+
         }
     }
 }

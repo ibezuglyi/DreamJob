@@ -130,6 +130,7 @@
     <Compile Include="BusinessServices\DeveloperBusiness.cs" />
     <Compile Include="Controllers\DeveloperController.cs" />
     <Compile Include="BusinessServices\IDeveloperBusiness.cs" />
+    <Compile Include="Models\Dto\DeveloperProfileDto.cs" />
     <Compile Include="Models\Dto\DeveloperShortInformationDto.cs" />
     <Compile Include="Services\DeveloperService.cs" />
     <Compile Include="Services\IDeveloperService.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularApplication\Controllers\DevelopersSearchController.js" />
     <Content Include="AngularApplication\Controllers\ProfileController.js" />
     <Content Include="AngularApplication\Controllers\RecruiterPanelJobEditorController.js" />
     <Content Include="AngularApplication\Controllers\OffersController.js" />
@@ -206,6 +208,7 @@
     <Content Include="AngularApplication\dreamjobapplication.js" />
     <Content Include="AngularApplication\LocalizationTexts.js" />
     <Content Include="AngularApplication\Views\Developer\recruiterpanel.html" />
+    <Content Include="AngularApplication\Views\Developer\Search.html" />
     <Content Include="AngularApplication\Views\Offers\Details.html" />
     <Content Include="AngularApplication\Views\Profile\Details.html" />
     <Content Include="AngularApplication\Views\Profile\DeveloperDetails.html" />

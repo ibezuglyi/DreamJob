@@ -1,6 +1,3 @@
-﻿@model DreamJob.Ui.Web.Mvc.Controllers.AllDevelopersViewModel
-
-@foreach (var devShortInfo in Model.Developers)
-{
-    @Html.Partial("_DeveloperShortInfo", devShortInfo)
-}
+﻿<div ng-app='djapp'>
+    <div ng-include='"AngularApplication/Views/Developer/Search.html"'></div>
+</div>

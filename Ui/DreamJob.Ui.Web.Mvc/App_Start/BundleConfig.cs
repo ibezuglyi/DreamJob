@@ -19,15 +19,24 @@ namespace DreamJob.Ui.Web.Mvc
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            #region Foundation Bundles
-
-            bundles.Add(Foundation.Styles());
-
-            bundles.Add(Foundation.Scripts());
-
             bundles.Add(new StyleBundle("~/bundles/site").Include("~/Content/Site.css"));
 
+            #region Foundation Bundles
+            bundles.Add(Foundation.Styles());
+            bundles.Add(Foundation.Scripts());
             #endregion
+
+            bundles.Add(new ScriptBundle("~/bundles/app")
+                .Include("~/AngularApplication/LocalizationTexts.js")
+                .Include("~/Scripts/angular.js")
+                .Include("~/Scripts/angular-route.js")
+                .Include("~/Scripts/foundation-angular/mm-foundation-tpls-0.3.1.min.js")
+                .Include("~/AngularApplication/dreamjobapplication.js")
+                .Include("~/AngularApplication/Controllers/ProfileController.js")
+                .Include("~/AngularApplication/Controllers/OffersController.js")
+                .Include("~/AngularApplication/Controllers/DevelopersSearchController.js")
+                
+                );
         }
     }
 }
