@@ -1,18 +1,7 @@
-var messages = {
-    "updateSucceded": {
-        type: 'success',
-        msg: 'You successfully updated your profile.'
-    }
-};
-
-
 (function (messages) {
     window.djApplication.controller('ProfileController', function ($scope, $http) {
         $scope.profile = null;
-        $scope.alerts = [];//messages;
-        $scope.loadProfile = function () {
-            $scope.profile.Title = $scope.profile.Title;
-        };
+        $scope.alerts = [];;
         $scope.closeAlert = function (index) {
             $scope.alerts.splice(index, 1);
         };
@@ -38,6 +27,6 @@ var messages = {
                  });
         };
     });
-}(messages));
+}(window.LocalizationTexts));
 
 
