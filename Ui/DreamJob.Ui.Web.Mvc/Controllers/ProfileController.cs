@@ -48,6 +48,12 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             return this.DjJson(getprofileResult);
         }
 
-        
+        [HttpGet]
+        public JsonResult GetCities(string cityPart)
+        {
+            var cities = profileBusiness.GetDeveloperCities(cityPart);
+            return this.DjJson(cities);
+        }
+
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
+﻿using System.Collections.Generic;
+
+namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using DreamJob.Common.Enum;
     using DreamJob.Ui.Web.Mvc.Controllers;
@@ -42,6 +44,10 @@
             return new DjOperationResult<bool>(true);
         }
 
-
+        public DjOperationResult<List<string>> GetDeveloperCities(string cityPart)
+        {
+            var result = developerService.GetDeveloperCities(cityPart);
+            return new DjOperationResult<List<string>>(result);
+        }
     }
 }

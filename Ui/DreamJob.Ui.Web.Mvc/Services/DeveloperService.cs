@@ -57,11 +57,12 @@ namespace DreamJob.Ui.Web.Mvc.Services
             developer.Profile = profile.Profile;
             developer.ProjectPreferences = profile.ProjectPreferences;
             repositoryDeveloper.UpdateDeveloper(developer);
+        }
 
-
-
-
-
+        public List<string> GetDeveloperCities(string cityPart)
+        {
+            var result = repositoryDeveloper.GetDeveloperCities(cityPart);
+            return result;
 
         }
     }

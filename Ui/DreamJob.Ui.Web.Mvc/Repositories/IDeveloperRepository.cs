@@ -14,5 +14,6 @@
 
         DjOperationResult<Developer> GetById(long developerId);
         void UpdateDeveloper(Developer developer);
+        List<string> GetDeveloperCities(string cityPart);
     }
 }

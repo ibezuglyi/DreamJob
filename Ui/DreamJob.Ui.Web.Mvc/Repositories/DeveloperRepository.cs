@@ -56,5 +56,13 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
             context.Developers.AddOrUpdate(developer);
             context.SaveChanges();
         }
+
+        public List<string> GetDeveloperCities(string cityPart)
+        {
+            return context.Developers.Select(r => r.City)
+                .Where(t=>t.Contains(cityPart))
+                .Distinct()
+                .ToList();
+        }
     }
 }

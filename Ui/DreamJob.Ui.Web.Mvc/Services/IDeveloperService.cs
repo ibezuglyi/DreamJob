@@ -10,5 +10,6 @@ namespace DreamJob.Ui.Web.Mvc.Services
         DjOperationResult<List<DeveloperShortInformationDto>> GetAllDevelopersShortInfo();
         DjOperationResult<UserProfileDto> GetDeveloperPublicProfile(long developerId);
         void UpdateDeveloper(long id, UserProfileDto profile);
+        List<string> GetDeveloperCities(string cityPart);
     }
 }

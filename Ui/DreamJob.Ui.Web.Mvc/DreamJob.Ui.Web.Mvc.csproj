@@ -202,8 +202,10 @@
     <Content Include="AngularApplication\Controllers\OffersController.js" />
     <Content Include="AngularApplication\Controllers\RecruiterPanelController.js" />
     <Content Include="AngularApplication\dreamjobapplication.js" />
+    <Content Include="AngularApplication\LocalizationTexts.js" />
     <Content Include="AngularApplication\Views\Developer\recruiterpanel.html" />
     <Content Include="AngularApplication\Views\Offers\Details.html" />
+    <Content Include="AngularApplication\Views\Profile\Details.html" />
     <Content Include="AngularApplication\Views\Profile\DeveloperDetails.html" />
     <Content Include="AngularApplication\Views\Profile\Index.html" />
     <Content Include="Content\foundation\foundation.css" />
