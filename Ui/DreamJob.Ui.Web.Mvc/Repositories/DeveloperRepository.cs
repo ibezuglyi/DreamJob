@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿using System.Data.Entity.Migrations;
+
+namespace DreamJob.Ui.Web.Mvc.Repositories
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -47,7 +49,12 @@
             var developer = this.context.Developers.SingleOrDefault(d => d.DeveloperId == developerId);
             var result = new DjOperationResult<Developer>(developer);
             return result;
+        }
 
+        public void UpdateDeveloper(Developer developer)
+        {
+            context.Developers.AddOrUpdate(developer);
+            context.SaveChanges();
         }
     }
 }

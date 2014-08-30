@@ -8,17 +8,7 @@ namespace DreamJob.Ui.Web.Mvc.Services
     public interface IDeveloperService
     {
         DjOperationResult<List<DeveloperShortInformationDto>> GetAllDevelopersShortInfo();
-        DjOperationResult<DeveloperPublicDataDto> GetDeveloperPublicData(long developerId);
-    }
-
-    public class DeveloperPublicDataDto
-    {
-        public long DeveloperId { get; set; }
-        public string DisplayName { get; set; }
-        public string Title { get; set; }
-        public string Profile { get; set; }
-        public string ProjectPreferences { get; set; }
-        public long MinSalary { get; set; }
-        public string City { get; set; }
+        DjOperationResult<UserProfileDto> GetDeveloperPublicProfile(long developerId);
+        void UpdateDeveloper(long id, UserProfileDto profile);
     }
 }

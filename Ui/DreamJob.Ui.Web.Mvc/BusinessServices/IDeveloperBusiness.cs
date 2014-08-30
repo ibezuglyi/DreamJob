@@ -1,3 +1,5 @@
+using DreamJob.Ui.Web.Mvc.Models.Dto;
+
 namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using DreamJob.Common.Enum;
@@ -13,14 +15,14 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
     public class DeveloperPublicProfileViewModel
     {
         public DeveloperPublicProfileViewModel(
-            DeveloperPublicDataDto developerPublicDataDto,
+            UserProfileDto developerPublicDataDto,
             UserAccountType userAccountType)
         {
             this.DeveloperPublicDataDto = developerPublicDataDto;
             this.UserAccountType = userAccountType;
         }
 
-        public DeveloperPublicDataDto DeveloperPublicDataDto { get; set; }
+        public UserProfileDto DeveloperPublicDataDto { get; set; }
         public UserAccountType UserAccountType { get; set; }
     }
 }

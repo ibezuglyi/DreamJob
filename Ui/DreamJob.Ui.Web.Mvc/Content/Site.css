@@ -1,17 +1,30 @@
 ﻿.dj-container {
     background: url(imgs/bg-cutted.jpg);
     -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
 }
+
 .row.dj-container {
     width: 100%;
 }
+
 .margined-top-50 {
     margin-top: 50px;
 }
+
+.margined-top-20 {
+    margin-top: 20px;
+}
+
 .body {
     height: 100%;
+}
+
+.alert-box.success {
+    background-color: #c4d2dd;
+    border-color: #c4d2dd;
+    color: #363634;
 }

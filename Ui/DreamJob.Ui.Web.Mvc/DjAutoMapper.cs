@@ -37,8 +37,7 @@ namespace DreamJob.Ui.Web.Mvc
                 .ForMember(d => d.To, o => o.MapFrom(s => s.FromRecruiter.DisplayName));
 
             AutoMapper.Mapper.CreateMap<Developer, DeveloperShortInformationDto>();
-            
-            AutoMapper.Mapper.CreateMap<Developer, DeveloperPublicDataDto>();
+            AutoMapper.Mapper.CreateMap<Developer, UserProfileDto>();
         }
     }
 }

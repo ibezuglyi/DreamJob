@@ -6,6 +6,6 @@
     public interface IProfileBusiness
     {
         DjOperationResult<UserProfileDto> GetCurrentUserProfile();
-        DjOperationResult<bool> UpdateProfile(UserProfileDto profile);
+        DjOperationResult<bool> UpdateDeveloperProfile(long id, UserProfileDto profile);
     }
 }

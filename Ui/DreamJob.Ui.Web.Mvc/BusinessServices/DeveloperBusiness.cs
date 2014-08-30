@@ -1,3 +1,5 @@
+using DreamJob.Ui.Web.Mvc.Models.Dto;
+
 namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using DreamJob.Common.Enum;
@@ -32,7 +34,7 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
 
         public DjOperationResult<DeveloperPublicProfileViewModel> GetDeveloperPublicViewModel(long id)
         {
-            var getDeveloperPublicDataResult = this.serviceDeveloper.GetDeveloperPublicData(id);
+            var getDeveloperPublicDataResult = this.serviceDeveloper.GetDeveloperPublicProfile(id);
             if (getDeveloperPublicDataResult.IsSuccess == false)
             {
                 return new DjOperationResult<DeveloperPublicProfileViewModel>(false, getDeveloperPublicDataResult.Errors);

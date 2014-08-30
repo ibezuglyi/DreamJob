@@ -13,5 +13,6 @@
         DjOperationResult<List<Developer>> All();
 
         DjOperationResult<Developer> GetById(long developerId);
+        void UpdateDeveloper(Developer developer);
     }
 }

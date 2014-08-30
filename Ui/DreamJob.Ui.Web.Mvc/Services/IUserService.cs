@@ -7,7 +7,5 @@
     public interface IUserService
     {
         DjOperationResult<LoginUserDto> GetUserLoginDto(string login, string passwordHash);
-
-        DjOperationResult<UserProfileDto> GetFullUserProfile(long userId);
     }
 }

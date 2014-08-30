@@ -1,5 +1,6 @@
 <div class="row" ng-controller='ProfileController' ng-init="init()">
-    <div class="panel">
+    <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+    <div class="panel margined-top-20">
         <section class="section">
             <h5 class="title">My profile</h5>
             <div class="row collapse">
@@ -31,7 +32,7 @@
             </div>
         </section>
     </div>
-    <ng-include src="'AngularApplication/Views/Profile/' + profile.AccountType + 'Details.html'" class="small-12"></ng-include>
+    <ng-include src="'AngularApplication/Views/Profile/' + profile.AccountType + 'Details.html'" onload='loadProfile()' class="small-12"></ng-include>
 </div>
 <div class="row" ng-controller='OfferController' ng-init='init()'>
     <div id='dj-offers-container' class="row">

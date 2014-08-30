@@ -10,11 +10,13 @@
         private readonly ISession session;
 
         private readonly IUserService userService;
+        private readonly IDeveloperService developerService;
 
-        public ProfileBusiness(ISession session, IUserService userService)
+        public ProfileBusiness(ISession session, IUserService userService, IDeveloperService developerService)
         {
             this.session = session;
             this.userService = userService;
+            this.developerService = developerService;
         }
 
         public DjOperationResult<UserProfileDto> GetCurrentUserProfile()
@@ -24,15 +26,22 @@
             {
                 return new DjOperationResult<UserProfileDto>(false, getCurrentUserResult.Errors);
             }
-
-            var currentUserProfile = this.userService.GetFullUserProfile(getCurrentUserResult.Data.Id);
-            return currentUserProfile;
+            UserProfileDto currentUserProfile = null;
+            if(getCurrentUserResult.Data.AccountType == UserAccountType.Developer)
+                currentUserProfile = this.developerService.GetDeveloperPublicProfile(getCurrentUserResult.Data.Id).Data;
+            else
+            {
+                
+            }
+            return new DjOperationResult<UserProfileDto>(currentUserProfile);
         }
 
-        public DjOperationResult<bool> UpdateProfile(UserProfileDto profile)
+        public DjOperationResult<bool> UpdateDeveloperProfile(long id, UserProfileDto profile)
         {
-            
-            return  new DjOperationResult<bool>(true);
+            this.developerService.UpdateDeveloper(id, profile);
+            return new DjOperationResult<bool>(true);
         }
+
+
     }
 }

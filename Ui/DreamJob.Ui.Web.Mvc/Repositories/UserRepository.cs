@@ -40,6 +40,7 @@
         {
             var user = this.context.Users.SingleOrDefault(x => x.Id == userId);
             var result = new DjOperationResult<User>(user);
+
             return result;
         }
     }

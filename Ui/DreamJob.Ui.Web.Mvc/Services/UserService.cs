@@ -33,16 +33,6 @@
             return result;
         }
 
-        public DjOperationResult<UserProfileDto> GetFullUserProfile(long userId)
-        {
-            var getUserResult = this.userRepository.GetUser(userId);
-            if (getUserResult.IsSuccess == false)
-            {
-                return new DjOperationResult<UserProfileDto>(false, getUserResult.Errors);
-            }
-
-            var userProfileDto = Mapper.Map<User, UserProfileDto>(getUserResult.Data);
-            return new DjOperationResult<UserProfileDto>(userProfileDto);
-        }
+        
     }
 }

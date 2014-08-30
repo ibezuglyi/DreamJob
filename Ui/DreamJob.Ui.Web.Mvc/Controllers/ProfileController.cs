@@ -28,7 +28,16 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         [HttpPost]
         public JsonResult CurrentUser(UserProfileDto profile)
         {
-            var updateResult = this.profileBusiness.UpdateProfile(profile);
+            LoginUserDto currentUser = HttpContext.Session[DjSessionKeys.CurrentUser] as LoginUserDto;
+            var updateResult = new DjOperationResult<bool>(true);
+            if (currentUser.AccountType == UserAccountType.Developer)
+            {
+                updateResult = this.profileBusiness.UpdateDeveloperProfile(currentUser.Id, profile);
+            }
+            else
+            {
+                
+            }
             return this.DjJson(updateResult);
         }
 
