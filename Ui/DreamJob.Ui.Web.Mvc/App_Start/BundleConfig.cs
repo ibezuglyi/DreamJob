@@ -25,6 +25,8 @@ namespace DreamJob.Ui.Web.Mvc
 
             bundles.Add(Foundation.Scripts());
 
+            bundles.Add(new StyleBundle("~/bundles/site").Include("~/Content/Site.css"));
+
             #endregion
         }
     }

@@ -1,36 +1,37 @@
 <div class="row" ng-controller='ProfileController' ng-init="init()">
-    <fieldset>
-        <legend>My Profile</legend>
-        <div class="row">
-            <div class="small-3 columns">
-                <label>Display name: </label>
+    <div class="panel">
+        <section class="section">
+            <h5 class="title">My profile</h5>
+            <div class="row collapse">
+                <div class="small-3 columns">
+                    <label>Display name: </label>
+                </div>
+                <div class="small-4 columns">
+                    <label ng-bind="profile.DisplayName"></label>
+                </div>
+                <div class="columns"></div>
             </div>
-            <div class="small-4 columns">
-                <label ng-bind="profile.DisplayName"></label>
+            <div class="row collapse">
+                <div class="small-3 columns">
+                    <label>Email: </label>
+                </div>
+                <div class="small-4 columns">
+                    <label ng-bind="profile.Email"></label>
+                </div>
+                <div class="columns"></div>
             </div>
-            <div class="columns"></div>
-        </div>
-        <div class="row">
-            <div class="small-3 columns">
-                <label>Email: </label>
+            <div class="row collapse">
+                <div class="small-3 columns">
+                    <label>Login: </label>
+                </div>
+                <div class="small-4 columns">
+                    <label ng-bind="profile.Login"></label>
+                </div>
+                <div class="columns"></div>
             </div>
-            <div class="small-4 columns">
-                <label ng-bind="profile.Email"></label>
-            </div>
-            <div class="columns"></div>
-        </div>
-        <div class="row">
-            <div class="small-3 columns">
-                <label>Login: </label>
-            </div>
-            <div class="small-4 columns">
-                <label ng-bind="profile.Login"></label>
-            </div>
-            <div class="columns"></div>
-        </div>
-    </fieldset>
-    <div ng-include="'AngularApplication/Views/Profile/' + profile.AccountType + 'Details.html'" class="small-12 columns"></div>
-
+        </section>
+    </div>
+    <ng-include src="'AngularApplication/Views/Profile/' + profile.AccountType + 'Details.html'" class="small-12"></ng-include>
 </div>
 <div class="row" ng-controller='OfferController' ng-init='init()'>
     <div id='dj-offers-container' class="row">

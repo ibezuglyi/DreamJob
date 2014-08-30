@@ -1,0 +1,46 @@
+﻿<div class="panel">
+    <section class="section">
+        <h5 class="title">Job preferences</h5>
+        <div class="row collapse">
+            <div class="large-12 small-12 columns">
+                <div class="row collapse">
+                    <div class="small-2 columns">
+                        <label class="inline">Title: </label>
+                    </div>
+                    <div class="small-10 columns">
+                        <input type="text" ng-model="profile.Title" />
+                    </div>
+                    <div class="columns"></div>
+                </div>
+                <div class="row collapse">
+                    <div class="small-2 columns">
+                        <label class="inline">Minimal salary: </label>
+                    </div>
+                    <div class="small-10 columns">
+                        <input type="number" ng-model="profile.MinSalary" />
+                    </div>
+                    <div class="columns"></div>
+                </div>
+                <div class="row collapse">
+                    <div class="small-2 columns">
+                        <label>Your profile (expirience): </label>
+                    </div>
+                    <div class="small-10 columns">
+                        <textarea rows="5" ng-model="profile.Profile" />
+                    </div>
+                    <div class="columns"></div>
+                </div>
+                <div class="row collapse">
+                    <div class="small-2 columns">
+                        <label class="inline">Preferred city: </label>
+                    </div>
+                    <div class="small-10 columns">
+                        <input type="text" ng-model="profile.City" />
+                    </div>
+                    <div class="columns"></div>
+                </div>
+                <input class="button small-12 large-12 radius" type="submit" value="Save profile" ng-click="saveProfile()" />
+            </div>
+        </div>
+    </section>
+</div>

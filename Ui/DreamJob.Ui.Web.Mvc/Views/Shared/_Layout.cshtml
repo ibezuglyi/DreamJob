@@ -7,6 +7,7 @@
     <title>Dream Job</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     @Styles.Render("~/Content/foundation/css")
+    @Styles.Render("~/bundles/site")
     @RenderSection("head", required: false)
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -21,6 +22,7 @@
     <div class="scripts">
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/foundation")
+       
     </div>
     <script>
         $(document).foundation();

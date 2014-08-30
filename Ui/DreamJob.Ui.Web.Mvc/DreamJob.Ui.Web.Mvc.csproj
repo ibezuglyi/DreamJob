@@ -209,6 +209,8 @@
     <Content Include="Content\foundation\foundation.css" />
     <Content Include="Content\foundation\foundation.mvc.css" />
     <Content Include="Content\foundation\normalize.css" />
+    <Content Include="Content\imgs\bg-cutted.jpg" />
+    <Content Include="Content\imgs\bg.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
