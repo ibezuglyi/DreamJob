@@ -1,4 +1,4 @@
-@using DreamJob.Common.Enum @model DreamJob.Ui.Web.Mvc.BusinessServices.DeveloperPublicProfileViewModel
+@using DreamJob.Common.Enum @model DreamJob.Ui.Web.Mvc.Models.DeveloperPublicProfileViewModel
 
 
 <div>
@@ -25,7 +25,9 @@
         </div>
     </div>
     @if (Model.UserAccountType == UserAccountType.Recruiter)
-    { @Html.Partial("_DeveloperProfileRecruiterOptionPanel", null) }
+    {
+        @Html.Partial("_DeveloperProfileRecruiterOptionPanel", @Model.DeveloperPublicDataDto)
+    }
 </div>
 
 @section scripts{

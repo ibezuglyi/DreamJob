@@ -123,6 +123,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AutofacDI.cs" />
+    <Compile Include="Models\Dto\NewJobOfferDto.cs" />
+    <Compile Include="Models\DeveloperPublicProfileViewModel.cs" />
     <Compile Include="BusinessServices\ProfileBusiness.cs" />
     <Compile Include="Models\AllDevelopersViewModel.cs" />
     <Compile Include="Controllers\CommentController.cs" />

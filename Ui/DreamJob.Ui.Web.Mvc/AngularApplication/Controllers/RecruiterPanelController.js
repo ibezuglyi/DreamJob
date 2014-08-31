@@ -1,7 +1,13 @@
 angular.module('djapp', ['mm.foundation'])
     .controller('RecruiterPanelController', function ($scope, $http, $modal) {
 
-        $scope.init = function () { };
+        $scope.JobOffer = {
+            DeveloperId: 0,
+        };
+
+        $scope.init = function (developerId) {
+            $scope.JobOffer.DeveloperId = developerId;
+        };
 
         $scope.prepareJobOffer = function () {
             var modalInstance = $modal.open({
@@ -10,10 +16,22 @@ angular.module('djapp', ['mm.foundation'])
             });
 
             modalInstance.result.then(function (result) {
+                result.DeveloperId = $scope.JobOffer.DeveloperId;
+                sendJobOffer(result);
             }, function () {
-                alert('canceled');
                 // canceled
             });
+        };
+
+        var sendJobOffer = function (offer) {
+            $http.post('/offer/send', offer)
+                .success(function () {
+                    alert('success');
+                })
+                .error(function () {
+                    alert('error');
+                });
+
         };
     });
 

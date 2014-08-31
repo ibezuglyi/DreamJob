@@ -38,5 +38,12 @@
             var result = new DjOperationResult<JobOffer>(jobOffer);
             return result;
         }
+
+        public DjOperationResult<bool> InsertOffer(JobOffer jobOffer)
+        {
+            this.context.JobOffers.Add(jobOffer);
+            this.context.SaveChanges();
+            return DjOperationResult<bool>.Success();
+        }
     }
 }

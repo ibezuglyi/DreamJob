@@ -10,13 +10,17 @@
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Services;
 
+    using Microsoft.Ajax.Utilities;
+
     public class OffersBusiness : IOffersBusiness
     {
         private readonly IOfferService offersService;
+        private readonly ISession session;
 
-        public OffersBusiness(IOfferService offersService)
+        public OffersBusiness(IOfferService offersService, ISession session)
         {
             this.offersService = offersService;
+            this.session = session;
         }
 
         public DjOperationResult<List<JobOfferDto>> GetOffersForUser(long userId)
@@ -30,6 +34,19 @@
         {
             var offer = this.offersService.GetDetails(offerId);
             return offer;
+        }
+
+        public DjOperationResult<bool> SendOfferFromCurrentRecruiter(NewJobOfferDto model)
+        {
+            var getCurrentUserResult = this.session.GetCurrentUser();
+            if (getCurrentUserResult.IsSuccess == false)
+            {
+                return new DjOperationResult<bool>(false, getCurrentUserResult.Errors);
+            }
+
+            var currentUserData = getCurrentUserResult.Data;
+            var sendResult = this.offersService.SendJobOffer(currentUserData.Id, model);
+            return sendResult;
         }
     }
 }

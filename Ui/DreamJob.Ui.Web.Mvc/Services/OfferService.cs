@@ -2,9 +2,12 @@
 {
     using System.Collections.Generic;
 
+    using AutoMapper;
+
     using DreamJob.Common.Enum;
     using DreamJob.Model.Domain;
     using DreamJob.Ui.Web.Mvc.Controllers;
+    using DreamJob.Ui.Web.Mvc.Helpers;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Repositories;
 
@@ -12,9 +15,12 @@
     {
         private readonly IOffersRepository offersRepository;
 
-        public OfferService(IOffersRepository offersRepository)
+        private readonly IDateTimeAdapter dateTimeAdapter;
+
+        public OfferService(IOffersRepository offersRepository, IDateTimeAdapter dateTimeAdapter)
         {
             this.offersRepository = offersRepository;
+            this.dateTimeAdapter = dateTimeAdapter;
         }
 
         public DjOperationResult<List<JobOffer>> GetOffers(long userId)
@@ -35,6 +41,18 @@
             var resultData = AutoMapper.Mapper.Map<JobOffer, JobOfferDetailsDto>(offerData);
             var result = new DjOperationResult<JobOfferDetailsDto>(resultData);
             return result;
+        }
+
+        public DjOperationResult<bool> SendJobOffer(long recruiterUserId, NewJobOfferDto model)
+        {
+            var jobOffer = Mapper.Map<NewJobOfferDto, JobOffer>(model);
+            
+            jobOffer.FromRecruiterId = recruiterUserId;
+            jobOffer.Add = this.dateTimeAdapter.Now;
+            jobOffer.Edit = this.dateTimeAdapter.Now;
+
+            var insertResult = this.offersRepository.InsertOffer(jobOffer);
+            return insertResult;
         }
     }
 }

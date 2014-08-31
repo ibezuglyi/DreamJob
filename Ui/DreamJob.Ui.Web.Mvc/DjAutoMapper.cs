@@ -3,6 +3,7 @@ namespace DreamJob.Ui.Web.Mvc
     using System;
 
     using DreamJob.Model.Domain;
+    using DreamJob.Ui.Web.Mvc.Controllers;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Services;
 
@@ -37,6 +38,11 @@ namespace DreamJob.Ui.Web.Mvc
             AutoMapper.Mapper.CreateMap<Developer, DeveloperShortInformationDto>();
             
             AutoMapper.Mapper.CreateMap<Developer, DeveloperPublicDataDto>();
+
+            AutoMapper.Mapper.CreateMap<NewJobOfferDto, JobOffer>()
+                .ForMember(
+                    destination => destination.ToDeveloperId,
+                    option => option.MapFrom(source => source.DeveloperId));
         }
     }
 }

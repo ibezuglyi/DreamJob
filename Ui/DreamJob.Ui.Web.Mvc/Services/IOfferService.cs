@@ -9,8 +9,8 @@
 
     public interface IOfferService
     {
-        DjOperationResult<List<JobOffer>> GetOffers(long userId);
-
+        DjOperationResult<List<JobOffer>> GetOffers(long developerUserid);
         DjOperationResult<JobOfferDetailsDto> GetDetails(long offerId);
+        DjOperationResult<bool> SendJobOffer(long recruiterUserId, NewJobOfferDto model);
     }
 }

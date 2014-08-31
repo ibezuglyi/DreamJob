@@ -9,5 +9,6 @@
     {
         DjOperationResult<List<JobOffer>> OffersTo(long userId);
         DjOperationResult<JobOffer> GetDetails(long offerId);
+        DjOperationResult<bool> InsertOffer(JobOffer jobOffer);
     }
 }

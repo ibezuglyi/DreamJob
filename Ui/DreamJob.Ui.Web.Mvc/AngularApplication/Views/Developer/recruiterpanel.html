@@ -1,4 +1,4 @@
-<div class="row" ng-controller='RecruiterPanelController' ng-init='init()'>
+<div class="row">
     <button class="button" data-ng-click="prepareJobOffer()">send job offer</button>
 
     <script type="text/ng-template" id="myModalContent.html">
@@ -10,19 +10,19 @@
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <label for="subject">Job offer subject</label>
-                    <input type="text" name='subject' ng-model="JobOffer.subject"></input>
+                    <label for="subject">Job offer subject(*)</label>
+                    <input type="text" name='subject' ng-model="JobOffer.Subject"></input>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <label for="description">Job offer description</label>
-                    <textarea name="description" ng-model="JobOffer.Description"></textarea>
+                    <label for="description">Job offer description(*)</label>
+                    <textarea rows="15" name="description" ng-model="JobOffer.Description"></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-6 columns">
-                    <label for="minsalary">Job offer minimum salary</label>
+                    <label for="minsalary">Job offer minimum salary(*)</label>
                     <input type="text" name='minsalary' ng-model="JobOffer.MinSalary"></input>
                 </div>
                 <div class="medium-6 columns">
@@ -32,13 +32,13 @@
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <label for="matchesDeveloperRequirements">Matches developer requirements</label>
+                    <label for="matchesDeveloperRequirements">Matches developer requirements(*)</label>
                     <input name="matchesDeveloperRequirements" type='checkbox' ng-model="JobOffer.MatchesDeveloperRequirements" />
                 </div>
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <button class="button right" ng-click="ok()">SEND</button>
+                    <button class="button right" ng-click="ok()" ng-disabled="IsOfferValid()">SEND</button>
                     <button class="button right" ng-click="cancel()">CANCEL</button>
                 </div>
             </div>

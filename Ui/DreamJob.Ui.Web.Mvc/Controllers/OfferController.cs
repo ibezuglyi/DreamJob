@@ -3,6 +3,7 @@
     using System.Web.Mvc;
 
     using DreamJob.Ui.Web.Mvc.BusinessServices;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
 
     public class OfferController : Controller
     {
@@ -18,7 +19,7 @@
 
         [HttpGet]
         [Authorize]
-        public JsonResult MyOffers()
+        public ActionResult MyOffers()
         {
             var currentUser = this.session.GetCurrentUser().Data;
             var offers = this.profileBusiness.GetOffersForUser(currentUser.Id);
@@ -28,10 +29,19 @@
 
         [HttpGet]
         [Authorize]
-        public JsonResult OfferDetails(long id)
+        public ActionResult OfferDetails(long id)
         {
             var offer = this.profileBusiness.GetDetailsForOffer(id);
             var result = new JsonResult { Data = offer.Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            return result;
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult Send(NewJobOfferDto model)
+        {
+            var operationResult = this.profileBusiness.SendOfferFromCurrentRecruiter(model);
+            var result = new JsonResult { Data = operationResult };
             return result;
         }
     }
