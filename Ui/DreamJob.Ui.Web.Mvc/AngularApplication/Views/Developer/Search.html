@@ -8,7 +8,7 @@
                             <label class="inline">Technology or position</label>
                         </div>
                         <div class="small-10 columns">
-                            <input type="text" ng-model="searchString" placeholder="Technology of position" />
+                            <input type="text" ng-model="searchString" placeholder="Technology or position" />
                         </div>
 
                     </div>
@@ -20,11 +20,11 @@
                             <input type="text" ng-model="searchCity" placeholder="City" typeahead="city for city in getCities($viewValue)"
                                 class="form-control" />
                         </div>
-
                     </div>
                     <div class="row collapse">
-                        <div class="small-12 columns">
-                            <button class="button" ng-click="searchForDevelopers()">Seach</button>
+                        <div class="small-5 columns"></div>
+                        <div class="small-2 columns">
+                            <button class="button columns" ng-click="searchForDevelopers()">Seach</button>
                         </div>
                     </div>
                 </div>
@@ -34,18 +34,26 @@
     <div class="panel">
         <section class="section">
             <div ng-repeat="developer in developers">
-                <h5 class="title">
-                    <a ng-href="/Developer/Profile/{{developer.Id}}">{{developer.Title}}    
-                    </a>
-                    <small>{{developer.MinSalary}}</small>
-                </h5>
-
+                <div class="row collapse">
+                    <div class="small-10 columns">
+                        <h5 class="title">
+                            <a ng-href="/Developer/Profile/{{developer.Id}}">{{developer.Title}}    
+                            </a>
+                            <small>{{developer.MinSalary}} PLN</small>
+                        </h5>
+                    </div>
+                    <div class="small-2 columns">
+                        <h5>
+                            <small>{{developer.Registered}}</small>
+                        </h5>
+                    </div>
+                </div>
+                <div class="row collapse">
+                    <div class="small-10 columns">
+                        <p>{{developer.Profile}}</p>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
-
-
-    <script type="text/ng-template" id="developer-search-item.html">
-    
-    </script>
 </div>

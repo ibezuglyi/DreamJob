@@ -47,7 +47,7 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
 
         public DjOperationResult<Developer> GetById(long developerId)
         {
-            var developer = this.context.Developers.SingleOrDefault(d => d.DeveloperId == developerId);
+            var developer = this.context.Developers.SingleOrDefault(d => d.Id == developerId);
             var result = new DjOperationResult<Developer>(developer);
             return result;
         }

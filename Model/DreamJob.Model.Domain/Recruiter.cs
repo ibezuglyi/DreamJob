@@ -4,7 +4,6 @@
 
     public class Recruiter : User
     {
-        public long RecruiterId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Mobile { get; set; }

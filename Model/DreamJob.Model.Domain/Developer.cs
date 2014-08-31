@@ -10,7 +10,6 @@
             this.JobOffersReceived = new List<JobOffer>();
         }
         
-        public long DeveloperId { get; set; }
         public string Title { get; set; }
         public string Profile { get; set; }
         public string ProjectPreferences { get; set; }
