@@ -1,4 +1,8 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿using System.Data.Entity.Migrations;
+using DreamJob.Common.Enum;
+using DreamJob.Ui.Web.Mvc.Models.Dto;
+
+namespace DreamJob.Ui.Web.Mvc.Repositories
 {
     using System.Linq;
 
@@ -31,6 +35,23 @@
                 recruiter.IsActive = true;
                 this.context.SaveChanges();
             }
+        }
+
+        public DjOperationResult<Recruiter> GetRecruiterById(long id)
+        {
+            var recruiter = context.Recruiters.SingleOrDefault(r => r.Id == id);
+            if (recruiter == null)
+            {
+                return new DjOperationResult<Recruiter>(false, new[] { "Recruiter not found" });
+            }
+            return new DjOperationResult<Recruiter>(recruiter);
+
+        }
+
+        public void UpdateRecruiterProfile(Recruiter recruiter)
+        {
+            context.Recruiters.AddOrUpdate(recruiter);
+            context.SaveChanges();
         }
     }
 }

@@ -34,17 +34,41 @@ namespace DreamJob.Ui.Web.Mvc.Services
             return result;
         }
 
-        public DjOperationResult<DeveloperPublicDataDto> GetDeveloperPublicData(long developerId)
+        public DjOperationResult<UserProfileDto> GetDeveloperPublicProfile(long developerId)
         {
             var getByIdResult = this.repositoryDeveloper.GetById(developerId);
             if (getByIdResult.IsSuccess == false)
             {
-                return new DjOperationResult<DeveloperPublicDataDto>(false, getByIdResult.Errors);
+                return new DjOperationResult<UserProfileDto>(false, getByIdResult.Errors);
             }
 
-            var developerPublicData = Mapper.Map<Developer, DeveloperPublicDataDto>(getByIdResult.Data);
-            var result = new DjOperationResult<DeveloperPublicDataDto>(developerPublicData);
+            var developerPublicProfile = Mapper.Map<Developer, UserProfileDto>(getByIdResult.Data);
+            var result = new DjOperationResult<UserProfileDto>(developerPublicProfile);
             return result;
+        }
+
+        public void UpdateDeveloper(long id, UserProfileDto profile)
+        {
+            var developerResult = repositoryDeveloper.GetById(id);
+            var developer = developerResult.Data;
+            developer.City = profile.City;
+            developer.MinSalary = profile.MinSalary;
+            developer.Title = profile.Title;
+            developer.Profile = profile.Profile;
+            developer.ProjectPreferences = profile.ProjectPreferences;
+            repositoryDeveloper.UpdateDeveloper(developer);
+        }
+
+        public List<string> GetDeveloperCities(string cityPart)
+        {
+            var result = repositoryDeveloper.GetDeveloperCities(cityPart);
+            return result;
+        }
+
+        public List<DeveloperProfileDto> SearchForDevelopers(string technology, string city)
+        {
+            var developers = repositoryDeveloper.SearchForDevelopers(technology, city);
+            return Mapper.Map<List<DeveloperProfileDto>>(developers);
         }
     }
 }

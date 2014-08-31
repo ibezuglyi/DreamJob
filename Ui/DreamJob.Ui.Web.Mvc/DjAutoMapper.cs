@@ -3,7 +3,6 @@ namespace DreamJob.Ui.Web.Mvc
     using System;
 
     using DreamJob.Model.Domain;
-    using DreamJob.Ui.Web.Mvc.Controllers;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Services;
 
@@ -22,6 +21,8 @@ namespace DreamJob.Ui.Web.Mvc
             AutoMapper.Mapper.CreateMap<User, LoginUserDto>();
 
             AutoMapper.Mapper.CreateMap<User, UserProfileDto>();
+            
+                
 
             AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDetailsDto>()
                 .ForMember(d => d.From, o => o.MapFrom(s => s.FromRecruiter.DisplayName))
@@ -36,13 +37,11 @@ namespace DreamJob.Ui.Web.Mvc
                 .ForMember(d => d.To, o => o.MapFrom(s => s.FromRecruiter.DisplayName));
 
             AutoMapper.Mapper.CreateMap<Developer, DeveloperShortInformationDto>();
-            
-            AutoMapper.Mapper.CreateMap<Developer, DeveloperPublicDataDto>();
+            AutoMapper.Mapper.CreateMap<Developer, UserProfileDto>();
+            AutoMapper.Mapper.CreateMap<Recruiter, UserProfileDto>();
 
-            AutoMapper.Mapper.CreateMap<NewJobOfferDto, JobOffer>()
-                .ForMember(
-                    destination => destination.ToDeveloperId,
-                    option => option.MapFrom(source => source.DeveloperId));
+            AutoMapper.Mapper.CreateMap<Developer, DeveloperProfileDto>();
+
         }
     }
 }

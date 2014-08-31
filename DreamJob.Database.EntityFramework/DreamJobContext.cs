@@ -22,8 +22,8 @@ namespace DreamJob.Database.EntityFramework
         {
             modelBuilder.Entity<Developer>()
                 .ToTable("Developers")
-                .HasKey(x => x.DeveloperId)
-                .Property(x => x.DeveloperId)
+                .HasKey(x => x.Id)
+                .Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Developer>().HasMany(x => x.Skills);
             modelBuilder.Entity<Developer>().HasMany(x => x.JobOffersReceived);

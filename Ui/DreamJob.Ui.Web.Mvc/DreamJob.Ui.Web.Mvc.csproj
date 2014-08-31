@@ -126,11 +126,13 @@
     <Compile Include="Models\Dto\NewJobOfferDto.cs" />
     <Compile Include="Models\DeveloperPublicProfileViewModel.cs" />
     <Compile Include="BusinessServices\ProfileBusiness.cs" />
+    <Compile Include="Helpers\ControllerHelper.cs" />
     <Compile Include="Models\AllDevelopersViewModel.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="BusinessServices\DeveloperBusiness.cs" />
     <Compile Include="Controllers\DeveloperController.cs" />
     <Compile Include="BusinessServices\IDeveloperBusiness.cs" />
+    <Compile Include="Models\Dto\DeveloperProfileDto.cs" />
     <Compile Include="Models\Dto\DeveloperShortInformationDto.cs" />
     <Compile Include="Services\DeveloperService.cs" />
     <Compile Include="Services\IDeveloperService.cs" />
@@ -151,6 +153,7 @@
     <Compile Include="BusinessServices\IOffersBusiness.cs" />
     <Compile Include="Repositories\IOffersRepository.cs" />
     <Compile Include="Controllers\OfferController.cs" />
+    <Compile Include="Services\IRecruiterService.cs" />
     <Compile Include="Services\OfferService.cs" />
     <Compile Include="BusinessServices\OffersBusiness.cs" />
     <Compile Include="Repositories\OffersRepository.cs" />
@@ -174,6 +177,7 @@
     <Compile Include="Repositories\RecruiterRepository.cs" />
     <Compile Include="BusinessServices\RegisterBusiness.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Services\RecruiterService.cs" />
     <Compile Include="Services\RegisterService.cs" />
     <Compile Include="DjSessionKeys.cs" />
     <Compile Include="FormAuthentication.cs" />
@@ -198,16 +202,25 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularApplication\Controllers\DevelopersSearchController.js" />
+    <Content Include="AngularApplication\Controllers\ProfileController.js" />
     <Content Include="AngularApplication\Controllers\RecruiterPanelJobEditorController.js" />
     <Content Include="AngularApplication\Controllers\OffersController.js" />
     <Content Include="AngularApplication\Controllers\RecruiterPanelController.js" />
     <Content Include="AngularApplication\dreamjobapplication.js" />
+    <Content Include="AngularApplication\LocalizationTexts.js" />
     <Content Include="AngularApplication\Views\Developer\recruiterpanel.html" />
+    <Content Include="AngularApplication\Views\Developer\Search.html" />
     <Content Include="AngularApplication\Views\Offers\Details.html" />
+    <Content Include="AngularApplication\Views\Profile\Details.html" />
+    <Content Include="AngularApplication\Views\Profile\DeveloperDetails.html" />
     <Content Include="AngularApplication\Views\Profile\Index.html" />
+    <Content Include="AngularApplication\Views\Profile\RecruiterDetails.html" />
     <Content Include="Content\foundation\foundation.css" />
     <Content Include="Content\foundation\foundation.mvc.css" />
     <Content Include="Content\foundation\normalize.css" />
+    <Content Include="Content\imgs\bg-cutted.jpg" />
+    <Content Include="Content\imgs\bg.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -549,6 +562,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\loading-bar.min.css" />
+    <Content Include="Scripts\loading-bar.min.js" />
     <Content Include="Scripts\modernizr-2.7.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />

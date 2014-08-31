@@ -22,14 +22,19 @@ namespace DreamJob.Ui.Web.Mvc
 
             containerBuilder.RegisterType<RegisterBusiness>().As<IRegisterBusiness>();
             containerBuilder.RegisterType<LoginBusiness>().As<ILoginBusiness>();
-            containerBuilder.RegisterType<RegisterService>().As<IRegisterService>();
-            containerBuilder.RegisterType<DeveloperRepository>().As<IDeveloperRepository>();
-            containerBuilder.RegisterType<Md5PasswordHasher>().As<IPasswordHasher>();
-            containerBuilder.RegisterType<RecruiterRepository>().As<IRecruiterRepository>();
-            containerBuilder.RegisterType<DateTimeAdapter>().As<IDateTimeAdapter>();
             containerBuilder.RegisterType<OffersBusiness>().As<IOffersBusiness>();
+
+            containerBuilder.RegisterType<RegisterService>().As<IRegisterService>();
             containerBuilder.RegisterType<OfferService>().As<IOfferService>();
+            containerBuilder.RegisterType<RecruiterService>().As<IRecruiterService>();
+
+            containerBuilder.RegisterType<DeveloperRepository>().As<IDeveloperRepository>();
+            containerBuilder.RegisterType<RecruiterRepository>().As<IRecruiterRepository>();
+            
             containerBuilder.RegisterType<OffersRepository>().As<IOffersRepository>();
+
+            containerBuilder.RegisterType<Md5PasswordHasher>().As<IPasswordHasher>();
+            containerBuilder.RegisterType<DateTimeAdapter>().As<IDateTimeAdapter>();
 
 
 
