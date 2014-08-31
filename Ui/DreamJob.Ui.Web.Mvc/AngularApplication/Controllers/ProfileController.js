@@ -18,12 +18,14 @@
                 $scope.alerts.push(messages.updateSucceded);
             });
         };
+
         $scope.init = function () {
             $http.get('profile/CurrentUser')
                  .success(function (response) {
                      $scope.profile = response;
                  });
         };
+
         $scope.getCities = function(val) {
             return $http.get("profile/GetCities", {
                 params: { cityPart: val }

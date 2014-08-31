@@ -6,6 +6,11 @@
 
     public class JobOffer : BaseEntity
     {
+        public JobOffer()
+        {
+            this.JobOfferComments = new List<JobOfferComment>();
+        }
+
         public Recruiter FromRecruiter { get; set; }
         public long FromRecruiterId { get; set; }
         public Developer ToDeveloper { get; set; }
@@ -17,10 +22,5 @@
         public long? MaxSalary { get; set; }
         public bool MatchesDeveloperRequirements { get; set; }
         public List<JobOfferComment> JobOfferComments { get; set; }
-
-        public JobOffer()
-        {
-            JobOfferComments = new List<JobOfferComment>();
-        }
     }
 }

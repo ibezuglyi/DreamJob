@@ -1,6 +1,8 @@
 namespace DreamJob.Ui.Web.Mvc
 {
     using System;
+    using System.Data.Entity.Migrations.Infrastructure;
+    using System.Diagnostics;
 
     using DreamJob.Model.Domain;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
@@ -35,6 +37,12 @@ namespace DreamJob.Ui.Web.Mvc
             AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDto>()
                 .ForMember(d => d.From, o => o.MapFrom(s => s.FromRecruiter.DisplayName))
                 .ForMember(d => d.To, o => o.MapFrom(s => s.FromRecruiter.DisplayName));
+
+
+            AutoMapper.Mapper.CreateMap<NewJobOfferDto, JobOffer>()
+                .ForMember(
+                    destination => destination.ToDeveloperId,
+                    option => option.MapFrom(source => source.DeveloperId));
 
             AutoMapper.Mapper.CreateMap<Developer, DeveloperShortInformationDto>();
             AutoMapper.Mapper.CreateMap<Developer, UserProfileDto>();
