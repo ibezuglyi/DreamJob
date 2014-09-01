@@ -1,4 +1,4 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using System.Collections.Generic;
 
@@ -6,11 +6,8 @@
 
     using DreamJob.Common.Enum;
     using DreamJob.Model.Domain;
-    using DreamJob.Ui.Web.Mvc.BusinessServices;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Services;
-
-    using Microsoft.Ajax.Utilities;
 
     public class OffersBusiness : IOffersBusiness
     {
@@ -23,9 +20,18 @@
             this.session = session;
         }
 
-        public DjOperationResult<List<JobOfferDto>> GetOffersForUser(long userId)
+        public DjOperationResult<List<JobOfferDto>> GetOffersForUser(LoginUserDto user)
         {
-            var offers = this.offersService.GetOffers(userId);
+            DjOperationResult<List<JobOffer>> offers;
+            if (user.AccountType == UserAccountType.Developer)
+            {
+                offers = this.offersService.GetOffersTo(user.Id);
+            }
+            else
+            {
+                offers = this.offersService.GetOffersFrom(user.Id);
+            }
+
             var result = Mapper.Map<List<JobOffer>, List<JobOfferDto>>(offers.Data);
             return new DjOperationResult<List<JobOfferDto>>(result);
         }

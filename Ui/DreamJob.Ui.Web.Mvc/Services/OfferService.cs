@@ -23,12 +23,20 @@
             this.dateTimeAdapter = dateTimeAdapter;
         }
 
-        public DjOperationResult<List<JobOffer>> GetOffers(long userId)
+        public DjOperationResult<List<JobOffer>> GetOffersTo(long userId)
         {
             var offers = this.offersRepository.OffersTo(userId);
             var result = new DjOperationResult<List<JobOffer>>(offers.Data);
             return result;
         }
+
+        public DjOperationResult<List<JobOffer>> GetOffersFrom(long recruiterId)
+        {
+            var offers = this.offersRepository.OffersFrom(recruiterId);
+            var result = new DjOperationResult<List<JobOffer>>(offers.Data);
+            return result;
+        }
+
 
         public DjOperationResult<JobOfferDetailsDto> GetDetails(long offerId)
         {
@@ -46,7 +54,7 @@
         public DjOperationResult<bool> SendJobOffer(long recruiterUserId, NewJobOfferDto model)
         {
             var jobOffer = Mapper.Map<NewJobOfferDto, JobOffer>(model);
-            
+
             jobOffer.FromRecruiterId = recruiterUserId;
             jobOffer.Add = this.dateTimeAdapter.Now;
             jobOffer.Edit = this.dateTimeAdapter.Now;

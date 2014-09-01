@@ -27,6 +27,18 @@
             return result;
         }
 
+        public DjOperationResult<List<JobOffer>> OffersFrom(long recruiterId)
+        {
+            var offers = this.context
+                .JobOffers.Where(x => x.FromRecruiterId == recruiterId)
+                .Include(offer => offer.ToDeveloper)
+                .Include(offer => offer.FromRecruiter)
+                .ToList();
+            var result = new DjOperationResult<List<JobOffer>>(offers);
+            return result;
+        }
+
+
         public DjOperationResult<JobOffer> GetDetails(long offerId)
         {
             var jobOffer = this.context.JobOffers.Include(offer => offer.FromRecruiter)

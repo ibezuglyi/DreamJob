@@ -1,17 +1,17 @@
-window.djApplication.factory('DjClientApi', function($http) {
+window.djApplication.factory('djClientApi', function ($http) {
 
-    var addComment = function(comment) {
+    var addComment = function (comment) {
         var postRequest = $http.post('comment/add', comment);
         return postRequest;
     };
 
-    var getMyOffers = function() {
+    var getMyOffers = function () {
         var getRequest = $http.get('offer/MyOffers');
         return getRequest;
     };
 
-    var offerDetails = function(offerId) {
-        var getRequest = $http.get('offer/OfferDetails/' + offerId)
+    var offerDetails = function (offerId) {
+        var getRequest = $http.get('offer/OfferDetails/' + offerId);
         return getRequest;
     };
 

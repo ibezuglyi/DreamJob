@@ -22,7 +22,7 @@
         public ActionResult MyOffers()
         {
             var currentUser = this.session.GetCurrentUser().Data;
-            var offers = this.profileBusiness.GetOffersForUser(currentUser.Id);
+            var offers = this.profileBusiness.GetOffersForUser(currentUser);
             var result = new JsonResult { Data = offers.Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             return result;
         }

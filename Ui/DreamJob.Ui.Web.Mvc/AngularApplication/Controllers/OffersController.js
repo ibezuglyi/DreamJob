@@ -1,4 +1,4 @@
-window.djApplication.controller('OfferController', function($scope, $http, DjClientApi) {
+window.djApplication.controller('OfferController', function($scope, $http, djClientApi) {
 
     $scope.offers = [];
     $scope.offer = {};
@@ -8,14 +8,14 @@ window.djApplication.controller('OfferController', function($scope, $http, DjCli
     };
 
     $scope.init = function() {
-        DjClientApi.getMyOffers()
+        djClientApi.getMyOffers()
             .success(function(response) {
                 $scope.offers = response;
-            })
+            });
     };
 
     $scope.details = function(offerId) {
-        DjClientApi.getOfferDetails(offerId)
+        djClientApi.getOfferDetails(offerId)
             .success(function(response) {
                 $scope.offer = response;
                 $scope.offerComments = response.JobOfferComments;
@@ -27,7 +27,7 @@ window.djApplication.controller('OfferController', function($scope, $http, DjCli
             offerId: $scope.offer.Id,
             text: $scope.comment.text
         };
-        DjClientApi.addComment(data)
+        djClientApi.addComment(data)
             .success(function(response) {
                 if (response.IsSuccess) {
                     $scope.offerComments.push(response.Data);
