@@ -17,7 +17,7 @@ angular.module('djapp', [])
             $scope.details = function (offerId) {
                 $http.get('offer/OfferDetails/' + offerId)
                     .success(function (response) {
-                        $scope.offer = response
+                        $scope.offer = response;
                         $scope.offerComments = response.JobOfferComments;
                     });
             };
@@ -27,13 +27,13 @@ angular.module('djapp', [])
                     offerId: $scope.offer.Id,
                     text: $scope.comment.text
                 };
-                $http.post('comments/add', data)
+                $http.post('comment/add', data)
                     .success(function (response) {
                         if (response.IsSuccess) {
                             $scope.offerComments.push(response.Data);
                             $scope.comment.text = '';
                         }
                     });
-            }
-        }
+            };
+        };
     });
