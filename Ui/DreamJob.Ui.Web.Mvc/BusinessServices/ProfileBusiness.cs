@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using DreamJob.Ui.Web.Mvc.Repositories;
-
-namespace DreamJob.Ui.Web.Mvc.BusinessServices
+﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
+    using System.Collections.Generic;
+
     using DreamJob.Common.Enum;
-    using DreamJob.Ui.Web.Mvc.Controllers;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Services;
 
@@ -16,7 +14,11 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         private readonly IDeveloperService developerService;
         private readonly IRecruiterService recruiterService;
 
-        public ProfileBusiness(ISession session, IUserService userService, IDeveloperService developerService, IRecruiterService recruiterService)
+        public ProfileBusiness(
+            ISession session,
+            IUserService userService,
+            IDeveloperService developerService,
+            IRecruiterService recruiterService)
         {
             this.session = session;
             this.userService = userService;

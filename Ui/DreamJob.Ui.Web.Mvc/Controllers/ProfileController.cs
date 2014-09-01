@@ -1,22 +1,23 @@
-﻿using DreamJob.Common.Enum;
-using DreamJob.Ui.Web.Mvc.Models.Dto;
-using  DreamJob.Ui.Web.Mvc.Helpers;
-
-namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿namespace DreamJob.Ui.Web.Mvc.Controllers
 {
-    using System;
     using System.Web.Mvc;
 
+    using DreamJob.Common.Enum;
     using DreamJob.Ui.Web.Mvc.BusinessServices;
+    using DreamJob.Ui.Web.Mvc.Helpers;
+    using DreamJob.Ui.Web.Mvc.Models.Dto;
 
     [Authorize]
     public class ProfileController : Controller
     {
         private readonly IProfileBusiness profileBusiness;
 
-        public ProfileController(IProfileBusiness profileBusiness)
+        private readonly ISession session;
+
+        public ProfileController(IProfileBusiness profileBusiness, ISession session)
         {
             this.profileBusiness = profileBusiness;
+            this.session = session;
         }
 
         [HttpGet]
@@ -28,8 +29,9 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         [HttpPost]
         public JsonResult CurrentUser(UserProfileDto profile)
         {
-            LoginUserDto currentUser = HttpContext.Session[DjSessionKeys.CurrentUser] as LoginUserDto;
-            var updateResult = new DjOperationResult<bool>(true);
+            LoginUserDto currentUser = this.session.GetCurrentUser().Data;
+            DjOperationResult<bool> updateResult;
+            
             if (currentUser.AccountType == UserAccountType.Developer)
             {
                 updateResult = this.profileBusiness.UpdateDeveloperProfile(currentUser.Id, profile);
@@ -38,6 +40,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             {
                 updateResult = this.profileBusiness.UpdateRecruiterProfile(currentUser.Id, profile);
             }
+
             return this.DjJson(updateResult);
         }
 
@@ -51,13 +54,13 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         [HttpGet]
         public JsonResult GetCities(string cityPart)
         {
-            var cities = profileBusiness.GetDeveloperCities(cityPart);
+            var cities = this.profileBusiness.GetDeveloperCities(cityPart);
             return this.DjJson(cities);
         }
 
         public JsonResult Search(string technology, string city)
         {
-            var developers = profileBusiness.SearchForDevelopers(technology, city);
+            var developers = this.profileBusiness.SearchForDevelopers(technology, city);
             return this.DjJson(developers);
         }
 
