@@ -41,6 +41,9 @@ namespace DreamJob.Ui.Web.Mvc
                 .Include("~/AngularApplication/Controllers/OffersController.js")
                 .Include("~/AngularApplication/Controllers/DevelopersSearchController.js")
                 .Include("~/AngularApplication/Services/DreamJobApiClient.js")
+                .Include("~/AngularApplication/Controllers/RecruiterPanelController.js")
+                .Include("~/AngularApplication/Controllers/RecruiterPanelJobEditorController.js")
+                
                 
                 );
         }

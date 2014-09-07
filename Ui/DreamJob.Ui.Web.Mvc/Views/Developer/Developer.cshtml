@@ -1,39 +1,33 @@
 @using DreamJob.Common.Enum @model DreamJob.Ui.Web.Mvc.Models.DeveloperPublicProfileViewModel
-
-
 <div>
     <div class="row">
-        <div class="row">
-            @Model.DeveloperPublicDataDto.DisplayName
+        <div class="small-8 columns">
+            <h4>
+                <strong>Title:</strong>
+                @Model.DeveloperPublicDataDto.Title
+            </h4>
         </div>
-        <div class="row">
-            @Model.DeveloperPublicDataDto.Title
+        <div class="small-2 columns">
+            <h4>@Model.DeveloperPublicDataDto.City</h4>
         </div>
-        <div class="row">
+        <div class="small-2 columns">
+            <h4>@Model.DeveloperPublicDataDto.MinSalary PLN</h4>
+        </div>
+
+
+        <p>
+            <strong>Profile:</strong>
             @Model.DeveloperPublicDataDto.Profile
-        </div>
-        <div class="row">
+        </p>
+
+        <p>
+            <strong>Profile preferences:</strong>
             @Model.DeveloperPublicDataDto.ProjectPreferences
-        </div>
-        <div class="row">
-            <div class="medium-4 columns">
-                @Model.DeveloperPublicDataDto.City
-            </div>
-            <div class="medium-4 columns">
-                @Model.DeveloperPublicDataDto.MinSalary
-            </div>
-        </div>
+        </p>
+
     </div>
-    @if (Model.UserAccountType == UserAccountType.Recruiter)
+@if (Model.UserAccountType == UserAccountType.Recruiter)
     {
         @Html.Partial("_DeveloperProfileRecruiterOptionPanel", @Model.DeveloperPublicDataDto)
-    }
-</div>
-
-@section scripts{
-    <script src="~/Scripts/angular.js"></script>
-    <script src="~/Scripts/foundation-angular/mm-foundation-tpls-0.3.1.min.js"></script>
-    <script src='~/AngularApplication/dreamjobapplication.js'></script>
-    <script src="~/AngularApplication/Controllers/RecruiterPanelJobEditorController.js"></script>
-    <script src="~/AngularApplication/Controllers/RecruiterPanelController.js"></script>
 }
+</div>

@@ -1,4 +1,4 @@
-angular.module('djapp', ['mm.foundation'])
+window.djApplication
     .controller('RecruiterPanelController', function ($scope, $http, $modal) {
 
         $scope.JobOffer = {
