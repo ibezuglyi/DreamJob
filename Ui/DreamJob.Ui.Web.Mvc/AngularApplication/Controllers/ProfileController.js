@@ -1,5 +1,5 @@
 (function (messages) {
-    window.djApplication.controller('ProfileController', function ($scope, $http) {
+    window.djApplication.controller('ProfileController', function ($scope, djClientApi) {
         $scope.profile = { City: "" };
         $scope.preferredTitle = messages.preferredTitle;
         $scope.minSalary = messages.minSalary;
@@ -9,29 +9,24 @@
         };
 
         $scope.saveProfile = function () {
-            var profileData = { profile: $scope.profile };
-            $http({
-                url: "profile/CurrentUser",
-                method: "POST",
-                data: profileData
-            }).success(function (response) {
+            djClientApi.saveProfile($scope.profile)
+            .success(function (response) {
                 $scope.alerts.push(messages.updateSucceded);
             });
         };
 
         $scope.init = function () {
-            $http.get('profile/CurrentUser')
-                 .success(function (response) {
-                     $scope.profile = response;
-                 });
+            djClientApi.getProfile()
+                    .success(function (response) {
+                        $scope.profile = response;
+                    });
         };
 
-        $scope.getCities = function(val) {
-            return $http.get("profile/GetCities", {
-                params: { cityPart: val }
-            }).then(function(resp) {
-                return resp.data;
-            });
+        $scope.getCities = function (val) {
+            djClientApi.getCities(val)
+                        .then(function (resp) {
+                            return resp.data;
+                        });
         };
     });
 }(window.LocalizationTexts));

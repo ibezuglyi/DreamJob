@@ -1,4 +1,4 @@
-<div class="row" ng-init="init()">
+<div class="row" ng-controller="ProfileController" ng-init="init()">
     <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
     <div class="panel margined-top-20">
         <section class="section">
