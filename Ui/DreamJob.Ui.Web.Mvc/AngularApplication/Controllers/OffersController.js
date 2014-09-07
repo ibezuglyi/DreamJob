@@ -15,7 +15,7 @@ window.djApplication.controller('OfferController', function($scope, $http, djCli
     };
 
     $scope.details = function(offerId) {
-        djClientApi.getOfferDetails(offerId)
+        djClientApi.offerDetails(offerId)
             .success(function(response) {
                 $scope.offer = response;
                 $scope.offerComments = response.JobOfferComments;

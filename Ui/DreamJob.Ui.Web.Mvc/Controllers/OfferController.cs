@@ -29,6 +29,13 @@
 
         [HttpGet]
         [Authorize]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize]
         public ActionResult OfferDetails(long id)
         {
             var offer = this.profileBusiness.GetDetailsForOffer(id);

@@ -34,18 +34,3 @@
     </div>
     <ng-include src="'AngularApplication/Views/Profile/' + profile.AccountType + 'Details.html'" class="small-12"></ng-include>
 </div>
-<div class="row" ng-controller='OfferController' ng-init='init()'>
-    <div id='dj-offers-container' class="row">
-        <div class="medium-3 columns">
-            <div class="row" ng-repeat="offer in offers">
-                <button class="btn">
-                    <div ng-click='details(offer.Id)'>
-                        <span>{{offer.Subject}}</span>
-                    </div>
-                </button>
-            </div>
-        </div>
-        <div ng-include="'AngularApplication/Views/Offers/Details.html'" class="medium-9 columns">
-        </div>
-    </div>
-</div>

@@ -1,32 +1,33 @@
 <div class="container">
     <div class="row">
         <div class="row">
-            <span>{{offer.From}}</span>
-            <span>{{offer.To}}</span>
+            <h4>{{offer.From}}</h4>
         </div>
         <div class="row">
-            <span>{{offer.Add}}</span>
-            <span>{{offer.Subject}}</span>
+            <h5>{{offer.Subject}} <small>{{offer.Add}}</small></h5>
         </div>
         <div class="row">
             <span>{{offer.Description}}</span>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-show="offerComments && offerComments.length>0">
         <div class="row" ng-repeat="comment in offerComments">
             <div class="medium-offset-1 columns">
                 <div class="row">
-                    <span>{{comment.Author}}</span>
-                    <span>{{comment.Add}}</span>
-                </div>
-                <div class="row">
-                    <span>{{comment.Text}}</span>
+                    <div class="small-10 columns">
+                        <p>
+                            <strong>{{comment.Author}}</strong> <small>{{comment.Add}}</small>
+                            <br />
+                            {{comment.Text}}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class='row' id='dj-submit-comment'>
+            <textarea ng-model='comment.text'></textarea>
+            <button class='btn tiny' ng-click='addOfferComment()'>reply</button>
+        </div>
     </div>
-    <div class='row' id='dj-submit-comment'>
-        <textarea ng-model='comment.text'></textarea>
-        <button class='btn tiny' ng-click='addOfferComment()'>reply</button>
-    </div>
+
 </div>

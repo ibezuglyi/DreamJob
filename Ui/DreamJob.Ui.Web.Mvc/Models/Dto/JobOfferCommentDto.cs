@@ -7,7 +7,7 @@
     public class JobOfferCommentDto
     {
         public long Id { get; set; }
-        public DateTime Add { get; set; }
+        public string Add { get; set; }
         public long JobOfferId { get; set; }
         public string Author { get; set; }
         public string Text { get; set; }

@@ -6,14 +6,12 @@
     </ul>
     <section class="top-bar-section">
         <ul class="left">
-            <li>
-                <a href="#">Search</a>
-            </li>
-            <li>
-                <a href="#">Jobs</a>
-            </li>
-            <li>
-                @Html.ActionLink("Developers", "Index", "Developer")
+  @if (Request.IsAuthenticated)
+  {
+      <li>@Html.ActionLink("Offers", "Index", "Offer")
+      </li>
+  }
+            <li>@Html.ActionLink("Developers", "Index", "Developer")
             </li>
         </ul>
         @Html.Partial("_LoginPartial")

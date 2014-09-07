@@ -8,7 +8,7 @@
     {
         public long Id { get; set; }
         public string Subject { get; set; }
-        public DateTime Add { get; set; }
+        public string Add { get; set; }
         public string From { get; set; }
         public string To { get; set; }
         public string Description { get; set; }
