@@ -57,5 +57,21 @@
             this.context.SaveChanges();
             return DjOperationResult<bool>.Success();
         }
+
+        public DjOperationResult<JobOffer> GetOffer(long offerId)
+        {
+            var result = this.context.JobOffers.Single(offer => offer.Id == offerId);
+            var operationResult = new DjOperationResult<JobOffer>(result);
+            return operationResult;
+        }
+
+        public DjOperationResult<bool> UpdateStatus(JobOffer offer)
+        {
+            var offerToUpdate = this.context.JobOffers.Single(o => o.Id == offer.Id);
+            offerToUpdate.OfferStatus = offer.OfferStatus;
+            offerToUpdate.Edit = offer.Edit;
+            this.context.SaveChanges();
+            return DjOperationResult<bool>.Success();
+        }
     }
 }

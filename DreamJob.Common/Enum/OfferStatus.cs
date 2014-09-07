@@ -6,6 +6,7 @@
         Read,
         Accepted,
         Rejected,
-        Bingo
+        Bingo,
+        Canceled
     }
 }

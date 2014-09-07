@@ -19,6 +19,7 @@ window.djApplication.factory('djClientApi', function ($http) {
         var getProfileRequest = $http.get('profile/CurrentUser');
         return getProfileRequest;
     };
+
     self.saveProfile = function (profile) {
         var profileData = { profile: profile };
         var saveRequest = $http({
@@ -28,10 +29,22 @@ window.djApplication.factory('djClientApi', function ($http) {
         });
         return saveRequest;
     };
-    self.getCities = function(cityVal) {
+
+    self.getCities = function (cityVal) {
         return $http.get("profile/GetCities", {
             params: { cityPart: cityVal }
         });
+    };
+
+    self.cancelOffer = function (data) {
+        return $http.post('offer/cancelOffer', data);
+    };
+    self.acceptOffer = function (data) {
+        return $http.post('offer/acceptOffer', data);
+
+    };
+    self.rejectOffer = function (data) {
+        return $http.post('offer/rejectOffer', data);
     };
 
     return self;

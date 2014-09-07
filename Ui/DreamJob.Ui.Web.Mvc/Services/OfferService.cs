@@ -62,5 +62,15 @@
             var insertResult = this.offersRepository.InsertOffer(jobOffer);
             return insertResult;
         }
+
+        public DjOperationResult<bool> MarkOffer(long offerId, long userId, OfferStatus offerStatus)
+        {
+            var getOfferResult  = this.offersRepository.GetOffer(offerId);
+            var offer = getOfferResult.Data;
+            offer.OfferStatus = offerStatus;
+            offer.Edit = this.dateTimeAdapter.Now;
+            var operationResult = this.offersRepository.UpdateStatus(offer);
+            return operationResult;
+        }
     }
 }

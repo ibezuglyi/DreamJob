@@ -7,6 +7,11 @@
 
     public abstract class User : BaseEntity
     {
+        protected User()
+        {
+            this.Confirmations = new List<Confirmation>();
+        }
+        
         public string Login { get; set; }
         public string DisplayName { get; set; }
         public string PasswordHash { get; set; }
@@ -20,10 +25,5 @@
 
         public DateTime Registered { get; set; }
         public DateTime LastLoginDateTime { get; set; }
-
-        protected User()
-        {
-            this.Confirmations = new List<Confirmation>();
-        }
     }
 }

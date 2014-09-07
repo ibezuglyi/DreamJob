@@ -10,5 +10,9 @@
         DjOperationResult<List<JobOfferDto>> GetOffersForUser(LoginUserDto userId);
         DjOperationResult<JobOfferDetailsDto> GetDetailsForOffer(long offerId);
         DjOperationResult<bool> SendOfferFromCurrentRecruiter(NewJobOfferDto model);
+
+        DjOperationResult<bool> AcceptOffer(long id);
+        DjOperationResult<bool> RejectOffer(long id);
+        DjOperationResult<bool> CancelOffer(long id);
     }
 }

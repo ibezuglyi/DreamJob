@@ -1,6 +1,7 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using System.Collections.Generic;
+    using System.ServiceModel.Channels;
 
     using AutoMapper;
 
@@ -8,6 +9,8 @@
     using DreamJob.Model.Domain;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Services;
+
+    using ISession = DreamJob.Ui.Web.Mvc.ISession;
 
     public class OffersBusiness : IOffersBusiness
     {
@@ -53,6 +56,51 @@
             var currentUserData = getCurrentUserResult.Data;
             var sendResult = this.offersService.SendJobOffer(currentUserData.Id, model);
             return sendResult;
+        }
+
+        public DjOperationResult<bool> AcceptOffer(long id)
+        {
+            var getUserResult = this.session.GetCurrentUser();
+            var currentUser = getUserResult.Data;
+            if (currentUser.AccountType == UserAccountType.Recruiter)
+            {
+                return new DjOperationResult<bool>(false, new[] { "Only developer can mark a offer as accepted" });
+            }
+
+            var operationResult = this.MarkOffer(id, currentUser.Id, OfferStatus.Accepted);
+            return operationResult;
+        }
+
+        public DjOperationResult<bool> RejectOffer(long id)
+        {
+            var getUserResult = this.session.GetCurrentUser();
+            var currentUser = getUserResult.Data;
+            if (currentUser.AccountType == UserAccountType.Recruiter)
+            {
+                return new DjOperationResult<bool>(false, new[] { "Only developer can mark a offer as rejected" });
+            }
+
+            var operationResult = this.MarkOffer(id, currentUser.Id, OfferStatus.Rejected);
+            return operationResult;
+        }
+
+        public DjOperationResult<bool> CancelOffer(long id)
+        {
+            var getUserResult = this.session.GetCurrentUser();
+            var currentUser = getUserResult.Data;
+            if (currentUser.AccountType == UserAccountType.Developer)
+            {
+                return new DjOperationResult<bool>(false, new[] { "Only recruited can cancel the offer" });
+            }
+
+            var operationResult = this.MarkOffer(id, currentUser.Id, OfferStatus.Canceled);
+            return operationResult;
+        }
+
+        private DjOperationResult<bool> MarkOffer(long offerId, long userId, OfferStatus offerStatus)
+        {
+            var operationStatus = this.offersService.MarkOffer(offerId, userId, offerStatus);
+            return operationStatus;
         }
     }
 }

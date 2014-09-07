@@ -31,7 +31,7 @@
         [Authorize]
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         [HttpGet]
@@ -48,6 +48,29 @@
         public ActionResult Send(NewJobOfferDto model)
         {
             var operationResult = this.profileBusiness.SendOfferFromCurrentRecruiter(model);
+            var result = new JsonResult { Data = operationResult };
+            return result;
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult AcceptOffer(long id)
+        {
+            var operationResult = this.profileBusiness.AcceptOffer(id);
+            var result = new JsonResult { Data = operationResult };
+            return result;
+        }
+
+        public ActionResult RejectOffer(long id)
+        {
+            var operationResult = this.profileBusiness.RejectOffer(id);
+            var result = new JsonResult { Data = operationResult };
+            return result;
+        }
+
+        public ActionResult CancelOffer(long id)
+        {
+            var operationResult = this.profileBusiness.CancelOffer(id);
             var result = new JsonResult { Data = operationResult };
             return result;
         }
