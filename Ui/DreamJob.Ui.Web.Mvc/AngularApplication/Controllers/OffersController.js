@@ -1,9 +1,9 @@
 window.djApplication.controller('OfferController', function ($scope, djClientApi) {
 
     var isOfferLocked = function (offerStatus) {
-        return offerStatus == "Rejected"
-            || offerStatus == "Accepted"
-            || offerStatus == "Canceled";
+        return offerStatus === "Rejected"
+            || offerStatus === "Accepted"
+            || offerStatus === "Canceled";
     };
 
     $scope.offers = [];
