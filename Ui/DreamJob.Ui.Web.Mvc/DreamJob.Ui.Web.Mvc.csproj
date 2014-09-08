@@ -66,6 +66,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -123,6 +126,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AutofacDI.cs" />
+    <Compile Include="BusinessServices\EmailService.cs" />
+    <Compile Include="BusinessServices\IEmailService.cs" />
     <Compile Include="Models\Dto\NewJobOfferDto.cs" />
     <Compile Include="Models\DeveloperPublicProfileViewModel.cs" />
     <Compile Include="BusinessServices\ProfileBusiness.cs" />

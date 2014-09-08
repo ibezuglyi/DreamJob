@@ -27,6 +27,7 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<RegisterService>().As<IRegisterService>();
             containerBuilder.RegisterType<OfferService>().As<IOfferService>();
             containerBuilder.RegisterType<RecruiterService>().As<IRecruiterService>();
+            containerBuilder.RegisterType<EmailService>().As<IEmailService>();
 
             containerBuilder.RegisterType<DeveloperRepository>().As<IDeveloperRepository>();
             containerBuilder.RegisterType<RecruiterRepository>().As<IRecruiterRepository>();
