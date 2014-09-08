@@ -8,12 +8,10 @@
     public class RegisterBusiness : IRegisterBusiness
     {
         private readonly IRegisterService registerService;
-        private readonly IEmailService emailService;
 
-        public RegisterBusiness(IRegisterService registerService, IEmailService emailService)
+        public RegisterBusiness(IRegisterService registerService)
         {
             this.registerService = registerService;
-            this.emailService = emailService;
         }
 
         public DjOperationResult<UserRegistrationViewModel> GetRegisterViewModel()
@@ -26,7 +24,6 @@
         public DjOperationResult<string> RegisterDeveloper(UserRegistrationDto model)
         {
             var result = this.registerService.AddNewDeveloper(model);
-            emailService.SendSimpleMessage(model.Email);
             return result;
         }
 
