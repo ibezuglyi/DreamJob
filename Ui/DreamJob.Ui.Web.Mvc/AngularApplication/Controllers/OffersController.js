@@ -1,10 +1,6 @@
 window.djApplication.controller('OfferController', function ($scope, djClientApi) {
 
-    var isOfferLocked = function (offerStatus) {
-        return offerStatus === "Rejected"
-            || offerStatus === "Accepted"
-            || offerStatus === "Canceled";
-    };
+    
 
     $scope.offers = [];
     $scope.offer = {};
@@ -13,7 +9,9 @@ window.djApplication.controller('OfferController', function ($scope, djClientApi
         text: ''
     };
 
-    $scope.init = function () {
+    $scope.init = function (currentUser) {
+        $scope.currentUser = angular.fromJson(currentUser);
+
         djClientApi.getMyOffers()
             .success(function (response) {
                 $scope.offers = response;
@@ -80,6 +78,12 @@ window.djApplication.controller('OfferController', function ($scope, djClientApi
         } else {
             alert(response.Errors[0]);
         }
+    };
+
+    var isOfferLocked = function (offerStatus) {
+        return offerStatus === "Rejected"
+            || offerStatus === "Accepted"
+            || offerStatus === "Canceled";
     };
 
 });

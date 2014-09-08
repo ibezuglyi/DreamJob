@@ -31,7 +31,9 @@
         [Authorize]
         public ActionResult Index()
         {
-            return this.View();
+            var currentUser = this.session.GetCurrentUser().Data;
+            var viewModel = new OfferIndexViewModel(currentUser);
+            return this.View("Index", viewModel);
         }
 
         [HttpGet]
