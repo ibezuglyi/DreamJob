@@ -23,7 +23,7 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<RegisterBusiness>().As<IRegisterBusiness>();
             containerBuilder.RegisterType<LoginBusiness>().As<ILoginBusiness>();
             containerBuilder.RegisterType<OffersBusiness>().As<IOffersBusiness>();
-
+            
             containerBuilder.RegisterType<RegisterService>().As<IRegisterService>();
             containerBuilder.RegisterType<OfferService>().As<IOfferService>();
             containerBuilder.RegisterType<RecruiterService>().As<IRecruiterService>();
@@ -44,7 +44,7 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<CommentsRepository>().As<ICommentsRepository>();
 
 
-
+            containerBuilder.RegisterType<EmailService>().As<IEmailService>();
 
             containerBuilder.RegisterType<FormAuthentication>().As<IAuthentication>();
             containerBuilder.RegisterType<LoginService>().As<ILoginService>();
