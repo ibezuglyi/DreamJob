@@ -40,6 +40,7 @@ window.djApplication.factory('djClientApi', function ($http) {
         return $http.post('offer/cancelOffer', data);
     };
     self.acceptOffer = function (data) {
+        alert(data);
         return $http.post('offer/acceptOffer', data);
 
     };

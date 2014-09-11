@@ -1,14 +1,16 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using System.Collections.Generic;
-    using System.ServiceModel.Channels;
 
     using AutoMapper;
 
     using DreamJob.Common.Enum;
     using DreamJob.Model.Domain;
+    using DreamJob.Ui.Web.Mvc.Controllers;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Services;
+
+    using Microsoft.Ajax.Utilities;
 
     using ISession = DreamJob.Ui.Web.Mvc.ISession;
 
@@ -16,11 +18,13 @@
     {
         private readonly IOfferService offersService;
         private readonly ISession session;
+        private readonly ICommentService commentService;
 
-        public OffersBusiness(IOfferService offersService, ISession session)
+        public OffersBusiness(IOfferService offersService, ISession session, ICommentService commentService)
         {
             this.offersService = offersService;
             this.session = session;
+            this.commentService = commentService;
         }
 
         public DjOperationResult<List<JobOfferDto>> GetOffersForUser(LoginUserDto user)
@@ -58,16 +62,24 @@
             return sendResult;
         }
 
-        public DjOperationResult<bool> AcceptOffer(long id)
+        public DjOperationResult<bool> AcceptOffer(AcceptOfferDto model)
         {
             var getUserResult = this.session.GetCurrentUser();
             var currentUser = getUserResult.Data;
             if (currentUser.AccountType == UserAccountType.Recruiter)
             {
-                return new DjOperationResult<bool>(false, new[] { "Only developer can mark a offer as accepted" });
+                return new DjOperationResult<bool>(false, new[] { "Only developer can mark an offer as accepted" });
             }
 
-            var operationResult = this.MarkOffer(id, currentUser.Id, OfferStatus.Accepted);
+            var data = model.ToString();
+
+            var addCommentsResult = this.commentService.AddNewComment(model.Id, data, currentUser.Id);
+            if (addCommentsResult.IsSuccess == false)
+            {
+                return new DjOperationResult<bool>(false, addCommentsResult.Errors);
+            }
+
+            var operationResult = this.MarkOffer(model.Id, currentUser.Id, OfferStatus.Accepted);
             return operationResult;
         }
 
@@ -77,7 +89,7 @@
             var currentUser = getUserResult.Data;
             if (currentUser.AccountType == UserAccountType.Recruiter)
             {
-                return new DjOperationResult<bool>(false, new[] { "Only developer can mark a offer as rejected" });
+                return new DjOperationResult<bool>(false, new[] { "Only developer can mark an offer as rejected" });
             }
 
             var operationResult = this.MarkOffer(id, currentUser.Id, OfferStatus.Rejected);

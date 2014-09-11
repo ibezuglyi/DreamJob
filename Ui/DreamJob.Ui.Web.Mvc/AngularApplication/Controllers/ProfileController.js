@@ -10,7 +10,7 @@
 
         $scope.saveProfile = function () {
             djClientApi.saveProfile($scope.profile)
-            .success(function (response) {
+            .success(function () {
                 $scope.alerts.push(messages.updateSucceded);
             });
         };

@@ -21,14 +21,10 @@ namespace DreamJob.Ui.Web.Mvc
 
             bundles.Add(new StyleBundle("~/bundles/site")
                 .Include("~/Content/Site.css")
-                .Include("~/Scripts/loading-bar.min.css")
-                
-                );
+                .Include("~/Scripts/loading-bar.min.css"));
 
-            #region Foundation Bundles
             bundles.Add(Foundation.Styles());
             bundles.Add(Foundation.Scripts());
-            #endregion
 
             bundles.Add(new ScriptBundle("~/bundles/app")
                 .Include("~/AngularApplication/LocalizationTexts.js")
@@ -39,13 +35,11 @@ namespace DreamJob.Ui.Web.Mvc
                 .Include("~/AngularApplication/dreamjobapplication.js")
                 .Include("~/AngularApplication/Controllers/ProfileController.js")
                 .Include("~/AngularApplication/Controllers/OffersController.js")
+                .Include("~/AngularApplication/Controllers/AcceptOfferController.js")
                 .Include("~/AngularApplication/Controllers/DevelopersSearchController.js")
                 .Include("~/AngularApplication/Services/DreamJobApiClient.js")
                 .Include("~/AngularApplication/Controllers/RecruiterPanelController.js")
-                .Include("~/AngularApplication/Controllers/RecruiterPanelJobEditorController.js")
-                
-                
-                );
+                .Include("~/AngularApplication/Controllers/RecruiterPanelJobEditorController.js"));
         }
     }
 }
