@@ -26,9 +26,9 @@
         </div>
 
     </div>
-    <div class='row' id='dj-submit-comment'>
+    <div class='row' id='dj-submit-comment' ng-hide='offer.IsLocked'>
         <textarea ng-disabled="offer.IsLocked" ng-model='comment.text'></textarea>
-        <button class='btn tiny' ng-click='addOfferComment()' ng-disabled="offer.IsLocked">reply</button>
+        <button class='btn tiny' ng-click='addOfferComment()' ng-disabled="comment.text.length==0 || offer.IsLocked">reply</button>
         <div class="button-group">
             <label>Offer options</label>
             <button class='btn tiny' ng-show="currentUser.AccountType=='Recruiter'" ng-disabled="offer.IsLocked" ng-click='cancelOffer()'>cancel</button>
@@ -36,5 +36,7 @@
             <button class='btn tiny' ng-hide="currentUser.AccountType=='Recruiter'" ng-disabled="offer.IsLocked" ng-click='rejectOffer()'>reject</button>
         </div>
     </div>
-
+    <div class="row" ng-show="offer.IsLocked">
+        <h2>{{offer.OfferStatus}}</h2>
+    </div>
 </div>
