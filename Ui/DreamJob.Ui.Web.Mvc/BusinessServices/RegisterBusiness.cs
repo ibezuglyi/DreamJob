@@ -26,13 +26,14 @@
         public DjOperationResult<string> RegisterDeveloper(UserRegistrationDto model)
         {
             var result = this.registerService.AddNewDeveloper(model);
-            emailService.SendSimpleMessage(model.Email);
+            emailService.SendDeveloperGreetings(model.Email, model.DisplayName);
             return result;
         }
 
         public DjOperationResult<string> RegisterRecruiter(UserRegistrationDto model)
         {
             var result = this.registerService.AddNewRecruiter(model);
+            emailService.SendRecruiterGreetings(model.Email, model.DisplayName);
             return result;
         }
 

@@ -66,6 +66,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\..\packages\RazorEngine.3.4.1\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=104.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
@@ -128,7 +131,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AutofacDI.cs" />
     <Compile Include="BusinessServices\EmailService.cs" />
+    <Compile Include="BusinessServices\EmailTemplateProvider.cs" />
+    <Compile Include="BusinessServices\EmailType.cs" />
     <Compile Include="BusinessServices\IEmailService.cs" />
+    <Compile Include="BusinessServices\IEmailTemplateProvider.cs" />
+    <Compile Include="BusinessServices\ITemplateProvider.cs" />
+    <Compile Include="BusinessServices\RazorTemplateProvider.cs" />
     <Compile Include="Controllers\OfferIndexViewModel.cs" />
     <Compile Include="Models\Dto\NewJobOfferDto.cs" />
     <Compile Include="Models\DeveloperPublicProfileViewModel.cs" />
@@ -231,6 +239,7 @@
     <Content Include="Content\foundation\normalize.css" />
     <Content Include="Content\imgs\bg-cutted.jpg" />
     <Content Include="Content\imgs\bg.jpg" />
+    <Content Include="EmailTemplates\DeveloperGreetings.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
