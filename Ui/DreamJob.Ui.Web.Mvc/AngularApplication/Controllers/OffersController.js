@@ -19,6 +19,7 @@ window.djApplication.controller('OfferController', function ($scope, djClientApi
     };
 
     $scope.details = function (offerId) {
+        $scope.comment.text = '';
         djClientApi.offerDetails(offerId)
             .success(function (response) {
                 $scope.offer = response;
