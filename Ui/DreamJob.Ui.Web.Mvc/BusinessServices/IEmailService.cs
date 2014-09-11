@@ -8,6 +8,8 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     public interface IEmailService
     {
-        IRestResponse SendSimpleMessage(string to);
+        void SendEmailMessage(string to, string from, string subject, string content);
+        void SendDeveloperGreetings(string to, string userName);
+        void SendRecruiterGreetings(string to, string userName);
     }
 }

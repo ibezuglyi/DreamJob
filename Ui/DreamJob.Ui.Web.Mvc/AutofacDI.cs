@@ -58,6 +58,11 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<DeveloperService>().As<IDeveloperService>();
             containerBuilder.RegisterType<DeveloperRepository>().As<IDeveloperRepository>();
 
+            containerBuilder.RegisterType<RazorTemplateProvider>().As<ITemplateProvider>();
+            containerBuilder.RegisterType<EmailTemplateProvider>().As<IEmailTemplateProvider>();
+
+            
+
             containerBuilder.RegisterType<DreamJobContext>().InstancePerRequest();
 
 
