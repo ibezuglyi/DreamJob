@@ -238,6 +238,7 @@
     <Content Include="Content\foundation\normalize.css" />
     <Content Include="Content\imgs\bg-cutted.jpg" />
     <Content Include="Content\imgs\bg.jpg" />
+    <Content Include="EmailTemplates\RecruiterGreeting.html" />
     <Content Include="EmailTemplates\DeveloperGreetings.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
