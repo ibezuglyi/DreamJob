@@ -1,20 +1,38 @@
 @using DreamJob.Common.Enum @model DreamJob.Ui.Web.Mvc.Models.DeveloperPublicProfileViewModel
-<div>
-    <div class="row">
-        <div class="small-8 columns">
-            <h4>
-                <strong>Title:</strong>
-                @Model.DeveloperPublicDataDto.Title
-            </h4>
-        </div>
-        <div class="small-2 columns">
-            <h4>@Model.DeveloperPublicDataDto.City</h4>
-        </div>
-        <div class="small-2 columns">
-            <h4>@Model.DeveloperPublicDataDto.MinSalary PLN</h4>
-        </div>
-
-
+<div class="row margined-top-20" ng-app="djapp">
+    <div class="panel">
+        <h5>
+            <strong>Title:</strong>
+            @Model.DeveloperPublicDataDto.Title
+        </h5>
+        <h5>
+            <strong>City:</strong>
+            @Model.DeveloperPublicDataDto.City
+        </h5>
+        <h5>
+            <strong>Minimal salary:</strong>
+            @Model.DeveloperPublicDataDto.MinSalary PLN
+        </h5>
+    </div>
+    <div class="panel">
+        <h5>
+            <strong>Experience:</strong>
+        </h5>
+        @foreach (var skill in Model.DeveloperPublicDataDto.Skills)
+            {
+                <div class="row collapse raiting-line-height">
+                    <div class="small-4 columns">
+                        @skill.Description
+                    </div>
+                    <div class="small-4 columns rating-bar">
+                        <rating value="@skill.SelfRate" max="10" state-on="'fi-star selected'" state-off="'fi-star'"></rating>
+                        @skill.SelfRate
+                    </div>
+                    <div class="small-1 columns"></div>
+                </div>
+        }
+    </div>
+    <div class="panel">
         <p>
             <strong>Profile:</strong>
             @Model.DeveloperPublicDataDto.Profile
@@ -26,8 +44,8 @@
         </p>
 
     </div>
-@if (Model.UserAccountType == UserAccountType.Recruiter)
+    @if (Model.UserAccountType == UserAccountType.Recruiter)
     {
         @Html.Partial("_DeveloperProfileRecruiterOptionPanel", @Model.DeveloperPublicDataDto)
-}
+    }
 </div>
