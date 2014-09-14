@@ -15,6 +15,12 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         private readonly IEmailTemplateProvider emailTemplateProvider;
         private const string WelcomeToDreamJobSubject = "Welcome to Dream job";
 
+        private readonly string EmailBaseUrl;
+        private readonly string EmailResource;
+        private readonly string EmailDomain;
+        private readonly string EmailFrom;
+        private readonly string EmailApiCode;
+
         public EmailService(IEmailTemplateProvider emailTemplateProvider)
         {
             this.emailTemplateProvider = emailTemplateProvider;
@@ -22,12 +28,10 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             EmailDomain = WebConfigurationManager.AppSettings["Email_Domain"];
             EmailResource = WebConfigurationManager.AppSettings["Email_Resource"];
             EmailBaseUrl = WebConfigurationManager.AppSettings["Email_BaseUrl"];
+            EmailApiCode = WebConfigurationManager.AppSettings["Email_ApiCode"];
         }
 
-        public string EmailBaseUrl { get; set; }
-        public string EmailResource { get; set; }
-        public string EmailDomain { get; set; }
-        public string EmailFrom { get; set; }
+        
 
         public void SendEmailMessage(string to, string from, string subject, string content)
         {
@@ -66,8 +70,9 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         private RestClient GetRestClient()
         {
             var client = new RestClient(EmailBaseUrl);
-            client.Authenticator = new HttpBasicAuthenticator("api", "key-XXX");
+            client.Authenticator = new HttpBasicAuthenticator("api", EmailApiCode);
             return client;
         }
+
     }
 }
