@@ -1,13 +1,11 @@
-﻿<div class="row margined-top-50" >
+﻿<div class="row margined-top-50">
     <div id='dj-offers-container' class="row">
         <div class="medium-3 columns">
-            <div class="row" ng-repeat="offer in offers">
-                <button class="btn" ng-click='details(offer.Id)'>
-                    <div>
-                        <span>{{offer.Subject}}</span>
-                    </div>
-                </button>
-            </div>
+            <ul ng-repeat="offer in offers" class="stack button-group">
+                <li class="button expand" ng-click='details(offer.Id)'>
+                    <span>{{offer.Subject}}</span>
+                </li>
+            </ul>
         </div>
         <div ng-include="'AngularApplication/Views/Offers/Details.html'" class="medium-9 columns">
         </div>

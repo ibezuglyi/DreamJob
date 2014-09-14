@@ -1,6 +1,4 @@
-window.djApplication.controller('OfferController', function ($scope, djClientApi) {
-
-    
+window.djApplication.controller('OfferController', function ($scope, $modal, djClientApi) {
 
     $scope.offers = [];
     $scope.offer = {};
@@ -53,13 +51,21 @@ window.djApplication.controller('OfferController', function ($scope, djClientApi
     };
 
     $scope.acceptOffer = function () {
-        var data = {
-            id: $scope.offer.Id,
-        };
-        djClientApi.acceptOffer(data)
-            .success(function (response) {
-                updateJobOfferStatus(response);
-            });
+        var modalInstance = $modal.open({
+            templateUrl: 'acceptOfferTemplate.html',
+            controller: AcceptOfferController
+        });
+
+
+        modalInstance.result.then(function (result) {
+            result.Id = $scope.offer.Id,
+            djClientApi.acceptOffer(result)
+                .success(function (response) {
+                    updateJobOfferStatus(response);
+                });
+        }, function () {
+            // canceled
+        });
     };
 
     $scope.rejectOffer = function () {

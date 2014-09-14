@@ -220,6 +220,7 @@
     <Content Include="AngularApplication\Controllers\DevelopersSearchController.js" />
     <Content Include="AngularApplication\Controllers\ProfileController.js" />
     <Content Include="AngularApplication\Controllers\RecruiterPanelJobEditorController.js" />
+    <Content Include="AngularApplication\Controllers\AcceptOfferController.js" />
     <Content Include="AngularApplication\Controllers\OffersController.js" />
     <Content Include="AngularApplication\Controllers\RecruiterPanelController.js" />
     <Content Include="AngularApplication\dreamjobapplication.js" />

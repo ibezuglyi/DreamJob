@@ -39,4 +39,52 @@
     <div class="row" ng-show="offer.IsLocked">
         <h2>{{offer.OfferStatus}}</h2>
     </div>
+
+    <script type="text/ng-template" id="acceptOfferTemplate.html">
+        <div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <h3>Accept offer editor</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label for="name">Name</label>
+                    <input type='text' name="name" ng-model="AcceptedOffer.Name" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label for="note">Note for recruiter</label>
+                    <input type='text' name="note" ng-model="AcceptedOffer.Note" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label for="subjectcontactMethod">Your prefered way of contact, time, date, etc.</label>
+                    <input type="text" name='contactMethod' ng-model="AcceptedOffer.ContactMethod"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label for="email">Email</label>
+                    <input type='text' name='email' ng-model="AcceptedOffer.Email"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <label for="phone">Phone</label>
+                    <input type="text" name='phone' ng-model="AcceptedOffer.Phone"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <button class="button right" ng-click="ok()" ng-disabled="IsOfferValid()">SEND</button>
+                    <button class="button right" ng-click="cancel()">CANCEL</button>
+                </div>
+            </div>
+
+            <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+        </div>
+    </script>
 </div>
