@@ -19,7 +19,14 @@
             djClientApi.getProfile()
                     .success(function (response) {
                         $scope.profile = response;
+                        
                     });
+        };
+        $scope.deleteSkill = function(indx) {
+            $scope.profile.Skills.splice(indx, 1);
+        };
+        $scope.addSkill = function () {
+            $scope.profile.Skills.push({ SelfRate: 0, Description: "" });
         };
 
         $scope.getCities = function (val) {

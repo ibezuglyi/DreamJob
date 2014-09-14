@@ -1,9 +1,15 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Models.Dto
+﻿using System.Collections.Generic;
+
+namespace DreamJob.Ui.Web.Mvc.Models.Dto
 {
     using System;
 
     public class UserProfileDto
     {
+        public UserProfileDto()
+        {
+            this.Skills = new List<SkillDto>();
+        }
         public long Id { get; set; }
         public string DisplayName { get; set; }
         public string Email { get; set; }
@@ -15,6 +21,7 @@
         public string ProjectPreferences { get; set; }
         public long MinSalary { get; set; }
         public string City { get; set; }
+        public IList<SkillDto> Skills { get; set; }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }

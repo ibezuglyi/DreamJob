@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using DreamJob.Ui.Web.Mvc.Models.Dto;
 
 namespace DreamJob.Ui.Web.Mvc.Repositories
@@ -47,7 +48,10 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
 
         public DjOperationResult<Developer> GetById(long developerId)
         {
-            var developer = this.context.Developers.SingleOrDefault(d => d.Id == developerId);
+            var developer = this.context.Developers
+                .Include(t=>t.Skills)
+                .SingleOrDefault(d => d.Id == developerId);
+            
             var result = new DjOperationResult<Developer>(developer);
             return result;
         }
@@ -84,6 +88,16 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
                 .Take(50)
                 .ToList();
 
+        }
+
+        public void RemoveAllSkillsForDeveloper(long id)
+        {
+            var developer = context.Developers.Single(r=>r.Id == id);
+            foreach (var skill in developer.Skills)
+            {
+                context.Entry(skill).State = EntityState.Deleted;
+            }
+            context.SaveChanges();
         }
     }
 }

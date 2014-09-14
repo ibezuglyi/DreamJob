@@ -49,7 +49,8 @@ namespace DreamJob.Ui.Web.Mvc
             AutoMapper.Mapper.CreateMap<Recruiter, UserProfileDto>();
 
             AutoMapper.Mapper.CreateMap<Developer, DeveloperProfileDto>();
-
+            AutoMapper.Mapper.CreateMap<Skill, SkillDto>();
+            AutoMapper.Mapper.CreateMap<SkillDto, Skill>();
         }
     }
 }

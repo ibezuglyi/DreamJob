@@ -1,3 +1,7 @@
+using System.Data.Entity.Core.Objects;
+using System.Linq;
+using DreamJob.Ui.Web.Mvc.Helpers;
+
 namespace DreamJob.Ui.Web.Mvc.Services
 {
     using System.Collections.Generic;
@@ -13,10 +17,12 @@ namespace DreamJob.Ui.Web.Mvc.Services
     public class DeveloperService : IDeveloperService
     {
         private readonly IDeveloperRepository repositoryDeveloper;
+        private readonly IDateTimeAdapter dateTimeAdapter;
 
-        public DeveloperService(IDeveloperRepository repositoryDeveloper)
+        public DeveloperService(IDeveloperRepository repositoryDeveloper, IDateTimeAdapter dateTimeAdapter)
         {
             this.repositoryDeveloper = repositoryDeveloper;
+            this.dateTimeAdapter = dateTimeAdapter;
         }
 
         public DjOperationResult<List<DeveloperShortInformationDto>> GetAllDevelopersShortInfo()
@@ -49,14 +55,36 @@ namespace DreamJob.Ui.Web.Mvc.Services
 
         public void UpdateDeveloper(long id, UserProfileDto profile)
         {
+            var skillsToUpdate = GetSkillsToUpdate(profile);
+            repositoryDeveloper.RemoveAllSkillsForDeveloper(id);
             var developerResult = repositoryDeveloper.GetById(id);
-            var developer = developerResult.Data;
+            var developer = UpdateDeveloperProfile(profile, developerResult.Data, skillsToUpdate);
+            
+            repositoryDeveloper.UpdateDeveloper(developer);
+        }
+
+        private static Developer UpdateDeveloperProfile(UserProfileDto profile, Developer developer,
+            List<Skill> skillsToUpdate)
+        {
             developer.City = profile.City;
             developer.MinSalary = profile.MinSalary;
             developer.Title = profile.Title;
             developer.Profile = profile.Profile;
             developer.ProjectPreferences = profile.ProjectPreferences;
-            repositoryDeveloper.UpdateDeveloper(developer);
+            developer.Skills = skillsToUpdate;
+            return developer;
+        }
+
+        private List<Skill> GetSkillsToUpdate(UserProfileDto profile)
+        {
+            var skillsToUpdate = profile.Skills.Where(r => !string.IsNullOrEmpty(r.Description)).ToList();
+            var skills = Mapper.Map<List<Skill>>(skillsToUpdate);
+            foreach (var skill in skills)
+            {
+                skill.Add = dateTimeAdapter.Now;
+                skill.Edit = dateTimeAdapter.Now;
+            }
+            return skills;
         }
 
         public List<string> GetDeveloperCities(string cityPart)

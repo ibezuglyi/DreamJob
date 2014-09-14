@@ -9,6 +9,7 @@ namespace DreamJob.Ui.Web.Mvc
             return new StyleBundle("~/Content/foundation/css").Include(
                        "~/Content/foundation/foundation.css",
                        "~/Content/foundation/foundation.mvc.css",
+                       "~/Content/foundation/foundation-icons.css",
                        "~/Content/foundation/app.css");
         }
 

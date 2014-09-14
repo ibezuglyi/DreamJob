@@ -149,6 +149,7 @@
     <Compile Include="BusinessServices\IDeveloperBusiness.cs" />
     <Compile Include="Models\Dto\DeveloperProfileDto.cs" />
     <Compile Include="Models\Dto\DeveloperShortInformationDto.cs" />
+    <Compile Include="Models\Dto\SkillDto.cs" />
     <Compile Include="Services\DeveloperService.cs" />
     <Compile Include="Services\IDeveloperService.cs" />
     <Compile Include="Services\CommentService.cs" />
@@ -234,6 +235,8 @@
     <Content Include="AngularApplication\Views\Profile\DeveloperDetails.html" />
     <Content Include="AngularApplication\Views\Profile\Index.html" />
     <Content Include="AngularApplication\Views\Profile\RecruiterDetails.html" />
+    <Content Include="Content\foundation\foundation-icons.css" />
+    <Content Include="Content\foundation\foundation-icons.svg" />
     <Content Include="Content\foundation\foundation.css" />
     <Content Include="Content\foundation\foundation.mvc.css" />
     <Content Include="Content\foundation\normalize.css" />
@@ -273,6 +276,9 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Content\foundation\foundation-icons.eot" />
+    <Content Include="Content\foundation\foundation-icons.ttf" />
+    <Content Include="Content\foundation\foundation-icons.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\foundation-angular\mm-foundation-tpls-0.3.1.min.js" />
     <Content Include="Scripts\foundation\fastclick.js" />

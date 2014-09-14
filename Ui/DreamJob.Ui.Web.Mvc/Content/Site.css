@@ -28,9 +28,28 @@
     border-color: #c4d2dd;
     color: #363634;
 }
+
 .joyride-tip-guide {
     background: #363634;
 }
-.joyride-tip-guide p {
-    color: #e2e9ee;
+
+    .joyride-tip-guide p {
+        color: #e2e9ee;
+    }
+
+.rating-bar {
+    font-size: 20px;
+    
+    padding-left: 15px;
+}
+
+    .rating-bar .fi-star {
+        letter-spacing: 5px;
+    }
+
+.fi-star.selected {
+    color: #BC660B;
+}
+.raiting-line-height{
+    line-height: 35px;
 }

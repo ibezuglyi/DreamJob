@@ -18,5 +18,6 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
         void UpdateDeveloper(Developer developer);
         List<string> GetDeveloperCities(string cityPart);
         List<Developer> SearchForDevelopers(string technology, string city);
+        void RemoveAllSkillsForDeveloper(long id);
     }
 }
