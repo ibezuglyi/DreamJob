@@ -1,13 +1,17 @@
 ﻿<div class="row margined-top-50">
     <div id='dj-offers-container' class="row">
-        <div class="medium-3 columns">
-            <ul ng-repeat="offer in offers" class="stack button-group">
-                <li class="button expand" ng-click='details(offer.Id)'>
-                    <span>{{offer.Subject}}</span>
+        <div class="medium-4 columns panel">
+            <ul class="side-nav">
+                <li ng-repeat="offer in offers" ng-click='details(offer)' ng-class="{'selected-offer':offer.selected}">
+                    <a href="#" class="row">
+                        <span class="small-5 columns">{{offer.From}}</span>
+                        <span class="small-6 columns">{{offer.Subject}}</span>
+                        <span class="small-1 columns" ng-class="{'label alert':offer.OfferStatus===3,'label success':offer.OfferStatus===0 }"></span>
+                    </a>
                 </li>
             </ul>
         </div>
-        <div ng-include="'AngularApplication/Views/Offers/Details.html'" class="medium-9 columns">
+        <div ng-include="'AngularApplication/Views/Offers/Details.html'" class="medium-8 columns panel">
         </div>
     </div>
 </div>

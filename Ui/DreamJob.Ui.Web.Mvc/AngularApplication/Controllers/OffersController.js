@@ -1,7 +1,7 @@
 window.djApplication.controller('OfferController', function ($scope, $modal, djClientApi) {
 
     $scope.offers = [];
-    $scope.offer = {};
+    $scope.offer = null;
     $scope.offerComments = [];
     $scope.comment = {
         text: ''
@@ -16,16 +16,22 @@ window.djApplication.controller('OfferController', function ($scope, $modal, djC
             });
     };
 
-    $scope.details = function (offerId) {
+    $scope.details = function (offer) {
+        $scope.deselectOffers();
+        offer.selected = true;
         $scope.comment.text = '';
-        djClientApi.offerDetails(offerId)
+        djClientApi.offerDetails(offer.Id)
             .success(function (response) {
                 $scope.offer = response;
                 $scope.offerComments = response.JobOfferComments;
                 $scope.offer.IsLocked = isOfferLocked(response.OfferStatus);
             });
     };
-
+    $scope.deselectOffers = function() {
+        angular.forEach($scope.offers, function(offer, k) {
+            offer.selected = false;
+        });
+    };
     $scope.addOfferComment = function () {
         var data = {
             offerId: $scope.offer.Id,
