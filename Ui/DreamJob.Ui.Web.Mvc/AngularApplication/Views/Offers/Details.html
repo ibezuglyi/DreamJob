@@ -1,13 +1,9 @@
-<div class="container">
+<div>
     <div class="row">
-        <div class="row">
-            <h4>{{offer.From}}</h4>
-        </div>
-        <div class="row">
-            <h5>{{offer.Subject}} <small>{{offer.Add}}</small></h5>
-        </div>
-        <div class="row">
-            <span>{{offer.Description}}</span>
+        <div class="medium-12 columns">
+            <h4 class="row">{{offer.From}}</h4>
+            <h5 class="row">{{offer.Subject}} <small>{{offer.Add}}</small></h5>
+            <div class="row">{{offer.Description}}</div>
         </div>
     </div>
     <div class="row" ng-show="offerComments && offerComments.length>0">
