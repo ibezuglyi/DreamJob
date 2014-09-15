@@ -53,3 +53,8 @@
 .raiting-line-height{
     line-height: 35px;
 }
+.selected-offer {
+    color: white;
+    background: rgba(0, 0, 0, 0.09);
+    font-weight: bold;
+}

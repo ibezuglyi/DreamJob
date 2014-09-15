@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container" ng-show="offer!==null">
     <div class="row">
-        <div class="row">
-            <h4>{{offer.From}}</h4>
+        <div class="medium-12 columns">
+            <h4><strong>From: </strong>{{offer.From}} <small>{{offer.Add}}</small></h4>
         </div>
-        <div class="row">
-            <h5>{{offer.Subject}} <small>{{offer.Add}}</small></h5>
+        <div class="medium-12 columns">
+            <h5>{{offer.Subject}} </h5>
         </div>
-        <div class="row">
+        <div class="medium-12 columns">
             <span>{{offer.Description}}</span>
         </div>
     </div>
@@ -87,4 +87,7 @@
             <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
         </div>
     </script>
+</div>
+<div class="container" ng-show="offer===null">
+    <h3>Offers preview</h3>
 </div>
