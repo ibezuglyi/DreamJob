@@ -39,7 +39,6 @@
 
 .rating-bar {
     font-size: 20px;
-    
     padding-left: 15px;
 }
 
@@ -50,11 +49,21 @@
 .fi-star.selected {
     color: #BC660B;
 }
-.raiting-line-height{
+
+.raiting-line-height {
     line-height: 35px;
 }
+
 .selected-offer {
     color: white;
     background: rgba(0, 0, 0, 0.09);
     font-weight: bold;
+}
+
+.offer-list-item {
+    border-bottom: 1px solid #ebeaeb;
+    vertical-align: middle;
+}
+.side-nav li a.row {
+    padding: 0;
 }

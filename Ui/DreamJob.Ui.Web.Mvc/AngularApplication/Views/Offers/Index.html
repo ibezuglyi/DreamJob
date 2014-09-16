@@ -2,8 +2,10 @@
     <div id='dj-offers-container' class="row">
         <div class="medium-4 columns panel">
             <ul class="side-nav">
-                <li ng-repeat="offer in offers" ng-click='details(offer)' ng-class="{'selected-offer':offer.selected}">
+                <li ng-repeat="offer in offers" ng-click='details(offer)' ng-class="{'selected-offer':offer.selected}" class="offer-list-item">
+                   
                     <a href="#" class="row">
+                        <i class="fi-mail"></i> 
                         <span class="small-5 columns">{{offer.From}}</span>
                         <span class="small-6 columns">{{offer.Subject}}</span>
                         <span class="small-1 columns" ng-class="{'label alert':offer.OfferStatus===3,'label success':offer.OfferStatus===0 }"></span>

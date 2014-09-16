@@ -36,7 +36,9 @@ namespace DreamJob.Ui.Web.Mvc
 
             AutoMapper.Mapper.CreateMap<JobOffer, JobOfferDto>()
                 .ForMember(d => d.From, o => o.MapFrom(s => s.FromRecruiter.DisplayName))
-                .ForMember(d => d.To, o => o.MapFrom(s => s.FromRecruiter.DisplayName));
+                .ForMember(d => d.To, o => o.MapFrom(s => s.FromRecruiter.DisplayName))
+                .ForMember(d => d.OfferStatus, o => o.MapFrom(s => s.OfferStatus.ToString()));
+                
 
 
             AutoMapper.Mapper.CreateMap<NewJobOfferDto, JobOffer>()

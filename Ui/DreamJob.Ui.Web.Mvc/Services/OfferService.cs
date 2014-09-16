@@ -46,7 +46,7 @@
                 return new DjOperationResult<JobOfferDetailsDto>(false, offerResult.Errors);
             }
             var offerData = offerResult.Data;
-            var resultData = AutoMapper.Mapper.Map<JobOffer, JobOfferDetailsDto>(offerData);
+            var resultData = Mapper.Map<JobOffer, JobOfferDetailsDto>(offerData);
             var result = new DjOperationResult<JobOfferDetailsDto>(resultData);
             return result;
         }

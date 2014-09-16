@@ -1,7 +1,12 @@
 <div class="container" ng-show="offer!==null">
     <div class="row">
         <div class="medium-12 columns">
-            <h4><strong>From: </strong>{{offer.From}} <small>{{offer.Add}}</small></h4>
+            <div class="row collapse">
+                <div class="medium-2 columns"><h4><strong>From: </strong></h4></div>
+                <div class="medium-4 columns"><h4>{{offer.From}}</h4></div>
+                <div class="medium-3 columns"><h4><small>{{offer.Add}}</small></h4></div>
+                <div class="medium-2 columns"><span ng-class="{'label alert':offer.OfferStatus===3,'label success':offer.OfferStatus===0 }">{{offer.OfferStatus}}</span></div>
+            </div>
         </div>
         <div class="medium-12 columns">
             <h5>{{offer.Subject}} </h5>
@@ -37,7 +42,7 @@
         </div>
     </div>
     <div class="row" ng-show="offer.IsLocked">
-        <h2>{{offer.OfferStatus}}</h2>
+        
     </div>
 
     <script type="text/ng-template" id="acceptOfferTemplate.html">
