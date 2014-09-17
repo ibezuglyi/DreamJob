@@ -12,7 +12,7 @@
         public string To { get; set; }
         public string Subject { get; set; }
         public string Description { get; set; }
-        public OfferStatus OfferStatus { get; set; }
+        public string OfferStatus { get; set; }
         public long MinSalary { get; set; }
         public long? MaxSalary { get; set; }
         public bool MatchesDeveloperRequirements { get; set; }

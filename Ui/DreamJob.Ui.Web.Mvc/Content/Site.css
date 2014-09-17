@@ -55,15 +55,74 @@
 }
 
 .selected-offer {
-    color: white;
-    background: rgba(0, 0, 0, 0.09);
+    background: rsgba(0, 0, 0, 0.09);
     font-weight: bold;
+    border-right: 1px solid #d8d8d8;
 }
 
 .offer-list-item {
     border-bottom: 1px solid #ebeaeb;
     vertical-align: middle;
+    cursor: pointer;
 }
+
+    .offer-list-item:hover {
+        background: #f8f8f8;
+    }
+
 .side-nav li a.row {
     padding: 0;
+}
+
+.offers-list {
+    border: 1px solid #d8d8d8;
+}
+
+    .offers-list .side-nav li {
+        margin: 0;
+    }
+
+.job-header {
+    position: relative;
+}
+
+.job-status-line {
+    position: absolute;
+    top: 20%;
+    right: 2%;
+}
+.job-status {
+    
+}
+.job-offer-date {
+    text-align: right;
+}
+.New {
+    background-color: #2ba6cb;
+    color: white;
+    padding: 1px;
+}
+.Rejected {
+    background-color: #893937;
+    color: white;
+    padding: 1px;
+}
+.Read {
+    background-color: #363636;
+    color: white;
+    padding: 1px;
+}
+
+.job-header  h4 {
+    margin-bottom: 0.125rem;
+}
+.offer-author {
+    padding-left: 0;
+    padding-right: 0;
+}
+.offer-list-item .row {
+    margin-left: 0;
+}
+button.Rejected:hover {
+    background-color: #592917;
 }

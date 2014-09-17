@@ -1,15 +1,23 @@
 ﻿<div class="row margined-top-50">
     <div id='dj-offers-container' class="row">
-        <div class="medium-4 columns panel">
+        <div class="medium-4 columns offers-list">
             <ul class="side-nav">
-                <li ng-repeat="offer in offers" ng-click='details(offer)' ng-class="{'selected-offer':offer.selected}" class="offer-list-item">
-                   
-                    <a href="#" class="row">
-                        <i class="fi-mail"></i> 
-                        <span class="small-5 columns">{{offer.From}}</span>
-                        <span class="small-6 columns">{{offer.Subject}}</span>
-                        <span class="small-1 columns" ng-class="{'label alert':offer.OfferStatus===3,'label success':offer.OfferStatus===0 }"></span>
-                    </a>
+                <li ng-repeat="offer in offers" ng-click='details(offer)' ng-class="{'selected-offer':offer.selected}"
+                    class="offer-list-item">
+
+                    <div class="row">
+                        <i class="fi-mail small-1 columns"></i>
+                        <span class="small-11 columns offer-author">From: {{offer.From}}</span>
+                    </div>
+                    <div class="row">
+                        <span class="small-10 columns">{{offer.Subject}}</span>
+                        <span class="small-2 columns">
+                            <i class="fi-comments"></i>
+                            {{offer.MessagesCount}}
+                        </span>
+
+
+                    </div>
                 </li>
             </ul>
         </div>

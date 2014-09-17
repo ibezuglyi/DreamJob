@@ -22,6 +22,7 @@
             var offers = this.context
                 .JobOffers.Where(x => x.ToDeveloperId == userId)
                 .Include(offer => offer.FromRecruiter)
+                .Include(offer=>offer.JobOfferComments)
                 .ToList();
             var result = new DjOperationResult<List<JobOffer>>(offers);
             return result;
