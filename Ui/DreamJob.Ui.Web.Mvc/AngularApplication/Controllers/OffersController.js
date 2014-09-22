@@ -23,12 +23,16 @@ window.djApplication.controller('OfferController', function ($scope, $modal, djC
         djClientApi.offerDetails(offer.Id)
             .success(function (response) {
                 $scope.offer = response;
+                $scope.offer.DescriptionParagraphs = $scope.offer.Description.split(/\r\n|\r|\n/g);
                 $scope.offerComments = response.JobOfferComments;
+                angular.forEach($scope.offerComments, function (comment) {
+                    comment.Text = comment.Text.split(/\r\n|\r|\n/g);
+                });
                 $scope.offer.IsLocked = isOfferLocked(response.OfferStatus);
             });
     };
-    $scope.deselectOffers = function() {
-        angular.forEach($scope.offers, function(offer, k) {
+    $scope.deselectOffers = function () {
+        angular.forEach($scope.offers, function (offer, k) {
             offer.selected = false;
         });
     };

@@ -1,5 +1,6 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.Models.Dto
 {
+    using DreamJob.Common.Enum;
     using System;
     using System.Collections.Generic;
 

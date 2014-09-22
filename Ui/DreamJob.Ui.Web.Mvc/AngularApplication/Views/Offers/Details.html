@@ -1,21 +1,54 @@
-<div ng-show="offer!==null" class="medium-12 columns">
+<div class="container" ng-show="offer!==null">
     <div class="row">
+        <div class="medium-12 columns job-header">
+            <div class="row collapse">
+                <div class="medium-12 columns">
+                    <h4>
+                        <strong>{{offer.Subject}}</strong>
+                    </h4>
+                </div>
+            </div>
+            <div class="job-status-line ">
+                <span class="job-status" ng-class="offer.OfferStatus">{{offer.OfferStatus}}</span>
+            </div>
+            <div class="line" ng-class="offer.OfferStatus"></div>
+            <div class="row collapse">
+                <div class="medium-5 columns">
+                    <h4>
+                        <small><i class="fi-address-book"></i></small>
+                        <small>From: {{offer.From}}, {{offer.FromCompany}}</small>
+                    </h4>
+                </div>
+                <div class="medium-3 columns">
+                    <h4 class="job-offer-date">
+                        <small>
+                            <i class="fi-clock"></i>
+                            <span>{{offer.Add}}</span>
+                        </small>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <br />
         <div class="medium-12 columns">
-            <h6 class="row">{{offer.From}} <small>{{offer.Add}}</small></h6>
-            <h3 class="row">{{offer.Subject}} </h3>
-            <div>{{offer.Description}}</div>
+            <p ng-repeat="p in offer.DescriptionParagraphs track by $index">{{p}}</p>
         </div>
     </div>
     <div class="row" ng-show="offerComments && offerComments.length>0">
         <div class="row" ng-repeat="comment in offerComments">
-            <div class="medium-offset-1 columns">
+            <div class="small-offset-1 columns">
                 <div class="row">
                     <div class="small-10 columns">
-                        <p>
-                            <strong>{{comment.Author}}</strong> <small>{{comment.Add}}</small>
-                            <br />
-                            {{comment.Text}}
+                        <strong>{{comment.Author}}</strong> <small>{{comment.Add}}</small>
+                        <br />
+                        <p ng-repeat="p in comment.Text track by $index">
+                            {{p}}
                         </p>
+                    </div>
+                    <div class="small-1 columns">
+                        <i class="fi-comment"></i>
+                    </div>
+                    <div class="small-1 columns">
                     </div>
                 </div>
             </div>
@@ -24,16 +57,37 @@
     </div>
     <div class='row' id='dj-submit-comment' ng-hide='offer.IsLocked'>
         <textarea ng-disabled="offer.IsLocked" ng-model='comment.text'></textarea>
-        <button class='btn tiny' ng-click='addOfferComment()' ng-disabled="comment.text.length==0 || offer.IsLocked">reply</button>
-        <div class="button-group">
-            <label>Offer options</label>
-            <button class='btn tiny' ng-show="currentUser.AccountType=='Recruiter'" ng-disabled="offer.IsLocked" ng-click='cancelOffer()'>cancel</button>
-            <button class='btn tiny' ng-hide="currentUser.AccountType=='Recruiter'" ng-disabled="offer.IsLocked" ng-click='acceptOffer()'>accept</button>
-            <button class='btn tiny' ng-hide="currentUser.AccountType=='Recruiter'" ng-disabled="offer.IsLocked" ng-click='rejectOffer()'>reject</button>
+        <div class="row collapse">
+            <div class="small-4 columns">
+                <button class='btn tiny' ng-click='addOfferComment()' ng-disabled="comment.text.length==0 || offer.IsLocked">
+                    <i class="fi-pencil"></i>
+                    Reply
+                </button>
+            </div>
+            <div class="small-3 columns">
+                <div class="button-group">
+                    <button class='btn tiny' ng-show="currentUser.AccountType=='Recruiter'" ng-disabled="offer.IsLocked"
+                        ng-click='cancelOffer()'>
+                        <i class="fi-x"></i>
+                        cancel
+                    </button>
+                    <button class='btn tiny New' ng-hide="currentUser.AccountType=='Recruiter'" ng-disabled="offer.IsLocked"
+                        ng-click='acceptOffer()'>
+                        <i class="fi-check"></i>
+                        accept
+                    </button>
+                    <button class='btn tiny Rejected' ng-hide="currentUser.AccountType=='Recruiter'"
+                        ng-disabled="offer.IsLocked" ng-click='rejectOffer()'>
+                        <i class="fi-x"></i>
+                        reject
+                    </button>
+                </div>
+            </div>
         </div>
+
+
     </div>
     <div class="row" ng-show="offer.IsLocked">
-        <h2>{{offer.OfferStatus}}</h2>
     </div>
 
     <script type="text/ng-template" id="acceptOfferTemplate.html">
@@ -84,6 +138,6 @@
         </div>
     </script>
 </div>
-<div ng-show="offer===null" class="medium-12 columns">
-    <h3>Select offer to see details</h3>
+<div class="container" ng-show="offer===null">
+    <h3>Offers preview</h3>
 </div>
