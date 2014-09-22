@@ -1,6 +1,6 @@
 @using DreamJob.Common.Enum @model DreamJob.Ui.Web.Mvc.Models.DeveloperPublicProfileViewModel
 <div class="row margined-top-20" ng-app="djapp">
-    <div class="panel">
+    <div class="left-bordered left-padded">
         <h5>
             <strong>Title:</strong>
             @Model.DeveloperPublicDataDto.Title
@@ -14,30 +14,36 @@
             @Model.DeveloperPublicDataDto.MinSalary PLN
         </h5>
     </div>
-    <div class="panel">
+    <br />
+    <div class="left-bordered left-padded">
         <h5>
             <strong>Experience:</strong>
         </h5>
         @foreach (var skill in Model.DeveloperPublicDataDto.Skills)
-            {
-                <div class="row collapse raiting-line-height">
-                    <div class="small-4 columns">
-                        @skill.Description
-                    </div>
-                    <div class="small-4 columns rating-bar">
-                        <rating value="@skill.SelfRate" max="10" state-on="'fi-star selected'" state-off="'fi-star'"></rating>
-                        @skill.SelfRate
-                    </div>
-                    <div class="small-1 columns"></div>
+        {
+            <div class="row collapse raiting-line-height">
+                <div class="small-4 columns">
+                    @skill.Description
                 </div>
+                <div class="small-4 columns rating-bar">
+                    <rating value="@skill.SelfRate" max="10" state-on="'fi-star selected'" state-off="'fi-star'"></rating>
+                    @skill.SelfRate
+                </div>
+                <div class="small-1 columns"></div>
+            </div>
         }
     </div>
-    <div class="panel">
+    <br />
+
+    <div class="left-bordered left-padded">
         <p>
             <strong>Profile:</strong>
             @Model.DeveloperPublicDataDto.Profile
         </p>
+    </div>
+    <br />
 
+    <div class="left-bordered left-padded">
         <p>
             <strong>Profile preferences:</strong>
             @Model.DeveloperPublicDataDto.ProjectPreferences

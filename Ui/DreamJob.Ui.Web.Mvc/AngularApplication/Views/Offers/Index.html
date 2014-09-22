@@ -6,22 +6,23 @@
                     class="offer-list-item">
 
                     <div class="row">
-                        <i class="fi-mail small-1 columns"></i>
-                        <span class="small-11 columns offer-author">From: {{offer.From}}</span>
+                        <span class="small-9 columns leftpad-min">From: {{offer.From}}</span>
+                        <span class="small-3 column marginleft-min">
+                            <i class="fi-mail "></i>    
+                        </span>
+                        
                     </div>
                     <div class="row">
-                        <span class="small-10 columns">{{offer.Subject}}</span>
-                        <span class="small-2 columns">
-                            <i class="fi-comments"></i>
+                        <span class="small-9 columns leftpad-min">{{offer.Subject}}</span>
+                        <span class="small-3 columns marginleft-min">
                             {{offer.MessagesCount}}
+                            <i class="fi-comments"></i>
                         </span>
-
-
                     </div>
                 </li>
             </ul>
         </div>
-        <div ng-include="'AngularApplication/Views/Offers/Details.html'" class="medium-8 columns panel">
+        <div ng-include="'AngularApplication/Views/Offers/Details.html'" class="medium-8 columns left-bordered">
         </div>
     </div>
 </div>

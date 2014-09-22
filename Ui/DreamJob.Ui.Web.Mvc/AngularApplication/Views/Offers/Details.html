@@ -1,11 +1,11 @@
-<div class="container" ng-show="offer!==null">
+<div class="container marged" ng-show="offer!==null">
     <div class="row">
         <div class="medium-12 columns job-header">
             <div class="row collapse">
                 <div class="medium-12 columns">
-                    <h4>
+                    <h3>
                         <strong>{{offer.Subject}}</strong>
-                    </h4>
+                    </h3>
                 </div>
             </div>
             <div class="job-status-line ">
@@ -138,6 +138,10 @@
         </div>
     </script>
 </div>
-<div class="container" ng-show="offer===null">
-    <h3>Offers preview</h3>
+<div class="container marged small-8 columns" ng-show="offer===null">
+    <div class="arrow_box">
+        <h3>Start reviewing your offers</h3>
+        <p>Click the offer on the right side.</p>
+    </div>
+
 </div>

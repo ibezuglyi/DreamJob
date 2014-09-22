@@ -48,6 +48,7 @@
 
 .fi-star.selected {
     color: #BC660B;
+
 }
 
 .raiting-line-height {
@@ -57,7 +58,7 @@
 .selected-offer {
     background: rsgba(0, 0, 0, 0.09);
     font-weight: bold;
-    border-right: 1px solid #d8d8d8;
+    border-left: 2px solid #2ba6cb;
 }
 
 .offer-list-item {
@@ -75,7 +76,7 @@
 }
 
 .offers-list {
-    border: 1px solid #d8d8d8;
+    
 }
 
     .offers-list .side-nav li {
@@ -88,7 +89,7 @@
 
 .job-status-line {
     position: absolute;
-    top: 20%;
+    top: 28%;
     right: 2%;
 }
 .job-status {
@@ -116,8 +117,8 @@
 .job-header  h4 {
     margin-bottom: 0.125rem;
 }
-.offer-author {
-    padding-left: 0;
+.leftpad-min {
+    padding-left: 5px;
     padding-right: 0;
 }
 .offer-list-item .row {
@@ -125,4 +126,52 @@
 }
 button.Rejected:hover {
     background-color: #592917;
+}
+
+.marginleft-min {
+    text-align: right;
+}
+.left-bordered {
+    border-left: 2px solid #d8d8d8;
+}
+.bottom-bordered {
+    border-bottom: 2px solid #d8d8d8;
+}
+.marged {
+    margin: 5px;
+}
+.left-padded {
+    padding-left: 5px;
+}
+.marged-top {
+    margin-top: 10px;
+}
+.arrow_box {
+	position: relative;
+	background: #2ba6cb;
+	border: 2px solid #c2e1f5;
+    text-align: center;
+}
+.arrow_box:after, .arrow_box:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(43, 166, 203, 0);
+	border-right-color: #2ba6cb;
+	border-width: 30px;
+	margin-top: -30px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-right-color: #c2e1f5;
+	border-width: 33px;
+	margin-top: -33px;
 }

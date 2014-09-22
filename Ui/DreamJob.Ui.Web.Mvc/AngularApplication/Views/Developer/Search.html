@@ -1,5 +1,5 @@
 ﻿<div class="row" ng-controller='DevelopersSearchController'>
-    <div class="panel margined-top-20">
+    <div class="left-padded margined-top-20">
         <section class="section">
             <div class="row collapse">
                 <div class="large-12 small-12 columns">
@@ -31,19 +31,21 @@
             </div>
         </section>
     </div>
-    <div class="panel">
+    <div class="marged-top " ng-show="developers && developers.length>0">
         <section class="section">
-            <div ng-repeat="developer in developers">
+            <div class="left-bordered left-padded marged-top" ng-repeat="developer in developers">
                 <div class="row collapse">
                     <div class="small-10 columns">
                         <h5 class="title">
                             <a ng-href="/Developer/Profile/{{developer.Id}}">{{developer.Title}}    
                             </a>
+                            
                             <small>{{developer.MinSalary}} PLN</small>
                         </h5>
                     </div>
                     <div class="small-2 columns">
-                        <h5>
+                        <h5 class="job-offer-date">
+                            <i class="fi-clock"></i>
                             <small>{{developer.Registered}}</small>
                         </h5>
                     </div>
