@@ -34,6 +34,7 @@
                 .JobOffers.Where(x => x.FromRecruiterId == recruiterId)
                 .Include(offer => offer.ToDeveloper)
                 .Include(offer => offer.FromRecruiter)
+                .Include(offer => offer.JobOfferComments)
                 .ToList();
             var result = new DjOperationResult<List<JobOffer>>(offers);
             return result;

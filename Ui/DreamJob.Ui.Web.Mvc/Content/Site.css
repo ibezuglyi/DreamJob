@@ -131,6 +131,10 @@ button.Rejected:hover {
 .marginleft-min {
     text-align: right;
 }
+.text-align-right {
+    text-align: right;
+    
+}
 .left-bordered {
     border-left: 2px solid #d8d8d8;
 }

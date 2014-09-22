@@ -49,9 +49,9 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
         public DjOperationResult<Developer> GetById(long developerId)
         {
             var developer = this.context.Developers
-                .Include(t=>t.Skills)
+                .Include(t => t.Skills)
                 .SingleOrDefault(d => d.Id == developerId);
-            
+
             var result = new DjOperationResult<Developer>(developer);
             return result;
         }
@@ -73,18 +73,23 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
         public List<Developer> SearchForDevelopers(string technology, string city)
         {
             var query = context.Developers.Where(r => r.IsActive);
-
             if (!string.IsNullOrEmpty(technology))
             {
-                query = query.Where(r => r.Profile.Contains(technology) || r.ProjectPreferences.Contains(technology));
+                var technologyLower = technology.ToLower();
+                query = query.Where(r =>
+                    r.Profile.ToLower().Contains(technologyLower) ||
+                    r.ProjectPreferences.ToLower().Contains(technologyLower) ||
+                    r.Skills.Any(t => t.Description.ToLower().Contains(technology.ToLower())) ||
+                    r.Title.ToLower().Contains(technology.ToLower()));
             }
             if (!string.IsNullOrEmpty(city))
             {
-                query = query.Where(r => r.City == city);
+                var cityLower = city.ToLower();
+                query = query.Where(r => !string.IsNullOrEmpty(r.City) && r.City.ToLower() == cityLower);
             }
 
             return query
-                .OrderByDescending(r=>r.Registered)
+                .OrderByDescending(r => r.Registered)
                 .Take(50)
                 .ToList();
 
@@ -92,7 +97,7 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
 
         public void RemoveAllSkillsForDeveloper(long id)
         {
-            var developer = context.Developers.Single(r=>r.Id == id);
+            var developer = context.Developers.Single(r => r.Id == id);
             foreach (var skill in developer.Skills)
             {
                 context.Entry(skill).State = EntityState.Deleted;

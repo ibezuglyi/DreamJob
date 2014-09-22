@@ -1,6 +1,6 @@
 ﻿<div class="row margined-top-50">
     <div id='dj-offers-container' class="row">
-        <div class="medium-4 columns offers-list">
+        <div class="medium-4 columns offers-list" ng-show="offers.length>0">
             <ul class="side-nav">
                 <li ng-repeat="offer in offers" ng-click='details(offer)' ng-class="{'selected-offer':offer.selected}"
                     class="offer-list-item">
@@ -21,6 +21,9 @@
                     </div>
                 </li>
             </ul>
+        </div>
+        <div class="medium-4 columns text-align-right" ng-show="offers.length===0">
+            <p>You have no any offers here.</p>
         </div>
         <div ng-include="'AngularApplication/Views/Offers/Details.html'" class="medium-8 columns left-bordered">
         </div>

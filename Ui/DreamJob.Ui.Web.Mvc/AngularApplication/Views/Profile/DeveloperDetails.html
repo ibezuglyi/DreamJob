@@ -1,4 +1,4 @@
-﻿<div class="panel">
+﻿<div class="left-bordered left-padded">
     <section class="section">
         <h5 class="title">Experience</h5>
         <p>Please fill only the most valuable skills for your dream job. This will help recruiters to find you among the others developers.</p>
@@ -8,26 +8,27 @@
         </button>
         <div class="row collapse">
             <div ng-repeat="skill in profile.Skills" class="large-12 small-12 columns">
-                    <div class="row collapse">
-                        <div class="small-3 columns">
-                            <input type="text" ng-model="skill.Description" placeholder="example: Java script" />
-                        </div>
-                        <div class="small-4 columns raiting-line-height">
-                            <div class="rating-bar">
-                                <rating value="skill.SelfRate" max="10" state-on="'fi-star selected'" state-off="'fi-star'"></rating>
-                                <b>{{skill.SelfRate}}</b>
-                            </div>
-                        </div>
-                        <div class="small-2 columns raiting-line-height">
-                            <button class="button tiny alert"  ng-click="deleteSkill($index)"><i class="fi-x"></i> Delete skill</button>
-                        </div>
-                        <div class="columns"></div>
+                <div class="row collapse">
+                    <div class="small-3 columns">
+                        <input type="text" ng-model="skill.Description" placeholder="example: Java script" />
                     </div>
+                    <div class="small-4 columns raiting-line-height">
+                        <div class="rating-bar">
+                            <rating value="skill.SelfRate" max="10" state-on="'fi-star selected'" state-off="'fi-star'"></rating>
+                            <b>{{skill.SelfRate}}</b>
+                        </div>
+                    </div>
+                    <div class="small-2 columns raiting-line-height">
+                        <button class="button tiny alert"  ng-click="deleteSkill($index)"><i class="fi-x"></i> Delete skill</button>
+                    </div>
+                    <div class="columns"></div>
+                </div>
             </div>
         </div>
     </section>
 </div>
-<div class="panel">
+<br/>
+<div class="left-bordered left-padded">
     <section class="section">
         <h5 class="title">Job preferences</h5>
         <div class="row collapse">
@@ -82,4 +83,5 @@
         </div>
     </section>
 </div>
+<br/>
 <input class="button small-12 large-12 radius" type="submit" value="Save profile" ng-click="saveProfile()" />
