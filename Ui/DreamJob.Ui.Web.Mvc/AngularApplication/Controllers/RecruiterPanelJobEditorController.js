@@ -1,10 +1,11 @@
-﻿var RecruiterPanelJobEditorController = function ($scope, $modalInstance) {
+﻿var RecruiterPanelJobEditorController = function ($scope, $modalInstance, jobOffer) {
     $scope.JobOffer = {
         NameSubject: '',
         Description: '',
-        MinSalary: '',
+        MinSalary: jobOffer.MinSalary,
         MaxSalary: '',
-        MatchesDeveloperRequirements: false
+        MatchesDeveloperRequirements: false,
+        Subject: jobOffer.Title,
     };
 
     $scope.IsOfferValid = function () {

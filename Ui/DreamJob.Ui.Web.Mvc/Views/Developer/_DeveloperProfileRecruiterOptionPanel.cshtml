@@ -2,5 +2,5 @@
 <div ng-app='djapp'>
     <div ng-include='"~/../../../AngularApplication/Views/Developer/recruiterpanel.html"' 
          ng-controller='RecruiterPanelController' 
-         ng-init='init(@Model.Id)'></div>
+         ng-init='init(@Model.Id, @Model.MinSalary, "@Model.Title")'></div>
 </div>
