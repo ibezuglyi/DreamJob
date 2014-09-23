@@ -1,4 +1,5 @@
 ﻿var RecruiterPanelJobEditorController = function ($scope, $modalInstance, jobOffer) {
+    var minSalary = jobOffer.MinSalary;
     $scope.JobOffer = {
         NameSubject: '',
         Description: '',
@@ -11,7 +12,7 @@
     $scope.IsOfferValid = function () {
         return !($scope.JobOffer.Subject.length > 0 &&
             $scope.JobOffer.Description.length > 0 &&
-            $scope.JobOffer.MinSalary.length > 0 &&
+            $scope.JobOffer.MinSalary >= minSalary &&
             $scope.JobOffer.MatchesDeveloperRequirements === true);
     }
 
