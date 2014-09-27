@@ -11,8 +11,8 @@
 
     $scope.IsOfferValid = function () {
         return !($scope.JobOffer.Subject.length > 0 &&
+            $scope.JobOffer.Description &&
             $scope.JobOffer.Description.length > 0 &&
-            $scope.JobOffer.MinSalary >= minSalary &&
             $scope.JobOffer.MatchesDeveloperRequirements === true);
     }
 
