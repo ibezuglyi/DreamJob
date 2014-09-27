@@ -48,7 +48,6 @@
 
 .fi-star.selected {
     color: #BC660B;
-
 }
 
 .raiting-line-height {
@@ -76,7 +75,6 @@
 }
 
 .offers-list {
-    
 }
 
     .offers-list .side-nav li {
@@ -92,38 +90,45 @@
     top: 28%;
     right: 2%;
 }
+
 .job-status {
-    
 }
+
 .job-offer-date {
     text-align: right;
 }
+
 .New {
     background-color: #2ba6cb;
     color: white;
     padding: 1px;
 }
+
 .Rejected {
     background-color: #893937;
     color: white;
     padding: 1px;
 }
+
 .Read {
     background-color: #363636;
     color: white;
     padding: 1px;
 }
 
-.job-header  h4 {
+.job-header h4 {
     margin-bottom: 0.125rem;
 }
+
 .leftpad-min {
     padding-left: 5px;
     padding-right: 0;
 }
+
 .offer-list-item .row {
     margin-left: 0;
 }
+
 button.Rejected:hover {
     background-color: #592917;
 }
@@ -131,51 +136,79 @@ button.Rejected:hover {
 .marginleft-min {
     text-align: right;
 }
+
 .text-align-right {
     text-align: right;
-    
 }
+
 .left-bordered {
     border-left: 2px solid #d8d8d8;
 }
+
 .bottom-bordered {
     border-bottom: 2px solid #d8d8d8;
 }
+
 .marged {
     margin: 5px;
 }
+
 .left-padded {
     padding-left: 5px;
 }
+
 .marged-top {
     margin-top: 10px;
 }
+
 .arrow_box {
-	position: relative;
-	background: #2ba6cb;
-	border: 2px solid #c2e1f5;
+    position: relative;
+    background: #2ba6cb;
+    border: 2px solid #c2e1f5;
     text-align: center;
 }
-.arrow_box:after, .arrow_box:before {
-	right: 100%;
-	top: 50%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
+
+    .arrow_box:after, .arrow_box:before {
+        right: 100%;
+        top: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .arrow_box:after {
+        border-color: rgba(43, 166, 203, 0);
+        border-right-color: #2ba6cb;
+        border-width: 30px;
+        margin-top: -30px;
+    }
+
+    .arrow_box:before {
+        border-color: rgba(194, 225, 245, 0);
+        border-right-color: #c2e1f5;
+        border-width: 33px;
+        margin-top: -33px;
+    }
+
+input.ng-invalid,
+textarea.ng-invalid {
+    color: #b94a48;
+    border-color: #ee5f5b;
 }
 
-.arrow_box:after {
-	border-color: rgba(43, 166, 203, 0);
-	border-right-color: #2ba6cb;
-	border-width: 30px;
-	margin-top: -30px;
-}
-.arrow_box:before {
-	border-color: rgba(194, 225, 245, 0);
-	border-right-color: #c2e1f5;
-	border-width: 33px;
-	margin-top: -33px;
-}
+    input.ng-invalid:focus,
+    textarea.ng-invalid:focus {
+        border-color: #e9322d;
+        -webkit-box-shadow: 0 0 6px #f8b9b7;
+        -moz-box-shadow: 0 0 6px #f8b9b7;
+        box-shadow: 0 0 6px #f8b9b7;
+    }
+    input[type=checkbox].ng-invalid {
+        -webkit-box-shadow: 0 0 0 1px #ee5f5b;
+        -moz-box-shadow: 0 0 0 1px #ee5f5b;
+        box-shadow: 0 0 0 1px #ee5f5b;
+
+    }

@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="medium-12 columns">
                     <label for="subject">Job offer subject(*)</label>
-                    <input required type="text" name='subject' ng-model="JobOffer.Subject"></input>
+                    <input ng-required="true" type="text" name='subject' ng-model="JobOffer.Subject"></input>
                 </div>
             </div>
             <div class="row">
@@ -25,7 +25,7 @@
                     <label for="minsalary">Job offer minimum salary(*)</label>
                     <div class="row collapse prefix-radius">
                     <div class="small-8 columns">
-                        <input required type="number" type="text" min="{{JobOffer.MinSalary}}" name='minsalary' ng-model="JobOffer.MinSalary"></input>
+                        <input ng-required="true" min-price="" type="number" type="text" min-val="{{JobOffer.MinSalary}}" name='minsalary' ng-model="JobOffer.MinSalary"></input>
                     </div>
                     <div class="small-4 columns">
                          <span class="postfix">PLN</span>
@@ -47,15 +47,19 @@
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <input required id="matchesDeveloperRequirements" name="matchesDeveloperRequirements" type='checkbox' ng-model="JobOffer.MatchesDeveloperRequirements" />
+                    <input ng-required="true" id="matchesDeveloperRequirements" name="matchesDeveloperRequirements" type='checkbox' ng-model="JobOffer.MatchesDeveloperRequirements" />
                     <label for="matchesDeveloperRequirements">Matches developer requirements(*)</label>
                 </div>
                 
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <button class="button right" ng-click="ok()" ng-disabled="IsOfferValid()">SEND</button>
-                    <button class="button right" ng-click="cancel()">CANCEL</button>
+        <div class="medium-2 columns right">
+        <button class="button" ng-click="ok()" ng-disabled="IsOfferValid()">SEND</button>
+        </div>
+        <div class="medium-2 columns right">
+        <button class="button" ng-click="cancel()">CANCEL</button>
+        </div>
                 </div>
             </div>
             <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
