@@ -41,5 +41,20 @@
         {
             this.registerService.ConfirmUserRegistration(hash);
         }
+
+        public bool IsEmailUnique(string email)
+        {
+            return registerService.IsEmailUnique(email);
+        }
+
+        public bool IsDisplayNameUnique(string displayName)
+        {
+            return registerService.IsDisplayNameUnique(displayName);
+        }
+
+        public bool IsLoginUnique(string login)
+        {
+            return registerService.IsLoginUnique(login);
+        }
     }
 }

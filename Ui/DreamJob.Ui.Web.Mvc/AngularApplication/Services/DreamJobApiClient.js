@@ -27,7 +27,7 @@ window.djApplication.factory('djClientApi', function ($http) {
             }
         });
     },
-    self.getCities = function(token) {
+    self.getCities = function (token) {
         return $http.get("profile/GetCities", {
             params: { cityPart: token }
         });
@@ -59,6 +59,16 @@ window.djApplication.factory('djClientApi', function ($http) {
     self.rejectOffer = function (data) {
         return $http.post('offer/rejectOffer', data);
     };
+    self.validateUnique = function (type, value) {
+        return $http({ url: 'register/check' + type, params: { val: value }, method: "GET" });
+    };
+    self.registerDeveloper = function (vm) {
+        return $http.post("register/RegisterDeveloper", vm);
+    };
+
+    self.registerRecruiter = function (vm) {
+        return $http.post("register/registerRecruiter", vm);
+    }
 
     return self;
 });

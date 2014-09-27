@@ -10,5 +10,8 @@
         DjOperationResult<string> RegisterDeveloper(UserRegistrationDto model);
         DjOperationResult<string> RegisterRecruiter(UserRegistrationDto model);
         void ConfirmUserRegistration(string hash);
+        bool IsEmailUnique(string email);
+        bool IsDisplayNameUnique(string displayName);
+        bool IsLoginUnique(string login);
     }
 }

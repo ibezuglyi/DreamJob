@@ -19,5 +19,8 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
         List<string> GetDeveloperCities(string cityPart);
         List<Developer> SearchForDevelopers(string technology, string city);
         void RemoveAllSkillsForDeveloper(long id);
+        bool IsEmailUnique(string email);
+        bool IsDisplayNameUnique(string displayName);
+        bool IsLoginUnique(string login);
     }
 }

@@ -104,5 +104,39 @@ namespace DreamJob.Ui.Web.Mvc.Repositories
             }
             context.SaveChanges();
         }
+
+        public bool IsEmailUnique(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return true;
+            }
+
+            var emailLower = email.ToLower();
+            var unique = !context.Users.Any(r => r.Email.ToLower() == emailLower);
+            return unique;
+        }
+
+        public bool IsDisplayNameUnique(string displayName)
+        {
+            if (string.IsNullOrWhiteSpace(displayName))
+            {
+                return true;
+            }
+            var displayLower = displayName.ToLower();
+            var unique = !context.Users.Any(r => r.DisplayName.ToLower() == displayLower);
+            return unique;
+        }
+
+        public bool IsLoginUnique(string login)
+        {
+            if (string.IsNullOrWhiteSpace(login))
+            {
+                return true;
+            }
+            var loginLower = login.ToLower();
+            var unique = !context.Users.Any(r => r.Login.ToLower() == loginLower);
+            return unique;
+        }
     }
 }

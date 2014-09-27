@@ -83,5 +83,20 @@
                 this.developerRepository.ConfirmDeveloperRegistration(hash);
             }
         }
+
+        public bool IsEmailUnique(string email)
+        {
+            return developerRepository.IsEmailUnique(email);
+        }
+
+        public bool IsDisplayNameUnique(string displayName)
+        {
+            return developerRepository.IsDisplayNameUnique(displayName);
+        }
+
+        public bool IsLoginUnique(string login)
+        {
+            return developerRepository.IsLoginUnique(login);
+        }
     }
 }

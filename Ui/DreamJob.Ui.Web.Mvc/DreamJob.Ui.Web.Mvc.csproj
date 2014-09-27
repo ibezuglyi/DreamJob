@@ -224,10 +224,13 @@
     <Content Include="AngularApplication\Controllers\AcceptOfferController.js" />
     <Content Include="AngularApplication\Controllers\OffersController.js" />
     <Content Include="AngularApplication\Controllers\RecruiterPanelController.js" />
+    <Content Include="AngularApplication\Controllers\RegisterController.js" />
+    <Content Include="AngularApplication\directives\debounce.js" />
     <Content Include="AngularApplication\dreamjobapplication.js" />
     <Content Include="AngularApplication\LocalizationTexts.js" />
     <Content Include="AngularApplication\Services\DreamJobApiClient.js" />
-    <Content Include="AngularApplication\Validators\priceValidator.js" />
+    <Content Include="AngularApplication\directives\emailValidator.js" />
+    <Content Include="AngularApplication\directives\priceValidator.js" />
     <Content Include="AngularApplication\Views\Developer\recruiterpanel.html" />
     <Content Include="AngularApplication\Views\Developer\Search.html" />
     <Content Include="AngularApplication\Views\Offers\Details.html" />
@@ -610,8 +613,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />

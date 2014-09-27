@@ -1,12 +1,12 @@
 ﻿@model DreamJob.Ui.Web.Mvc.Models.UserRegistrationViewModel
-<div class="row registration-container">
+<div class="row registration-container" ng-app="djapp" ng-controller="RegisterController">
     <div class="row">
         <form role="form" id="dj-register-form">
             @Html.AntiForgeryToken()
             <div class="row" id="dj-register-users-error-container"></div>
             <div class="row">
                 @Html.LabelFor(x => x.User.Login)
-                @Html.TextBoxFor(x => x.User.Login)
+                <input id="User_Login" ng-debounce name="User.Login" type="text" ng-required unique-val="login" value="" ng-model="registerVm.login">
             </div>
             <div class="row">
                 @Html.LabelFor(x => x.User.Password)
@@ -14,25 +14,25 @@
             </div>
             <div class="row">
                 @Html.LabelFor(x => x.User.DisplayName)
-                @Html.TextBoxFor(x => x.User.DisplayName)
+                <input id="User_DisplayName" ng-debounce name="User.DisplayName" ng-required unique-val="displayname" type="text" value="" ng-model="registerVm.displayName">
             </div>
             <div class="row">
                 @Html.LabelFor(x => x.User.Email)
-                @Html.TextBoxFor(x => x.User.Email)
+                <input id="User_Email" ng-debounce name="User.Email" ng-required unique-val="email" type="text" value="" ng-model="registerVm.email">
             </div>
         </form>
     </div>
 
-<div class="row">
-    <div style="line-height: 200px;">
-        <div class="small-2 column small-offset-3">
-            <div id="dj-button-register-as-developer" class="button">Register as developer</div>
-        </div>
-        <div class="small-2 small-pull-3 column">
-            <div id="dj-button-register-as-recruiter" class="button">Register as recruiter</div>
+    <div class="row">
+        <div style="line-height: 200px;">
+            <div class="small-2 column small-offset-3">
+                <div id="dj-button-register-as-developer" ng-click="registerDeveloper()" class="button">Register as developer</div>
+            </div>
+            <div class="small-2 small-pull-3 column">
+                <div id="dj-button-register-as-recruiter" ng-click="registerRecruiter()" class="button">Register as recruiter</div>
+            </div>
         </div>
     </div>
-</div>
 </div>
 <div class="confirmation-container" style="display: none">
     <a class="confirmation-link" href="#">Confirm registration</a>
@@ -63,19 +63,6 @@
                 });
             });
         });
-
-        $('#dj-button-register-as-developer').click(function () {
-            $.ajax({
-                url: '@Url.Action("RegisterDeveloper", "Register")',
-                type: 'post',
-                data: $('#dj-register-form').serialize()
-            })
-                .success(onSuccess)
-                .fail(function (response) {
-                    apendErrors(response);
-                });
-        });
-
 
         $('#dj-button-register-as-recruiter').click(function () {
 
