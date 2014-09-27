@@ -19,7 +19,19 @@ window.djApplication.factory('djClientApi', function ($http) {
         var getProfileRequest = $http.get('profile/CurrentUser');
         return getProfileRequest;
     };
-
+    self.searchProfile = function (searchString, searchCity) {
+        return $http.get("profile/search", {
+            params: {
+                technology: searchString,
+                city: searchCity
+            }
+        });
+    },
+    self.getCities = function(token) {
+        return $http.get("profile/GetCities", {
+            params: { cityPart: token }
+        });
+    },
     self.saveProfile = function (profile) {
         var profileData = { profile: profile };
         var saveRequest = $http({
