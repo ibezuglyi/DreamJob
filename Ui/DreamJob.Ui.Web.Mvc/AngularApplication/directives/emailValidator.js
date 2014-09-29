@@ -1,5 +1,8 @@
-﻿djApplication.directive("uniqueVal", function (djClientApi) {
+﻿
+djApplication.directive("uniqueVal", function (djClientApi) {
+    
     var isValid = function (val, toVal, cb) {
+
         djClientApi
             .validateUnique(toVal, val)
             .then(cb);

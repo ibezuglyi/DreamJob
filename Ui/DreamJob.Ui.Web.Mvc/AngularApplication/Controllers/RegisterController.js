@@ -9,19 +9,27 @@
     $scope.validationResults = {
         login: true,
         displayname: true,
-        email: true
-    };
+        email: true,
+        isValid: function() {
+            return this.login && this.displayname && this.email;
+        }
+};
     
     $scope.registerDeveloper = function () {
-        
-        djClientApi.registerDeveloper($scope.registerVm)
-            .then(function (resp) {
-            });
+        if ($scope.validationResults.isValid()) {
+
+            djClientApi.registerDeveloper($scope.registerVm)
+                .then(function (resp) {
+
+                });
+        };
     };
     $scope.registerRecruiter = function () {
-        djClientApi.registerRecruiter($scope.registerVm)
-        .then(function (resp) {
+        if ($scope.validationResults.isValid()) {
+            djClientApi.registerRecruiter($scope.registerVm)
+                .then(function(resp) {
 
-        });
+                });
+        };
     };
 });

@@ -206,9 +206,40 @@ textarea.ng-invalid {
         -moz-box-shadow: 0 0 6px #f8b9b7;
         box-shadow: 0 0 6px #f8b9b7;
     }
-    input[type=checkbox].ng-invalid {
-        -webkit-box-shadow: 0 0 0 1px #ee5f5b;
-        -moz-box-shadow: 0 0 0 1px #ee5f5b;
-        box-shadow: 0 0 0 1px #ee5f5b;
 
-    }
+input[type=checkbox].ng-invalid {
+    -webkit-box-shadow: 0 0 0 1px #ee5f5b;
+    -moz-box-shadow: 0 0 0 1px #ee5f5b;
+    box-shadow: 0 0 0 1px #ee5f5b;
+}
+.invalid-pattern,
+.required-validation,
+.validation-text {
+    line-height: 10px;
+    font-size: 14px;
+    color: #b94a48;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+input[class*='ng-valid-unique'] ~ .validation-text {
+    display: none;
+}
+
+input[class*='ng-invalid-unique'] ~ .validation-text {
+    display: block;
+}
+
+input.ng-invalid-pattern ~ .invalid-pattern {
+    display: block;
+}
+input.ng-valid-pattern ~ .invalid-pattern {
+    display: none;
+}
+.ng-invalid-required ~ .required-validation {
+    display: block;
+}
+.ng-valid-required ~ .required-validation {
+    display: none;
+}
