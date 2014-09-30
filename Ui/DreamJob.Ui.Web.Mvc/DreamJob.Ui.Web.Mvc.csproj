@@ -625,6 +625,7 @@
     <Content Include="Views\Developer\Developer.cshtml" />
     <Content Include="Views\Developer\_DeveloperProfileRecruiterOptionPanel.cshtml" />
     <Content Include="Views\Offer\Index.cshtml" />
+    <Content Include="Views\Register\Registered.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,114 +1,75 @@
 ﻿@model DreamJob.Ui.Web.Mvc.Models.UserRegistrationViewModel
 <div class="row registration-container" ng-app="djapp" ng-controller="RegisterController">
-    <div class="row">
-        <form role="form" id="dj-register-form">
-            @Html.AntiForgeryToken()
+    
+        <div class="row">
+            <form role="form" id="dj-register-form" name="regform">
+                @Html.AntiForgeryToken()
             <div class="row" id="dj-register-users-error-container"></div>
-            <div class="row">
-                @Html.LabelFor(x => x.User.Login)
-                <input id="User_Login" ng-debounce 
-                    name="User.Login" 
+                <div class="row">
+                    @Html.LabelFor(x => x.User.Login)
+                <input id="User_Login" ng-debounce
+                    name="User.Login"
                     ng-pattern="/^[a-zA-Z0-9]+([\._a-zA-Z0-9]+)*([_a-zA-Z0-9]+)$/"
                     type="text" ng-required="true" required="" unique-val="login"
                     value="" ng-model="registerVm.login">
-                <p class="validation-text">
-                    Login is already in use.
-                </p>
-                <p class="invalid-pattern">
-                    Incorrect login. Please use only digits and letters.
-                </p>
-                <p class="required-validation">Login name is required.</p>
-            </div>
-            <div class="row">
-                @Html.LabelFor(x => x.User.Password)
-                <input id="User_Password" name="User.Password" 
-                ng-model="registerVm.password"
-                ng-required="true" type="password">
-                <p class="required-validation">Password is required.</p>
-            </div>
-            <div class="row">
-                @Html.LabelFor(x => x.User.DisplayName)
-                <input id="User_DisplayName" ng-debounce 
-                        ng-pattern="/^[a-zA-Z0-9]+([\._a-zA-Z0-9]+)*([_a-zA-Z0-9]+)$/"
-                       name="User.DisplayName" ng-required="true" required="" unique-val="displayname"
+                    <p class="validation-text">
+                        Login is already in use.
+                    </p>
+                    <p class="invalid-pattern">
+                        Incorrect login. Please use only digits and letters.
+                    </p>
+                    <p class="required-validation">Login name is required.</p>
+                </div>
+                <div class="row">
+                    @Html.LabelFor(x => x.User.Password)
+                <input id="User_Password" name="User.Password"
+                    ng-model="registerVm.password"
+                    ng-required="true" type="password">
+                    <p class="required-validation">Password is required.</p>
+                </div>
+                <div class="row">
+                    @Html.LabelFor(x => x.User.DisplayName)
+                <input id="User_DisplayName" ng-debounce
+                    ng-pattern="/^[a-zA-Z0-9]+([\._a-zA-Z0-9]+)*([_a-zA-Z0-9]+)$/"
+                    name="User.DisplayName" ng-required="true" required="" unique-val="displayname"
                     type="text" value="" ng-model="registerVm.displayName">
-                <p class="validation-text">
-                    Display name is already in use. 
-                </p>
-                <p class="invalid-pattern">
-                    Incorrect display name. Please use only digits and letters.
-                </p>
-                <p class="required-validation">Display name is required.</p>
-            </div>
-            <div class="row">
-                @Html.LabelFor(x => x.User.Email)
-                <input id="User_Email" ng-debounce name="User.Email" ng-required="true" required="" unique-val="email"
+                    <p class="validation-text">
+                        Display name is already in use. 
+                    </p>
+                    <p class="invalid-pattern">
+                        Incorrect display name. Please use only digits and letters.
+                    </p>
+                    <p class="required-validation">Display name is required.</p>
+                </div>
+                <div class="row">
+                    @Html.LabelFor(x => x.User.Email)
+                <input id="User_Email" ng-debounce name="User.Email" ng-required="true" required=""
+                    unique-val="email"
                     ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*&#64;[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/"
                     type="email" value="" ng-model="registerVm.email">
-                <p class="validation-text">
-                    Email is already in use.
-                </p>
-                <p class="invalid-pattern">Incorrect email, please provide your email. </p>
-                <p class="required-validation">Email is required.</p>
-            </div>
-        </form>
-    </div>
-
-    <div class="row">
-        <div style="line-height: 200px;">
-            <div class="small-2 column small-offset-3">
-                <div id="dj-button-register-as-developer" ng-click="registerDeveloper()" class="button">
-                    Register as developer
+                    <p class="validation-text">
+                        Email is already in use.
+                    </p>
+                    <p class="invalid-pattern">Incorrect email, please provide your email. </p>
+                    <p class="required-validation">Email is required.</p>
                 </div>
-            </div>
-            <div class="small-2 small-pull-3 column">
-                <div id="dj-button-register-as-recruiter" ng-click="registerRecruiter()" class="button">
-                    Register as recruiter
+            </form>
+        </div>
+
+        <div class="row">
+            <div style="line-height: 200px;">
+                <div class="small-2 column small-offset-3">
+                    <div id="dj-button-register-as-developer" ng-class="regform.$invalid ? 'disabled':''"
+                        ng-disabled="regform.$invalid" ng-click="register('Developer')" class="button">
+                        Register as developer
+                    </div>
+                </div>
+                <div class="small-2 small-pull-3 column">
+                    <div id="dj-button-register-as-recruiter" ng-class="regform.$invalid ? 'disabled':''"
+                        ng-disabled="regform.$invalid" ng-click="register('Recruiter')" class="button">
+                        Register as recruiter
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
-<div class="confirmation-container" style="display: none">
-    <a class="confirmation-link" href="#">Confirm registration</a>
-    <input type="hidden" class="confirmation-code" />
-</div>
-
-@section scripts{
-    <script type="text/javascript">
-        function onSuccess(hash) {
-            $(".confirmation-code").val(hash);
-            $(".registration-container").hide();
-            $(".confirmation-container").show();
-        };
-
-        var apendErrors = function (response) {
-            $('#dj-register-users-error-container').html(response);
-        };
-
-        $(function () {
-            $(".confirmation-link").click(function (e) {
-                e.preventDefault();
-                $.ajax({
-                    url: '@Url.Action("Registered", "Register")',
-                    type: 'post',
-                    data: { hash: $(".confirmation-code").val() }
-                }).done(function () {
-                    window.location = '@Url.Action("Index", "Home")';
-                });
-            });
-        });
-
-        $('#dj-button-register-as-recruiter').click(function () {
-
-            $.ajax({
-                url: '@Url.Action("RegisterRecruiter", "Register")',
-                type: 'post',
-                data: $('#dj-register-form').serialize()
-            }).success(onSuccess)
-                .fail(function (response) {
-                    apendErrors(response);
-                });
-        });
-    </script>
-}

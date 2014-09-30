@@ -212,6 +212,7 @@ input[type=checkbox].ng-invalid {
     -moz-box-shadow: 0 0 0 1px #ee5f5b;
     box-shadow: 0 0 0 1px #ee5f5b;
 }
+
 .invalid-pattern,
 .required-validation,
 .validation-text {
@@ -234,12 +235,19 @@ input[class*='ng-invalid-unique'] ~ .validation-text {
 input.ng-invalid-pattern ~ .invalid-pattern {
     display: block;
 }
+
 input.ng-valid-pattern ~ .invalid-pattern {
     display: none;
 }
+
 .ng-invalid-required ~ .required-validation {
     display: block;
 }
+
 .ng-valid-required ~ .required-validation {
+    display: none;
+}
+
+.confirmation-container {
     display: none;
 }

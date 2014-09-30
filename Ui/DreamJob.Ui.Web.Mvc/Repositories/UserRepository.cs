@@ -21,9 +21,11 @@
 
         public DjOperationResult<User> FindUserByLoginAndPasswordHash(string login, string passwordHash)
         {
-            var user =
-                this.context.Users
-                    .SingleOrDefault(x => x.Login == login && x.PasswordHash == passwordHash);
+            var user = this.context.Users.SingleOrDefault(x =>
+                                    x.Login == login &&
+                                    x.PasswordHash == passwordHash &&
+                                    x.IsActive);
+
             var result = new DjOperationResult<User>(user);
             return result;
         }

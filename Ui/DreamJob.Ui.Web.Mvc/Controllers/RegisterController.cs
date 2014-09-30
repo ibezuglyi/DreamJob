@@ -27,78 +27,47 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         [HttpPost]
         public ActionResult RegisterDeveloper(UserRegistrationDto user)
         {
-            List<string> errors;
+            var isUserUnique = CheckUserUniqueness(user);
 
-            ValidateUniqueUser(user);
-
-            if (!this.ModelState.IsValid)
-            {
-                errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
-            }
-            else
+            if (this.ModelState.IsValid && isUserUnique)
             {
                 var result = this.business.RegisterDeveloper(user);
                 if (result.IsSuccess)
                 {
-                    return new JsonResult { Data = result.Data };
+                    return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                 }
-                errors = result.Errors;
             }
-            return Json(errors);
+            return new JsonResult() { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-        private void ValidateUniqueUser(UserRegistrationDto user)
+        [HttpGet]
+        public ActionResult Registered()
         {
-            ValidateUniqueEmail(user.Email);
-            ValidateUniqueDisplayName(user.DisplayName);
-            ValidateUniqueLogin(user.Login);
+            return View();
         }
 
-        private void ValidateUniqueLogin(string login)
+        private bool CheckUserUniqueness(UserRegistrationDto user)
         {
-            var loginValidationResult = business.IsLoginUnique(login);
-            if (!loginValidationResult)
-            {
-                ModelState.AddModelError("User.Login", "User with this login already exists. Please choose another one.");
-            }
-        }
-
-        private void ValidateUniqueDisplayName(string displayName)
-        {
-            var displayNameValidationResult = business.IsDisplayNameUnique(displayName);
-            if (!displayNameValidationResult)
-            {
-                ModelState.AddModelError("User.DisplayName",
-                    "User with this display name already exists. Please choose another one.");
-            }
-        }
-
-        private void ValidateUniqueEmail(string email)
-        {
-
+            var isLoginUnique = business.IsLoginUnique(user.Login);
+            var isDisplayNameUnique = business.IsDisplayNameUnique(user.DisplayName);
+            var isEmailNameUnique = business.IsDisplayNameUnique(user.Email);
+            return isLoginUnique && isDisplayNameUnique && isEmailNameUnique;
         }
 
         [HttpPost]
         public ActionResult RegisterRecruiter(UserRegistrationDto user)
         {
-            List<string> errors;
+            var isUserUnique = CheckUserUniqueness(user);
 
-            ValidateUniqueUser(user);
-
-            if (this.ModelState.IsValid)
+            if (this.ModelState.IsValid && isUserUnique)
             {
                 var result = this.business.RegisterRecruiter(user);
                 if (result.IsSuccess)
                 {
-                    return new JsonResult() { Data = result.Data };
+                    return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                 }
-                errors = result.Errors;
             }
-            else
-            {
-                errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
-            }
-            return Json(errors);
+            return new JsonResult() { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
         [HttpPost]
