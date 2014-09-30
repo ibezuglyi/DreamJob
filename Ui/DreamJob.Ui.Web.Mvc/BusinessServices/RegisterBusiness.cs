@@ -1,4 +1,8 @@
-﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
+﻿using System.Runtime.CompilerServices;
+using System.Security.Policy;
+using System.Web.Mvc;
+
+namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using DreamJob.Common.Enum;
     using DreamJob.Ui.Web.Mvc.Models;
@@ -23,18 +27,26 @@
             return result;
         }
 
-        public DjOperationResult<string> RegisterDeveloper(UserRegistrationDto model)
+        public DjOperationResult<string> RegisterDeveloper(UserRegistrationDto model, UrlHelper url, string scheme)
         {
-            var result = this.registerService.AddNewDeveloper(model);
-            emailService.SendDeveloperGreetings(model.Email, model.DisplayName);
-            return result;
+            var confirmationResult = this.registerService.AddNewDeveloper(model);
+            var activationUrl = GetActivationUrl(url, confirmationResult, scheme);
+            emailService.SendDeveloperGreetings(model.Email, model.DisplayName, activationUrl);
+            return confirmationResult;
         }
 
-        public DjOperationResult<string> RegisterRecruiter(UserRegistrationDto model)
+        private static string GetActivationUrl(UrlHelper url, DjOperationResult<string> confirmationResult, string scheme)
         {
-            var result = this.registerService.AddNewRecruiter(model);
-            emailService.SendRecruiterGreetings(model.Email, model.DisplayName);
-            return result;
+            var activationUrl = url.Action("Confirm", "Register", new { h = confirmationResult.Data }, scheme);
+            return activationUrl;
+        }
+
+        public DjOperationResult<string> RegisterRecruiter(UserRegistrationDto model, UrlHelper url, string scheme)
+        {
+            var confirmationResult = this.registerService.AddNewRecruiter(model);
+            var activationUrl = GetActivationUrl(url, confirmationResult, scheme);
+            emailService.SendRecruiterGreetings(model.Email, model.DisplayName, activationUrl);
+            return confirmationResult;
         }
 
         public void ConfirmUserRegistration(string hash)

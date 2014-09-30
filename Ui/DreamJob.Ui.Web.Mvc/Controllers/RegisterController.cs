@@ -31,7 +31,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
 
             if (this.ModelState.IsValid && isUserUnique)
             {
-                var result = this.business.RegisterDeveloper(user);
+                var result = this.business.RegisterDeveloper(user, Url, Request.Url.Scheme);
                 if (result.IsSuccess)
                 {
                     return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -44,6 +44,12 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         public ActionResult Registered()
         {
             return View();
+        }
+        [HttpGet]
+        public ActionResult Confirm(string h)
+        {
+            this.business.ConfirmUserRegistration(h);
+            return new JsonResult() { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
         private bool CheckUserUniqueness(UserRegistrationDto user)
@@ -61,7 +67,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
 
             if (this.ModelState.IsValid && isUserUnique)
             {
-                var result = this.business.RegisterRecruiter(user);
+                var result = this.business.RegisterRecruiter(user, Url, Request.Url.Scheme);
                 if (result.IsSuccess)
                 {
                     return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -70,12 +76,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             return new JsonResult() { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-        [HttpPost]
-        public ActionResult Registered(string hash)
-        {
-            this.business.ConfirmUserRegistration(hash);
-            return new JsonResult() { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        }
+       
 
         public ActionResult CheckEmail(string val)
         {

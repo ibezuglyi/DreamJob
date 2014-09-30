@@ -36,10 +36,7 @@
             developer.LastLoginDateTime = this.datetime.Now;
             developer.Registered = this.datetime.Now;
             developer.PasswordHash = this.passwordHasher.GetHash(model.Password);
-            var newConfirmation =
-                new Confirmation(String.Format("{0}{1}", "D",
-                    this.passwordHasher.GetHash(string.Format("{0}+{1}*){2}_a", developer.Login, developer.Email,
-                        developer.Registered))));
+            var newConfirmation = new Confirmation(String.Format("{0}{1}", "D", this.passwordHasher.GetHash(string.Format("{0}+{1}*){2}_a", developer.Login, developer.Email, developer.Registered))));
             newConfirmation.Add = this.datetime.Now;
             newConfirmation.Edit = this.datetime.Now;
             developer.Confirmations.Add(newConfirmation);

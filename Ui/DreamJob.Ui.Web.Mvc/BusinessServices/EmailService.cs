@@ -43,16 +43,21 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             });
         }
 
-        public void SendDeveloperGreetings(string to, string userName)
+        public void SendDeveloperGreetings(string to, string userName, string confirmationUrl)
         {
-            var content = emailTemplateProvider.GetEmailText(EmailType.DeveloperGreetings, new { UserName = userName });
-            SendEmailMessage(to, EmailFrom, WelcomeToDreamJobSubject, content);
+            SendGreetings(EmailType.DeveloperGreetings, to, userName, confirmationUrl);
         }
 
-        public void SendRecruiterGreetings(string to, string userName)
+        private void SendGreetings(EmailType emailType, string to, string userName, string confirmationUrl)
         {
-            var content = emailTemplateProvider.GetEmailText(EmailType.RecruiterGreeting, new { UserName = userName });
-            SendEmailMessage(to, EmailFrom, WelcomeToDreamJobSubject, content);
+            var content = emailTemplateProvider.GetEmailText(emailType, new { UserName = userName, ConfirmationUrl = confirmationUrl });
+            var inlineCssHtml = PreMailer.Net.PreMailer.MoveCssInline(content);
+            SendEmailMessage(to, EmailFrom, WelcomeToDreamJobSubject, inlineCssHtml.Html);
+        }
+
+        public void SendRecruiterGreetings(string to, string userName, string confirmationUrl)
+        {
+            SendGreetings(EmailType.RecruiterGreeting, to, userName, confirmationUrl);
         }
 
         private RestRequest GetEmailRequest(string to, string from, string subject, string content)
