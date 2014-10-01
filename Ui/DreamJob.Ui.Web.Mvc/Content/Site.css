@@ -21,6 +21,7 @@
 
 .body {
     height: 100%;
+    padding-top: 45px;
 }
 
 .alert-box.success {
@@ -74,7 +75,10 @@
     padding: 0;
 }
 
-.offers-list {
+.scrollable-container {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
     .offers-list .side-nav li {
@@ -90,7 +94,9 @@
     top: 28%;
     right: 2%;
 }
-
+.full-height {
+    height: 100%;
+}
 .job-status {
 }
 
@@ -250,4 +256,7 @@ input.ng-valid-pattern ~ .invalid-pattern {
 
 .confirmation-container {
     display: none;
+}
+.section {
+    padding-top: 1rem;
 }

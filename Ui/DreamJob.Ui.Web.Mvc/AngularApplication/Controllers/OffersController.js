@@ -6,6 +6,7 @@ window.djApplication.controller('OfferController', function ($scope, $modal, djC
     $scope.comment = {
         text: ''
     };
+    $scope.IsOfferDetailsMode = false;
 
     $scope.init = function (currentUser) {
         $scope.currentUser = angular.fromJson(currentUser);
@@ -15,8 +16,11 @@ window.djApplication.controller('OfferController', function ($scope, $modal, djC
                 $scope.offers = response;
             });
     };
-
+    $scope.switchToOfferList = function() {
+        $scope.IsOfferDetailsMode = false;
+    };
     $scope.details = function (offer) {
+        $scope.IsOfferDetailsMode = true;
         $scope.deselectOffers();
         offer.selected = true;
         $scope.comment.text = '';
