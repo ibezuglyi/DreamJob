@@ -16,7 +16,8 @@
                         <div class="row">
                             <span class="small-9 columns leftpad-min">From: {{offer.From}}</span>
                             <span class="small-3 column marginleft-min">
-                                <i class="fi-mail "></i>
+                                <span ng-class="offer.OfferStatus">{{offer.OfferStatus}}</span>
+                                
                             </span>
 
                         </div>

@@ -13,7 +13,7 @@
         public string FromCompany { get; set; }
         public string To { get; set; }
         public string Description { get; set; }
-        public OfferStatus OfferStatus { get; set; }
+        public string OfferStatus { get; set; }
         public int MessagesCount { get; set; }
     }
 }
