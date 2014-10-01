@@ -233,6 +233,7 @@
     <Content Include="AngularApplication\Controllers\RegisterController.js" />
     <Content Include="AngularApplication\directives\debounce.js" />
     <Content Include="AngularApplication\dreamjobapplication.js" />
+    <Content Include="AngularApplication\interceptors\httpInterceptor.js" />
     <Content Include="AngularApplication\LocalizationTexts.js" />
     <Content Include="AngularApplication\Services\DreamJobApiClient.js" />
     <Content Include="AngularApplication\directives\emailValidator.js" />

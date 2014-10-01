@@ -20,13 +20,14 @@ window.djApplication.controller('OfferController', function ($scope, $modal, djC
         $scope.IsOfferDetailsMode = false;
     };
     $scope.details = function (offer) {
-        $scope.IsOfferDetailsMode = true;
+        
         $scope.deselectOffers();
         offer.selected = true;
         $scope.comment.text = '';
         djClientApi.offerDetails(offer.Id)
             .success(function (response) {
                 $scope.offer = response;
+                $scope.IsOfferDetailsMode = true;
                 $scope.offer.DescriptionParagraphs = $scope.offer.Description.split(/\r\n|\r|\n/g);
                 $scope.offerComments = response.JobOfferComments;
                 angular.forEach($scope.offerComments, function (comment) {
