@@ -9,6 +9,6 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
     {
         DeveloperGreetings,
         RecruiterGreeting,
-
+        NewMessage
     }
 }

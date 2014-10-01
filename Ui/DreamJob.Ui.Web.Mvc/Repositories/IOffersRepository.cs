@@ -11,7 +11,6 @@
         DjOperationResult<List<JobOffer>> OffersFrom(long recruiterId);
         DjOperationResult<JobOffer> GetDetails(long offerId);
         DjOperationResult<bool> InsertOffer(JobOffer jobOffer);
-        DjOperationResult<JobOffer> GetOffer(long offerId);
         DjOperationResult<bool> UpdateStatus(JobOffer offer);
     }
 }

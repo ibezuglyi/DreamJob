@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using DreamJob.Common.Enum;
 
 namespace DreamJob.Ui.Web.Mvc.Helpers
@@ -17,6 +18,11 @@ namespace DreamJob.Ui.Web.Mvc.Helpers
             }
 
             throw new InvalidOperationException(string.Join(";", opreationResult.Errors));
+        }
+
+        public static string GetSystemLoginUrl(this Controller controller)
+        {
+            return controller.Url.Action("Index", "Login", controller.Request.Url.Scheme);
         }
     }
 }

@@ -32,13 +32,13 @@
                                           Text = text
                                       };
 
-            var insertResult = this.repositoryComments.Insert(jobOfferComment);
+            var insertResult = this.repositoryComments.InsertComment(jobOfferComment);
             return insertResult;
         }
 
-        public DjOperationResult<JobOfferCommentDto> GetWithAuthor(long commentId)
+        public DjOperationResult<JobOfferCommentDto> GetCommentWithAuthor(long commentId)
         {
-            var getOfferCommentResult = this.repositoryComments.GetWithAuthor(commentId);
+            var getOfferCommentResult = this.repositoryComments.GetCommentWithAuthor(commentId);
             if (getOfferCommentResult.IsSuccess == false)
             {
                 return new DjOperationResult<JobOfferCommentDto>(false, getOfferCommentResult.Errors);

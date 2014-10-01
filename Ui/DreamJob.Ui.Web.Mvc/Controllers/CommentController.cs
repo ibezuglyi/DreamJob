@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Ui.Web.Mvc.Helpers;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
 
@@ -17,7 +19,7 @@
         [Authorize]
         public JsonResult Add(long offerId, string text)
         {
-            var result = this.commentBusiness.AddNewComment(offerId, text);
+            var result = this.commentBusiness.AddNewComment(offerId, text, this.GetSystemLoginUrl());
             return this.Json(result);
         }
     }

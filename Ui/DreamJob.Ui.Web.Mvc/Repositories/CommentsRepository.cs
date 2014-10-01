@@ -16,7 +16,7 @@
             this.context = context;
         }
 
-        public DjOperationResult<long> Insert(JobOfferComment jobOfferComment)
+        public DjOperationResult<long> InsertComment(JobOfferComment jobOfferComment)
         {
             this.context.JobOffersComments.Add(jobOfferComment);
             this.context.SaveChanges();
@@ -25,7 +25,7 @@
             return insertResult;
         }
 
-        public DjOperationResult<JobOfferComment> GetWithAuthor(long commentId)
+        public DjOperationResult<JobOfferComment> GetCommentWithAuthor(long commentId)
         {
             var data = this.context
                 .JobOffersComments

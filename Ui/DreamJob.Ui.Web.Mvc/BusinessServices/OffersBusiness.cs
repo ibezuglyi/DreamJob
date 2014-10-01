@@ -1,4 +1,7 @@
-﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
+﻿using System.Security.Policy;
+using System.Web.Mvc;
+
+namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using System.Collections.Generic;
 
@@ -19,12 +22,16 @@
         private readonly IOfferService offersService;
         private readonly ISession session;
         private readonly ICommentService commentService;
+        private readonly IEmailService emailService;
+        private readonly IDeveloperService developerService;
 
-        public OffersBusiness(IOfferService offersService, ISession session, ICommentService commentService)
+        public OffersBusiness(IOfferService offersService, ISession session, ICommentService commentService, IEmailService emailService, IDeveloperService developerService)
         {
             this.offersService = offersService;
             this.session = session;
             this.commentService = commentService;
+            this.emailService = emailService;
+            this.developerService = developerService;
         }
 
         public DjOperationResult<List<JobOfferDto>> GetOffersForUser(LoginUserDto user)
@@ -49,16 +56,23 @@
             return offer;
         }
 
-        public DjOperationResult<bool> SendOfferFromCurrentRecruiter(NewJobOfferDto model)
+        public DjOperationResult<bool> SendOfferFromCurrentRecruiter(NewJobOfferDto model, string url)
         {
             var getCurrentUserResult = this.session.GetCurrentUser();
             if (getCurrentUserResult.IsSuccess == false)
             {
                 return new DjOperationResult<bool>(false, getCurrentUserResult.Errors);
             }
+            var developer = developerService.GetDeveloperPublicProfile(model.DeveloperId);
+            
+            if (developer.IsSuccess == false)
+            {
+                return new DjOperationResult<bool>(false, developer.Errors);
+            }
 
             var currentUserData = getCurrentUserResult.Data;
             var sendResult = this.offersService.SendJobOffer(currentUserData.Id, model);
+            emailService.NotifyNewMessageReceived(developer.Data.Email, model.Subject, developer.Data.DisplayName, currentUserData.DisplayName, url);
             return sendResult;
         }
 

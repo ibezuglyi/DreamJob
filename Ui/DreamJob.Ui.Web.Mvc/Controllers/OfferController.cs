@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Ui.Web.Mvc.Helpers;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System.Text;
     using System.Web.Mvc;
@@ -50,7 +52,8 @@
         [Authorize]
         public ActionResult Send(NewJobOfferDto model)
         {
-            var operationResult = this.profileBusiness.SendOfferFromCurrentRecruiter(model);
+            
+            var operationResult = this.profileBusiness.SendOfferFromCurrentRecruiter(model, this.GetSystemLoginUrl());
             var result = new JsonResult { Data = operationResult };
             return result;
         }

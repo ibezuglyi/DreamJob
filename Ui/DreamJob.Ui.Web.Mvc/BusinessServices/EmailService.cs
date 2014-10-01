@@ -14,6 +14,7 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
     {
         private readonly IEmailTemplateProvider emailTemplateProvider;
         private const string WelcomeToDreamJobSubject = "Welcome to Dream job";
+        private const string NewMessageSubject = "New message";
 
         private readonly string EmailBaseUrl;
         private readonly string EmailResource;
@@ -31,7 +32,7 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             EmailApiCode = WebConfigurationManager.AppSettings["Email_ApiCode"];
         }
 
-        
+
 
         public void SendEmailMessage(string to, string from, string subject, string content)
         {
@@ -58,6 +59,21 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         public void SendRecruiterGreetings(string to, string userName, string confirmationUrl)
         {
             SendGreetings(EmailType.RecruiterGreeting, to, userName, confirmationUrl);
+        }
+
+        public void NotifyNewMessageReceived(string recepientEmail, string subject, string recepientDisplayName,
+            string senderDisplayName, string loginUrl)
+        {
+            var content = emailTemplateProvider.GetEmailText(EmailType.NewMessage, new { UserName = recepientDisplayName, LoginUrl = loginUrl, Subject = subject, From = senderDisplayName });
+            var inlineCssHtml = PreMailer.Net.PreMailer.MoveCssInline(content);
+            SendEmailMessage(recepientEmail, EmailFrom, subject, inlineCssHtml.Html);
+        }
+
+        public void NotifyNewMessageReceived(string recepientEmail, string recepientDisplayName, string senderDisplayName,
+            string loginUrl)
+        {
+            NotifyNewMessageReceived(recepientEmail, NewMessageSubject, recepientDisplayName, senderDisplayName,
+                loginUrl);
         }
 
         private RestRequest GetEmailRequest(string to, string from, string subject, string content)

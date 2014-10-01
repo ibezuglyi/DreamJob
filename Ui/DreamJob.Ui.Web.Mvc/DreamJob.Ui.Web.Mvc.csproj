@@ -253,6 +253,7 @@
     <Content Include="Content\foundation\normalize.css" />
     <Content Include="Content\imgs\bg-cutted.jpg" />
     <Content Include="Content\imgs\bg.jpg" />
+    <Content Include="EmailTemplates\NewMessage.html" />
     <Content Include="fav.ico" />
     <Content Include="Content\imgs\logo.png" />
     <Content Include="EmailTemplates\RecruiterGreeting.html" />
