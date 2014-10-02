@@ -6,6 +6,7 @@ window.djApplication.controller('OfferController', function ($scope, $modal, djC
     $scope.comment = {
         text: ''
     };
+    $scope.IsOfferDetailsMode = false;
 
     $scope.init = function (currentUser) {
         $scope.currentUser = angular.fromJson(currentUser);
@@ -15,14 +16,18 @@ window.djApplication.controller('OfferController', function ($scope, $modal, djC
                 $scope.offers = response;
             });
     };
-
+    $scope.switchToOfferList = function() {
+        $scope.IsOfferDetailsMode = false;
+    };
     $scope.details = function (offer) {
+        
         $scope.deselectOffers();
         offer.selected = true;
         $scope.comment.text = '';
         djClientApi.offerDetails(offer.Id)
             .success(function (response) {
                 $scope.offer = response;
+                $scope.IsOfferDetailsMode = true;
                 $scope.offer.DescriptionParagraphs = $scope.offer.Description.split(/\r\n|\r|\n/g);
                 $scope.offerComments = response.JobOfferComments;
                 angular.forEach($scope.offerComments, function (comment) {

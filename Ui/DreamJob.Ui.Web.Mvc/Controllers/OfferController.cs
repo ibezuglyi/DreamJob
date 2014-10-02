@@ -1,6 +1,7 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Ui.Web.Mvc.Helpers;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
-    using System.Text;
     using System.Web.Mvc;
 
     using DreamJob.Ui.Web.Mvc.BusinessServices;
@@ -50,7 +51,8 @@
         [Authorize]
         public ActionResult Send(NewJobOfferDto model)
         {
-            var operationResult = this.profileBusiness.SendOfferFromCurrentRecruiter(model);
+            
+            var operationResult = this.profileBusiness.SendOfferFromCurrentRecruiter(model, this.GetSystemLoginUrl());
             var result = new JsonResult { Data = operationResult };
             return result;
         }
@@ -59,45 +61,25 @@
         [Authorize]
         public ActionResult AcceptOffer(AcceptOfferDto model)
         {
-            var operationResult = this.profileBusiness.AcceptOffer(model);
+            var operationResult = this.profileBusiness.AcceptOffer(model, this.GetSystemLoginUrl());
             var result = new JsonResult { Data = operationResult };
             return result;
         }
-
+        [HttpPost]
+        [Authorize]
         public ActionResult RejectOffer(long id)
         {
-            var operationResult = this.profileBusiness.RejectOffer(id);
+            var operationResult = this.profileBusiness.RejectOffer(id, this.GetSystemLoginUrl());
             var result = new JsonResult { Data = operationResult };
             return result;
         }
-
+        [HttpPost]
+        [Authorize]
         public ActionResult CancelOffer(long id)
         {
-            var operationResult = this.profileBusiness.CancelOffer(id);
+            var operationResult = this.profileBusiness.CancelOffer(id, this.GetSystemLoginUrl());
             var result = new JsonResult { Data = operationResult };
             return result;
-        }
-    }
-
-    public class AcceptOfferDto
-    {
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public string Note { get; set; }
-        public string ContactMethod { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("Name: {0}<br/>", this.Name);
-            sb.AppendFormat("Note: {0}<br/>", this.Note);
-            sb.AppendFormat("ContactMethod: {0}<br/>", this.ContactMethod);
-            sb.AppendFormat("Email: {0}<br/>", this.Email);
-            sb.AppendFormat("Phone: {0}<br/>", this.Phone);
-
-            return sb.ToString();
         }
     }
 }

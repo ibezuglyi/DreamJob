@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
+﻿using System.Web.Mvc;
+
+namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using System.Collections.Generic;
 
@@ -10,10 +12,10 @@
     {
         DjOperationResult<List<JobOfferDto>> GetOffersForUser(LoginUserDto userId);
         DjOperationResult<JobOfferDetailsDto> GetDetailsForOffer(long offerId);
-        DjOperationResult<bool> SendOfferFromCurrentRecruiter(NewJobOfferDto model);
+        DjOperationResult<bool> SendOfferFromCurrentRecruiter(NewJobOfferDto model, string url);
 
-        DjOperationResult<bool> AcceptOffer(AcceptOfferDto id);
-        DjOperationResult<bool> RejectOffer(long id);
-        DjOperationResult<bool> CancelOffer(long id);
+        DjOperationResult<bool> AcceptOffer(AcceptOfferDto id, string loginUrl);
+        DjOperationResult<bool> RejectOffer(long id, string loginUrl);
+        DjOperationResult<bool> CancelOffer(long id, string loginUrl);
     }
 }

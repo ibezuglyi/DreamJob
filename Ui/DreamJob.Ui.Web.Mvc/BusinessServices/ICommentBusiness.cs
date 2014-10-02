@@ -5,6 +5,6 @@
 
     public interface ICommentBusiness
     {
-        DjOperationResult<JobOfferCommentDto> AddNewComment(long offerId, string text);
+        DjOperationResult<JobOfferCommentDto> AddNewComment(long offerId, string text, string loginUrl);
     }
 }

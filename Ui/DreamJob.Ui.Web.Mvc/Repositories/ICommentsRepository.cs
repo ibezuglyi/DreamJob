@@ -5,7 +5,7 @@
 
     public interface ICommentsRepository
     {
-        DjOperationResult<long> Insert(JobOfferComment jobOfferComment);
-        DjOperationResult<JobOfferComment> GetWithAuthor(long commentId);
+        DjOperationResult<long> InsertComment(JobOfferComment jobOfferComment);
+        DjOperationResult<JobOfferComment> GetCommentWithAuthor(long commentId);
     }
 }

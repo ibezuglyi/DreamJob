@@ -23,6 +23,12 @@
             this.dateTimeAdapter = dateTimeAdapter;
         }
 
+        public DjOperationResult<JobOffer> GetJobOffer(long offerId)
+        {
+            var offer = offersRepository.GetDetails(offerId);
+            return new DjOperationResult<JobOffer>(offer.Data);
+        }
+
         public DjOperationResult<List<JobOffer>> GetOffersTo(long userId)
         {
             var offers = this.offersRepository.OffersTo(userId);
@@ -65,7 +71,7 @@
 
         public DjOperationResult<bool> MarkOffer(long offerId, long userId, OfferStatus offerStatus)
         {
-            var getOfferResult  = this.offersRepository.GetOffer(offerId);
+            var getOfferResult = this.offersRepository.GetDetails(offerId);
             var offer = getOfferResult.Data;
             offer.OfferStatus = offerStatus;
             offer.Edit = this.dateTimeAdapter.Now;
