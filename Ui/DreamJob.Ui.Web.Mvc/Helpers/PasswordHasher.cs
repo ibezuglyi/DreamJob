@@ -16,7 +16,7 @@
             var hashedBytes = sha.ComputeHash(bytesToHash);
 
             var sb = new StringBuilder(hashedBytes.Length);
-            hashedBytes.ToList().ForEach(b => sb.AppendFormat((string)"{0:X}", (object)b));
+            hashedBytes.ToList().ForEach(b => sb.AppendFormat((string)"{0:X2}", (object)b));
             return sb.ToString();
         }
     }

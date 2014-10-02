@@ -1,6 +1,4 @@
-﻿using DreamJob.Ui.Web.Mvc.Models.Dto;
-
-namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿namespace DreamJob.Ui.Web.Mvc.Repositories
 {
     using System.Collections.Generic;
 

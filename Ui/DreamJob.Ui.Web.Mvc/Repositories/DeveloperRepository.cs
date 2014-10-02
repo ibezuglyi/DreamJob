@@ -1,10 +1,8 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using DreamJob.Ui.Web.Mvc.Models.Dto;
-
-namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿namespace DreamJob.Ui.Web.Mvc.Repositories
 {
     using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
     using System.Linq;
 
     using DreamJob.Common.Enum;

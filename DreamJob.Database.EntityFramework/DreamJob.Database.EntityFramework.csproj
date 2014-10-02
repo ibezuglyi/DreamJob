@@ -63,6 +63,10 @@
     <Compile Include="Migrations\201408311136463_removedId.Designer.cs">
       <DependentUpon>201408311136463_removedId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410022153091_base_entity_uses_datetime2.cs" />
+    <Compile Include="Migrations\201410022153091_base_entity_uses_datetime2.Designer.cs">
+      <DependentUpon>201410022153091_base_entity_uses_datetime2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408311136463_removedId.resx">
       <DependentUpon>201408311136463_removedId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410022153091_base_entity_uses_datetime2.resx">
+      <DependentUpon>201410022153091_base_entity_uses_datetime2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

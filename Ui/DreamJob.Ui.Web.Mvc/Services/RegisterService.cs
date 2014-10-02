@@ -41,7 +41,9 @@
             var now = this.datetime.Now;
 
             developer.LastLoginDateTime = now;
+            developer.Add = now;
             developer.Registered = now;
+            developer.Edit = now;
             developer.PasswordHash = this.passwordHasher.GetHash(model.Password, now.ToFileTime().ToString());
             var confirmationKey = this.guid.GetTimesBy(10);
             var newConfirmation = new Confirmation(confirmationKey);
