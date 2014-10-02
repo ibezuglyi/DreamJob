@@ -45,7 +45,7 @@
             developer.Registered = now;
             developer.Edit = now;
             developer.PasswordHash = this.passwordHasher.GetHash(model.Password, now.ToFileTime().ToString());
-            var confirmationKey = this.guid.GetTimesBy(10);
+            var confirmationKey = "D" + this.guid.GetTimesBy(10);
             var newConfirmation = new Confirmation(confirmationKey);
             newConfirmation.Add = now;
             newConfirmation.Edit = now;
@@ -64,7 +64,7 @@
             recruiter.LastLoginDateTime = now;
             recruiter.Registered = now;
             recruiter.PasswordHash = this.passwordHasher.GetHash(model.Password, now.ToFileTime().ToString());
-            var confirmationKey = this.guid.GetTimesBy(10);
+            var confirmationKey = "R" + this.guid.GetTimesBy(10);
             var newConfirmation = new Confirmation(confirmationKey);
             newConfirmation.Add = now;
             newConfirmation.Edit = now;
