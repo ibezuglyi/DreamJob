@@ -1,5 +1,6 @@
 namespace DreamJob.Ui.Web.Mvc
 {
+    using System;
     using System.Reflection;
 
     using Autofac;
@@ -33,8 +34,9 @@ namespace DreamJob.Ui.Web.Mvc
             
             containerBuilder.RegisterType<OffersRepository>().As<IOffersRepository>();
 
-            containerBuilder.RegisterType<Md5PasswordHasher>().As<IPasswordHasher>();
+            containerBuilder.RegisterType<PasswordHasher>().As<IPasswordHasher>();
             containerBuilder.RegisterType<DateTimeAdapter>().As<IDateTimeAdapter>();
+            containerBuilder.RegisterType<GuidAdapter>().As<IGuidAdapter>();
 
 
 

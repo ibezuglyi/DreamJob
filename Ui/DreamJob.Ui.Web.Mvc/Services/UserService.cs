@@ -1,5 +1,7 @@
 ﻿namespace DreamJob.Ui.Web.Mvc.Services
 {
+    using System;
+
     using AutoMapper;
 
     using DreamJob.Common.Enum;
@@ -33,6 +35,20 @@
             return result;
         }
 
-        
+        public DjOperationResult<DateTime> GetAccountCreation(string login)
+        {
+            var findUserResult = this.userRepository.FindUserByLogin(login);
+            if (findUserResult.IsSuccess == false)
+            {
+                return new DjOperationResult<DateTime>(false, findUserResult.Errors);
+            }
+
+            if (findUserResult.Data == null)
+            {
+                return new DjOperationResult<DateTime>(false, new[] { "No user was found using this login" });
+            }
+
+            return new DjOperationResult<DateTime>(findUserResult.Data.Add);
+        }
     }
 }

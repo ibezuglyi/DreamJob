@@ -144,6 +144,9 @@
     <Compile Include="BusinessServices\ITemplateProvider.cs" />
     <Compile Include="BusinessServices\RazorTemplateProvider.cs" />
     <Compile Include="Controllers\OfferIndexViewModel.cs" />
+    <Compile Include="Helpers\GuidAdapter.cs" />
+    <Compile Include="Helpers\IGuidAdapter.cs" />
+    <Compile Include="Helpers\PasswordHasher.cs" />
     <Compile Include="Models\Dto\NewJobOfferDto.cs" />
     <Compile Include="Models\DeveloperPublicProfileViewModel.cs" />
     <Compile Include="BusinessServices\ProfileBusiness.cs" />
@@ -194,7 +197,6 @@
     <Compile Include="Models\Dto\LoginDto.cs" />
     <Compile Include="BusinessServices\LogoffBusiness.cs" />
     <Compile Include="Controllers\LogoffController.cs" />
-    <Compile Include="Helpers\Md5PasswordHasher.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Repositories\RecruiterRepository.cs" />
     <Compile Include="BusinessServices\RegisterBusiness.cs" />

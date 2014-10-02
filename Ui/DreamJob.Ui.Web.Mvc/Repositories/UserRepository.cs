@@ -45,5 +45,12 @@
 
             return result;
         }
+
+        public DjOperationResult<User> FindUserByLogin(string login)
+        {
+            var user = this.context.Users.SingleOrDefault(x => x.Login == login);
+            var result = new DjOperationResult<User>(user);
+            return result;
+        }
     }
 }

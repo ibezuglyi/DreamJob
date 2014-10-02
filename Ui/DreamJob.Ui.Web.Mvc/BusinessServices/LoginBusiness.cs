@@ -27,7 +27,15 @@
 
         public DjOperationResult<bool> LoginUser(LoginDto model)
         {
-            var passwordHash = this.passwordHasher.GetHash(model.Password);
+            var accountCreationResult = this.userService.GetAccountCreation(model.Login);
+
+            if (accountCreationResult.IsSuccess == false)
+            {
+                return new DjOperationResult<bool>(false, new[] { "No user was found using this login or password." });
+            }
+            var userSalt = accountCreationResult.Data.ToFileTime().ToString();
+
+            var passwordHash = this.passwordHasher.GetHash(model.Password, userSalt);
             var userLoginResult = this.userService.GetUserLoginDto(model.Login, passwordHash);
             if (userLoginResult.IsSuccess == false)
             {

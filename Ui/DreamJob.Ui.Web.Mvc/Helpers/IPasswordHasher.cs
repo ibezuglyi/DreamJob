@@ -2,6 +2,6 @@
 {
     public interface IPasswordHasher
     {
-        string GetHash(string password);
+        string GetHash(string password, string toString);
     }
 }

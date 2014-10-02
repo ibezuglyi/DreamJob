@@ -17,28 +17,36 @@
         private readonly IDeveloperRepository developerRepository;
         private readonly IRecruiterRepository recruiterRepository;
 
+        private IGuidAdapter guid
+            ;
+
         public RegisterService(
             IDateTimeAdapter datetime,
             IDeveloperRepository developerRepository,
             IPasswordHasher passwordHasher,
-            IRecruiterRepository recruiterRepository)
+            IRecruiterRepository recruiterRepository,
+            IGuidAdapter guid)
         {
             this.datetime = datetime;
             this.developerRepository = developerRepository;
             this.passwordHasher = passwordHasher;
             this.recruiterRepository = recruiterRepository;
+            this.guid = guid;
         }
 
         public DjOperationResult<string> AddNewDeveloper(UserRegistrationDto model)
         {
             var developer = Mapper.Map<UserRegistrationDto, Developer>(model);
             developer.AccountType = UserAccountType.Developer;
-            developer.LastLoginDateTime = this.datetime.Now;
-            developer.Registered = this.datetime.Now;
-            developer.PasswordHash = this.passwordHasher.GetHash(model.Password);
-            var newConfirmation = new Confirmation(String.Format("{0}{1}", "D", this.passwordHasher.GetHash(string.Format("{0}+{1}*){2}_a", developer.Login, developer.Email, developer.Registered))));
-            newConfirmation.Add = this.datetime.Now;
-            newConfirmation.Edit = this.datetime.Now;
+            var now = this.datetime.Now;
+
+            developer.LastLoginDateTime = now;
+            developer.Registered = now;
+            developer.PasswordHash = this.passwordHasher.GetHash(model.Password, now.ToFileTime().ToString());
+            var confirmationKey = this.guid.GetTimesBy(10);
+            var newConfirmation = new Confirmation(confirmationKey);
+            newConfirmation.Add = now;
+            newConfirmation.Edit = now;
             developer.Confirmations.Add(newConfirmation);
 
             this.developerRepository.Add(developer);
@@ -50,14 +58,14 @@
         {
             var recruiter = Mapper.Map<UserRegistrationDto, Recruiter>(model);
             recruiter.AccountType = UserAccountType.Recruiter;
-            recruiter.LastLoginDateTime = this.datetime.Now;
-            recruiter.Registered = this.datetime.Now;
-            recruiter.PasswordHash = this.passwordHasher.GetHash(model.Password);
-            var newConfirmation = new Confirmation(string.Format("{0}{1}", "R",
-                this.passwordHasher.GetHash(string.Format("{0}-{1}={2}_a", recruiter.Login, recruiter.Email,
-                    recruiter.Registered))));
-            newConfirmation.Add = this.datetime.Now;
-            newConfirmation.Edit = this.datetime.Now;
+            var now = this.datetime.Now;
+            recruiter.LastLoginDateTime = now;
+            recruiter.Registered = now;
+            recruiter.PasswordHash = this.passwordHasher.GetHash(model.Password, now.ToFileTime().ToString());
+            var confirmationKey = this.guid.GetTimesBy(10);
+            var newConfirmation = new Confirmation(confirmationKey);
+            newConfirmation.Add = now;
+            newConfirmation.Edit = now;
             recruiter.Confirmations.Add(newConfirmation);
             this.recruiterRepository.Add(recruiter);
 
