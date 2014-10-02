@@ -15,6 +15,9 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         private readonly IEmailTemplateProvider emailTemplateProvider;
         private const string WelcomeToDreamJobSubject = "Welcome to Dream job";
         private const string NewMessageSubject = "New message";
+        private const string OfferRejected = "Rejected offer";
+        private const string OfferAccepted = "Accepted offer";
+        private const string OfferCanceled = "Offer canceled";
 
         private readonly string EmailBaseUrl;
         private readonly string EmailResource;
@@ -69,11 +72,30 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             SendEmailMessage(recepientEmail, EmailFrom, subject, inlineCssHtml.Html);
         }
 
-        public void NotifyNewMessageReceived(string recepientEmail, string recepientDisplayName, string senderDisplayName,
-            string loginUrl)
+        public void NotifyNewMessageReceived(string recepientEmail, string recepientDisplayName, string senderDisplayName, string loginUrl)
         {
-            NotifyNewMessageReceived(recepientEmail, NewMessageSubject, recepientDisplayName, senderDisplayName,
-                loginUrl);
+            NotifyNewMessageReceived(recepientEmail, NewMessageSubject, recepientDisplayName, senderDisplayName, loginUrl);
+        }
+
+        public void NotifyOfferAccepted(string email, string displayName, string title, string loginUrl)
+        {
+            var content = emailTemplateProvider.GetEmailText(EmailType.Accepted, new { UserName = displayName, LoginUrl = loginUrl, Title = title });
+            var inlineCssHtml = PreMailer.Net.PreMailer.MoveCssInline(content);
+            SendEmailMessage(email, EmailFrom, OfferAccepted, inlineCssHtml.Html);
+        }
+
+        public void NotifyOfferRejected(string email, string displayName, string title, string loginUrl)
+        {
+            var content = emailTemplateProvider.GetEmailText(EmailType.Rejected, new { UserName = displayName, LoginUrl = loginUrl, Title = title });
+            var inlineCssHtml = PreMailer.Net.PreMailer.MoveCssInline(content);
+            SendEmailMessage(email, EmailFrom, OfferRejected, inlineCssHtml.Html);
+        }
+
+        public void NotifyOfferCanceled(string email, string displayName, string subject, string loginUrl)
+        {
+            var content = emailTemplateProvider.GetEmailText(EmailType.Canceled, new { UserName = displayName, LoginUrl = loginUrl, Subject = subject });
+            var inlineCssHtml = PreMailer.Net.PreMailer.MoveCssInline(content);
+            SendEmailMessage(email, EmailFrom, OfferCanceled, inlineCssHtml.Html);
         }
 
         private RestRequest GetEmailRequest(string to, string from, string subject, string content)

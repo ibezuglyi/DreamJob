@@ -143,6 +143,7 @@
     <Compile Include="BusinessServices\IEmailTemplateProvider.cs" />
     <Compile Include="BusinessServices\ITemplateProvider.cs" />
     <Compile Include="BusinessServices\RazorTemplateProvider.cs" />
+    <Compile Include="Controllers\AcceptOfferDto.cs" />
     <Compile Include="Controllers\OfferIndexViewModel.cs" />
     <Compile Include="Models\Dto\NewJobOfferDto.cs" />
     <Compile Include="Models\DeveloperPublicProfileViewModel.cs" />
@@ -253,6 +254,9 @@
     <Content Include="Content\foundation\normalize.css" />
     <Content Include="Content\imgs\bg-cutted.jpg" />
     <Content Include="Content\imgs\bg.jpg" />
+    <Content Include="EmailTemplates\Accepted.html" />
+    <Content Include="EmailTemplates\Canceled.html" />
+    <Content Include="EmailTemplates\Rejected.html" />
     <Content Include="EmailTemplates\NewMessage.html" />
     <Content Include="fav.ico" />
     <Content Include="Content\imgs\logo.png" />

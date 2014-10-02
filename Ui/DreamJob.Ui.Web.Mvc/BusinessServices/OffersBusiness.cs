@@ -70,13 +70,13 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
                 return new DjOperationResult<bool>(false, developer.Errors);
             }
 
-            var currentUserData = getCurrentUserResult.Data;
-            var sendResult = this.offersService.SendJobOffer(currentUserData.Id, model);
-            emailService.NotifyNewMessageReceived(developer.Data.Email, model.Subject, developer.Data.DisplayName, currentUserData.DisplayName, url);
+            var currentUser = getCurrentUserResult.Data;
+            var sendResult = this.offersService.SendJobOffer(currentUser.Id, model);
+            emailService.NotifyNewMessageReceived(developer.Data.Email, model.Subject, developer.Data.DisplayName, currentUser.DisplayName, url);
             return sendResult;
         }
 
-        public DjOperationResult<bool> AcceptOffer(AcceptOfferDto model)
+        public DjOperationResult<bool> AcceptOffer(AcceptOfferDto model, string loginUrl)
         {
             var getUserResult = this.session.GetCurrentUser();
             var currentUser = getUserResult.Data;
@@ -85,19 +85,21 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
                 return new DjOperationResult<bool>(false, new[] { "Only developer can mark an offer as accepted" });
             }
 
-            var data = model.ToString();
+            var developerDetailsText = model.ToString();
 
-            var addCommentsResult = this.commentService.AddNewComment(model.Id, data, currentUser.Id);
+            var addCommentsResult = this.commentService.AddNewComment(model.Id, developerDetailsText, currentUser.Id);
             if (addCommentsResult.IsSuccess == false)
             {
                 return new DjOperationResult<bool>(false, addCommentsResult.Errors);
             }
 
             var operationResult = this.MarkOffer(model.Id, currentUser.Id, OfferStatus.Accepted);
+            var offer = offersService.GetJobOffer(model.Id);
+            emailService.NotifyOfferAccepted(offer.Data.FromRecruiter.Email, offer.Data.FromRecruiter.DisplayName, offer.Data.ToDeveloper.Title, loginUrl);
             return operationResult;
         }
 
-        public DjOperationResult<bool> RejectOffer(long id)
+        public DjOperationResult<bool> RejectOffer(long id, string loginUrl)
         {
             var getUserResult = this.session.GetCurrentUser();
             var currentUser = getUserResult.Data;
@@ -107,10 +109,12 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             }
 
             var operationResult = this.MarkOffer(id, currentUser.Id, OfferStatus.Rejected);
+            var offer = offersService.GetJobOffer(id);
+            emailService.NotifyOfferRejected(offer.Data.FromRecruiter.Email, offer.Data.FromRecruiter.DisplayName, offer.Data.ToDeveloper.Title, loginUrl);
             return operationResult;
         }
 
-        public DjOperationResult<bool> CancelOffer(long id)
+        public DjOperationResult<bool> CancelOffer(long id, string loginUrl)
         {
             var getUserResult = this.session.GetCurrentUser();
             var currentUser = getUserResult.Data;
@@ -120,6 +124,8 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             }
 
             var operationResult = this.MarkOffer(id, currentUser.Id, OfferStatus.Canceled);
+            var offer = offersService.GetJobOffer(id);
+            emailService.NotifyOfferCanceled(offer.Data.ToDeveloper.Email, offer.Data.ToDeveloper.DisplayName, offer.Data.Subject, loginUrl);
             return operationResult;
         }
 
