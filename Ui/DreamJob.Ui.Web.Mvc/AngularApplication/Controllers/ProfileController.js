@@ -11,7 +11,7 @@
         $scope.saveProfile = function () {
             djClientApi.saveProfile($scope.profile)
             .success(function () {
-                $scope.alerts.push(messages.updateSucceded);
+                $scope.alerts = [messages.updateSucceded];
             });
         };
 
@@ -19,14 +19,14 @@
             djClientApi.getProfile()
                     .success(function (response) {
                         $scope.profile = response;
-                        
+
                     });
         };
-        $scope.deleteSkill = function(indx) {
+        $scope.deleteSkill = function (indx) {
             $scope.profile.Skills.splice(indx, 1);
         };
         $scope.addSkill = function () {
-            $scope.profile.Skills.push({ SelfRate: 0, Description: "" });
+            $scope.profile.Skills.splice(0, 0, { SelfRate: 0, Description: "" });
         };
 
         $scope.getCities = function (val) {

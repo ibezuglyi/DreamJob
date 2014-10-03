@@ -10,6 +10,9 @@
         <div class="row collapse">
             <div ng-repeat="skill in profile.Skills" class="large-12 small-12 columns">
                 <div class="row collapse">
+                    <div class="small-1 columns raiting-line-height">
+                        <button class="button tiny alert" ng-click="deleteSkill($index)"><i class="fi-x"></i></button>
+                    </div>
                     <div class="small-3 columns">
                         <input type="text" ng-model="skill.Description" placeholder="example: Java script" />
                     </div>
@@ -19,10 +22,7 @@
                             <b>{{skill.SelfRate}}</b>
                         </div>
                     </div>
-                    <div class="small-2 columns raiting-line-height">
-                        <button class="button tiny alert" ng-click="deleteSkill($index)"><i class="fi-x"></i>
-                            Delete skill</button>
-                    </div>
+                    
                     <div class="columns"></div>
                 </div>
             </div>
@@ -89,5 +89,4 @@
     </section>
 </div>
 <br />
-<input class="button small-12 large-12 radius" type="submit" value="Save profile"
-    ng-click="saveProfile()" />
+<input class="button small-12 large-12 radius" type="submit" value="Save profile" ng-click="saveProfile()" />
