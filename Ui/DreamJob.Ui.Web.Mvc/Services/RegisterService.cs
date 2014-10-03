@@ -66,6 +66,8 @@
             recruiter.PasswordHash = this.passwordHasher.GetHash(model.Password, now.ToFileTime().ToString());
             var confirmationKey = "R" + this.guid.GetTimesBy(10);
             var newConfirmation = new Confirmation(confirmationKey);
+            recruiter.Add = now;
+            recruiter.Edit = now;
             newConfirmation.Add = now;
             newConfirmation.Edit = now;
             recruiter.Confirmations.Add(newConfirmation);
