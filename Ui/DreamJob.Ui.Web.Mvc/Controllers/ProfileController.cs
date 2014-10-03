@@ -7,7 +7,7 @@
     using DreamJob.Ui.Web.Mvc.Helpers;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
 
-    [Authorize]
+    
     public class ProfileController : Controller
     {
         private readonly IProfileBusiness profileBusiness;
@@ -27,6 +27,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         public JsonResult CurrentUser(UserProfileDto profile)
         {
             LoginUserDto currentUser = this.session.GetCurrentUser().Data;
@@ -45,6 +46,7 @@
         }
 
         [HttpGet]
+        [Authorize]
         public JsonResult CurrentUser()
         {
             var getprofileResult = this.profileBusiness.GetCurrentUserProfile();
@@ -57,7 +59,7 @@
             var cities = this.profileBusiness.GetDeveloperCities(cityPart);
             return this.DjJson(cities);
         }
-
+        [HttpGet]
         public JsonResult Search(string technology, string city)
         {
             var developers = this.profileBusiness.SearchForDevelopers(technology, city);

@@ -40,9 +40,20 @@ namespace DreamJob.Ui.Web.Mvc.Services
             return result;
         }
 
+        public DjOperationResult<UserProfileDto> GetDeveloperPublicProfile(string displayName)
+        {
+            var getByDisplayNameResult = this.repositoryDeveloper.GetByDisplayName(displayName);
+            return GetDeveloperPublicProfile(getByDisplayNameResult);
+        }
+
         public DjOperationResult<UserProfileDto> GetDeveloperPublicProfile(long developerId)
         {
             var getByIdResult = this.repositoryDeveloper.GetById(developerId);
+            return GetDeveloperPublicProfile(getByIdResult);
+        }
+
+        private static DjOperationResult<UserProfileDto> GetDeveloperPublicProfile(DjOperationResult<Developer> getByIdResult)
+        {
             if (getByIdResult.IsSuccess == false)
             {
                 return new DjOperationResult<UserProfileDto>(false, getByIdResult.Errors);

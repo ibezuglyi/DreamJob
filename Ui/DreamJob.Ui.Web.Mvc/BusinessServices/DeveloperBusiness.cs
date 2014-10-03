@@ -33,9 +33,9 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
 
         }
 
-        public DjOperationResult<DeveloperPublicProfileViewModel> GetDeveloperPublicViewModel(long id)
+        public DjOperationResult<DeveloperPublicProfileViewModel> GetDeveloperPublicViewModel(string displayName)
         {
-            var getDeveloperPublicDataResult = this.serviceDeveloper.GetDeveloperPublicProfile(id);
+            var getDeveloperPublicDataResult = this.serviceDeveloper.GetDeveloperPublicProfile(displayName);
             if (getDeveloperPublicDataResult.IsSuccess == false)
             {
                 return new DjOperationResult<DeveloperPublicProfileViewModel>(false, getDeveloperPublicDataResult.Errors);

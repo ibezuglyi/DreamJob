@@ -17,17 +17,14 @@
                             <span class="small-9 columns leftpad-min">From: {{offer.From}}</span>
                             <span class="small-3 column marginleft-min">
                                 <span ng-class="offer.OfferStatus">{{offer.OfferStatus}}</span>
-                                
                             </span>
-
                         </div>
-
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="medium-12 columns text-align-right" ng-show="offers.length===0">
-            <p>You have no any offers here.</p>
+        <div class="medium-12 columns" ng-show="offers.length===0">
+            <h3>You have no any offers here.</h3>
         </div>
 
         <div ng-show="IsOfferDetailsMode">

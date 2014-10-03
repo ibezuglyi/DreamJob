@@ -260,3 +260,14 @@ input.ng-valid-pattern ~ .invalid-pattern {
 .section {
     padding-top: 1rem;
 }
+.navigation {
+    position: fixed; 
+    width: 100%;
+    z-index: 10;
+}
+.joyride-tip-guide {
+    width: auto;
+}
+.origin-text {
+    white-space: pre-line;
+}

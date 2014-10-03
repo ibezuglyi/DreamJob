@@ -5,7 +5,7 @@
 
     using DreamJob.Ui.Web.Mvc.BusinessServices;
 
-    [Authorize]
+    
     public class DeveloperController : Controller
     {
         private readonly IDeveloperBusiness businessDeveloper;
@@ -28,9 +28,9 @@
             throw new Exception("Index");
         }
 
-        public ActionResult Profile(long id)
+        public ActionResult Profile(string displayName)
         {
-            var getDeveloperProfileResult = this.businessDeveloper.GetDeveloperPublicViewModel(id);
+            var getDeveloperProfileResult = this.businessDeveloper.GetDeveloperPublicViewModel(displayName);
             if (getDeveloperProfileResult.IsSuccess == false)
             {
                 throw new Exception("Developer");

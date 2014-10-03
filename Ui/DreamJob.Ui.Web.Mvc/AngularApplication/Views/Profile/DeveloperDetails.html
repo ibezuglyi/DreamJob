@@ -1,8 +1,9 @@
 ﻿<div class=" left-padded">
     <section class="section">
         <h5 class="title">Experience</h5>
-        <p>Please fill only the most valuable skills for your dream job. This will help recruiters to find you among the others developers.</p>
-        <button class="button small"  ng-click="addSkill()">
+        <p>Please fill only the most valuable skills for your dream job. This will help recruiters
+            to find you among the others developers.</p>
+        <button class="button small" ng-click="addSkill()">
             <i class="fi-plus"></i>
             <span>Add skill</span>
         </button>
@@ -19,7 +20,8 @@
                         </div>
                     </div>
                     <div class="small-2 columns raiting-line-height">
-                        <button class="button tiny alert"  ng-click="deleteSkill($index)"><i class="fi-x"></i> Delete skill</button>
+                        <button class="button tiny alert" ng-click="deleteSkill($index)"><i class="fi-x"></i>
+                            Delete skill</button>
                     </div>
                     <div class="columns"></div>
                 </div>
@@ -27,7 +29,7 @@
         </div>
     </section>
 </div>
-<br/>
+<br />
 <div class=" left-padded">
     <section class="section">
         <h5 class="title">Job preferences</h5>
@@ -38,7 +40,7 @@
                         <label class="inline">Desirable  position: </label>
                     </div>
                     <div class="small-10 columns">
-                        <input type="text" ng-model="profile.Title" popover="{{preferredTitle}}" popover-trigger="mouseenter" />
+                        <input type="text" ng-model="profile.Title"  />
                     </div>
                     <div class="columns"></div>
                 </div>
@@ -46,8 +48,11 @@
                     <div class="small-2 columns">
                         <label class="inline">Minimal salary: </label>
                     </div>
-                    <div class="small-10 columns">
-                        <input type="number" popover="{{minSalary}}"  popover-trigger="mouseenter" ng-model="profile.MinSalary" />
+                    <div class="small-9 columns">
+                        <input type="number" ng-model="profile.MinSalary" />
+                    </div>
+                    <div class="small-1 columns">
+                        <span class="postfix">PLN Netto</span>
                     </div>
                     <div class="columns"></div>
                 </div>
@@ -75,7 +80,7 @@
                     </div>
                     <div class="small-10 columns">
                         <input type="text" ng-model="profile.City" typeahead="city for city in getCities($viewValue)"
-                               class="form-control">
+                            class="form-control">
                     </div>
                     <div class="columns"></div>
                 </div>
@@ -83,5 +88,6 @@
         </div>
     </section>
 </div>
-<br/>
-<input class="button small-12 large-12 radius" type="submit" value="Save profile" ng-click="saveProfile()" />
+<br />
+<input class="button small-12 large-12 radius" type="submit" value="Save profile"
+    ng-click="saveProfile()" />

@@ -20,5 +20,6 @@
         bool IsEmailUnique(string email);
         bool IsDisplayNameUnique(string displayName);
         bool IsLoginUnique(string login);
+        DjOperationResult<Developer> GetByDisplayName(string displayName);
     }
 }

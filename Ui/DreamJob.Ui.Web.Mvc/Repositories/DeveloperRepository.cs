@@ -136,5 +136,16 @@
             var unique = !context.Users.Any(r => r.Login.ToLower() == loginLower);
             return unique;
         }
+
+        public DjOperationResult<Developer> GetByDisplayName(string displayName)
+        {
+            var developer = this.context.Developers
+               .Include(t => t.Skills)
+               .SingleOrDefault(d => d.DisplayName == displayName);
+
+            var result = new DjOperationResult<Developer>(developer);
+            return result;
+
+        }
     }
 }

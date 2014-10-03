@@ -24,7 +24,7 @@
                     <div class="row collapse">
                         <div class="small-5 columns"></div>
                         <div class="small-2 columns">
-                            <button class="button columns" ng-click="searchForDevelopers()">Seach</button>
+                            <button class="button columns" ng-click="searchForDevelopers()">Search</button>
                         </div>
                     </div>
                 </div>
@@ -37,9 +37,8 @@
                 <div class="row collapse">
                     <div class="small-10 columns">
                         <h5 class="title">
-                            <a ng-href="/Developer/Profile/{{developer.Id}}">{{developer.Title}}    
+                            <a ng-href="/Developer/Profile/{{developer.DisplayName}}">{{developer.Title}}    
                             </a>
-                            
                             <small>{{developer.MinSalary}} PLN</small>
                         </h5>
                     </div>

@@ -8,6 +8,6 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
     public interface IDeveloperBusiness
     {
         DjOperationResult<AllDevelopersViewModel> GetAllDevelopersViewModel();
-        DjOperationResult<DeveloperPublicProfileViewModel> GetDeveloperPublicViewModel(long id);
+        DjOperationResult<DeveloperPublicProfileViewModel> GetDeveloperPublicViewModel(string displayName);
     }
 }
