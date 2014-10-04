@@ -13,6 +13,7 @@
         return !($scope.JobOffer.Subject.length > 0 &&
             $scope.JobOffer.Description &&
             $scope.JobOffer.Description.length > 0 &&
+            $scope.JobOffer.MaxSalary>=$scope.JobOffer.MinSalary && 
             $scope.JobOffer.MatchesDeveloperRequirements === true);
     }
 
