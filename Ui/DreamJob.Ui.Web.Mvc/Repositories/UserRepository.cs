@@ -2,10 +2,10 @@
 {
     using System.Linq;
 
-    using DreamJob.Common.Enum;
-    using DreamJob.Database.EntityFramework;
-    using DreamJob.Model.Domain;
-    using DreamJob.Ui.Web.Mvc.Helpers;
+    using Common.Enum;
+    using Database.EntityFramework;
+    using Model.Domain;
+    using Helpers;
 
     public class UserRepository : IUserRepository
     {
