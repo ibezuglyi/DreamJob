@@ -224,7 +224,7 @@ input[type=checkbox].ng-invalid {
 .invalid-pattern,
 .required-validation,
 .validation-text {
-    line-height: 10px;
+    line-height: 12px;
     font-size: 14px;
     color: #b94a48;
     margin: 0;
