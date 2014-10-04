@@ -290,3 +290,6 @@ input[type="checkbox"].inline {
     white-space: nowrap;
     margin: 0;
 }
+input.validated-input {
+    margin: 0 0 0.1rem 0;
+}
