@@ -83,6 +83,7 @@ namespace DreamJob.Ui.Web.Mvc.Services
             developer.Profile = profile.Profile;
             developer.ProjectPreferences = profile.ProjectPreferences;
             developer.Skills = skillsToUpdate;
+            developer.IsLookingForJob = profile.IsLookingForJob;
             return developer;
         }
 

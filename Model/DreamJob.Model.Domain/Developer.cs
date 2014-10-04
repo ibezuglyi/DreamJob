@@ -17,5 +17,6 @@
         public string City { get; set; }
         public List<Skill> Skills { get; set; }
         public List<JobOffer> JobOffersReceived { get; set; }
+        public bool IsLookingForJob { get; set; }
     }
 }

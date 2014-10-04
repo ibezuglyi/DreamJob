@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201410022153091_base_entity_uses_datetime2.Designer.cs">
       <DependentUpon>201410022153091_base_entity_uses_datetime2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410041858258_developer_isLookingForJob.cs" />
+    <Compile Include="Migrations\201410041858258_developer_isLookingForJob.Designer.cs">
+      <DependentUpon>201410041858258_developer_isLookingForJob.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201410022153091_base_entity_uses_datetime2.resx">
       <DependentUpon>201410022153091_base_entity_uses_datetime2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410041858258_developer_isLookingForJob.resx">
+      <DependentUpon>201410041858258_developer_isLookingForJob.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
