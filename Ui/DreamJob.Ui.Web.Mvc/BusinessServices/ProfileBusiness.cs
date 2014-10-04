@@ -1,4 +1,7 @@
-﻿namespace DreamJob.Ui.Web.Mvc.BusinessServices
+﻿using System.Linq;
+using WebGrease.Css.Extensions;
+
+namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using System.Collections.Generic;
 
@@ -53,6 +56,8 @@
 
         public DjOperationResult<bool> UpdateDeveloperProfile(long id, UserProfileDto profile)
         {
+            var empty = profile.Skills.Where(skill => string.IsNullOrEmpty(skill.Description));
+            empty.ToList().ForEach(emptySkill=>profile.Skills.Remove(emptySkill));
             this.developerService.UpdateDeveloper(id, profile);
             return new DjOperationResult<bool>(true);
         }
