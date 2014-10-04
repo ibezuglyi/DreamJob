@@ -28,11 +28,7 @@ window.djApplication.controller('OfferController', function ($scope, $modal, djC
             .success(function (response) {
                 $scope.offer = response;
                 $scope.IsOfferDetailsMode = true;
-                $scope.offer.DescriptionParagraphs = $scope.offer.Description.split(/\r\n|\r|\n/g);
                 $scope.offerComments = response.JobOfferComments;
-                angular.forEach($scope.offerComments, function (comment) {
-                    comment.Text = comment.Text.split(/\r\n|\r|\n/g);
-                });
                 $scope.offer.IsLocked = isOfferLocked(response.OfferStatus);
             });
     };

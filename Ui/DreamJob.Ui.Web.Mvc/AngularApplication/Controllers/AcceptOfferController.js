@@ -9,11 +9,7 @@
     };
 
     $scope.IsOfferValid = function () {
-        return !(
-                 $scope.AcceptedOffer.Name.length > 0 &&
-                 $scope.AcceptedOffer.ContactMethod.length > 0 &&
-                ($scope.AcceptedOffer.Email.length > 0 ||
-                 $scope.AcceptedOffer.Phone.length > 0));
+        return !$scope.acceptForm.$invalid;
     }
 
     $scope.ok = function () {
