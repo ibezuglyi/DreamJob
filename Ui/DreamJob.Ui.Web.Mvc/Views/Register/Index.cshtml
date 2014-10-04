@@ -59,14 +59,14 @@
         <div class="row">
             <div style="line-height: 200px;">
                 <div class="small-2 column small-offset-3">
-                    <div id="dj-button-register-as-developer" ng-class="regform.$invalid ? 'disabled':''"
-                        ng-disabled="regform.$invalid" ng-click="register('Developer')" class="button">
+                    <div id="dj-button-register-as-developer" ng-class="isRegisterDisabled() ? 'disabled':''"
+                        ng-disabled="isRegisterDisabled()" ng-click="register('Developer')" class="button">
                         Register as developer
                     </div>
                 </div>
                 <div class="small-2 small-pull-3 column">
-                    <div id="dj-button-register-as-recruiter" ng-class="regform.$invalid ? 'disabled':''"
-                        ng-disabled="regform.$invalid" ng-click="register('Recruiter')" class="button">
+                    <div id="dj-button-register-as-recruiter" ng-class="isRegisterDisabled() ? 'disabled':''"
+                        ng-disabled="isRegisterDisabled()" ng-click="register('Recruiter')" class="button">
                         Register as recruiter
                     </div>
                 </div>
