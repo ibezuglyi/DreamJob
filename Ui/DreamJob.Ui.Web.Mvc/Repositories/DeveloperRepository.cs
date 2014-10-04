@@ -70,7 +70,7 @@
 
         public List<Developer> SearchForDevelopers(string technology, string city)
         {
-            var query = context.Developers.Where(r => r.IsActive);
+            var query = context.Developers.Where(r => r.IsActive && r.IsLookingForJob);
             if (!string.IsNullOrEmpty(technology))
             {
                 var technologyLower = technology.ToLower();

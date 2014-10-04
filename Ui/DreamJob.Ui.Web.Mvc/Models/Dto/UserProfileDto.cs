@@ -22,6 +22,8 @@ namespace DreamJob.Ui.Web.Mvc.Models.Dto
         public long MinSalary { get; set; }
         public string City { get; set; }
         public IList<SkillDto> Skills { get; set; }
+        public bool IsLookingForJob { get; set; }
+
 
         public string FirstName { get; set; }
         public string LastName { get; set; }

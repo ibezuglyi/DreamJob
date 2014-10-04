@@ -81,9 +81,9 @@
     overflow-x: hidden;
 }
 
-    .offers-list .side-nav li {
-        margin: 0;
-    }
+.offers-list .side-nav li {
+    margin: 0;
+}
 
 .job-header {
     position: relative;
@@ -94,9 +94,11 @@
     top: 28%;
     right: 2%;
 }
+
 .full-height {
     height: 100%;
 }
+
 .job-status {
 }
 
@@ -257,17 +259,34 @@ input.ng-valid-pattern ~ .invalid-pattern {
 .confirmation-container {
     display: none;
 }
+
 .section {
     padding-top: 1rem;
 }
+
 .navigation {
-    position: fixed; 
+    position: fixed;
     width: 100%;
     z-index: 10;
 }
+
 .joyride-tip-guide {
     width: auto;
 }
+
 .origin-text {
     white-space: pre-line;
+}
+
+input[type="checkbox"].inline {
+    margin: 0.7rem 0 0.5rem 0;
+}
+
+.title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
 }
