@@ -29,7 +29,7 @@
                                           Edit = this.adapterDateTime.Now,
                                           JobOfferId = offerId,
                                           Status = JobOfferCommentStatus.New,
-                                          Text = text
+                                          Text = string.IsNullOrEmpty(text)?string.Empty : text.Trim()
                                       };
 
             var insertResult = this.repositoryComments.InsertComment(jobOfferComment);

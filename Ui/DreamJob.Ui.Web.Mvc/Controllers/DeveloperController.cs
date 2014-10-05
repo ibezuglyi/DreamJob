@@ -28,9 +28,9 @@
             throw new Exception("Index");
         }
 
-        public ActionResult Profile(string displayName)
+        public ActionResult Profile(string dn)
         {
-            var getDeveloperProfileResult = this.businessDeveloper.GetDeveloperPublicViewModel(displayName);
+            var getDeveloperProfileResult = this.businessDeveloper.GetDeveloperPublicViewModel(dn);
             if (getDeveloperProfileResult.IsSuccess == false)
             {
                 throw new Exception("Developer");

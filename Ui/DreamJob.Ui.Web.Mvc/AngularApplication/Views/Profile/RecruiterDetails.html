@@ -1,49 +1,55 @@
-﻿<div class=" left-padded">
-    <section class="section">
-        <h5 class="title">Recruiter details</h5>
+﻿<form name="profileForm">
+    <div class="left-padded">
+        <section class="section">
+            <h5 class="title">Recruiter details</h5>
 
-        <div class="row collapse">
-            <div class="large-12 small-12 columns">
-                <div class="row collapse">
-                    <div class="small-2 columns">
-                        <label class="inline">First name: </label>
+            <div class="row collapse">
+                <div class="large-12 small-12 columns">
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <label class="inline">First name: </label>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="text" ng-model="profile.FirstName" ng-required="true" class="validated-input" />
+                            <p class="required-validation">You first name is required.</p>
+                        </div>
+                        <div class="columns"></div>
                     </div>
-                    <div class="small-10 columns">
-                        <input type="text" ng-model="profile.FirstName" />
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <label class="inline">Last name: </label>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="text" ng-model="profile.LastName" />
+                        </div>
+                        <div class="columns"></div>
                     </div>
-                    <div class="columns"></div>
-                </div>
-                <div class="row collapse">
-                    <div class="small-2 columns">
-                        <label class="inline">Last name: </label>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <label class="inline">Mobile: </label>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="tel" ng-model="profile.Mobile" ng-required="true" ng-pattern="/^[\+,\d]\d{6,7}/"
+                                class="validated-input" />
+                            <p class="required-validation">You contact phone number is required.</p>
+                            <p class="invalid-pattern">Phone number is invalid, please follow the format: +48123123123
+                            </p>
+                        </div>
+                        <div class="columns"></div>
                     </div>
-                    <div class="small-10 columns">
-                        <input type="text" ng-model="profile.LastName" />
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <label class="inline">Company: </label>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="tel" ng-model="profile.Company" />
+                        </div>
+                        <div class="columns"></div>
                     </div>
-                    <div class="columns"></div>
-                </div>
-                <div class="row collapse">
-                    <div class="small-2 columns">
-                        <label class="inline">Mobile: </label>
-                    </div>
-                    <div class="small-10 columns">
-                        <input type="tel" ng-model="profile.Mobile" />
-                    </div>
-                    <div class="columns"></div>
-                </div>
-                <div class="row collapse">
-                    <div class="small-2 columns">
-                        <label class="inline">Company: </label>
-                    </div>
-                    <div class="small-10 columns">
-                        <input type="tel" ng-model="profile.Company" />
-                    </div>
-                    <div class="columns"></div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
-<br/>
-<input class="button small-12 large-12 radius" type="submit" value="Save profile"
-    ng-click="saveProfile()" />
+        </section>
+    </div>
+</form>
+<br />
+<input class="button small-12 large-12 radius" type="submit" value="Save profile" ng-disabled="profileForm.$invalid" ng-class="profileForm.$invalid ? 'disabled':''" ng-click="saveProfile()" />

@@ -1,10 +1,10 @@
-<h3><a href="#" ng-click="switchToOfferList()">Offers</a> <span> > {{offer.Subject}}</span></h3>
+<h3 class="title"><a href="#" ng-click="switchToOfferList()">Offers</a> <span> > {{offer.Subject}}</span></h3>
 <div class="container marged" ng-show="offer!==null">
     <div class="row">
         <div class="medium-12 columns job-header">
             <div class="row collapse">
                 <div class="medium-12 columns">
-                    <h3>
+                    <h3 class="title">
                         <strong>{{offer.Subject}}</strong>
                     </h3>
                 </div>
@@ -32,7 +32,7 @@
         </div>
         <br />
         <div class="medium-12 columns">
-            <p ng-repeat="p in offer.DescriptionParagraphs track by $index">{{p}}</p>
+            <p class="origin-text">{{offer.Description}}</p>
         </div>
     </div>
     <div class="row" ng-show="offerComments && offerComments.length>0">
@@ -42,8 +42,8 @@
                     <div class="small-10 columns">
                         <strong>{{comment.Author}}</strong> <small>{{comment.Add}}</small>
                         <br />
-                        <p ng-repeat="p in comment.Text track by $index">
-                            {{p}}
+                        <p class="origin-text">
+                            {{comment.Text}}
                         </p>
                     </div>
                     <div class="small-1 columns">
@@ -92,16 +92,31 @@
     </div>
 
     <script type="text/ng-template" id="acceptOfferTemplate.html">
-        <div>
+        <form name="acceptForm">
             <div class="row">
                 <div class="medium-12 columns">
-                    <h3>Accept offer editor</h3>
+                    <h3>Share you contact information with recruiter to accept offer</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-12 columns">
                     <label for="name">Name</label>
-                    <input type='text' name="name" ng-model="AcceptedOffer.Name" />
+                    <input type='text' name="name" ng-model="AcceptedOffer.Name" ng-required="true" class="validated-input" />
+                    <p class="required-validation">You name is required.</p>
+                </div>
+            </div>
+           <div class="row">
+                <div class="medium-12 columns">
+                    <label for="email">Email</label>
+                    <input type='text' name='email' ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*&#64;[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" ng-model="AcceptedOffer.Email" ng-required="true" class="validated-input"></input>
+                    <p class="required-validation">You email is required.</p>
+                    <p class="invalid-pattern">Incorrect email, please provide your email.</p>
+                </div>
+            </div>
+          <div class="row">
+                <div class="medium-12 columns">
+                    <label for="phone">Phone</label>
+                    <input type="text" name='phone' ng-model="AcceptedOffer.Phone"></input>
                 </div>
             </div>
             <div class="row">
@@ -116,27 +131,17 @@
                     <input type="text" name='contactMethod' ng-model="AcceptedOffer.ContactMethod"></input>
                 </div>
             </div>
+         
+          
             <div class="row">
                 <div class="medium-12 columns">
-                    <label for="email">Email</label>
-                    <input type='text' name='email' ng-model="AcceptedOffer.Email"></input>
-                </div>
-            </div>
-            <div class="row">
-                <div class="medium-12 columns">
-                    <label for="phone">Phone</label>
-                    <input type="text" name='phone' ng-model="AcceptedOffer.Phone"></input>
-                </div>
-            </div>
-            <div class="row">
-                <div class="medium-12 columns">
-                    <button class="button right" ng-click="ok()" ng-disabled="IsOfferValid()">SEND</button>
+                    <button class="button right" ng-click="ok()" ng-disabled="acceptForm.$invalid" ng-class="acceptForm.$invalid ? 'disabled':''">SEND</button>
                     <button class="button right" ng-click="cancel()">CANCEL</button>
                 </div>
             </div>
 
             <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
-        </div>
+        </form>
     </script>
 </div>
 <div class="container marged small-8 columns" ng-show="offer===null">

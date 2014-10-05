@@ -8,7 +8,7 @@
                         <label class="inline" for="cbx-lookingforajob">Profile is visible for recruiters:</label>
                     </div>
                     <div class="small-9 columns">
-                        <input id="cbx-lookingforajob" class="inline" type="checkbox" ng-model="profile.IsLookingForJob"/>
+                        <input id="cbx-lookingforajob" class="inline" type="checkbox" ng-model="profile.IsLookingForJob" />
                     </div>
                 </div>
             </div>
@@ -31,11 +31,12 @@
             <div ng-repeat="skill in profile.Skills" class="large-12 small-12 columns">
                 <div class="row collapse">
                     <div class="small-1 columns raiting-line-height">
-                        <button class="button tiny alert" ng-click="deleteSkill($index)"><i class="fi-x"></i>
+                        <button class="button tiny alert" ng-click="deleteSkill($index)">
+                            <i class="fi-x"></i>
                         </button>
                     </div>
                     <div class="small-3 columns">
-                        <input type="text" ng-model="skill.Description" placeholder="example: Java script" />
+                        <input type="text" ng-model="skill.Description" placeholder="example: JavaScript" />
                     </div>
                     <div class="small-4 columns raiting-line-height">
                         <div class="rating-bar">
@@ -43,7 +44,6 @@
                             <b>{{skill.SelfRate}}</b>
                         </div>
                     </div>
-
                     <div class="columns"></div>
                 </div>
             </div>
@@ -51,64 +51,68 @@
     </section>
 </div>
 <br />
-<div class="left-padded">
-    <section class="section">
-        <h5 class="title">Job preferences</h5>
-        <div class="row collapse">
-            <div class="large-12 small-12 columns">
-                <div class="row collapse">
-                    <div class="small-2 columns">
-                        <label class="inline">Desirable  position: </label>
+<form name="profileForm">
+    <div class="left-padded">
+        <section class="section">
+            <h5 class="title">Job preferences</h5>
+            <div class="row collapse">
+                <div class="large-12 small-12 columns">
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <label class="inline">Desirable title: </label>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="text" ng-model="profile.Title" ng-required="true"  class="validated-input"/>
+                               <p class="required-validation">Your desirable title is required.</p>
+                        </div>
+                        <div class="columns"></div>
                     </div>
-                    <div class="small-10 columns">
-                        <input type="text" ng-model="profile.Title" ng-required="true" required />
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <label class="inline">Minimal monthly salary: </label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input type="number" ng-model="profile.MinSalary" ng-required="true" ng-pattern="/^[1-9][0-9]*/" class="validated-input" />
+                            <p class="required-validation">Minimal salary is required. Please let recruiter know which salary satisfies you.</p>
+                            <p class="invalid-pattern">Please provide valid numeric format. For example: 1000</p>
+                        </div>
+                        <div class="small-1 columns">
+                            <span class="postfix">PLN Netto</span>
+                        </div>
+                        <div class="columns"></div>
                     </div>
-                    <div class="columns"></div>
-                </div>
-                <div class="row collapse">
-                    <div class="small-2 columns">
-                        <label class="inline">Minimal salary: </label>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <label>Your profile (experience): </label>
+                        </div>
+                        <div class="small-10 columns">
+                            <textarea rows="6" ng-model="profile.Profile" />
+                        </div>
+                        <div class="columns"></div>
                     </div>
-                    <div class="small-9 columns">
-                        <input type="number" ng-model="profile.MinSalary" />
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <label>Project preferences: </label>
+                        </div>
+                        <div class="small-10 columns">
+                            <textarea rows="8" ng-model="profile.ProjectPreferences" />
+                        </div>
+                        <div class="columns"></div>
                     </div>
-                    <div class="small-1 columns">
-                        <span class="postfix">PLN Netto</span>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <label class="inline">Preferred city: </label>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="text" ng-model="profile.City" typeahead="city for city in getCities($viewValue)"
+                                class="form-control">
+                        </div>
+                        <div class="columns"></div>
                     </div>
-                    <div class="columns"></div>
-                </div>
-                <div class="row collapse">
-                    <div class="small-2 columns">
-                        <label>Your profile (experience): </label>
-                    </div>
-                    <div class="small-10 columns">
-                        <textarea rows="6" ng-model="profile.Profile" />
-                    </div>
-                    <div class="columns"></div>
-                </div>
-                <div class="row collapse">
-                    <div class="small-2 columns">
-                        <label>Project preferences: </label>
-                    </div>
-                    <div class="small-10 columns">
-                        <textarea rows="8" ng-model="profile.ProjectPreferences" />
-                    </div>
-                    <div class="columns"></div>
-                </div>
-                <div class="row collapse">
-                    <div class="small-2 columns">
-                        <label class="inline">Preferred city: </label>
-                    </div>
-                    <div class="small-10 columns">
-                        <input type="text" ng-model="profile.City" typeahead="city for city in getCities($viewValue)"
-                            class="form-control">
-                    </div>
-                    <div class="columns"></div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
+</form>
 <br />
-<input class="button small-12 large-12 radius" type="submit" value="Save profile"
-    ng-click="saveProfile()" />
+<input class="button small-12 large-12 radius" type="submit" value="Save profile"  ng-disabled="profileForm.$invalid" ng-class="profileForm.$invalid ? 'disabled':''" ng-click="saveProfile()" />
