@@ -255,7 +255,9 @@ input.ng-valid-pattern ~ .invalid-pattern {
 .ng-valid-required ~ .required-validation {
     display: none;
 }
-
+input.validated-input {
+    margin: 0 0 0.1rem 0;
+}
 .confirmation-container {
     display: none;
 }
@@ -289,7 +291,4 @@ input[type="checkbox"].inline {
     -webkit-text-overflow: ellipsis;
     white-space: nowrap;
     margin: 0;
-}
-input.validated-input {
-    margin: 0 0 0.1rem 0;
 }
