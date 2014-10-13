@@ -7,7 +7,9 @@
         $scope.closeAlert = function (index) {
             $scope.alerts.splice(index, 1);
         };
-
+        $scope.isCityValid = function() {
+            return /(<|>|\/|"|'|;|!|@|#)/.test($scope.profile.City) ===false;
+        };
         $scope.saveProfile = function () {
             djClientApi.saveProfile($scope.profile)
             .success(function () {

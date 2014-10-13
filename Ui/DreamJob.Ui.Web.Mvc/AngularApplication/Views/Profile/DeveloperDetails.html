@@ -104,8 +104,8 @@
                             <label class="inline">Preferred city: </label>
                         </div>
                         <div class="small-10 columns">
-                            <input type="text" ng-model="profile.City" typeahead="city for city in getCities($viewValue)"
-                                class="form-control">
+                            <input type="text" ng-model="profile.City" ng-class="isCityValid() ? 'ng-valid ng-valid-pattern' : 'ng-invalid ng-invalid-pattern'" typeahead="city for city in getCities($viewValue)"  typeahead-wait-ms="100" typeahead-min-length="3" class="form-control validated-input">
+                            <p class="invalid-pattern">Preferred city is incorrect.</p>
                         </div>
                         <div class="columns"></div>
                     </div>
@@ -115,4 +115,4 @@
     </div>
 </form>
 <br />
-<input class="button small-12 large-12 radius" type="submit" value="Save profile"  ng-disabled="profileForm.$invalid" ng-class="profileForm.$invalid ? 'disabled':''" ng-click="saveProfile()" />
+<input class="button small-12 large-12 radius" type="submit" value="Save profile"  ng-disabled="profileForm.$invalid || !isCityValid()" ng-class="profileForm.$invalid || !isCityValid()? 'disabled':''" ng-click="saveProfile()" />
