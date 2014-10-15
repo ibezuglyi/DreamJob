@@ -12,5 +12,7 @@
         DjOperationResult<JobOffer> GetDetails(long offerId);
         DjOperationResult<bool> InsertOffer(JobOffer jobOffer);
         DjOperationResult<bool> UpdateStatus(JobOffer offer);
+
+        DjOperationResult<long> GetOffersCountTo(long toUserId, OfferStatus offerStatus);
     }
 }

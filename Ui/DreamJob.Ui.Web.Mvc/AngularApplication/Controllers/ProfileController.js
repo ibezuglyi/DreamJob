@@ -29,7 +29,7 @@
         $scope.init = function () {
             djClientApi.getProfile()
                     .success(function (response) {
-                        $scope.profile = response;
+                        $scope.profile = response.Data;
 
                     });
         };

@@ -78,5 +78,11 @@
             var operationResult = this.offersRepository.UpdateStatus(offer);
             return operationResult;
         }
+
+        public DjOperationResult<long> GetNewOffersCountByUserId(long userId)
+        {
+            var result = this.offersRepository.GetOffersCountTo(userId, OfferStatus.New);
+            return result;
+        }
     }
 }

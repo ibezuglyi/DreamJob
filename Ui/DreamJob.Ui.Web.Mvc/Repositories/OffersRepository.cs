@@ -70,5 +70,17 @@
             this.context.SaveChanges();
             return DjOperationResult<bool>.Success();
         }
+
+        public DjOperationResult<long> GetOffersCountTo(long toUserId, OfferStatus offerStatus)
+        {
+            var offersCount = this.context
+                .JobOffers
+                .Where(offer => offer.ToDeveloperId == toUserId)
+                .Where(offer => offer.OfferStatus == offerStatus)
+                .Count();
+
+            var djOperationResult = new DjOperationResult<long>(offersCount);
+            return djOperationResult;
+        }
     }
 }

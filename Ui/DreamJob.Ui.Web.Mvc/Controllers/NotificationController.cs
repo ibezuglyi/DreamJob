@@ -2,16 +2,25 @@
 {
     using System.Web.Mvc;
 
-    using DreamJob.Common.Enum;
     using DreamJob.Ui.Web.Mvc.Helpers;
 
     [Authorize]
     public class NotificationController : Controller
     {
+        private readonly INotificationBusiness bussines;
+
+        public NotificationController(INotificationBusiness bussines)
+        {
+            this.bussines = bussines;
+        }
+
         [HttpGet]
         public ActionResult GetNewOffersCount()
         {
-            return this.DjJson<int>(new DjOperationResult<int>(10));
+            var operationResult = this.bussines.GetNewOffersCount();
+            var result = this.DjJson(operationResult);
+            return result;
+
         }   
     }
 }

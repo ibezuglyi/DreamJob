@@ -15,5 +15,6 @@
         DjOperationResult<bool> SendJobOffer(long recruiterUserId, NewJobOfferDto model);
         DjOperationResult<bool> MarkOffer(long offerId, long userId, OfferStatus offerStatus);
 
+        DjOperationResult<long> GetNewOffersCountByUserId(long userId);
     }
 }
