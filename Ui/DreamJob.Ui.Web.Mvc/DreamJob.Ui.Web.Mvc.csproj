@@ -144,7 +144,10 @@
     <Compile Include="BusinessServices\ITemplateProvider.cs" />
     <Compile Include="BusinessServices\RazorTemplateProvider.cs" />
     <Compile Include="Controllers\AcceptOfferDto.cs" />
-    <Compile Include="Controllers\OfferIndexViewModel.cs" />
+    <Compile Include="Controllers\NotificationController.cs" />
+    <Compile Include="Models\Dto\SaveDeveloperProfileDto.cs" />
+    <Compile Include="Models\Dto\SaveRecruiterProfileDto.cs" />
+    <Compile Include="Models\OfferIndexViewModel.cs" />
     <Compile Include="Helpers\GuidAdapter.cs" />
     <Compile Include="Helpers\IGuidAdapter.cs" />
     <Compile Include="Helpers\PasswordHasher.cs" />
@@ -228,6 +231,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AngularApplication\Controllers\DevelopersSearchController.js" />
+    <Content Include="AngularApplication\Controllers\NavigationController.js" />
     <Content Include="AngularApplication\Controllers\ProfileController.js" />
     <Content Include="AngularApplication\Controllers\RecruiterPanelJobEditorController.js" />
     <Content Include="AngularApplication\Controllers\AcceptOfferController.js" />

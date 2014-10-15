@@ -1,4 +1,4 @@
-﻿<nav class="top-bar" data-topbar>
+﻿<nav class="top-bar" data-topbar ng-app="djapp" ng-controller="NavigationController">
     <ul class="title-area">
         <li class="name">
             <h1>@Html.ActionLink("Dream Job", "Index", "Home")</h1>
@@ -9,12 +9,13 @@
             @if (Request.IsAuthenticated)
             {
                 <li>
-                    @Html.ActionLink("Offers", "Index", "Offer")
+                    <a href="@Url.Action("Index", "Offer")" ng-init="init()">Offers ({{Notification.NewOffersCount}})</a>
                 </li>
-                <li>
-                    @Html.ActionLink("Developers", "Index", "Developer")
-                </li>
+                
             }
+            <li>
+                @Html.ActionLink("Developers", "Index", "Developer")
+            </li>
         </ul>
         @Html.Partial("_LoginPartial")
     </section>

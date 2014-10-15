@@ -73,6 +73,8 @@ ipch/
 # TFS 2012 Local Workspace
 $tf/
 
+DreamJob.sln.ide/
+
 # Guidance Automation Toolkit
 *.gpState
 

@@ -1,7 +1,7 @@
 window.djApplication.factory('djClientApi', function ($http) {
     var self = this;
+
     var saveProfile = function(profile, url) {
-        //var profileData = { profile: profile };
         var saveRequest = $http({
             url: url,
             method: "POST",
@@ -72,9 +72,14 @@ window.djApplication.factory('djClientApi', function ($http) {
         return $http.post("register/RegisterDeveloper", vm);
     };
 
-    self.registerRecruiter = function (vm) {
+    self.registerRecruiter = function(vm) {
         return $http.post("register/registerRecruiter", vm);
-    }
+    };
+
+    self.getNewOffersCount = function() {
+        var http = $http.get("Notification/GetNewOffersCount");
+        return http;
+    };
 
     return self;
 });
