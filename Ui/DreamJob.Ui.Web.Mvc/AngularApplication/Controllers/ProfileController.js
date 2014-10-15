@@ -10,11 +10,20 @@
         $scope.isCityValid = function() {
             return /(<|>|\/|"|'|;|!|@|#)/.test($scope.profile.City) ===false;
         };
-        $scope.saveProfile = function () {
-            djClientApi.saveProfile($scope.profile)
+
+
+        $scope.saveDeveloperProfile = function () {
+            djClientApi.saveDeveloperProfile($scope.profile)
             .success(function () {
                 $scope.alerts = [messages.updateSucceded];
             });
+        };
+
+        $scope.saveRecruiterProfile = function() {
+            djClientApi.saveRecruiterProfile($scope.profile)
+                .success(function() {
+                    $scope.alerts = [messages.updateSucceded];
+                });
         };
 
         $scope.init = function () {

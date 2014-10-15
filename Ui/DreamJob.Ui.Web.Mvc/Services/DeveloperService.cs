@@ -64,17 +64,21 @@ namespace DreamJob.Ui.Web.Mvc.Services
             return result;
         }
 
-        public void UpdateDeveloper(long id, UserProfileDto profile)
+
+        public void UpdateDeveloper(SaveDeveloperProfileDto model)
         {
-            var skillsToUpdate = GetSkillsToUpdate(profile);
-            repositoryDeveloper.RemoveAllSkillsForDeveloper(id);
-            var developerResult = repositoryDeveloper.GetById(id);
-            var developer = UpdateDeveloperProfile(profile, developerResult.Data, skillsToUpdate);
-            
+            var skillsToUpdate = GetSkillsToUpdate(model.Skills);
+            repositoryDeveloper.RemoveAllSkillsForDeveloper(model.Id);
+            var developerResult = repositoryDeveloper.GetById(model.Id);
+            var developer = UpdateDeveloperProfile(model, developerResult.Data, skillsToUpdate);
+
             repositoryDeveloper.UpdateDeveloper(developer);
+
         }
 
-        private static Developer UpdateDeveloperProfile(UserProfileDto profile, Developer developer,
+        private static Developer UpdateDeveloperProfile(
+            SaveDeveloperProfileDto profile,
+            Developer developer,
             List<Skill> skillsToUpdate)
         {
             developer.City = profile.City;
@@ -87,9 +91,9 @@ namespace DreamJob.Ui.Web.Mvc.Services
             return developer;
         }
 
-        private List<Skill> GetSkillsToUpdate(UserProfileDto profile)
+        private List<Skill> GetSkillsToUpdate(List<Skill> userSkills)
         {
-            var skillsToUpdate = profile.Skills.Where(r => !string.IsNullOrEmpty(r.Description)).ToList();
+            var skillsToUpdate = userSkills.Where(r => !string.IsNullOrEmpty(r.Description)).ToList();
             var skills = Mapper.Map<List<Skill>>(skillsToUpdate);
             foreach (var skill in skills)
             {
@@ -110,5 +114,7 @@ namespace DreamJob.Ui.Web.Mvc.Services
             var developers = repositoryDeveloper.SearchForDevelopers(technology, city);
             return Mapper.Map<List<DeveloperProfileDto>>(developers);
         }
+
+        
     }
 }

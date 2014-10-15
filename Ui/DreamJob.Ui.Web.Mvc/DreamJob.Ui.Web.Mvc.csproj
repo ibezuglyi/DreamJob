@@ -160,6 +160,7 @@
     <Compile Include="Models\Dto\DeveloperProfileDto.cs" />
     <Compile Include="Models\Dto\DeveloperShortInformationDto.cs" />
     <Compile Include="Models\Dto\SkillDto.cs" />
+    <Compile Include="Models\Dto\UserProfileDto.cs" />
     <Compile Include="Services\DeveloperService.cs" />
     <Compile Include="Services\IDeveloperService.cs" />
     <Compile Include="Services\CommentService.cs" />
@@ -171,7 +172,6 @@
     <Compile Include="Helpers\DateTimeAdapter.cs" />
     <Compile Include="Models\Dto\JobOfferCommentDto.cs" />
     <Compile Include="Models\Dto\JobOfferDetailsDto.cs" />
-    <Compile Include="Models\Dto\UserProfileDto.cs" />
     <Compile Include="DjAutoMapper.cs" />
     <Compile Include="Models\Dto\JobOfferDto.cs" />
     <Compile Include="Models\Dto\ResetSessionWhenOutOfSyncWithForms.cs" />
@@ -245,6 +245,7 @@
     <Content Include="AngularApplication\Views\Developer\Search.html" />
     <Content Include="AngularApplication\Views\Offers\Details.html" />
     <Content Include="AngularApplication\Views\Offers\Index.html" />
+    <Content Include="AngularApplication\Views\Profile\BaseUserInformation.html" />
     <Content Include="AngularApplication\Views\Profile\Details.html" />
     <Content Include="AngularApplication\Views\Profile\DeveloperDetails.html" />
     <Content Include="AngularApplication\Views\Profile\Index.html" />

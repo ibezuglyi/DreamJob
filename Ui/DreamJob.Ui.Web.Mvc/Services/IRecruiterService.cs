@@ -7,9 +7,11 @@ using DreamJob.Ui.Web.Mvc.Models.Dto;
 
 namespace DreamJob.Ui.Web.Mvc.Services
 {
+    using DreamJob.Ui.Web.Mvc.Controllers;
+
     public interface IRecruiterService
     {
         DjOperationResult<UserProfileDto> GetRecruiterPublicProfile(long id);
-        void UpdateRecruiterProfile(long id, UserProfileDto profile);
+        void UpdateRecruiterProfile(SaveRecruiterProfileDto model);
     }
 }

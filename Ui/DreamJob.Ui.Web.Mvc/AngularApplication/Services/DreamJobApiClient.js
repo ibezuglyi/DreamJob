@@ -1,20 +1,27 @@
 window.djApplication.factory('djClientApi', function ($http) {
     var self = this;
+    var saveProfile = function(profile, url) {
+        //var profileData = { profile: profile };
+        var saveRequest = $http({
+            url: url,
+            method: "POST",
+            data: profile
+        });
+        return saveRequest;
+    }
+
     self.addComment = function (comment) {
         var postRequest = $http.post('comment/add', comment);
         return postRequest;
     };
-
     self.getMyOffers = function () {
         var getRequest = $http.get('offer/MyOffers');
         return getRequest;
     };
-
     self.offerDetails = function (offerId) {
         var getRequest = $http.get('offer/OfferDetails/' + offerId);
         return getRequest;
     };
-
     self.getProfile = function () {
         var getProfileRequest = $http.get('profile/CurrentUser');
         return getProfileRequest;
@@ -32,16 +39,15 @@ window.djApplication.factory('djClientApi', function ($http) {
             params: { cityPart: token }
         });
     },
-    self.saveProfile = function (profile) {
-        var profileData = { profile: profile };
-        var saveRequest = $http({
-            url: "profile/CurrentUser",
-            method: "POST",
-            data: profileData
-        });
+
+    self.saveDeveloperProfile = function (profile) {
+        var saveRequest = saveProfile(profile, "/profile/SaveDeveloperProfile");
         return saveRequest;
     };
-
+    self.saveRecruiterProfile = function (profile) {
+        var saveRequest = saveProfile(profile, "/profile/SaveRecruiterProfile");
+        return saveRequest;
+    };
     self.getCities = function (cityVal) {
         return $http.get("profile/GetCities", {
             params: { cityPart: cityVal }

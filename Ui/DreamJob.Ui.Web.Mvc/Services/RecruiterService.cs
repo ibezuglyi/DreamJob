@@ -6,6 +6,10 @@ using DreamJob.Ui.Web.Mvc.Repositories;
 
 namespace DreamJob.Ui.Web.Mvc.Services
 {
+    using DreamJob.Ui.Web.Mvc.Controllers;
+
+    using Microsoft.Ajax.Utilities;
+
     public class RecruiterService : IRecruiterService
     {
         private readonly IRecruiterRepository recruiterRepository;
@@ -26,16 +30,17 @@ namespace DreamJob.Ui.Web.Mvc.Services
             return new DjOperationResult<UserProfileDto>(Mapper.Map<Recruiter, UserProfileDto>(recruiterResult.Data));
         }
 
-        public void UpdateRecruiterProfile(long id, UserProfileDto profile)
+        public void UpdateRecruiterProfile(SaveRecruiterProfileDto model)
         {
-            var recruiterResult = recruiterRepository.GetRecruiterById(id);
+            var recruiterResult = recruiterRepository.GetRecruiterById(model.Id);
+
             if (recruiterResult.IsSuccess)
             {
                 var recruiter = recruiterResult.Data;
-                recruiter.FirstName = profile.FirstName;
-                recruiter.LastName = profile.LastName;
-                recruiter.Mobile = profile.Mobile;
-                recruiter.Company = profile.Company;
+                recruiter.FirstName = model.FirstName;
+                recruiter.LastName = model.LastName;
+                recruiter.Mobile = model.Mobile;
+                recruiter.Company = model.Company;
                 this.recruiterRepository.UpdateRecruiterProfile(recruiter);
             }
         }

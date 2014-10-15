@@ -2,7 +2,6 @@
     <div class="left-padded">
         <section class="section">
             <h5 class="title">Recruiter details</h5>
-
             <div class="row collapse">
                 <div class="large-12 small-12 columns">
                     <div class="row collapse">
@@ -30,9 +29,10 @@
                         </div>
                         <div class="small-10 columns">
                             <input type="tel" ng-model="profile.Mobile" ng-required="true" ng-pattern="/^[\+,\d]\d{6,7}/"
-                                class="validated-input" />
+                                   class="validated-input" />
                             <p class="required-validation">You contact phone number is required.</p>
-                            <p class="invalid-pattern">Phone number is invalid, please follow the format: +48123123123
+                            <p class="invalid-pattern">
+                                Phone number is invalid, please follow the format: +48123123123
                             </p>
                         </div>
                         <div class="columns"></div>
@@ -52,4 +52,9 @@
     </div>
 </form>
 <br />
-<input class="button small-12 large-12 radius" type="submit" value="Save profile" ng-disabled="profileForm.$invalid" ng-class="profileForm.$invalid ? 'disabled':''" ng-click="saveProfile()" />
+<input class="button small-12 large-12 radius"
+       type="submit"
+       value="Save profile"
+       ng-disabled="profileForm.$invalid"
+       ng-class="profileForm.$invalid ? 'disabled':''" 
+       ng-click="saveRecruiterProfile()"/>

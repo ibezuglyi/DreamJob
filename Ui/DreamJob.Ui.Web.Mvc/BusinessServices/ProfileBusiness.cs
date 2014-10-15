@@ -1,11 +1,13 @@
-﻿using System.Linq;
-using WebGrease.Css.Extensions;
+﻿using WebGrease.Css.Extensions;
 
 namespace DreamJob.Ui.Web.Mvc.BusinessServices
 {
     using System.Collections.Generic;
 
+    using CsQuery.ExtensionMethods;
+
     using DreamJob.Common.Enum;
+    using DreamJob.Ui.Web.Mvc.Controllers;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
     using DreamJob.Ui.Web.Mvc.Services;
 
@@ -54,20 +56,6 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             return currentUserProfile;
         }
 
-        public DjOperationResult<bool> UpdateDeveloperProfile(long id, UserProfileDto profile)
-        {
-            var empty = profile.Skills.Where(skill => string.IsNullOrEmpty(skill.Description));
-            empty.ToList().ForEach(emptySkill=>profile.Skills.Remove(emptySkill));
-            this.developerService.UpdateDeveloper(id, profile);
-            return new DjOperationResult<bool>(true);
-        }
-
-        public DjOperationResult<bool> UpdateRecruiterProfile(long id, UserProfileDto profile)
-        {
-            this.recruiterService.UpdateRecruiterProfile(id, profile);
-            return new DjOperationResult<bool>(true);
-        }
-
         public DjOperationResult<List<string>> GetDeveloperCities(string cityPart)
         {
             var result = developerService.GetDeveloperCities(cityPart);
@@ -78,6 +66,19 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         {
             var result = developerService.SearchForDevelopers(technology, city);
             return new DjOperationResult<List<DeveloperProfileDto>>(result);
+
+        }
+
+        public DjOperationResult<bool> UpdateRecruiterProfile(SaveRecruiterProfileDto model)
+        {
+            this.recruiterService.UpdateRecruiterProfile(model);
+            return DjOperationResult<bool>.Success();
+        }
+
+        public DjOperationResult<bool> UpdateDeveloperProfile(SaveDeveloperProfileDto model)
+        {
+            this.developerService.UpdateDeveloper(model);
+            return DjOperationResult<bool>.Success();
 
         }
     }

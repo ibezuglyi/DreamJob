@@ -115,4 +115,7 @@
     </div>
 </form>
 <br />
-<input class="button small-12 large-12 radius" type="submit" value="Save profile"  ng-disabled="profileForm.$invalid || !isCityValid()" ng-class="profileForm.$invalid || !isCityValid()? 'disabled':''" ng-click="saveProfile()" />
+<input class="button small-12 large-12 radius" type="submit" value="Save profile"
+       ng-disabled="profileForm.$invalid || !isCityValid()"
+       ng-class="profileForm.$invalid || !isCityValid()? 'disabled':''" 
+       ng-click="saveDeveloperProfile()" />
