@@ -2,7 +2,7 @@
 
 
 <div class="row">
-    <form role="form" method="post">
+    <form role="form" method="post" action="@Url.Action("Index", "Login")">
         @Html.AntiForgeryToken()
         <div>
             @Html.ValidationSummary()
