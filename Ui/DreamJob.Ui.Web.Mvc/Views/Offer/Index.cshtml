@@ -1,6 +1,6 @@
 @using Newtonsoft.Json
 @model DreamJob.Ui.Web.Mvc.Controllers.OfferIndexViewModel
-<div ng-app='djapp' class="full-height">
+<div class="full-height">
     @{
         var currentUser = JsonConvert.SerializeObject(Model.CurrentUser, new Newtonsoft.Json.Converters.StringEnumConverter());
     }
