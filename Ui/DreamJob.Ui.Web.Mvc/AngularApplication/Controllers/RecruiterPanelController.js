@@ -1,17 +1,18 @@
-window.djApplication
-    .controller('RecruiterPanelController', function ($scope, $http, $modal) {
+angular
+    .module('djapp')
+    .controller('RecruiterPanelController', function($scope, $http, $modal) {
 
         $scope.JobOffer = {
             DeveloperId: 0,
         };
 
-        $scope.init = function (developerId, salary, title) {
+        $scope.init = function(developerId, salary, title) {
             $scope.JobOffer.DeveloperId = developerId;
             $scope.JobOffer.MinSalary = salary;
             $scope.JobOffer.Title = title;
         };
 
-        $scope.prepareJobOffer = function () {
+        $scope.prepareJobOffer = function() {
             var modalInstance = $modal.open({
                 templateUrl: 'myModalContent.html',
                 controller: RecruiterPanelJobEditorController,
@@ -22,24 +23,22 @@ window.djApplication
                 }
             });
 
-            modalInstance.result.then(function (result) {
+            modalInstance.result.then(function(result) {
                 result.DeveloperId = $scope.JobOffer.DeveloperId;
                 sendJobOffer(result);
-            }, function () {
+            }, function() {
                 // canceled
             });
         };
 
-        var sendJobOffer = function (offer) {
+        var sendJobOffer = function(offer) {
             $http.post('/offer/send', offer)
-                .success(function () {
+                .success(function() {
                     alert('success');
                 })
-                .error(function () {
+                .error(function() {
                     alert('error');
                 });
 
         };
     });
-
-

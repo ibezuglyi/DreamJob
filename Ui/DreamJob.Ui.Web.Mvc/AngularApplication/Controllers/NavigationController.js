@@ -1,7 +1,6 @@
-﻿(function () {
-    var application = angular.module('djapp');
-
-    application.controller('NavigationController', ["$scope", "djClientApi", function ($scope, djClientApi) {
+﻿angular
+.module('djapp')
+    .controller('NavigationController', ["$scope", "djClientApi", function ($scope, djClientApi) {
 
         var onGetNotificationSuccess = function (data, status) {
             $scope.Notification.NewOffersCount = data;
@@ -11,7 +10,7 @@
             NewOffersCount: 0
         };
 
-        $scope.init = function() {
+        $scope.init = function () {
             this.getNotificationCount();
         };
 
@@ -19,7 +18,5 @@
             djClientApi.getNewOffersCount()
             .success(onGetNotificationSuccess);
         };
-        
-    }]);
 
-})();
+    }]);
