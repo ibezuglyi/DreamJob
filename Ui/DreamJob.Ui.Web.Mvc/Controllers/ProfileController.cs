@@ -47,7 +47,7 @@
         public JsonResult CurrentUser()
         {
             var getprofileResult = this.profileBusiness.GetCurrentUserProfile();
-            return this.DjJson(getprofileResult);
+            return Json(getprofileResult, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

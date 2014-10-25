@@ -7,7 +7,6 @@
         var htmlCleanerRxp = /(<([^>]+)>)/ig;
 
         $scope.searchForDevelopers = function () {
-
             djClientApi
                 .searchProfile($scope.searchString.replace(htmlCleanerRxp, ''), $scope.searchCity.replace(htmlCleanerRxp, ''))
                 .then(function (resp) {
