@@ -243,6 +243,7 @@
     <Content Include="AngularApplication\dreamjobapplication.js" />
     <Content Include="AngularApplication\interceptors\httpInterceptor.js" />
     <Content Include="AngularApplication\LocalizationTexts.js" />
+    <Content Include="AngularApplication\Services\AlertsService.js" />
     <Content Include="AngularApplication\Services\DreamJobApiClient.js" />
     <Content Include="AngularApplication\directives\emailValidator.js" />
     <Content Include="AngularApplication\directives\priceValidator.js" />

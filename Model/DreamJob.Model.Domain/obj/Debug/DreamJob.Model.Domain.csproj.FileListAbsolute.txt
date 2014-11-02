@@ -1,0 +1,7 @@
+D:\projects\DreamJob\Model\DreamJob.Model.Domain\bin\Debug\DreamJob.Model.Domain.dll
+D:\projects\DreamJob\Model\DreamJob.Model.Domain\bin\Debug\DreamJob.Model.Domain.pdb
+D:\projects\DreamJob\Model\DreamJob.Model.Domain\bin\Debug\DreamJob.Common.dll
+D:\projects\DreamJob\Model\DreamJob.Model.Domain\bin\Debug\DreamJob.Common.pdb
+D:\projects\DreamJob\Model\DreamJob.Model.Domain\obj\Debug\DreamJob.Model.Domain.csprojResolveAssemblyReference.cache
+D:\projects\DreamJob\Model\DreamJob.Model.Domain\obj\Debug\DreamJob.Model.Domain.dll
+D:\projects\DreamJob\Model\DreamJob.Model.Domain\obj\Debug\DreamJob.Model.Domain.pdb

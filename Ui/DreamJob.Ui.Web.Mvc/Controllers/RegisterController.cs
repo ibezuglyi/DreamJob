@@ -77,17 +77,22 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         }
 
        
-
+        [HttpGet]
+        [ValidateInput(false)]
         public ActionResult CheckEmail(string val)
         {
             var isEmailUnique = business.IsEmailUnique(val);
             return new JsonResult() { Data = isEmailUnique, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+        [HttpGet]
+        [ValidateInput(false)]
         public ActionResult CheckDisplayName(string val)
         {
             var isUnique = business.IsDisplayNameUnique(val);
             return new JsonResult() { Data = isUnique, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+        [HttpGet]
+        [ValidateInput(false)]
         public ActionResult CheckLogin(string val)
         {
             var isUnique = business.IsLoginUnique(val);

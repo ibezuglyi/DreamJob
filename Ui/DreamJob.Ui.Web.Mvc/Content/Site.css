@@ -24,6 +24,9 @@
     padding-top: 45px;
 }
 
+.alert-box {
+    padding: 0 0 0 30px;
+}
 .alert-box.success {
     background-color: #c4d2dd;
     border-color: #c4d2dd;
@@ -111,7 +114,11 @@
     color: white;
     padding: 1px;
 }
-
+.Accepted {
+    background-color: #055213;
+    color: white;
+    padding: 1px;
+}
 .Rejected {
     background-color: #893937;
     color: white;

@@ -1,6 +1,6 @@
 ﻿
 djApplication.directive("uniqueVal", function (djClientApi) {
-    
+
     var isValid = function (val, toVal, cb) {
         djClientApi
             .validateUnique(toVal, val)
@@ -15,6 +15,7 @@ djApplication.directive("uniqueVal", function (djClientApi) {
                     var isValidValue = resp.data === "true";
                     ngModelCtrl.$setValidity("unique" + toValidate, isValidValue);
                 });
+
                 return viewValue;
             });
 
@@ -23,6 +24,7 @@ djApplication.directive("uniqueVal", function (djClientApi) {
                     var isValidValue = resp.data === "true";
                     ngModelCtrl.$setValidity("unique" + toValidate, isValidValue);
                 });
+
                 return modelValue;
             });
         }

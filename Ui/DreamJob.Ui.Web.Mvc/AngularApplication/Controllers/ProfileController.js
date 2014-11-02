@@ -1,14 +1,12 @@
 (function(messages) {
     angular
         .module('djapp')
-        .controller('ProfileController', function($scope, djClientApi) {
+        .controller('ProfileController', function ($scope, djClientApi, AlertsService) {
             $scope.profile = { City: "" };
             $scope.preferredTitle = messages.preferredTitle;
             $scope.minSalary = messages.minSalary;
-            $scope.alerts = [];
-            $scope.closeAlert = function(index) {
-                $scope.alerts.splice(index, 1);
-            };
+            
+            
             $scope.isCityValid = function() {
                 return /(<|>|\/|"|'|;|!|@|#)/.test($scope.profile.City) === false;
             };
@@ -17,14 +15,14 @@
             $scope.saveDeveloperProfile = function() {
                 djClientApi.saveDeveloperProfile($scope.profile)
                     .success(function() {
-                        $scope.alerts = [messages.updateSucceded];
+                        AlertsService.alerts = [messages.updateSucceded];
                     });
             };
 
             $scope.saveRecruiterProfile = function() {
                 djClientApi.saveRecruiterProfile($scope.profile)
                     .success(function() {
-                        $scope.alerts = [messages.updateSucceded];
+                        AlertsService.alerts = [messages.updateSucceded];
                     });
             };
 

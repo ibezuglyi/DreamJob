@@ -18,5 +18,10 @@
             </li>
         </ul>
         @Html.Partial("_LoginPartial")
+           <span>
+            <div class="row">
+                <alert class="small-12 columns" ng-repeat="alert in alertsService.alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+            </div>
+        </span>
     </section>
 </nav>
