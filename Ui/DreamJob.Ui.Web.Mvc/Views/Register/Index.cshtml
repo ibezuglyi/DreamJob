@@ -5,7 +5,7 @@
             <form role="form" id="dj-register-form" name="regform">
                 @Html.AntiForgeryToken()
             <div class="row" id="dj-register-users-error-container"></div>
-                <div class="row">
+                <div class="row field-row">
                     @Html.LabelFor(x => x.User.Login)
                 <input id="User_Login" ng-debounce
                     name="User.Login"
@@ -20,14 +20,14 @@
                     </p>
                     <p class="required-validation">Login name is required.</p>
                 </div>
-                <div class="row">
+                <div class="row field-row">
                     @Html.LabelFor(x => x.User.Password)
                 <input id="User_Password" name="User.Password"
                     ng-model="registerVm.password"
                     ng-required="true" type="password">
-                    <p class="required-validation">Password is required.</p>
+                <p class="required-validation">Password is required.</p>
                 </div>
-                <div class="row">
+                <div class="row field-row">
                     @Html.LabelFor(x => x.User.DisplayName)
                 <input id="User_DisplayName" ng-debounce
                     ng-pattern="/^[a-zA-Z0-9]+([\._a-zA-Z0-9]+)*([_a-zA-Z0-9]+)$/"
@@ -41,7 +41,7 @@
                     </p>
                     <p class="required-validation">Display name is required.</p>
                 </div>
-                <div class="row">
+                <div class="row field-row">
                     @Html.LabelFor(x => x.User.Email)
                 <input id="User_Email" ng-debounce name="User.Email" ng-required="true" required=""
                     unique-val="email"

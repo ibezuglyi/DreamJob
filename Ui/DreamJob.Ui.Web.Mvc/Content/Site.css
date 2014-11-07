@@ -16,7 +16,7 @@
 }
 
 .margined-top-20 {
-    margin-top: 20px;
+    margin-top: 20px !important;
 }
 
 .body {
@@ -27,11 +27,12 @@
 .alert-box {
     padding: 0 0 0 30px;
 }
-.alert-box.success {
-    background-color: #c4d2dd;
-    border-color: #c4d2dd;
-    color: #363634;
-}
+
+    .alert-box.success {
+        background-color: #c4d2dd;
+        border-color: #c4d2dd;
+        color: #363634;
+    }
 
 .joyride-tip-guide {
     background: #363634;
@@ -114,11 +115,13 @@
     color: white;
     padding: 1px;
 }
+
 .Accepted {
     background-color: #055213;
     color: white;
     padding: 1px;
 }
+
 .Rejected {
     background-color: #893937;
     color: white;
@@ -212,6 +215,7 @@ input.ng-invalid,
 textarea.ng-invalid {
     color: #b94a48;
     border-color: #ee5f5b;
+    margin: 0;
 }
 
     input.ng-invalid:focus,
@@ -262,9 +266,11 @@ input.ng-valid-pattern ~ .invalid-pattern {
 .ng-valid-required ~ .required-validation {
     display: none;
 }
+
 input.validated-input {
     margin: 0 0 0.1rem 0;
 }
+
 .confirmation-container {
     display: none;
 }
@@ -297,5 +303,42 @@ input[type="checkbox"].inline {
     text-overflow: ellipsis;
     -webkit-text-overflow: ellipsis;
     white-space: nowrap;
+    margin: 0;
+}
+
+.row.field-row {
+    margin-top: 10px;
+}
+
+.flat-text {
+    width: 100%;
+    min-height: 150px;
+    -webkit-appearance: none;
+    border: none;
+    resize: none;
+    outline: none;
+    box-shadow: none;
+}
+
+    .flat-text:focus {
+        box-shadow: none;
+    }
+
+.flat-textarea:before {
+    content: '';
+    display: block;
+    border: 10px solid transparent;
+    border-bottom: 10px solid #FFF;
+    position: absolute;
+    top: -19px;
+    left: 25px;
+    -webkit-filter: drop-shadow(0 -1px 0 #ddd);
+}
+
+.flat-textarea {
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    position: relative;
     margin: 0;
 }

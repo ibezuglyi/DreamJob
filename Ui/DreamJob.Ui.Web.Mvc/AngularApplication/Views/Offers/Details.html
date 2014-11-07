@@ -1,4 +1,5 @@
-<h3 class="title"><a href="#" ng-click="switchToOfferList()">Offers</a> <span> > {{offer.Subject}}</span></h3>
+<h3 class="title"><a href="#" ng-click="switchToOfferList()">Offers</a> <span>> {{offer.Subject}}</span>
+</h3>
 <div class="container marged" ng-show="offer!==null">
     <div class="row">
         <div class="medium-12 columns job-header">
@@ -57,16 +58,13 @@
 
     </div>
     <div class='row' id='dj-submit-comment' ng-hide='offer.IsLocked'>
-        <textarea ng-disabled="offer.IsLocked" ng-model='comment.text'></textarea>
+        <hr />
         <div class="row collapse">
-            <div class="small-4 columns">
-                <button class='btn tiny' ng-click='addOfferComment()' ng-disabled="comment.text.length==0 || offer.IsLocked">
-                    <i class="fi-pencil"></i>
-                    Reply
-                </button>
+            <div class="small-5 columns">
+                <h5>Answer | Other actions:</h5>
             </div>
             <div class="small-3 columns">
-                <div class="button-group">
+                <div class="button-group right">
                     <button class='btn tiny' ng-show="currentUser.AccountType=='Recruiter'" ng-disabled="offer.IsLocked"
                         ng-click='cancelOffer()'>
                         <i class="fi-x"></i>
@@ -82,11 +80,24 @@
                         <i class="fi-x"></i>
                         reject
                     </button>
+
                 </div>
             </div>
         </div>
 
-
+        <div class="flat-textarea">
+            <textarea class="flat-text" ng-disabled="offer.IsLocked" ng-model='comment.text'></textarea>
+        </div>
+        <div class="row collapse margined-top-20">
+            <div class="small-2 columns right">
+                <div class="button-group right">
+                    <button class='btn tiny' ng-click='addOfferComment()' ng-disabled="comment.text.length==0 || offer.IsLocked">
+                        <i class="fi-pencil"></i>
+                        reply
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row" ng-show="offer.IsLocked">
     </div>
