@@ -58,7 +58,6 @@ window.djApplication.factory('djClientApi', function ($http) {
         return $http.post('offer/cancelOffer', data);
     };
     self.acceptOffer = function (data) {
-        alert(data);
         return $http.post('offer/acceptOffer', data);
 
     };
@@ -79,6 +78,10 @@ window.djApplication.factory('djClientApi', function ($http) {
     self.getNewOffersCount = function() {
         var http = $http.get("Notification/GetNewOffersCount");
         return http;
+    };
+    self.sendOffer = function(offer) {
+        var httpReq = $http.post('/offer/send', offer);
+        return httpReq;
     };
 
     return self;
