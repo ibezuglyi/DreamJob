@@ -7,6 +7,7 @@
                 <div class="medium-12 columns">
                     <h3 class="title">
                         <strong>{{offer.Subject}}</strong>
+                        
                     </h3>
                 </div>
             </div>
@@ -18,7 +19,7 @@
                 <div class="medium-5 columns">
                     <h4>
                         <small><i class="fi-address-book"></i></small>
-                        <small>From: {{offer.From}}, {{offer.FromCompany}}</small>
+                        <small>From: {{offer.From}}, {{offer.Email}}</small>
                     </h4>
                 </div>
                 <div class="medium-3 columns">
@@ -37,20 +38,19 @@
         </div>
     </div>
     <div class="row" ng-show="offerComments && offerComments.length>0">
-        <div class="row" ng-repeat="comment in offerComments">
-            <div class="small-offset-1 columns">
+        <div class="row box-list-container" ng-repeat="comment in offerComments">
+            <div class="box-list-item columns">
                 <div class="row">
-                    <div class="small-10 columns">
+                    <div class="small-2 columns item left-item">
                         <strong>{{comment.Author}}</strong> <small>{{comment.Add}}</small>
-                        <br />
+                    </div>
+                    <div class="small-8 columns item right-item">
                         <p class="origin-text">
                             {{comment.Text}}
                         </p>
                     </div>
                     <div class="small-1 columns">
                         <i class="fi-comment"></i>
-                    </div>
-                    <div class="small-1 columns">
                     </div>
                 </div>
             </div>
@@ -145,9 +145,11 @@
          
           
             <div class="row">
-                <div class="medium-12 columns">
-                    <button class="button right" ng-click="ok()" ng-disabled="acceptForm.$invalid" ng-class="acceptForm.$invalid ? 'disabled':''">SEND</button>
-                    <button class="button right" ng-click="cancel()">CANCEL</button>
+                <div class="medium-12 columns right">
+                    <div class="button-group right">
+                        <button class="button right" ng-click="ok()" ng-disabled="acceptForm.$invalid" ng-class="acceptForm.$invalid ? 'disabled':''">SEND</button>
+                        <button class="button right" ng-click="cancel()">CANCEL</button>
+                </div>
                 </div>
             </div>
 

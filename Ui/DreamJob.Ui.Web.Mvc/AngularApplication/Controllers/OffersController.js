@@ -22,9 +22,7 @@ angular
             $scope.IsOfferDetailsMode = false;
         };
         $scope.details = function(offer) {
-
             $scope.deselectOffers();
-            offer.selected = true;
             $scope.comment.text = '';
             djClientApi.offerDetails(offer.Id)
                 .success(function(response) {

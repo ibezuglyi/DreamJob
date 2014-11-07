@@ -14,11 +14,11 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.AppendFormat("Name: {0}<br/>", this.Name);
-            sb.AppendFormat("Note: {0}<br/>", this.Note);
-            sb.AppendFormat("ContactMethod: {0}<br/>", this.ContactMethod);
-            sb.AppendFormat("Email: {0}<br/>", this.Email);
-            sb.AppendFormat("Phone: {0}<br/>", this.Phone);
+            sb.AppendFormat("Name: {0}\n", this.Name);
+            sb.AppendFormat("Note: {0}\n", this.Note);
+            sb.AppendFormat("Contact me by: {0}\n", this.ContactMethod);
+            sb.AppendFormat("Email: {0}\n", this.Email);
+            sb.AppendFormat("Phone: {0}\n", this.Phone);
 
             return sb.ToString();
         }

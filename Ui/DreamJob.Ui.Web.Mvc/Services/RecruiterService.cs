@@ -34,15 +34,20 @@ namespace DreamJob.Ui.Web.Mvc.Services
         {
             var recruiterResult = recruiterRepository.GetRecruiterById(model.Id);
 
-            if (recruiterResult.IsSuccess)
-            {
-                var recruiter = recruiterResult.Data;
-                recruiter.FirstName = model.FirstName;
-                recruiter.LastName = model.LastName;
-                recruiter.Mobile = model.Mobile;
-                recruiter.Company = model.Company;
-                this.recruiterRepository.UpdateRecruiterProfile(recruiter);
-            }
+            if (!recruiterResult.IsSuccess) 
+                return;
+
+            var recruiter = recruiterResult.Data;
+            UpdateRecruiterFromModel(model, recruiter);
+            this.recruiterRepository.UpdateRecruiterProfile(recruiter);
+        }
+
+        private static void UpdateRecruiterFromModel(SaveRecruiterProfileDto model, Recruiter recruiter)
+        {
+            recruiter.FirstName = model.FirstName;
+            recruiter.LastName = model.LastName;
+            recruiter.Mobile = model.Mobile;
+            recruiter.Email = model.Email;
         }
     }
 }

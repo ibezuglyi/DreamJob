@@ -65,14 +65,22 @@
     border-left: 2px solid #2ba6cb;
 }
 
+.list {
+    font-size: 0.875rem;
+}
+
 .offer-list-item {
-    border-bottom: 1px solid #ebeaeb;
-    vertical-align: middle;
+    background: #F8F6F4;
+    transition: background-color .3s ease;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 3px solid #1cb3dc;
+    padding: 10px 20px;
+    display: block;
     cursor: pointer;
 }
 
     .offer-list-item:hover {
-        background: #f8f8f8;
+        background: #fff;
     }
 
 .side-nav li a.row {
@@ -289,9 +297,6 @@ input.validated-input {
     width: auto;
 }
 
-.origin-text {
-    white-space: pre-line;
-}
 
 input[type="checkbox"].inline {
     margin: 0.7rem 0 0.5rem 0;
@@ -322,6 +327,7 @@ input[type="checkbox"].inline {
 
     .flat-text:focus {
         box-shadow: none;
+        background-color: #fefefe;
     }
 
 .flat-textarea:before {
@@ -341,4 +347,72 @@ input[type="checkbox"].inline {
     border: 1px solid #ddd;
     position: relative;
     margin: 0;
+}
+
+.box-list-container {
+    background-color: #fbfbfb;
+    padding: 10px;
+}
+
+.origin-text {
+    white-space: pre-line;
+}
+
+.box-list-item {
+    min-height: 60px;
+    min-height: 60px;
+}
+
+    .box-list-item .origin-text {
+        margin-top: -25px;
+    }
+
+    .box-list-item .item {
+        background-color: #fff;
+        min-height: 60px;
+        border: 1px solid #f0f0f0;
+    }
+
+.left-item {
+}
+
+.right-item:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #f0f0f0;
+    position: absolute;
+    left: -10px;
+    top: 10px;
+}
+
+.right-item:after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -9px;
+    top: 10px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #fff;
+    z-index: 9;
+}
+
+.right-item {
+    margin-left: 30px;
+}
+
+.preview {
+    color: #555;
+    margin: 0;
+}
+
+.short-text {
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

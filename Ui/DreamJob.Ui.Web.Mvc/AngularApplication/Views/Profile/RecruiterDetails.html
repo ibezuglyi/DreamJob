@@ -29,7 +29,7 @@
                         </div>
                         <div class="small-10 columns">
                             <input type="tel" ng-model="profile.Mobile" ng-required="true" ng-pattern="/^[\+,\d]\d{6,7}/"
-                                   class="validated-input" />
+                                class="validated-input" />
                             <p class="required-validation">You contact phone number is required.</p>
                             <p class="invalid-pattern">
                                 Phone number is invalid, please follow the format: +48123123123
@@ -39,10 +39,13 @@
                     </div>
                     <div class="row collapse">
                         <div class="small-2 columns">
-                            <label class="inline">Company: </label>
+                            <label class="inline">Email: </label>
                         </div>
                         <div class="small-10 columns">
-                            <input type="tel" ng-model="profile.Company" />
+                            <input ng-required="true" class="validated-input" type="email" ng-model="profile.Email"
+                                ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*&#64;[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" />
+                            <p class="required-validation">You email is required.</p>
+                            <p class="invalid-pattern">Incorrect email, please provide your email.</p>
                         </div>
                         <div class="columns"></div>
                     </div>
@@ -53,8 +56,8 @@
 </form>
 <br />
 <input class="button small-12 large-12 radius"
-       type="submit"
-       value="Save profile"
-       ng-disabled="profileForm.$invalid"
-       ng-class="profileForm.$invalid ? 'disabled':''" 
-       ng-click="saveRecruiterProfile()"/>
+    type="submit"
+    value="Save profile"
+    ng-disabled="profileForm.$invalid"
+    ng-class="profileForm.$invalid ? 'disabled':''"
+    ng-click="saveRecruiterProfile()" />
