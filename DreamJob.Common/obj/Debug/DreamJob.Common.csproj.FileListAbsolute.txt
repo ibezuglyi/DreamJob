@@ -1,5 +1,0 @@
-D:\projects\DreamJob\DreamJob.Common\bin\Debug\DreamJob.Common.dll
-D:\projects\DreamJob\DreamJob.Common\bin\Debug\DreamJob.Common.pdb
-D:\projects\DreamJob\DreamJob.Common\obj\Debug\DreamJob.Common.dll
-D:\projects\DreamJob\DreamJob.Common\obj\Debug\DreamJob.Common.pdb
-D:\projects\DreamJob\DreamJob.Common\obj\Debug\DreamJob.Common.csprojResolveAssemblyReference.cache
