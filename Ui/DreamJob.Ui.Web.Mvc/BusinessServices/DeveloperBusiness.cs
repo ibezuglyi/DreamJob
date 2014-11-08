@@ -26,7 +26,6 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             {
                 return new DjOperationResult<AllDevelopersViewModel>(false, operationResult.Errors);
             }
-
             var viewModel = new AllDevelopersViewModel(operationResult.Data);
             var result = new DjOperationResult<AllDevelopersViewModel>(viewModel);
             return result;
@@ -42,16 +41,13 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             }
 
             var getCurrentUserResult = this.session.GetCurrentUser();
-            if (getCurrentUserResult.IsSuccess == false)
+            var accountType = UserAccountType.Developer;
+            if (getCurrentUserResult.IsSuccess)
             {
-                return new DjOperationResult<DeveloperPublicProfileViewModel>(false, getDeveloperPublicDataResult.Errors);
+                accountType = getCurrentUserResult.Data.AccountType;
             }
 
-
-            var viewModel = new DeveloperPublicProfileViewModel(
-                getDeveloperPublicDataResult.Data,
-                getCurrentUserResult.Data.AccountType);
-
+            var viewModel = new DeveloperPublicProfileViewModel(getDeveloperPublicDataResult.Data, accountType);
             var result = new DjOperationResult<DeveloperPublicProfileViewModel>(viewModel);
             return result;
         }

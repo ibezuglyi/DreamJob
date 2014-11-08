@@ -6,11 +6,12 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
 
     using DreamJob.Ui.Web.Mvc.BusinessServices;
 
-    public class CommentController : Controller
+    public class CommentController : BaseController
     {
         private readonly ICommentBusiness commentBusiness;
 
-        public CommentController(ICommentBusiness commentBusiness)
+        public CommentController(ICommentBusiness commentBusiness, IEmailService emailService)
+            : base(emailService)
         {
             this.commentBusiness = commentBusiness;
         }

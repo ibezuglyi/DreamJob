@@ -18,12 +18,14 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         private const string OfferRejected = "Rejected offer";
         private const string OfferAccepted = "Accepted offer";
         private const string OfferCanceled = "Offer canceled";
+        private const string ErrorOccured = "Error occured";
 
         private readonly string EmailBaseUrl;
         private readonly string EmailResource;
         private readonly string EmailDomain;
         private readonly string EmailFrom;
         private readonly string EmailApiCode;
+        private readonly string DevTeamMail;
 
         public EmailService(IEmailTemplateProvider emailTemplateProvider)
         {
@@ -33,6 +35,7 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             EmailResource = WebConfigurationManager.AppSettings["Email_Resource"];
             EmailBaseUrl = WebConfigurationManager.AppSettings["Email_BaseUrl"];
             EmailApiCode = WebConfigurationManager.AppSettings["Email_ApiCode"];
+            DevTeamMail = WebConfigurationManager.AppSettings["Email_DevTeamMail"];
         }
 
 
@@ -96,6 +99,19 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             var content = emailTemplateProvider.GetEmailText(EmailType.Canceled, new { UserName = displayName, LoginUrl = loginUrl, Subject = subject });
             var inlineCssHtml = PreMailer.Net.PreMailer.MoveCssInline(content);
             SendEmailMessage(email, EmailFrom, OfferCanceled, inlineCssHtml.Html);
+        }
+
+        public void NotifyNewErrorOccurs(Exception exception)
+        {
+            var errorViewModel = new
+            {
+                Stack = exception.StackTrace,
+                Message = exception.Message,
+                Data = exception.Data,
+                Source = exception.Source
+            };
+            var content = emailTemplateProvider.GetEmailText(EmailType.Exception, errorViewModel);
+            SendEmailMessage(DevTeamMail, EmailFrom, ErrorOccured, content);
         }
 
         private RestRequest GetEmailRequest(string to, string from, string subject, string content)

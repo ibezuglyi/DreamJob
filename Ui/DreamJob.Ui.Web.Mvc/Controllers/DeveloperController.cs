@@ -5,16 +5,19 @@
 
     using DreamJob.Ui.Web.Mvc.BusinessServices;
 
-    
-    public class DeveloperController : Controller
+
+    public class DeveloperController : BaseController
     {
         private readonly IDeveloperBusiness businessDeveloper;
         private readonly ISession session;
+        private readonly IEmailService emailService;
 
-        public DeveloperController(IDeveloperBusiness businessDeveloper, ISession session)
+        public DeveloperController(IDeveloperBusiness businessDeveloper, ISession session, IEmailService emailService)
+            :base(emailService)
         {
             this.businessDeveloper = businessDeveloper;
             this.session = session;
+            this.emailService = emailService;
         }
 
         public ActionResult Index()
@@ -38,5 +41,7 @@
 
             return this.View("Developer", getDeveloperProfileResult.Data);
         }
+
+        
     }
 }

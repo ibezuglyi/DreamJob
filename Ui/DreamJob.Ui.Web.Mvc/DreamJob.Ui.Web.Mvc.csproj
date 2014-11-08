@@ -142,9 +142,11 @@
     <Compile Include="BusinessServices\IEmailService.cs" />
     <Compile Include="BusinessServices\IEmailTemplateProvider.cs" />
     <Compile Include="BusinessServices\ITemplateProvider.cs" />
+    <Compile Include="BusinessServices\NotificationBusiness.cs" />
     <Compile Include="BusinessServices\RazorTemplateProvider.cs" />
     <Compile Include="Controllers\AcceptOfferDto.cs" />
-    <Compile Include="Controllers\INotificationBusiness.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="BusinessServices\INotificationBusiness.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Models\Dto\SaveDeveloperProfileDto.cs" />
     <Compile Include="Models\Dto\SaveRecruiterProfileDto.cs" />
@@ -231,6 +233,7 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404.html" />
     <Content Include="AngularApplication\Controllers\DevelopersSearchController.js" />
     <Content Include="AngularApplication\Controllers\NavigationController.js" />
     <Content Include="AngularApplication\Controllers\ProfileController.js" />
@@ -266,6 +269,7 @@
     <Content Include="Content\imgs\bg.jpg" />
     <Content Include="EmailTemplates\Accepted.html" />
     <Content Include="EmailTemplates\Canceled.html" />
+    <Content Include="EmailTemplates\Exception.html" />
     <Content Include="EmailTemplates\Rejected.html" />
     <Content Include="EmailTemplates\NewMessage.html" />
     <Content Include="fav.ico" />
@@ -691,7 +695,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>45419</DevelopmentServerPort>
+          <DevelopmentServerPort>8555</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:2855/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

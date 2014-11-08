@@ -7,13 +7,14 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
     using DreamJob.Ui.Web.Mvc.BusinessServices;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
 
-    public class OfferController : Controller
+    public class OfferController : BaseController
     {
         private readonly IOffersBusiness profileBusiness;
 
         private readonly ISession session;
 
-        public OfferController(IOffersBusiness profileBusiness, ISession session)
+        public OfferController(IOffersBusiness profileBusiness, ISession session, IEmailService emailService)
+            : base(emailService)
         {
             this.profileBusiness = profileBusiness;
             this.session = session;
@@ -51,7 +52,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         [Authorize]
         public ActionResult Send(NewJobOfferDto model)
         {
-            
+
             var operationResult = this.profileBusiness.SendOfferFromCurrentRecruiter(model, this.GetSystemLoginUrl());
             var result = new JsonResult { Data = operationResult };
             return result;

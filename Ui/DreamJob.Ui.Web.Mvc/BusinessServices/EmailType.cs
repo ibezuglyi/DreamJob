@@ -12,6 +12,7 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         NewMessage,
         Accepted,
         Rejected,
-        Canceled
+        Canceled,
+        Exception
     }
 }

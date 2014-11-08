@@ -7,11 +7,12 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
     using System.Linq;
     using System.Web.Mvc;
 
-    public class RegisterController : Controller
+    public class RegisterController : BaseController
     {
         private readonly IRegisterBusiness business;
 
-        public RegisterController(IRegisterBusiness business)
+        public RegisterController(IRegisterBusiness business, IEmailService emailService)
+            : base(emailService)
         {
             this.business = business;
         }
@@ -76,7 +77,7 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
             return new JsonResult() { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-       
+
         [HttpGet]
         [ValidateInput(false)]
         public ActionResult CheckEmail(string val)

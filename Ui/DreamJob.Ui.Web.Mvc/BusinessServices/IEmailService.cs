@@ -16,5 +16,6 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         void NotifyOfferAccepted(string email, string displayName, string title, string loginUrl);
         void NotifyOfferRejected(string email, string displayName, string title, string loginUrl);
         void NotifyOfferCanceled(string email, string displayName, string subject, string loginUrl);
+        void NotifyNewErrorOccurs(Exception exception);
     }
 }

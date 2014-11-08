@@ -1,15 +1,18 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using DreamJob.Ui.Web.Mvc.BusinessServices;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
 
     using DreamJob.Ui.Web.Mvc.Helpers;
 
     [Authorize]
-    public class NotificationController : Controller
+    public class NotificationController : BaseController
     {
         private readonly INotificationBusiness bussines;
 
-        public NotificationController(INotificationBusiness bussines)
+        public NotificationController(INotificationBusiness bussines, IEmailService emailService)
+            : base(emailService)
         {
             this.bussines = bussines;
         }
@@ -21,6 +24,6 @@
             var result = this.DjJson(operationResult);
             return result;
 
-        }   
+        }
     }
 }

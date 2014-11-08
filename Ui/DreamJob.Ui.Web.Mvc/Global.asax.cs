@@ -1,4 +1,10 @@
-﻿namespace DreamJob.Ui.Web.Mvc
+﻿using System;
+using System.Net;
+using System.Security.Policy;
+using System.Web;
+using DreamJob.Ui.Web.Mvc.BusinessServices;
+
+namespace DreamJob.Ui.Web.Mvc
 {
     using System.Web.Mvc;
     using System.Web.Optimization;
@@ -25,6 +31,9 @@
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        
         }
+
+       
     }
 }

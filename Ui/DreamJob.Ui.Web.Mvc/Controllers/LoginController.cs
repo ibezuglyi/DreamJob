@@ -5,11 +5,12 @@
     using DreamJob.Ui.Web.Mvc.BusinessServices;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
 
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         private readonly ILoginBusiness business;
 
-        public LoginController(ILoginBusiness business)
+        public LoginController(ILoginBusiness business, IEmailService emailService)
+            : base(emailService)
         {
             this.business = business;
         }

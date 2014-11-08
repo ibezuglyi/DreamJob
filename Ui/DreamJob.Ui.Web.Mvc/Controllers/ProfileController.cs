@@ -7,14 +7,15 @@
     using DreamJob.Ui.Web.Mvc.Helpers;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
 
-    
-    public class ProfileController : Controller
+
+    public class ProfileController : BaseController
     {
         private readonly IProfileBusiness profileBusiness;
 
         private readonly ISession session;
 
-        public ProfileController(IProfileBusiness profileBusiness, ISession session)
+        public ProfileController(IProfileBusiness profileBusiness, ISession session, IEmailService emailService)
+            : base(emailService)
         {
             this.profileBusiness = profileBusiness;
             this.session = session;
