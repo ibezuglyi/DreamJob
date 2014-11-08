@@ -23,6 +23,7 @@
                 .JobOffers.Where(x => x.ToDeveloperId == userId)
                 .Include(offer => offer.FromRecruiter)
                 .Include(offer=>offer.JobOfferComments)
+                .OrderByDescending(offer=>offer.Add)
                 .ToList();
             var result = new DjOperationResult<List<JobOffer>>(offers);
             return result;
@@ -35,6 +36,7 @@
                 .Include(offer => offer.ToDeveloper)
                 .Include(offer => offer.FromRecruiter)
                 .Include(offer => offer.JobOfferComments)
+                .OrderByDescending(offer => offer.Add)
                 .ToList();
             var result = new DjOperationResult<List<JobOffer>>(offers);
             return result;

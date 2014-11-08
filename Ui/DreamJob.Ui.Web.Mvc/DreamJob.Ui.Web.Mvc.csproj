@@ -247,6 +247,7 @@
     <Content Include="AngularApplication\Services\DreamJobApiClient.js" />
     <Content Include="AngularApplication\directives\emailValidator.js" />
     <Content Include="AngularApplication\directives\priceValidator.js" />
+    <Content Include="AngularApplication\Services\OffersCountService.js" />
     <Content Include="AngularApplication\Views\Developer\recruiterpanel.html" />
     <Content Include="AngularApplication\Views\Developer\Search.html" />
     <Content Include="AngularApplication\Views\Offers\Details.html" />

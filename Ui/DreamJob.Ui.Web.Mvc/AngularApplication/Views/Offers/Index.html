@@ -1,7 +1,7 @@
 ﻿<div class="row ">
     <div id='dj-offers-container' class="row">
-        <div ng-show="!IsOfferDetailsMode">
-            <div class="medium-12 columns scrollable-container" ng-show="offers.length>0">
+        <div ng-cloak ng-hide="IsOfferDetailsMode">
+            <div class="medium-12 columns scrollable-container" ng-cloak ng-show="offers.length>0">
                 <h3 class="title">Offers:</h3>
                 <ul class="list">
                     <li ng-repeat="offer in offers" ng-click='details(offer)' ng-class="{'selected-offer':offer.selected}"
@@ -34,7 +34,7 @@
             <h3>You have no any offers here.</h3>
         </div>
 
-        <div ng-show="IsOfferDetailsMode">
+        <div ng-cloak ng-show="IsOfferDetailsMode">
             <div ng-include="'AngularApplication/Views/Offers/Details.html'" class="medium-12 columns">
             </div>
         </div>

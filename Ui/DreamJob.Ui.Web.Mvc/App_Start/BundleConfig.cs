@@ -41,6 +41,7 @@ namespace DreamJob.Ui.Web.Mvc
                 .Include("~/AngularApplication/Controllers/NavigationController.js")
                 .Include("~/AngularApplication/Services/DreamJobApiClient.js")
                 .Include("~/AngularApplication/Services/AlertsService.js")
+                .Include("~/AngularApplication/Services/OffersCountService.js")
 
                 .Include("~/AngularApplication/directives/priceValidator.js")
                 .Include("~/AngularApplication/directives/emailValidator.js")

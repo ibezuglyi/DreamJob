@@ -9,7 +9,7 @@
             @if (Request.IsAuthenticated)
             {
                 <li>
-                    <a href="@Url.Action("Index", "Offer")" ng-init="init()">Offers ({{Notification.NewOffersCount}})</a>
+                    <a href="@Url.Action("Index", "Offer")" ng-init="init()">Offers <span ng-cloak ng-hide="offersCountService.NewOffersCount==0" class="label count-label">{{offersCountService.NewOffersCount}}</span></a>
                 </li>
                 
             }
@@ -20,7 +20,7 @@
         @Html.Partial("_LoginPartial")
            <span>
             <div class="row">
-                <alert class="small-12 columns" ng-repeat="alert in alertsService.alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+                <alert ng-cloak class="small-12 columns" ng-repeat="alert in alertsService.alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
             </div>
         </span>
     </section>

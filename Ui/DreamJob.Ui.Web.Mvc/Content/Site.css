@@ -416,3 +416,10 @@ input[type="checkbox"].inline {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.count-label {
+    border-radius: 1px;
+    padding: 0.2rem;
+}
+[ng-cloak] {
+    display: none !important;
+}

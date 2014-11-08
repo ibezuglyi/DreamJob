@@ -1,9 +1,9 @@
 ﻿angular
 .module('djapp')
-    .controller('NavigationController', ["$scope", "djClientApi", "AlertsService", function ($scope, djClientApi, alertsService) {
+    .controller('NavigationController', ["$scope", "djClientApi", "AlertsService", "offersCountService", function ($scope, djClientApi, alertsService, offersCountService) {
 
         var onGetNotificationSuccess = function (data, status) {
-            $scope.Notification.NewOffersCount = data;
+            $scope.offersCountService.NewOffersCount = data;
         };
 
         $scope.Notification = {
@@ -13,6 +13,7 @@
             alertsService.alerts.splice(index, 1);
         };
         $scope.alertsService = alertsService;
+        $scope.offersCountService = offersCountService;
         
         $scope.init = function () {
             this.getNotificationCount();
