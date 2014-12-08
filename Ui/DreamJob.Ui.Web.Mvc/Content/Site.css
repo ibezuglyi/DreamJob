@@ -219,8 +219,8 @@ button.Rejected:hover {
         margin-top: -33px;
     }
 
-input.ng-invalid,
-textarea.ng-invalid {
+input.ng-dirty.ng-invalid,
+textarea.ng-dirty.ng-invalid {
     color: #b94a48;
     border-color: #ee5f5b;
     margin: 0;
@@ -247,8 +247,9 @@ input[type=checkbox].ng-invalid {
     font-size: 14px;
     color: #b94a48;
     margin: 0;
-    padding: 0;
+    padding: 0 0 5px 0;
     float: left;
+    
 }
 
 input[class*='ng-valid-unique'] ~ .validation-text {
@@ -275,7 +276,20 @@ input.ng-valid-pattern ~ .invalid-pattern {
     display: none;
 }
 
-input.validated-input {
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
     margin: 0 0 0.1rem 0;
 }
 
@@ -331,22 +345,26 @@ input[type="checkbox"].inline {
     }
 
 .flat-textarea:before {
-    content: '';
+    
+}
+.flat-textarea.top-corner:before {
+   content: '';
     display: block;
     border: 10px solid transparent;
     border-bottom: 10px solid #FFF;
     position: absolute;
     top: -19px;
     left: 25px;
-    -webkit-filter: drop-shadow(0 -1px 0 #ddd);
+    -webkit-filter: drop-shadow(0 -1px 0 #ddd); 
 }
+
 
 .flat-textarea {
     background: #fff;
     padding: 10px;
     border: 1px solid #ddd;
     position: relative;
-    margin: 0;
+    margin: 0 0 1rem 0;
 }
 
 .box-list-container {
@@ -422,4 +440,7 @@ input[type="checkbox"].inline {
 }
 [ng-cloak] {
     display: none !important;
+}
+.validation-summary-errors li {
+    list-style-type: none;
 }
