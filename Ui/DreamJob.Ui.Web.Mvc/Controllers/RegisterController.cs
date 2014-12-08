@@ -7,12 +7,11 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
     using System.Linq;
     using System.Web.Mvc;
 
-    public class RegisterController : BaseController
+    public class RegisterController : Controller
     {
         private readonly IRegisterBusiness business;
 
-        public RegisterController(IRegisterBusiness business, IEmailService emailService)
-            : base(emailService)
+        public RegisterController(IRegisterBusiness business)
         {
             this.business = business;
         }

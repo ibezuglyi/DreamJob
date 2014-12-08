@@ -7,14 +7,13 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
     using DreamJob.Ui.Web.Mvc.BusinessServices;
     using DreamJob.Ui.Web.Mvc.Models.Dto;
 
-    public class OfferController : BaseController
+    public class OfferController : Controller
     {
         private readonly IOffersBusiness profileBusiness;
 
         private readonly ISession session;
 
-        public OfferController(IOffersBusiness profileBusiness, ISession session, IEmailService emailService)
-            : base(emailService)
+        public OfferController(IOffersBusiness profileBusiness, ISession session)
         {
             this.profileBusiness = profileBusiness;
             this.session = session;

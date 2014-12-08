@@ -30,8 +30,10 @@
                 djClientApi.getProfile()
                     .success(function(response) {
                         $scope.profile = response.Data;
-
-                    });
+                    })
+                .error(function(data, status, headers, config) {
+                    console.log(arguments);
+                });
             };
             $scope.deleteSkill = function(indx) {
                 $scope.profile.Skills.splice(indx, 1);

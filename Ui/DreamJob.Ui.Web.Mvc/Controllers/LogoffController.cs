@@ -4,12 +4,11 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
 
-    public class LogoffController : BaseController
+    public class LogoffController : Controller
     {
         private readonly ILogoffBusiness business;
 
-        public LogoffController(ILogoffBusiness business, IEmailService emailService)
-            : base(emailService)
+        public LogoffController(ILogoffBusiness business)
         {
             this.business = business;
         }

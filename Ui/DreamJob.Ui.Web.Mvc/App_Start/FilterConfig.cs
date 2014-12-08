@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using System.Web.Mvc;
 
 namespace DreamJob.Ui.Web.Mvc
@@ -7,7 +8,6 @@ namespace DreamJob.Ui.Web.Mvc
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
         }
     }
 }
