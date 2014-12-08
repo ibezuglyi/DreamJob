@@ -25,6 +25,7 @@ namespace DreamJob.Ui.Web.Mvc
             containerBuilder.RegisterType<LoginBusiness>().As<ILoginBusiness>();
             containerBuilder.RegisterType<OffersBusiness>().As<IOffersBusiness>();
             containerBuilder.RegisterType<NotificationBusiness>().As<INotificationBusiness>();
+            containerBuilder.RegisterType<ErrorsBusiness>().As<IErrorsBusiness>();
             
             containerBuilder.RegisterType<RegisterService>().As<IRegisterService>();
             containerBuilder.RegisterType<OfferService>().As<IOfferService>();

@@ -6,14 +6,13 @@
     using DreamJob.Ui.Web.Mvc.BusinessServices;
 
 
-    public class DeveloperController : BaseController
+    public class DeveloperController : Controller
     {
         private readonly IDeveloperBusiness businessDeveloper;
         private readonly ISession session;
         private readonly IEmailService emailService;
 
-        public DeveloperController(IDeveloperBusiness businessDeveloper, ISession session, IEmailService emailService)
-            :base(emailService)
+        public DeveloperController(IDeveloperBusiness businessDeveloper, ISession session)
         {
             this.businessDeveloper = businessDeveloper;
             this.session = session;

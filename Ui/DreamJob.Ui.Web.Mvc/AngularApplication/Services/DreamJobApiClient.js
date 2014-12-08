@@ -11,23 +11,23 @@ window.djApplication.factory('djClientApi', function ($http) {
     }
 
     self.addComment = function (comment) {
-        var postRequest = $http.post('comment/add', comment);
+        var postRequest = $http.post('/comment/add', comment);
         return postRequest;
     };
     self.getMyOffers = function () {
-        var getRequest = $http.get('offer/MyOffers');
+        var getRequest = $http.get('/offer/MyOffers');
         return getRequest;
     };
     self.offerDetails = function (offerId) {
-        var getRequest = $http.get('offer/OfferDetails/' + offerId);
+        var getRequest = $http.get('/offer/OfferDetails/' + offerId);
         return getRequest;
     };
     self.getProfile = function () {
-        var getProfileRequest = $http.get('profile/CurrentUser');
+        var getProfileRequest = $http.get('/profile/CurrentUser');
         return getProfileRequest;
     };
     self.searchProfile = function (searchString, searchCity) {
-        return $http.get("profile/search", {
+        return $http.get("/profile/search", {
             params: {
                 technology: searchString,
                 city: searchCity
@@ -35,7 +35,7 @@ window.djApplication.factory('djClientApi', function ($http) {
         });
     },
     self.getCities = function (token) {
-        return $http.get("profile/GetCities", {
+        return $http.get("/profile/GetCities", {
             params: { cityPart: token }
         });
     },
@@ -49,34 +49,34 @@ window.djApplication.factory('djClientApi', function ($http) {
         return saveRequest;
     };
     self.getCities = function (cityVal) {
-        return $http.get("profile/GetCities", {
+        return $http.get("/profile/GetCities", {
             params: { cityPart: cityVal }
         });
     };
 
     self.cancelOffer = function (data) {
-        return $http.post('offer/cancelOffer', data);
+        return $http.post('/offer/cancelOffer', data);
     };
     self.acceptOffer = function (data) {
-        return $http.post('offer/acceptOffer', data);
+        return $http.post('/offer/acceptOffer', data);
 
     };
     self.rejectOffer = function (data) {
-        return $http.post('offer/rejectOffer', data);
+        return $http.post('/offer/rejectOffer', data);
     };
     self.validateUnique = function (type, value) {
-        return $http({ url: 'register/check' + type, params: { val: value }, method: "GET" });
+        return $http({ url: '/register/check' + type, params: { val: value }, method: "GET" });
     };
     self.registerDeveloper = function (vm) {
-        return $http.post("register/RegisterDeveloper", vm);
+        return $http.post("/register/RegisterDeveloper", vm);
     };
 
     self.registerRecruiter = function(vm) {
-        return $http.post("register/registerRecruiter", vm);
+        return $http.post("/register/registerRecruiter", vm);
     };
 
     self.getNewOffersCount = function() {
-        var http = $http.get("Notification/GetNewOffersCount");
+        var http = $http.get("/Notification/GetNewOffersCount");
         return http;
     };
     self.sendOffer = function(offer) {

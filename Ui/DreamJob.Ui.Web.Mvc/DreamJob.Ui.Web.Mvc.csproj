@@ -139,14 +139,17 @@
     <Compile Include="BusinessServices\EmailService.cs" />
     <Compile Include="BusinessServices\EmailTemplateProvider.cs" />
     <Compile Include="BusinessServices\EmailType.cs" />
+    <Compile Include="BusinessServices\ErrorsBusiness.cs" />
     <Compile Include="BusinessServices\IEmailService.cs" />
     <Compile Include="BusinessServices\IEmailTemplateProvider.cs" />
+    <Compile Include="BusinessServices\IErrorsBusiness.cs" />
     <Compile Include="BusinessServices\ITemplateProvider.cs" />
     <Compile Include="BusinessServices\NotificationBusiness.cs" />
     <Compile Include="BusinessServices\RazorTemplateProvider.cs" />
     <Compile Include="Controllers\AcceptOfferDto.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="BusinessServices\INotificationBusiness.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Models\Dto\SaveDeveloperProfileDto.cs" />
     <Compile Include="Models\Dto\SaveRecruiterProfileDto.cs" />
@@ -233,7 +236,6 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="404.html" />
     <Content Include="AngularApplication\Controllers\DevelopersSearchController.js" />
     <Content Include="AngularApplication\Controllers\NavigationController.js" />
     <Content Include="AngularApplication\Controllers\ProfileController.js" />
@@ -654,6 +656,9 @@
     <Content Include="Views\Developer\_DeveloperProfileRecruiterOptionPanel.cshtml" />
     <Content Include="Views\Offer\Index.cshtml" />
     <Content Include="Views\Register\Registered.cshtml" />
+    <Content Include="Views\Errors\InternalError.cshtml" />
+    <Content Include="Views\Errors\NotFound.cshtml" />
+    <Content Include="Views\Errors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

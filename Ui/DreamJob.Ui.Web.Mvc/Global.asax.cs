@@ -31,9 +31,19 @@ namespace DreamJob.Ui.Web.Mvc
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-        
         }
 
-       
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            var exception = Server.GetLastError();
+            var errorsBusiness = AutofacDependencyResolver.Current.GetService(typeof(IErrorsBusiness)) as IErrorsBusiness;
+            if (exception != null && errorsBusiness != null)
+            {
+                errorsBusiness.SendEmailOnInternalError(exception);
+            }
+            
+
+        }
+
     }
 }

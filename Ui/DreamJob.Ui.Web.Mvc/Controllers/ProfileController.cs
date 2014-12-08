@@ -1,4 +1,7 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Controllers
+﻿using System;
+using System.Web;
+
+namespace DreamJob.Ui.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
 
@@ -8,14 +11,13 @@
     using DreamJob.Ui.Web.Mvc.Models.Dto;
 
 
-    public class ProfileController : BaseController
+    public class ProfileController : Controller
     {
         private readonly IProfileBusiness profileBusiness;
 
         private readonly ISession session;
 
-        public ProfileController(IProfileBusiness profileBusiness, ISession session, IEmailService emailService)
-            : base(emailService)
+        public ProfileController(IProfileBusiness profileBusiness, ISession session)
         {
             this.profileBusiness = profileBusiness;
             this.session = session;
