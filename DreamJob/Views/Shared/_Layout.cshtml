@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Dream Job</title>
+    <script src="~/Scripts/jquery-2.1.3.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-default">
+            @Html.ActionLink("DreamJob", "Index", "Home", new { @class = "navbar-brand" })
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>@Html.ActionLink("Logout", "Logout", "Profile")</li>
+                    <li>@Html.ActionLink("Me", "Me", "Profile")</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Register", "Register", "Profile")</li>
+                    <li>@Html.ActionLink("Login", "Login", "Profile")</li>
+                }
+                <li>
+                    @Html.ActionLink("Search", "Index", "Search")
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        @Html.ActionLink("Offers", "Index", "JobOffer")
+                    </li>
+                }
+            </ul>
+
+        </nav>
+        <div class="main">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

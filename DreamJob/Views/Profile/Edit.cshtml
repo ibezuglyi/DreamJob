@@ -1,0 +1,22 @@
+﻿@using DreamJob.ViewModels
+@model ProfilePrivateViewModel
+<div class="container col-md-6 col-md-offset-3">
+    <form action="@Url.Action("Edit", "Profile")" method="POST">
+        <div class="has-error text-danger">
+            @Html.ValidationSummary()
+        </div>
+        @if (Model.Role == ApplicationUserRole.Developer)
+        {
+            @Html.EditorFor(m => m.Developer)
+        }
+        else
+        {
+            @Html.EditorFor(m => m.Recruiter)
+        }
+
+        <div class="form-group pull-right">
+            <button name="Action" role="button" type="submit" value="" class="btn btn-primary">update</button>
+            @Html.ActionLink("Back to profile", "Me", "Profile", null, new { @class = "btn btn-default" })
+        </div>
+    </form>
+</div>

@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{89BF06B7-622F-40B5-80AE-803E3A27A984}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DreamJob</RootNamespace>
+    <AssemblyName>DreamJob</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.4.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.3\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="BeginCollectionItem">
+      <HintPath>..\packages\BeginCollectionItem.1.2.1.0\lib\net35\BeginCollectionItem.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Web.config" />
+    <Content Include="Scripts\jquery-2.1.3.min.map" />
+    <Content Include="Views\Profile\Register.cshtml" />
+    <Content Include="Views\Profile\RegisterDeveloper.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\ApplicationMapper.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\JobOfferController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Dtos\CommentAddDto.cs" />
+    <Compile Include="Dtos\DeveloperSkillDto.cs" />
+    <Compile Include="Dtos\JobOfferSendDto.cs" />
+    <Compile Include="Dtos\ProfileLoginDto.cs" />
+    <Compile Include="Dtos\ProfilePrivateDeveloperEditDto.cs" />
+    <Compile Include="Dtos\ProfilePrivateEditDto.cs" />
+    <Compile Include="Dtos\ProfilePrivateRecruiterDto.cs" />
+    <Compile Include="Infrastructure\ApplicationUser.cs" />
+    <Compile Include="Infrastructure\FormsAuthentication.cs" />
+    <Compile Include="Infrastructure\IAuthentication.cs" />
+    <Compile Include="Migrations\201502181753006_init.cs" />
+    <Compile Include="Migrations\201502181753006_init.Designer.cs">
+      <DependentUpon>201502181753006_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502182032597_joboffer.cs" />
+    <Compile Include="Migrations\201502182032597_joboffer.Designer.cs">
+      <DependentUpon>201502182032597_joboffer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502182241319_offer with status.cs" />
+    <Compile Include="Migrations\201502182241319_offer with status.Designer.cs">
+      <DependentUpon>201502182241319_offer with status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502211814444_job-offer-comments.cs" />
+    <Compile Include="Migrations\201502211814444_job-offer-comments.Designer.cs">
+      <DependentUpon>201502211814444_job-offer-comments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502211837332_test.cs" />
+    <Compile Include="Migrations\201502211837332_test.Designer.cs">
+      <DependentUpon>201502211837332_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApplicationDatabase.cs" />
+    <Compile Include="App_Start\ApplicationIocContainer.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Dtos\ProfileRegisterDto.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Developer.cs" />
+    <Compile Include="Models\JobOffer.cs" />
+    <Compile Include="Models\JobOfferComment.cs" />
+    <Compile Include="Models\Recruiter.cs" />
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\DeveloperSkill.cs" />
+    <Compile Include="Models\DJDbBase.cs" />
+    <Compile Include="Models\Skill.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CommentService.cs" />
+    <Compile Include="Services\ICommentService.cs" />
+    <Compile Include="Services\IJobOfferService.cs" />
+    <Compile Include="Services\IProfileService.cs" />
+    <Compile Include="Services\JobOfferService.cs" />
+    <Compile Include="Services\ProfileService.cs" />
+    <Compile Include="ViewModels\ApplicationUserRole.cs" />
+    <Compile Include="ViewModels\DeveloperHeadlineViewModel.cs" />
+    <Compile Include="ViewModels\DeveloperSkillViewModel.cs" />
+    <Compile Include="ViewModels\HomeIndexViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferCommentViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferDetailsViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferDetailViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferIndexViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferNewCommentViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferSendViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferStatus.cs" />
+    <Compile Include="ViewModels\JobOfferHeadlineViewModel.cs" />
+    <Compile Include="ViewModels\ProfileLoginSuccessViewModel.cs" />
+    <Compile Include="ViewModels\ProfileLoginViewModel.cs" />
+    <Compile Include="ViewModels\ProfilePrivateDeveloperViewModel.cs" />
+    <Compile Include="ViewModels\ProfilePrivateRecruiterViewModel.cs" />
+    <Compile Include="ViewModels\ProfilePrivateViewModel.cs" />
+    <Compile Include="ViewModels\ProfilePublicDeveloperViewModel.cs" />
+    <Compile Include="ViewModels\ProfilePublicRecruiterViewModel.cs" />
+    <Compile Include="ViewModels\ProfilePublicViewModel.cs" />
+    <Compile Include="ViewModels\ProfileRegisterViewModel.cs" />
+    <Compile Include="ViewModels\ProfileRegistrationSuccessViewModel.cs" />
+    <Compile Include="ViewModels\SearchIndexViewModel.cs" />
+    <Compile Include="ViewModels\SearchResultViewModel.cs" />
+    <Compile Include="ViewModels\SkillViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Profile\RegistrationSuccess.cshtml" />
+    <Content Include="Views\Profile\Login.cshtml" />
+    <Content Include="Views\Profile\LoginSuccess.cshtml" />
+    <Content Include="Views\Profile\Me.cshtml" />
+    <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Profile\_DeveloperSkill.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
+    <Content Include="Views\Profile\Public.cshtml" />
+    <Content Include="Views\Profile\_RegisterProfile.cshtml" />
+    <Content Include="Views\Profile\RegisterRecruiter.cshtml" />
+    <Content Include="Views\Profile\EditorTemplates\ProfilePrivateDeveloperViewModel.cshtml" />
+    <Content Include="Views\Profile\EditorTemplates\ProfilePrivateRecruiterViewModel.cshtml" />
+    <Content Include="Views\Profile\EditorTemplates\DeveloperSkillViewModel.cshtml" />
+    <Content Include="Views\Profile\DisplayTemplates\ProfilePublicDeveloperViewModel.cshtml" />
+    <Content Include="Views\Profile\DisplayTemplates\ProfilePublicRecruiterViewModel.cshtml" />
+    <Content Include="Views\Profile\DisplayTemplates\DeveloperSkillViewModel.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Search\Skill.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DeveloperHeadlineViewModel.cshtml" />
+    <Content Include="Views\Search\DisplayTemplates\SkillViewModel.cshtml" />
+    <Content Include="Views\Search\Salary.cshtml" />
+    <Content Include="Views\JobOffer\Send.cshtml" />
+    <Content Include="Views\JobOffer\Index.cshtml" />
+    <Content Include="Views\JobOffer\DisplayTemplates\JobOfferHeadlineViewModel.cshtml" />
+    <Content Include="Views\JobOffer\Details.cshtml" />
+    <Content Include="Views\JobOffer\DisplayTemplates\JobOfferDetailViewModel.cshtml" />
+    <Content Include="Views\JobOffer\EditorTemplates\JobOfferNewCommentViewModel.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201502181753006_init.resx">
+      <DependentUpon>201502181753006_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502182032597_joboffer.resx">
+      <DependentUpon>201502182032597_joboffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502182241319_offer with status.resx">
+      <DependentUpon>201502182241319_offer with status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502211814444_job-offer-comments.resx">
+      <DependentUpon>201502211814444_job-offer-comments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502211837332_test.resx">
+      <DependentUpon>201502211837332_test.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5226</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5189/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

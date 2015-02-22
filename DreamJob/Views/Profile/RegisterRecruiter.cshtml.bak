@@ -1,0 +1,14 @@
+﻿@using DreamJob.ViewModels
+@model AccountRegisterViewModel
+
+<div class="container col-md-6 col-md-offset-3">
+    @using (Html.BeginForm("RegisterRecruiter", "Profile", FormMethod.Post))
+    {
+        @Html.Hidden("Role", ApplicationUserRole.Recruiter)
+        <div class="has-error text-danger">
+            @Html.ValidationSummary()
+        </div>
+        @Html.Partial("_RegisterDeveloper", Model)
+        <button class="btn btn-primary pull-right" role="button">register</button>
+    }
+</div>

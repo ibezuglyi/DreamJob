@@ -1,0 +1,23 @@
+﻿@model DreamJob.ViewModels.DeveloperSkillViewModel
+
+<div class="input-group">
+    @using (@Html.BeginCollectionItem("Skills"))
+    {
+        @Html.HiddenFor(m => m.SkillId)
+        if (@Model.SkillId != 0)
+        {
+            <span class="input-group-addon">@Model.Name</span>
+            @Html.TextBoxFor(m => m.Level, new { @class = "form-control", @type = "number" })
+            <span class="input-group-btn">
+                <button value="@Model.SkillId" name="Action" class="btn btn-danger " type="submit" role="button">remove</button>
+            </span>
+        }
+        else
+        {
+            <label>New skill name</label>
+            @Html.EditorFor(m => m.Name, new { @class = "form-control" })<br />
+            <label>New skill level</label>
+            @Html.EditorFor(m => m.Level, new { @class = "form-control" })
+        }
+    }
+</div>

@@ -1,0 +1,39 @@
+﻿@using DreamJob.ViewModels
+@model ProfilePublicViewModel
+<div class="container col-md-6 col-md-offset-3">
+    <div class="jumbotron">
+        <h5>@Model.ProfileRole</h5>
+        @if (Model.ProfileRole == ApplicationUserRole.Developer)
+        {
+            @Html.DisplayFor(m => m.Developer)
+        }
+        @if (Model.ProfileRole == ApplicationUserRole.Recruiter)
+        {
+            @Html.DisplayFor(m => m.Recruiter)
+        }
+    </div>
+    @if (Model.ProfileRole == ApplicationUserRole.Developer)
+    {
+        <label>Skills:</label>
+        <div>
+            @Html.DisplayFor(m => m.Developer.SkillsViewModels)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Developer.AboutMe)
+            <p class="text-justify">
+                @Model.Developer.AboutMe
+            </p>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Developer.LookingFor)
+            <p class="text-justify">
+                @Model.Developer.LookingFor
+            </p>
+        </div>
+    }
+
+    @if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.ProfileRole == ApplicationUserRole.Developer)
+    {
+        @Html.ActionLink("Send job offer", "Send", "JobOffer", new { id = @Model.Developer.Id }, new { @class = "btn btn-default" })
+    }
+</div>

@@ -1,0 +1,29 @@
+﻿<div class="container">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            @using (Html.BeginForm("Skill", "Search", FormMethod.Get, new { @class = "form-inline" }))
+            {
+                <div class="input-group">
+                    <label class="input-group-addon">search by skill</label>
+                    <input type="text" name="skill" class="form-control" placeholder="skill">
+                    <span class="input-group-addon">
+                        <input type="submit" value="search" />
+                    </span>
+                </div>
+            }
+        </div><br />
+        <div class="row">
+            @using (Html.BeginForm("Salary", "Search", FormMethod.Get, new { @class = "form-inline" }))
+            {
+                <div class="input-group">
+                    <span class="input-group-addon">search by salary</span>
+                    <input type="text" name="Minimum" class="form-control" />
+                    <input type="text" name="Maximum" class="form-control" />
+                    <span class="input-group-addon">
+                        <input type="submit" value="search" />
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</div>

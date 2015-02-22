@@ -1,0 +1,40 @@
+﻿@model DreamJob.ViewModels.JobOfferDetailViewModel
+
+<div class="jumbotron">
+    <h1>
+        @Html.DisplayFor(m => m.Position)
+    </h1>
+    <h2>
+        <span>@Model.DeveloperDisplayName</span>
+        <span class="small">@Html.ActionLink("( view profile)", "Public", "Profile", new { id = Model.DeveloperId },null)</span>
+    </h2>
+    <h5>
+        <span>@Html.DisplayFor(m => m.CreateDateTime) <span class="badge">@Model.Status</span> </span>
+    </h5>
+</div>
+
+<div>
+    @Html.LabelFor(m => m.CompanyName)
+    @Html.DisplayFor(m => m.CompanyName)
+</div>
+
+<div>
+    @Html.LabelFor(m => m.JobOfferText)
+    @Html.DisplayFor(m => m.JobOfferText)
+</div>
+
+
+<div>
+    @Html.LabelFor(m => m.Salary)
+    @Html.DisplayFor(m => m.Salary)
+</div>
+
+<div>
+    @Html.LabelFor(m => m.Requirements)
+    @Html.DisplayFor(m => m.Requirements)
+</div>
+
+<div>
+    @Html.DisplayFor(m => m.JobOfferComments)
+</div>
+

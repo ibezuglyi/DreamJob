@@ -1,0 +1,20 @@
+﻿@model DreamJob.ViewModels.ProfilePrivateRecruiterViewModel
+
+<div class="form-group">
+    @Html.LabelFor(m => m.FirstName)
+    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LastName)
+    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Employer)
+    @Html.TextBoxFor(m => m.Employer, new { @class = "form-control" })
+</div>
+
+
