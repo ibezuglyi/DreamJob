@@ -4,9 +4,23 @@ namespace DreamJob.ViewModels
 
     public class JobOfferCancelViewModel
     {
+        public long JobOfferId { get; set; }
+        public string Text { get; set; }
+
         public JobOfferCancelViewModel(JobOfferCancelDto dto)
+            : this(dto.JobOfferId, dto.Text)
         {
-            throw new System.NotImplementedException();
+        }
+
+        public JobOfferCancelViewModel(long jobOfferId)
+            : this(jobOfferId, string.Empty)
+        {
+        }
+
+        public JobOfferCancelViewModel(long jobOfferId, string text)
+        {
+            this.JobOfferId = jobOfferId;
+            this.Text = text;
         }
     }
 }

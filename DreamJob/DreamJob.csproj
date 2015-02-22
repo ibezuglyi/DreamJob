@@ -168,6 +168,10 @@
     <Compile Include="Migrations\201502211837332_test.Designer.cs">
       <DependentUpon>201502211837332_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502222056250_job-offer-statuses-into-separate-tables.cs" />
+    <Compile Include="Migrations\201502222056250_job-offer-statuses-into-separate-tables.Designer.cs">
+      <DependentUpon>201502222056250_job-offer-statuses-into-separate-tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDatabase.cs" />
     <Compile Include="App_Start\ApplicationIocContainer.cs" />
@@ -180,7 +184,11 @@
     </Compile>
     <Compile Include="Models\Developer.cs" />
     <Compile Include="Models\JobOffer.cs" />
+    <Compile Include="Models\JobOfferAccept.cs" />
+    <Compile Include="Models\JobOfferCancel.cs" />
     <Compile Include="Models\JobOfferComment.cs" />
+    <Compile Include="Models\JobOfferConfirm.cs" />
+    <Compile Include="Models\JobOfferReject.cs" />
     <Compile Include="Models\Recruiter.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Models\DeveloperSkill.cs" />
@@ -256,6 +264,14 @@
     <Content Include="Views\JobOffer\Details.cshtml" />
     <Content Include="Views\JobOffer\DisplayTemplates\JobOfferDetailViewModel.cshtml" />
     <Content Include="Views\JobOffer\EditorTemplates\JobOfferNewCommentViewModel.cshtml" />
+    <Content Include="Views\JobOffer\Reject.cshtml" />
+    <Content Include="Views\JobOffer\EditorTemplates\JobOfferRejectViewModel.cshtml" />
+    <Content Include="Views\JobOffer\Cancel.cshtml" />
+    <Content Include="Views\JobOffer\Accept.cshtml" />
+    <Content Include="Views\JobOffer\Confirm.cshtml" />
+    <Content Include="Views\JobOffer\EditorTemplates\JobOfferCancelViewModel.cshtml" />
+    <Content Include="Views\JobOffer\EditorTemplates\JobOfferAcceptViewModel.cshtml" />
+    <Content Include="Views\JobOffer\EditorTemplates\JobOfferConfirmViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -281,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502211837332_test.resx">
       <DependentUpon>201502211837332_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502222056250_job-offer-statuses-into-separate-tables.resx">
+      <DependentUpon>201502222056250_job-offer-statuses-into-separate-tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

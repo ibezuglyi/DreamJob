@@ -56,6 +56,12 @@ namespace DreamJob
 
             Mapper.CreateMap<CommentAddDto, JobOfferComment>();
             Mapper.CreateMap<JobOfferComment, JobOfferCommentViewModel>();
+
+
+            Mapper.CreateMap<JobOfferRejectDto, JobOfferReject>();
+            Mapper.CreateMap<JobOfferCancelDto, JobOfferCancel>();
+            Mapper.CreateMap<JobOfferConfirmDto, JobOfferConfirm>();
+            Mapper.CreateMap<JobOfferAcceptDto, JobOfferAccept>();
         }
     }
 }

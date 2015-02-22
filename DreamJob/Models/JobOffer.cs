@@ -23,5 +23,10 @@
         public virtual Recruiter Recruiter { get; set; }
 
         public virtual List<JobOfferComment> JobOfferComments { get; set; }
+
+        public virtual List<JobOfferAccept> Accepts { get; set; }
+        public virtual List<JobOfferReject> Rejects { get; set; }
+        public virtual List<JobOfferCancel> Cancels { get; set; }
+        public virtual List<JobOfferConfirm> Confirms { get; set; }
     }
 }

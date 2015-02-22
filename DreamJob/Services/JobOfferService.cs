@@ -110,42 +110,82 @@
 
         public JobOfferRejectViewModel GetJobOfferRejectViewModel(long id)
         {
-            throw new NotImplementedException();
+            var viemwodel = new JobOfferRejectViewModel(id);
+            return viemwodel;
         }
 
         public JobOfferCancelViewModel GetJobOfferCancelViewModel(long id)
         {
-            throw new NotImplementedException();
+            var viemwodel = new JobOfferCancelViewModel(id);
+            return viemwodel;
         }
 
         public JobOfferAcceptViewModel GetJobOfferAcceptViewModel(long id)
         {
-            throw new NotImplementedException();
+            var viemwodel = new JobOfferAcceptViewModel(id);
+            return viemwodel;
         }
 
         public JobOfferConfirmViewModel GetJobOfferConfirmViewModel(long id)
         {
-            throw new NotImplementedException();
+            var viemwodel = new JobOfferConfirmViewModel(id);
+            return viemwodel;
         }
 
         public void RejectOffer(JobOfferRejectDto dto)
         {
-            throw new NotImplementedException();
+            var model = Mapper.Map<JobOfferRejectDto, JobOfferReject>(dto);
+            model.CreateDateTime = DateTime.Now;
+            model.AuthorId = this.authentication.GetCurrentLoggedUserId();
+            model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
+
+            var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
+            offer.Status = JobOfferStatus.Rejected;
+           
+            this.applicationDatabase.JobOffersRejections.Add(model);
+            this.applicationDatabase.SaveChanges();
         }
 
         public void CancelOffer(JobOfferCancelDto dto)
         {
-            throw new NotImplementedException();
+            var model = Mapper.Map<JobOfferCancelDto, JobOfferCancel>(dto);
+            model.CreateDateTime = DateTime.Now;
+            model.AuthorId = this.authentication.GetCurrentLoggedUserId();
+            model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
+            
+            var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
+            offer.Status=JobOfferStatus.Canceled;
+
+            this.applicationDatabase.JobOffersCancels.Add(model);
+            this.applicationDatabase.SaveChanges();
         }
 
         public void AcceptOffer(JobOfferAcceptDto dto)
         {
-            throw new NotImplementedException();
+            var model = Mapper.Map<JobOfferAcceptDto, JobOfferAccept>(dto);
+            model.CreateDateTime = DateTime.Now;
+            model.AuthorId = this.authentication.GetCurrentLoggedUserId();
+            model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
+
+            var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
+            offer.Status = JobOfferStatus.Accepted;
+
+            this.applicationDatabase.JobOffersAccepts.Add(model);
+            this.applicationDatabase.SaveChanges();
         }
 
         public void ConfirmOffer(JobOfferConfirmDto dto)
         {
-            throw new NotImplementedException();
+            var model = Mapper.Map<JobOfferConfirmDto, JobOfferConfirm>(dto);
+            model.CreateDateTime = DateTime.Now;
+            model.AuthorId = this.authentication.GetCurrentLoggedUserId();
+            model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
+
+            var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
+            offer.Status = JobOfferStatus.Confirmed;
+
+            this.applicationDatabase.JobOffersConfirms.Add(model);
+            this.applicationDatabase.SaveChanges();
         }
 
         private List<JobOfferStatus> GetOfferActionsForRoleAndOfferStatus(

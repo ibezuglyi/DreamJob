@@ -1,0 +1,13 @@
+﻿@model DreamJob.ViewModels.JobOfferAcceptViewModel
+
+@using (Html.BeginForm("Accept", "JobOffer", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.JobOfferId)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Text)
+        @Html.TextAreaFor(m => m.Text, new { @class = "form-control" })
+    </div>
+    <button type="submit" role="button" class="btn btn-primary">Submit</button>
+    @Html.ActionLink("Cancel", "Details", "JobOffer", new { id = Model.JobOfferId }, new { @class = "btn btn-default" })
+
+}
