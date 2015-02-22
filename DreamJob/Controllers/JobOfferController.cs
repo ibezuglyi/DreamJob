@@ -51,50 +51,79 @@
         [HttpGet]
         public ActionResult Reject(long id)
         {
-            return new EmptyResult();
+            var viewmodel = this.jobofferService.GetJobOfferRejectViewModel(id);
+            return this.View("Reject", viewmodel);
         }
 
         [HttpGet]
         public ActionResult Cancel(long id)
         {
-            return new EmptyResult();
+            var viewmodel = this.jobofferService.GetJobOfferCancelViewModel(id);
+            return this.View("Cancel", viewmodel);
         }
 
         [HttpGet]
         public ActionResult Accept(long id)
         {
-            return new EmptyResult();
+            var viewmodel = this.jobofferService.GetJobOfferAcceptViewModel(id);
+            return this.View("Accept", viewmodel);
         }
 
         [HttpGet]
         public ActionResult Confirm(long id)
         {
-            return new EmptyResult();
+            var viewmodel = this.jobofferService.GetJobOfferConfirmViewModel(id);
+            return this.View("Confirm", viewmodel);
         }
 
 
         [HttpPost]
         public ActionResult Reject(JobOfferRejectDto dto)
         {
-            return new EmptyResult();
+            if (this.ModelState.IsValid)
+            {
+                this.jobofferService.RejectOffer(dto);
+                return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
+            }
+            var viewmodel = new JobOfferRejectViewModel(dto);
+            return this.View("Reject", viewmodel);
+
         }
 
         [HttpPost]
         public ActionResult Cancel(JobOfferCancelDto dto)
         {
-            return new EmptyResult();
+            if (this.ModelState.IsValid)
+            {
+                this.jobofferService.CancelOffer(dto);
+                return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
+            }
+            var viewmodel = new JobOfferCancelViewModel(dto);
+            return this.View("Cancel", viewmodel);
         }
 
         [HttpPost]
         public ActionResult Accept(JobOfferAcceptDto dto)
         {
-            return new EmptyResult();
+            if (this.ModelState.IsValid)
+            {
+                this.jobofferService.AcceptOffer(dto);
+                return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
+            }
+            var viewmodel = new JobOfferAcceptViewModel(dto);
+            return this.View("Accept", viewmodel);
         }
 
         [HttpPost]
         public ActionResult Confirm(JobOfferConfirmDto dto)
         {
-            return new EmptyResult();
+            if (this.ModelState.IsValid)
+            {
+                this.jobofferService.ConfirmOffer(dto);
+                return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
+            }
+            var viewmodel = new JobOfferConfirmViewModel(dto);
+            return this.View("Confirm", viewmodel);
         }
     }
 }

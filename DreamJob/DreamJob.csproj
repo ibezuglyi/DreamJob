@@ -197,11 +197,15 @@
     <Compile Include="ViewModels\DeveloperHeadlineViewModel.cs" />
     <Compile Include="ViewModels\DeveloperSkillViewModel.cs" />
     <Compile Include="ViewModels\HomeIndexViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferAcceptViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferCancelViewModel.cs" />
     <Compile Include="ViewModels\JobOfferCommentViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferConfirmViewModel.cs" />
     <Compile Include="ViewModels\JobOfferDetailsViewModel.cs" />
     <Compile Include="ViewModels\JobOfferDetailViewModel.cs" />
     <Compile Include="ViewModels\JobOfferIndexViewModel.cs" />
     <Compile Include="ViewModels\JobOfferNewCommentViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferRejectViewModel.cs" />
     <Compile Include="ViewModels\JobOfferSendViewModel.cs" />
     <Compile Include="ViewModels\JobOfferStatus.cs" />
     <Compile Include="ViewModels\JobOfferHeadlineViewModel.cs" />

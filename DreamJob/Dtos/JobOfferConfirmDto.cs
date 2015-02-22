@@ -2,5 +2,6 @@
 {
     public class JobOfferConfirmDto
     {
+        public long JobOfferId { get; set; }
     }
 }

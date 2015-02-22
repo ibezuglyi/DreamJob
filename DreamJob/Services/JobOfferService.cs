@@ -108,6 +108,46 @@
             return result;
         }
 
+        public JobOfferRejectViewModel GetJobOfferRejectViewModel(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public JobOfferCancelViewModel GetJobOfferCancelViewModel(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public JobOfferAcceptViewModel GetJobOfferAcceptViewModel(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public JobOfferConfirmViewModel GetJobOfferConfirmViewModel(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RejectOffer(JobOfferRejectDto dto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CancelOffer(JobOfferCancelDto dto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AcceptOffer(JobOfferAcceptDto dto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ConfirmOffer(JobOfferConfirmDto dto)
+        {
+            throw new NotImplementedException();
+        }
+
         private List<JobOfferStatus> GetOfferActionsForRoleAndOfferStatus(
             ApplicationUserRole currentUserRole,
             JobOfferStatus status)
