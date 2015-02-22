@@ -1,16 +1,28 @@
-﻿@model DreamJob.ViewModels.JobOfferNewCommentViewModel
+﻿@using DreamJob.ViewModels
+@model DreamJob.ViewModels.JobOfferNewCommentViewModel
 
 @using (Html.BeginForm("Add", "Comment", FormMethod.Post))
 {
     <input type="hidden" name="JobOfferId" value="@Model.JobOfferId" />
     foreach (var s in Model.Statuses)
     {
-        <div class="radio-inline">
-            <label>
-                <input type="radio" name="Status" value="@s.ToString()" />
-                <span>@s.ToString()</span>
-            </label>
-        </div>
+        switch (s)
+        {
+            case JobOfferStatus.Rejected:
+                @Html.ActionLink(s.ToString(), "Reject", "JobOffer",new{id=@Model.JobOfferId},new{@class="btn btn-danger"});
+                break;
+            case JobOfferStatus.Canceled:
+                @Html.ActionLink(s.ToString(), "Cancel", "JobOffer",new{id=@Model.JobOfferId},new{@class="btn btn-danger"});
+                break;
+            case JobOfferStatus.Accepted:
+                @Html.ActionLink(s.ToString(), "Accept", "JobOffer",new{id=@Model.JobOfferId},new{@class="btn btn-primary"})
+                break;
+            case JobOfferStatus.Confirmed:
+                @Html.ActionLink(s.ToString(), "Confirm", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary" });
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     <div class="form-group">

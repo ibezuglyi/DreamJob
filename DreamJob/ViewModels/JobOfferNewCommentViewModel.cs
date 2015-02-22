@@ -5,29 +5,20 @@
     public class JobOfferNewCommentViewModel
     {
         public JobOfferNewCommentViewModel()
-            : this(0, JobOfferStatus.None)
+            : this(0, new List<JobOfferStatus>())
         { }
 
-        public JobOfferNewCommentViewModel(long id, JobOfferStatus newStatus)
+        public JobOfferNewCommentViewModel(long id, List<JobOfferStatus> statuses)
         {
-            this.Statuses = new List<JobOfferStatus>()
-                                {
-                                    JobOfferStatus.Read,
-                                    JobOfferStatus.Accepted,
-                                    JobOfferStatus.Canceled,
-                                    JobOfferStatus.Confirmed,
-                                    JobOfferStatus.Rejected
-                                };
+            this.Statuses = statuses;
 
             this.Text = string.Empty;
-            this.Status = newStatus;
             this.JobOfferId = id;
         }
 
         public long JobOfferId { get; set; }
         public string Text { get; set; }
 
-        public JobOfferStatus Status { get; set; }
         public List<JobOfferStatus> Statuses { get; set; }
     }
 }

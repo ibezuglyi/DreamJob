@@ -100,7 +100,76 @@
 
 
             var result = new JobOfferDetailsViewModel(jobOfferDetailViewModel);
-            result.NewCommentViewModel = new JobOfferNewCommentViewModel(id, JobOfferStatus.Read);
+            var currentUserRole = this.authentication.GetCurrentLoggedUserRole();
+
+            var actions = this.GetOfferActionsForRoleAndOfferStatus(currentUserRole, model.Status);
+
+            result.NewCommentViewModel = new JobOfferNewCommentViewModel(id, actions);
+            return result;
+        }
+
+        private List<JobOfferStatus> GetOfferActionsForRoleAndOfferStatus(
+            ApplicationUserRole currentUserRole,
+            JobOfferStatus status)
+        {
+            if (currentUserRole == ApplicationUserRole.Developer)
+            {
+                return this.GetOfferActionsForDeveloperByOfferStatus(status);
+            }
+            if (currentUserRole == ApplicationUserRole.Recruiter)
+            {
+                return this.GetOfferActionsForRecruiterByOfferStatus(status);
+            }
+            throw new ArgumentOutOfRangeException("currentUserRole");
+
+        }
+
+        private List<JobOfferStatus> GetOfferActionsForRecruiterByOfferStatus(JobOfferStatus status)
+        {
+            var result = new List<JobOfferStatus>();
+            switch (status)
+            {
+                case JobOfferStatus.New:
+                case JobOfferStatus.Read:
+                case JobOfferStatus.Accepted:
+                case JobOfferStatus.Confirmed:
+                case JobOfferStatus.Rejected:
+                    result.Add(JobOfferStatus.Canceled);
+                    break;
+                case JobOfferStatus.Canceled:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("JobOfferStatus");
+            }
+            return result;
+        }
+
+        private List<JobOfferStatus> GetOfferActionsForDeveloperByOfferStatus(JobOfferStatus status)
+        {
+            var result = new List<JobOfferStatus>();
+            switch (status)
+            {
+                case JobOfferStatus.New:
+                case JobOfferStatus.Read:
+                    result.Add(JobOfferStatus.Rejected);
+                    result.Add(JobOfferStatus.Accepted);
+                    break;
+                case JobOfferStatus.Rejected:
+                    result.Add(JobOfferStatus.Accepted);
+                    result.Add(JobOfferStatus.Confirmed);
+                    break;
+                case JobOfferStatus.Canceled:
+                    break;
+                case JobOfferStatus.Accepted:
+                    result.Add(JobOfferStatus.Rejected);
+                    result.Add(JobOfferStatus.Confirmed);
+                    break;
+                case JobOfferStatus.Confirmed:
+                    result.Add(JobOfferStatus.Rejected);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("JobOfferStatus");
+            }
             return result;
         }
     }

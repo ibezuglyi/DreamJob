@@ -136,6 +136,10 @@
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Dtos\CommentAddDto.cs" />
     <Compile Include="Dtos\DeveloperSkillDto.cs" />
+    <Compile Include="Dtos\JobOfferAcceptDto.cs" />
+    <Compile Include="Dtos\JobOfferCancelDto.cs" />
+    <Compile Include="Dtos\JobOfferConfirmDto.cs" />
+    <Compile Include="Dtos\JobOfferRejectDto.cs" />
     <Compile Include="Dtos\JobOfferSendDto.cs" />
     <Compile Include="Dtos\ProfileLoginDto.cs" />
     <Compile Include="Dtos\ProfilePrivateDeveloperEditDto.cs" />

@@ -47,5 +47,54 @@
             var viewmodel = this.jobofferService.GetDetailsById(id);
             return this.View("Details", viewmodel);
         }
+
+        [HttpGet]
+        public ActionResult Reject(long id)
+        {
+            return new EmptyResult();
+        }
+
+        [HttpGet]
+        public ActionResult Cancel(long id)
+        {
+            return new EmptyResult();
+        }
+
+        [HttpGet]
+        public ActionResult Accept(long id)
+        {
+            return new EmptyResult();
+        }
+
+        [HttpGet]
+        public ActionResult Confirm(long id)
+        {
+            return new EmptyResult();
+        }
+
+
+        [HttpPost]
+        public ActionResult Reject(JobOfferRejectDto dto)
+        {
+            return new EmptyResult();
+        }
+
+        [HttpPost]
+        public ActionResult Cancel(JobOfferCancelDto dto)
+        {
+            return new EmptyResult();
+        }
+
+        [HttpPost]
+        public ActionResult Accept(JobOfferAcceptDto dto)
+        {
+            return new EmptyResult();
+        }
+
+        [HttpPost]
+        public ActionResult Confirm(JobOfferConfirmDto dto)
+        {
+            return new EmptyResult();
+        }
     }
 }
