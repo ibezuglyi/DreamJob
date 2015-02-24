@@ -2,16 +2,19 @@
 {
     using System;
 
+    using AutoMapper;
+
     using DreamJob.Dtos;
     using DreamJob.Infrastructure;
     using DreamJob.Models;
 
     public class CommentService : ICommentService
     {
-        private readonly IAuthentication authentication;
+        private readonly IAccountService authentication;
+
         private readonly ApplicationDatabase applicationDatabase;
 
-        public CommentService(IAuthentication authentication, ApplicationDatabase applicationDatabase)
+        public CommentService(IAccountService authentication, ApplicationDatabase applicationDatabase)
         {
             this.authentication = authentication;
             this.applicationDatabase = applicationDatabase;
@@ -21,7 +24,7 @@
         {
             var currentUserId = this.authentication.GetCurrentLoggedUserId();
             var currentUserRole = this.authentication.GetCurrentLoggedUserRole();
-            var model = AutoMapper.Mapper.Map<CommentAddDto, JobOfferComment>(dto);
+            var model = Mapper.Map<CommentAddDto, JobOfferComment>(dto);
             model.CreateDateTime = DateTime.Now;
             model.AuthorRole= currentUserRole;
             model.AuthorId = currentUserId;

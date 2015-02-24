@@ -1,6 +1,7 @@
 ﻿namespace DreamJob.Models
 {
     using DreamJob.ViewModels;
+
     public class UserAccount : DJDbBase
     {
         public string Email { get; set; }
@@ -9,5 +10,7 @@
 
         public virtual Developer Developer { get; set; }
         public virtual Recruiter Recruiter { get; set; }
+
+
     }
 }

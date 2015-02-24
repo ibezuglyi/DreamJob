@@ -61,6 +61,9 @@
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.WebHelpers.3.2.3\lib\net45\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -100,6 +103,14 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.3\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Web.Infrastructure">
@@ -146,8 +157,6 @@
     <Compile Include="Dtos\ProfilePrivateEditDto.cs" />
     <Compile Include="Dtos\ProfilePrivateRecruiterDto.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
-    <Compile Include="Infrastructure\FormsAuthentication.cs" />
-    <Compile Include="Infrastructure\IAuthentication.cs" />
     <Compile Include="Migrations\201502181753006_init.cs" />
     <Compile Include="Migrations\201502181753006_init.Designer.cs">
       <DependentUpon>201502181753006_init.cs</DependentUpon>
@@ -172,6 +181,10 @@
     <Compile Include="Migrations\201502222056250_job-offer-statuses-into-separate-tables.Designer.cs">
       <DependentUpon>201502222056250_job-offer-statuses-into-separate-tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502232142493_member.cs" />
+    <Compile Include="Migrations\201502232142493_member.Designer.cs">
+      <DependentUpon>201502232142493_member.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDatabase.cs" />
     <Compile Include="App_Start\ApplicationIocContainer.cs" />
@@ -189,18 +202,24 @@
     <Compile Include="Models\JobOfferComment.cs" />
     <Compile Include="Models\JobOfferConfirm.cs" />
     <Compile Include="Models\JobOfferReject.cs" />
+    <Compile Include="Models\Membership.cs" />
+    <Compile Include="Models\OAuthMembership.cs" />
     <Compile Include="Models\Recruiter.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Models\DeveloperSkill.cs" />
     <Compile Include="Models\DJDbBase.cs" />
     <Compile Include="Models\Skill.cs" />
+    <Compile Include="Models\UsersInRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CommentService.cs" />
+    <Compile Include="Infrastructure\IAccountService.cs" />
     <Compile Include="Services\ICommentService.cs" />
     <Compile Include="Services\IJobOfferService.cs" />
     <Compile Include="Services\IProfileService.cs" />
     <Compile Include="Services\JobOfferService.cs" />
     <Compile Include="Services\ProfileService.cs" />
+    <Compile Include="Infrastructure\WebSecurityAccountService.cs" />
     <Compile Include="ViewModels\ApplicationUserRole.cs" />
     <Compile Include="ViewModels\DeveloperHeadlineViewModel.cs" />
     <Compile Include="ViewModels\DeveloperSkillViewModel.cs" />
@@ -300,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502222056250_job-offer-statuses-into-separate-tables.resx">
       <DependentUpon>201502222056250_job-offer-statuses-into-separate-tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502232142493_member.resx">
+      <DependentUpon>201502232142493_member.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

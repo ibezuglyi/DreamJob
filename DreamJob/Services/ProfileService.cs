@@ -4,9 +4,6 @@
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
-    using System.Net;
-    using System.Web.Caching;
-    using System.Web.Mvc;
 
     using AutoMapper;
 
@@ -19,10 +16,9 @@
     public class ProfileService : IProfileService
     {
         private readonly ApplicationDatabase applicationDatabase;
+        private readonly IAccountService authentication;
 
-        private readonly IAuthentication authentication;
-
-        public ProfileService(ApplicationDatabase applicationDatabase, IAuthentication authentication)
+        public ProfileService(ApplicationDatabase applicationDatabase, IAccountService authentication)
         {
             this.applicationDatabase = applicationDatabase;
             this.authentication = authentication;
@@ -35,28 +31,6 @@
             model.CreateDateTime = DateTime.Now;
             this.applicationDatabase.Profiles.Add(model);
             this.applicationDatabase.SaveChanges();
-        }
-
-        public bool AreLoginDataCorrect(ProfileLoginDto dto)
-        {
-            var profileExists =
-                this.applicationDatabase.Profiles.Any(
-                    profile => profile.Email == dto.Email && profile.PasswordHash == dto.Password);
-            return profileExists;
-        }
-
-        public void LogInUser(ProfileLoginDto dto)
-        {
-            var userProfile =
-                this.applicationDatabase.Profiles.First(
-                    profile => profile.Email == dto.Email && profile.PasswordHash == dto.Password);
-            var applicationUser = Mapper.Map<UserAccount, ApplicationUser>(userProfile);
-            this.authentication.LoginUser(applicationUser);
-        }
-
-        public void Logout()
-        {
-            this.authentication.LogoutUser();
         }
 
         public ProfilePublicViewModel GetPublicDataForUserId(long id)

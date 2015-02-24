@@ -2,8 +2,6 @@
 {
     using System.Data.Entity;
 
-    using DreamJob.Services;
-
     public class ApplicationDatabase : DbContext
     {
         public ApplicationDatabase()
@@ -23,5 +21,12 @@
         public IDbSet<JobOfferCancel> JobOffersCancels { get; set; }
         public IDbSet<JobOfferAccept> JobOffersAccepts { get; set; }
         public IDbSet<JobOfferConfirm> JobOffersConfirms { get; set; }
+
+
+
+        public IDbSet<UsersInRole> UsersInRoles { get; set; }
+        public IDbSet<Role> Roles { get; set; }
+        public IDbSet<OAuthMembership> OAuthMemberships { get; set; }
+        public IDbSet<Membership> Memberships { get; set; }
     }
 }

@@ -4,11 +4,9 @@
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
-    using System.Web.Caching;
 
     using AutoMapper;
 
-    using DreamJob.Controllers;
     using DreamJob.Dtos;
     using DreamJob.Infrastructure;
     using DreamJob.Models;
@@ -16,10 +14,11 @@
 
     class JobOfferService : IJobOfferService
     {
-        private readonly IAuthentication authentication;
+        private readonly IAccountService authentication;
+
         private readonly ApplicationDatabase applicationDatabase;
 
-        public JobOfferService(IAuthentication authentication, ApplicationDatabase applicationDatabase)
+        public JobOfferService(IAccountService authentication, ApplicationDatabase applicationDatabase)
         {
             this.authentication = authentication;
             this.applicationDatabase = applicationDatabase;

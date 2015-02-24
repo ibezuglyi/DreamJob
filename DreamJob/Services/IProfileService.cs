@@ -7,10 +7,6 @@
     public interface IProfileService
     {
         void RegisterDeveloper(ProfileRegisterDto dto);
-        bool AreLoginDataCorrect(ProfileLoginDto dto);
-        void LogInUser(ProfileLoginDto dto);
-
-        void Logout();
 
         ProfilePublicViewModel GetPublicDataForUserId(long id);
         ProfilePublicViewModel GetPublicDataForLoggedUser();

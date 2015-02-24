@@ -3,6 +3,7 @@
     using System.Web.Mvc;
 
     using DreamJob.Dtos;
+    using DreamJob.Infrastructure;
     using DreamJob.Services;
     using DreamJob.ViewModels;
 
@@ -10,9 +11,12 @@
     {
         private readonly IProfileService profileService;
 
-        public ProfileController(IProfileService profileService)
+        private readonly IAccountService accountService;
+
+        public ProfileController(IProfileService profileService, IAccountService accountService)
         {
             this.profileService = profileService;
+            this.accountService = accountService;
         }
 
         [HttpGet]
@@ -30,22 +34,21 @@
 
         public ActionResult Logout()
         {
-            this.profileService.Logout();
+            this.accountService.Logout();
             return this.RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
         public ActionResult Login(ProfileLoginDto dto)
         {
-            if (ModelState.IsValid == false)
+            if (this.ModelState.IsValid == false)
             {
                 var viewModel = new ProfileLoginViewModel(dto);
                 return this.View("Login", viewModel);
             }
-            var correct = this.profileService.AreLoginDataCorrect(dto);
+            var correct = this.accountService.Login(dto);
             if (correct)
             {
-                this.profileService.LogInUser(dto);
                 return this.RedirectToAction("LoginSuccess", "Profile");
             }
             else
@@ -78,8 +81,8 @@
                 var viewmodel = new ProfileRegisterViewModel(dto);
                 return this.View("RegisterDeveloper", viewmodel);
             }
-
-            this.profileService.RegisterDeveloper(dto);
+            this.accountService.RegisterDeveloper(dto);
+            //WebSecurity.CreateUserAndAccount(dto.Email, dto.Password, new { CreateDateTime = DateTime.Now, Role = ApplicationUserRole.Developer });
             return this.RedirectToAction("RegistrationSuccess", "Profile");
         }
 
@@ -107,7 +110,7 @@
         [HttpPost]
         public ActionResult Edit(ProfilePrivateEditDto dto)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 if (string.IsNullOrWhiteSpace(dto.Action) == false)
                 {
@@ -148,7 +151,7 @@
                 return this.View("RegisterRecruiter", viewmodel);
             }
 
-            this.profileService.RegisterDeveloper(dto);
+            this.accountService.RegisterRecruiter(dto);
             return this.RedirectToAction("RegistrationSuccess", "Profile");
         }
     }

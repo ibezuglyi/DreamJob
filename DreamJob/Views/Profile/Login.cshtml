@@ -15,6 +15,10 @@
                 @Html.LabelFor(m => m.Password)
                 @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
             </div>
+            <div class="form-group">
+                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-control" })
+                @Html.LabelFor(m => m.RememberMe)
+            </div>
             <button class="btn btn-primary pull-right" role="button">Login</button>
         }
     </div>

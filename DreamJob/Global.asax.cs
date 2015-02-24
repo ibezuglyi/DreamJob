@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace DreamJob
+﻿namespace DreamJob
 {
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using System.Web.Security;
+
+    using WebMatrix.WebData;
+
     public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
@@ -14,6 +15,8 @@ namespace DreamJob
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             ApplicationIocContainer.Initialize();
             ApplicationMapper.Initialize();
+
+            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserAccounts", "Id", "Email", false);
         }
     }
 }

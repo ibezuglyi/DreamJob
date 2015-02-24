@@ -7,6 +7,7 @@
         public ProfileLoginViewModel(ProfileLoginDto dto)
         {
             this.Email = dto.Email;
+            this.RememberMe = dto.RememberMe;
         }
 
         public ProfileLoginViewModel()
@@ -14,6 +15,7 @@
         {
         }
 
+        public bool RememberMe { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
     }
