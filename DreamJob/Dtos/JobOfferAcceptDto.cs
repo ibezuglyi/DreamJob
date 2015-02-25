@@ -4,5 +4,7 @@
     {
         public long JobOfferId { get; set; }
         public string Text { get; set; }
+
+        public ContactInformationDto ContactInformation { get; set; }
     }
 }

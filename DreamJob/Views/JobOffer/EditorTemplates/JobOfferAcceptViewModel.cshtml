@@ -7,6 +7,9 @@
         @Html.LabelFor(m => m.Text)
         @Html.TextAreaFor(m => m.Text, new { @class = "form-control" })
     </div>
+
+    @Html.EditorFor(m => m.ContactInformation)
+
     <button type="submit" role="button" class="btn btn-primary">Submit</button>
     @Html.ActionLink("Cancel", "Details", "JobOffer", new { id = Model.JobOfferId }, new { @class = "btn btn-default" })
 

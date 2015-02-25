@@ -146,6 +146,7 @@
     <Compile Include="Controllers\JobOfferController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Dtos\CommentAddDto.cs" />
+    <Compile Include="Dtos\ContactInformationDto.cs" />
     <Compile Include="Dtos\DeveloperSkillDto.cs" />
     <Compile Include="Dtos\JobOfferAcceptDto.cs" />
     <Compile Include="Dtos\JobOfferCancelDto.cs" />
@@ -185,6 +186,10 @@
     <Compile Include="Migrations\201502232142493_member.Designer.cs">
       <DependentUpon>201502232142493_member.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502242226467_contact details on offer accept.cs" />
+    <Compile Include="Migrations\201502242226467_contact details on offer accept.Designer.cs">
+      <DependentUpon>201502242226467_contact details on offer accept.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDatabase.cs" />
     <Compile Include="App_Start\ApplicationIocContainer.cs" />
@@ -195,6 +200,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactInformation.cs" />
     <Compile Include="Models\Developer.cs" />
     <Compile Include="Models\JobOffer.cs" />
     <Compile Include="Models\JobOfferAccept.cs" />
@@ -221,6 +227,7 @@
     <Compile Include="Services\ProfileService.cs" />
     <Compile Include="Infrastructure\WebSecurityAccountService.cs" />
     <Compile Include="ViewModels\ApplicationUserRole.cs" />
+    <Compile Include="ViewModels\ContactInformationViewModel.cs" />
     <Compile Include="ViewModels\DeveloperHeadlineViewModel.cs" />
     <Compile Include="ViewModels\DeveloperSkillViewModel.cs" />
     <Compile Include="ViewModels\HomeIndexViewModel.cs" />
@@ -291,6 +298,7 @@
     <Content Include="Views\JobOffer\EditorTemplates\JobOfferCancelViewModel.cshtml" />
     <Content Include="Views\JobOffer\EditorTemplates\JobOfferAcceptViewModel.cshtml" />
     <Content Include="Views\JobOffer\EditorTemplates\JobOfferConfirmViewModel.cshtml" />
+    <Content Include="Views\JobOffer\EditorTemplates\ContactInformationViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -298,9 +306,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201502181753006_init.resx">
       <DependentUpon>201502181753006_init.cs</DependentUpon>
@@ -322,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502232142493_member.resx">
       <DependentUpon>201502232142493_member.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502242226467_contact details on offer accept.resx">
+      <DependentUpon>201502242226467_contact details on offer accept.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

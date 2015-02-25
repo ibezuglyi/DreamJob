@@ -11,10 +11,10 @@
         public decimal Salary { get; set; }
 
         public long UserAccountId { get; set; }
-        
+
         [Required]
         public virtual UserAccount Account { get; set; }
-        
+
         public virtual List<DeveloperSkill> Skills { get; set; }
     }
 }

@@ -140,7 +140,7 @@
 
             var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
             offer.Status = JobOfferStatus.Rejected;
-           
+
             this.applicationDatabase.JobOffersRejections.Add(model);
             this.applicationDatabase.SaveChanges();
         }
@@ -151,9 +151,9 @@
             model.CreateDateTime = DateTime.Now;
             model.AuthorId = this.authentication.GetCurrentLoggedUserId();
             model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
-            
+
             var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
-            offer.Status=JobOfferStatus.Canceled;
+            offer.Status = JobOfferStatus.Canceled;
 
             this.applicationDatabase.JobOffersCancels.Add(model);
             this.applicationDatabase.SaveChanges();
@@ -165,6 +165,7 @@
             model.CreateDateTime = DateTime.Now;
             model.AuthorId = this.authentication.GetCurrentLoggedUserId();
             model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
+            model.ContactInformation.CreateDateTime = DateTime.Now;
 
             var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
             offer.Status = JobOfferStatus.Accepted;

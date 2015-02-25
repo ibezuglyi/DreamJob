@@ -6,6 +6,7 @@ namespace DreamJob.ViewModels
     {
         public long JobOfferId { get; set; }
         public string Text { get; set; }
+        public ContactInformationViewModel ContactInformation { get; set; }
 
         public JobOfferAcceptViewModel(JobOfferAcceptDto dto)
             : this(dto.JobOfferId, dto.Text)
@@ -19,6 +20,7 @@ namespace DreamJob.ViewModels
         {
             this.JobOfferId = jobOfferId;
             this.Text = text;
+            this.ContactInformation = new ContactInformationViewModel();
         }
     }
 }

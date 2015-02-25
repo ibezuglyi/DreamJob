@@ -44,9 +44,6 @@ namespace DreamJob
                     new DeveloperSkillViewModel(
                         new DeveloperSkillDto { Level = ds.Level, Name = ds.Skill.Name, SkillId = ds.SkillId }));
 
-
-
-
             Mapper.CreateMap<JobOfferSendDto, JobOffer>();
             Mapper.CreateMap<JobOffer, JobOfferHeadlineViewModel>()
                 .ForMember(d => d.DeveloperDisplayName, o => o.MapFrom(s => s.Developer.DisplayName));
@@ -62,6 +59,8 @@ namespace DreamJob
             Mapper.CreateMap<JobOfferCancelDto, JobOfferCancel>();
             Mapper.CreateMap<JobOfferConfirmDto, JobOfferConfirm>();
             Mapper.CreateMap<JobOfferAcceptDto, JobOfferAccept>();
+            //Mapper.CreateMap<ContactInformationViewModel, ContactInformation>();
+            Mapper.CreateMap<ContactInformationDto, ContactInformation>();
         }
     }
 }

@@ -9,5 +9,8 @@
 
         public long AuthorId { get; set; }
         public ApplicationUserRole AuthorRole { get; set; }
+
+        public long ContactInformationId { get; set; }
+        public virtual ContactInformation ContactInformation { get; set; }
     }
 }

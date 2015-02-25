@@ -10,7 +10,6 @@
     public class ProfileController : Controller
     {
         private readonly IProfileService profileService;
-
         private readonly IAccountService accountService;
 
         public ProfileController(IProfileService profileService, IAccountService accountService)
@@ -82,7 +81,6 @@
                 return this.View("RegisterDeveloper", viewmodel);
             }
             this.accountService.RegisterDeveloper(dto);
-            //WebSecurity.CreateUserAndAccount(dto.Email, dto.Password, new { CreateDateTime = DateTime.Now, Role = ApplicationUserRole.Developer });
             return this.RedirectToAction("RegistrationSuccess", "Profile");
         }
 
