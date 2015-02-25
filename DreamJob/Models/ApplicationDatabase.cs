@@ -17,10 +17,7 @@
         public IDbSet<Skill> Skills { get; set; }
         public IDbSet<JobOffer> JobOffers { get; set; }
         public IDbSet<JobOfferComment> JobOffersComments { get; set; }
-        public IDbSet<JobOfferReject> JobOffersRejections { get; set; }
-        public IDbSet<JobOfferCancel> JobOffersCancels { get; set; }
-        public IDbSet<JobOfferAccept> JobOffersAccepts { get; set; }
-        public IDbSet<JobOfferConfirm> JobOffersConfirms { get; set; }
+        public IDbSet<JobOfferStatusChange> JobOfferStatusChanges { get; set; }
 
 
 

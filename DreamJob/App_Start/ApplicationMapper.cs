@@ -1,5 +1,7 @@
 namespace DreamJob
 {
+    using System.Linq;
+
     using AutoMapper;
 
     using DreamJob.Dtos;
@@ -46,20 +48,33 @@ namespace DreamJob
 
             Mapper.CreateMap<JobOfferSendDto, JobOffer>();
             Mapper.CreateMap<JobOffer, JobOfferHeadlineViewModel>()
-                .ForMember(d => d.DeveloperDisplayName, o => o.MapFrom(s => s.Developer.DisplayName));
+                .ForMember(d => d.DeveloperDisplayName, o => o.MapFrom(s => s.Developer.DisplayName))
+                .ForMember(
+                    d => d.Status,
+                    o => o.MapFrom(s => s.Statuses.OrderByDescending(status => status.CreateDateTime).First().Status));
 
             Mapper.CreateMap<JobOffer, JobOfferDetailViewModel>()
-                .ForMember(d => d.DeveloperDisplayName, o => o.MapFrom(s => s.Developer.DisplayName));
+                .ForMember(d => d.DeveloperDisplayName, o => o.MapFrom(s => s.Developer.DisplayName))
+                 .ForMember(
+                    d => d.Status,
+                    o => o.MapFrom(s => s.Statuses.OrderByDescending(status => status.CreateDateTime).First().Status));
 
             Mapper.CreateMap<CommentAddDto, JobOfferComment>();
             Mapper.CreateMap<JobOfferComment, JobOfferCommentViewModel>();
 
 
-            Mapper.CreateMap<JobOfferRejectDto, JobOfferReject>();
-            Mapper.CreateMap<JobOfferCancelDto, JobOfferCancel>();
-            Mapper.CreateMap<JobOfferConfirmDto, JobOfferConfirm>();
-            Mapper.CreateMap<JobOfferAcceptDto, JobOfferAccept>();
-            //Mapper.CreateMap<ContactInformationViewModel, ContactInformation>();
+            Mapper.CreateMap<JobOfferRejectDto, JobOfferStatusChange>()
+                .ForMember(d => d.Status, o => o.UseValue(JobOfferStatus.Rejected));
+
+            Mapper.CreateMap<JobOfferCancelDto, JobOfferStatusChange>()
+                .ForMember(d => d.Status, o => o.UseValue(JobOfferStatus.Canceled));
+
+            Mapper.CreateMap<JobOfferConfirmDto, JobOfferStatusChange>()
+                .ForMember(d => d.Status, o => o.UseValue(JobOfferStatus.Confirmed));
+
+            Mapper.CreateMap<JobOfferAcceptDto, JobOfferStatusChange>()
+                .ForMember(d => d.Status, o => o.UseValue(JobOfferStatus.Accepted));
+
             Mapper.CreateMap<ContactInformationDto, ContactInformation>();
         }
     }

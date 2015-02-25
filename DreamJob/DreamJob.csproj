@@ -158,37 +158,9 @@
     <Compile Include="Dtos\ProfilePrivateEditDto.cs" />
     <Compile Include="Dtos\ProfilePrivateRecruiterDto.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
-    <Compile Include="Migrations\201502181753006_init.cs" />
-    <Compile Include="Migrations\201502181753006_init.Designer.cs">
-      <DependentUpon>201502181753006_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502182032597_joboffer.cs" />
-    <Compile Include="Migrations\201502182032597_joboffer.Designer.cs">
-      <DependentUpon>201502182032597_joboffer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502182241319_offer with status.cs" />
-    <Compile Include="Migrations\201502182241319_offer with status.Designer.cs">
-      <DependentUpon>201502182241319_offer with status.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502211814444_job-offer-comments.cs" />
-    <Compile Include="Migrations\201502211814444_job-offer-comments.Designer.cs">
-      <DependentUpon>201502211814444_job-offer-comments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502211837332_test.cs" />
-    <Compile Include="Migrations\201502211837332_test.Designer.cs">
-      <DependentUpon>201502211837332_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502222056250_job-offer-statuses-into-separate-tables.cs" />
-    <Compile Include="Migrations\201502222056250_job-offer-statuses-into-separate-tables.Designer.cs">
-      <DependentUpon>201502222056250_job-offer-statuses-into-separate-tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502232142493_member.cs" />
-    <Compile Include="Migrations\201502232142493_member.Designer.cs">
-      <DependentUpon>201502232142493_member.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502242226467_contact details on offer accept.cs" />
-    <Compile Include="Migrations\201502242226467_contact details on offer accept.Designer.cs">
-      <DependentUpon>201502242226467_contact details on offer accept.cs</DependentUpon>
+    <Compile Include="Migrations\201502252157157_INIT.cs" />
+    <Compile Include="Migrations\201502252157157_INIT.Designer.cs">
+      <DependentUpon>201502252157157_INIT.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDatabase.cs" />
@@ -203,11 +175,8 @@
     <Compile Include="Models\ContactInformation.cs" />
     <Compile Include="Models\Developer.cs" />
     <Compile Include="Models\JobOffer.cs" />
-    <Compile Include="Models\JobOfferAccept.cs" />
-    <Compile Include="Models\JobOfferCancel.cs" />
+    <Compile Include="Models\JobOfferStatusChange.cs" />
     <Compile Include="Models\JobOfferComment.cs" />
-    <Compile Include="Models\JobOfferConfirm.cs" />
-    <Compile Include="Models\JobOfferReject.cs" />
     <Compile Include="Models\Membership.cs" />
     <Compile Include="Models\OAuthMembership.cs" />
     <Compile Include="Models\Recruiter.cs" />
@@ -306,31 +275,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502181753006_init.resx">
-      <DependentUpon>201502181753006_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502182032597_joboffer.resx">
-      <DependentUpon>201502182032597_joboffer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502182241319_offer with status.resx">
-      <DependentUpon>201502182241319_offer with status.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502211814444_job-offer-comments.resx">
-      <DependentUpon>201502211814444_job-offer-comments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502211837332_test.resx">
-      <DependentUpon>201502211837332_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502222056250_job-offer-statuses-into-separate-tables.resx">
-      <DependentUpon>201502222056250_job-offer-statuses-into-separate-tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502232142493_member.resx">
-      <DependentUpon>201502232142493_member.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502242226467_contact details on offer accept.resx">
-      <DependentUpon>201502242226467_contact details on offer accept.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201502252157157_INIT.resx">
+      <DependentUpon>201502252157157_INIT.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

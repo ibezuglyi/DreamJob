@@ -2,8 +2,6 @@
 {
     using System.Collections.Generic;
 
-    using DreamJob.ViewModels;
-
     public class JobOffer : DJDbBase
     {
         public string JobOfferText { get; set; }
@@ -14,8 +12,6 @@
         public bool OfferMatchesProfile { get; set; }
         public bool ProfileWasReadBeforeSending { get; set; }
 
-        public JobOfferStatus Status { get; set; }
-
         public long DeveloperId { get; set; }
         public virtual Developer Developer { get; set; }
 
@@ -24,9 +20,6 @@
 
         public virtual List<JobOfferComment> JobOfferComments { get; set; }
 
-        public virtual List<JobOfferAccept> Accepts { get; set; }
-        public virtual List<JobOfferReject> Rejects { get; set; }
-        public virtual List<JobOfferCancel> Cancels { get; set; }
-        public virtual List<JobOfferConfirm> Confirms { get; set; }
+        public virtual List<JobOfferStatusChange> Statuses { get; set; }
     }
 }

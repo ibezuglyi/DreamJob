@@ -30,9 +30,17 @@
             var model = Mapper.Map<JobOfferSendDto, JobOffer>(dto);
             model.RecruiterId = authorId;
             model.CreateDateTime = DateTime.Now;
-            model.Status = JobOfferStatus.New;
+            var josc = new JobOfferStatusChange(
+                model.Id,
+                JobOfferStatus.New,
+                string.Empty,
+                authorId,
+                this.authentication.GetCurrentLoggedUserRole());
+
+            josc.CreateDateTime = DateTime.Now;
 
             this.applicationDatabase.JobOffers.Add(model);
+            this.applicationDatabase.JobOfferStatusChanges.Add(josc);
             this.applicationDatabase.SaveChanges();
         }
 
@@ -44,6 +52,7 @@
             List<JobOffer> offers;
             var jobOffers = this.applicationDatabase
                     .JobOffers
+                    .Include(d => d.Statuses)
                     .Include(d => d.Developer);
 
             if (currentRole == ApplicationUserRole.Recruiter)
@@ -67,6 +76,7 @@
                     .JobOffers
                     .Include(o => o.Developer)
                     .Include(o => o.JobOfferComments)
+                    .Include(o => o.Statuses)
                     .First(o => o.Id == id);
 
             var developerComment =
@@ -101,7 +111,8 @@
             var result = new JobOfferDetailsViewModel(jobOfferDetailViewModel);
             var currentUserRole = this.authentication.GetCurrentLoggedUserRole();
 
-            var actions = this.GetOfferActionsForRoleAndOfferStatus(currentUserRole, model.Status);
+            var currentStatus = model.Statuses.OrderByDescending(s => s.CreateDateTime).First().Status;
+            var actions = this.GetOfferActionsForRoleAndOfferStatus(currentUserRole, currentStatus);
 
             result.NewCommentViewModel = new JobOfferNewCommentViewModel(id, actions);
             return result;
@@ -133,58 +144,43 @@
 
         public void RejectOffer(JobOfferRejectDto dto)
         {
-            var model = Mapper.Map<JobOfferRejectDto, JobOfferReject>(dto);
+            var model = Mapper.Map<JobOfferRejectDto, JobOfferStatusChange>(dto);
             model.CreateDateTime = DateTime.Now;
             model.AuthorId = this.authentication.GetCurrentLoggedUserId();
             model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
-
-            var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
-            offer.Status = JobOfferStatus.Rejected;
-
-            this.applicationDatabase.JobOffersRejections.Add(model);
+            this.applicationDatabase.JobOfferStatusChanges.Add(model);
             this.applicationDatabase.SaveChanges();
         }
 
         public void CancelOffer(JobOfferCancelDto dto)
         {
-            var model = Mapper.Map<JobOfferCancelDto, JobOfferCancel>(dto);
+            var model = Mapper.Map<JobOfferCancelDto, JobOfferStatusChange>(dto);
             model.CreateDateTime = DateTime.Now;
             model.AuthorId = this.authentication.GetCurrentLoggedUserId();
             model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
-
-            var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
-            offer.Status = JobOfferStatus.Canceled;
-
-            this.applicationDatabase.JobOffersCancels.Add(model);
+            this.applicationDatabase.JobOfferStatusChanges.Add(model);
             this.applicationDatabase.SaveChanges();
         }
 
         public void AcceptOffer(JobOfferAcceptDto dto)
         {
-            var model = Mapper.Map<JobOfferAcceptDto, JobOfferAccept>(dto);
+            var model = Mapper.Map<JobOfferAcceptDto, JobOfferStatusChange>(dto);
             model.CreateDateTime = DateTime.Now;
             model.AuthorId = this.authentication.GetCurrentLoggedUserId();
             model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
             model.ContactInformation.CreateDateTime = DateTime.Now;
-
-            var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
-            offer.Status = JobOfferStatus.Accepted;
-
-            this.applicationDatabase.JobOffersAccepts.Add(model);
+            model.ContactInformation.JobOfferStatusChangeId = model.Id;
+            this.applicationDatabase.JobOfferStatusChanges.Add(model);
             this.applicationDatabase.SaveChanges();
         }
 
         public void ConfirmOffer(JobOfferConfirmDto dto)
         {
-            var model = Mapper.Map<JobOfferConfirmDto, JobOfferConfirm>(dto);
+            var model = Mapper.Map<JobOfferConfirmDto, JobOfferStatusChange>(dto);
             model.CreateDateTime = DateTime.Now;
             model.AuthorId = this.authentication.GetCurrentLoggedUserId();
             model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
-
-            var offer = this.applicationDatabase.JobOffers.Single(o => o.Id == dto.JobOfferId);
-            offer.Status = JobOfferStatus.Confirmed;
-
-            this.applicationDatabase.JobOffersConfirms.Add(model);
+            this.applicationDatabase.JobOfferStatusChanges.Add(model);
             this.applicationDatabase.SaveChanges();
         }
 

@@ -1,7 +1,6 @@
 namespace DreamJob.Migrations
 {
     using System.Data.Entity.Migrations;
-    using System.Web.Security;
 
     using DreamJob.Models;
 
@@ -9,13 +8,14 @@ namespace DreamJob.Migrations
     {
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(ApplicationDatabase context)
         {
-            Roles.CreateRole("Developer");
-            Roles.CreateRole("Recruiter");
+            context.Roles.Add(new Role { RoleName = "Developer" });
+            context.Roles.Add(new Role { RoleName = "Recruiter" });
+            context.SaveChanges();
         }
     }
 }

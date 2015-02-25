@@ -7,13 +7,13 @@ namespace DreamJob.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class joboffer : IMigrationMetadata
+    public sealed partial class INIT : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(joboffer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(INIT));
         
         string IMigrationMetadata.Id
         {
-            get { return "201502182032597_joboffer"; }
+            get { return "201502252157157_INIT"; }
         }
         
         string IMigrationMetadata.Source
