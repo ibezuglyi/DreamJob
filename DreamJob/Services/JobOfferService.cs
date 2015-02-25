@@ -84,18 +84,8 @@
             var recruiterComment =
                 model.JobOfferComments.FirstOrDefault(comment => comment.AuthorRole == ApplicationUserRole.Recruiter);
 
-            Developer developerModel = null;
-            Recruiter recruiterModel = null;
-
-            if (developerComment != null)
-            {
-                developerModel = this.applicationDatabase.Developers.First(d => d.Id == developerComment.AuthorId);
-            }
-
-            if (recruiterComment != null)
-            {
-                recruiterModel = this.applicationDatabase.Recruiters.First(d => d.Id == recruiterComment.AuthorId);
-            }
+            Developer developerModel = this.applicationDatabase.Developers.First(d => d.Id == model.DeveloperId);
+            Recruiter recruiterModel = this.applicationDatabase.Recruiters.First(d => d.Id == model.RecruiterId);
 
             var jobOfferDetailViewModel = Mapper.Map<JobOffer, JobOfferDetailViewModel>(model);
 
@@ -106,6 +96,14 @@
             jobOfferDetailViewModel.JobOfferComments
                 .Where(c => c.AuthorRole == ApplicationUserRole.Recruiter)
                 .Each(c => c.AuthorDisplayName = string.Format("{0} {1}", recruiterModel.FirstName, recruiterModel.LastName));
+
+            jobOfferDetailViewModel.JobOfferStatusChangeViewModels
+                .Where(s => s.AuthorRole == ApplicationUserRole.Recruiter)
+                .Each(s => s.AuthorName = string.Format("{0} {1}", recruiterModel.FirstName, recruiterModel.LastName));
+            
+            jobOfferDetailViewModel.JobOfferStatusChangeViewModels
+                .Where(s => s.AuthorRole == ApplicationUserRole.Developer)
+                .Each(s => s.AuthorName = developerModel.DisplayName);
 
 
             var result = new JobOfferDetailsViewModel(jobOfferDetailViewModel);

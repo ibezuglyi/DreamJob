@@ -3,6 +3,10 @@
     <div class="row">
         @Html.DisplayFor(m => m.JobOfferDetailViewModel)
     </div>
+    <div class="row">
+        <label>Status history:</label>
+        @Html.DisplayFor(m => m.JobOfferDetailViewModel.JobOfferStatusChangeViewModels)
+    </div>
 
     <div class="row">
         @Html.EditorFor(m => m.NewCommentViewModel)

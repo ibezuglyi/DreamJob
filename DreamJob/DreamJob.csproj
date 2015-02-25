@@ -212,6 +212,7 @@
     <Compile Include="ViewModels\JobOfferSendViewModel.cs" />
     <Compile Include="ViewModels\JobOfferStatus.cs" />
     <Compile Include="ViewModels\JobOfferHeadlineViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferStatusChangeViewModel.cs" />
     <Compile Include="ViewModels\ProfileLoginSuccessViewModel.cs" />
     <Compile Include="ViewModels\ProfileLoginViewModel.cs" />
     <Compile Include="ViewModels\ProfilePrivateDeveloperViewModel.cs" />
@@ -268,6 +269,8 @@
     <Content Include="Views\JobOffer\EditorTemplates\JobOfferAcceptViewModel.cshtml" />
     <Content Include="Views\JobOffer\EditorTemplates\JobOfferConfirmViewModel.cshtml" />
     <Content Include="Views\JobOffer\EditorTemplates\ContactInformationViewModel.cshtml" />
+    <Content Include="Views\JobOffer\DisplayTemplates\JobOfferStatusChangeViewModel.cshtml" />
+    <Content Include="Views\JobOffer\DisplayTemplates\JobOfferCommentViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -55,6 +55,7 @@ namespace DreamJob
 
             Mapper.CreateMap<JobOffer, JobOfferDetailViewModel>()
                 .ForMember(d => d.DeveloperDisplayName, o => o.MapFrom(s => s.Developer.DisplayName))
+                .ForMember(d => d.JobOfferStatusChangeViewModels, o => o.MapFrom(s => s.Statuses))
                  .ForMember(
                     d => d.Status,
                     o => o.MapFrom(s => s.Statuses.OrderByDescending(status => status.CreateDateTime).First().Status));
@@ -74,6 +75,8 @@ namespace DreamJob
 
             Mapper.CreateMap<JobOfferAcceptDto, JobOfferStatusChange>()
                 .ForMember(d => d.Status, o => o.UseValue(JobOfferStatus.Accepted));
+
+            Mapper.CreateMap<JobOfferStatusChange, JobOfferStatusChangeViewModel>();
 
             Mapper.CreateMap<ContactInformationDto, ContactInformation>();
         }

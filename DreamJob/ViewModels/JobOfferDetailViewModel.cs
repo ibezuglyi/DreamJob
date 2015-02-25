@@ -22,5 +22,6 @@
         public string DeveloperDisplayName { get; set; }
 
         public List<JobOfferCommentViewModel> JobOfferComments { get; set; }
+        public List<JobOfferStatusChangeViewModel> JobOfferStatusChangeViewModels { get; set; }
     }
 }
