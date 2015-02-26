@@ -10,7 +10,7 @@
 <body>
     <div>
         <nav class="navbar navbar-default">
-            @Html.ActionLink("DreamJob", "Index", "Home", new { @class = "navbar-brand" })
+            @Html.ActionLink("DreamJob", "Index", "Home", null,new { @class = "navbar-brand" })
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 @if (User.Identity.IsAuthenticated)
