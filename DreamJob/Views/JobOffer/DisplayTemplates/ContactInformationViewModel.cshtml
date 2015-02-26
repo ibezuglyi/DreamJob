@@ -1,0 +1,34 @@
+﻿@model DreamJob.ViewModels.ContactInformationViewModel
+
+<div>
+    @Html.LabelFor(m => m.CreateDateTime)
+    @Html.DisplayFor(m => m.CreateDateTime)
+</div>
+
+<div>
+    @Html.LabelFor(m => m.FirstName)
+    @Html.DisplayFor(m => m.FirstName)
+</div>
+<div>
+    @Html.LabelFor(m => m.LastName)
+    @Html.DisplayFor(m => m.LastName)
+</div>
+<div>
+    @Html.LabelFor(m => m.Email)
+    @Html.DisplayFor(m => m.Email)
+</div>
+<div>
+    @Html.LabelFor(m => m.Phone)
+    @Html.DisplayFor(m => m.Phone)
+</div>
+
+
+<div>
+    @Html.LabelFor(m => m.Note)
+    @Html.DisplayFor(m => m.Note)
+</div>
+@{
+    var url = Url.Action("Details", "JobOffer", new { id = Model.JobOfferId });
+    url += "#nocss-contact-details-id-" + @Model.Id;
+}
+<a href="@url">Back to offer</a>

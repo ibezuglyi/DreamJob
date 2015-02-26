@@ -4,6 +4,7 @@
 
     public class JobOfferStatusChangeViewModel
     {
+        public long Id { get; set; }
         public string AuthorName { get; set; }
         public DateTime CreateDateTime { get; set; }
         public string Text { get; set; }

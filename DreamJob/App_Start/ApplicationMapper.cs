@@ -7,7 +7,6 @@ namespace DreamJob
     using DreamJob.Dtos;
     using DreamJob.Infrastructure;
     using DreamJob.Models;
-    using DreamJob.Services;
     using DreamJob.ViewModels;
 
     public static class ApplicationMapper
@@ -79,6 +78,8 @@ namespace DreamJob
             Mapper.CreateMap<JobOfferStatusChange, JobOfferStatusChangeViewModel>();
 
             Mapper.CreateMap<ContactInformationDto, ContactInformation>();
+            Mapper.CreateMap<ContactInformation, ContactInformationViewModel>()
+                .ForMember(d => d.JobOfferId, o => o.MapFrom(s => s.JobOfferStatusChange.JobOfferId));
         }
     }
 }

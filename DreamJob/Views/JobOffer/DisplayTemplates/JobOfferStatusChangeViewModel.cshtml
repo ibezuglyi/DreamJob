@@ -1,12 +1,19 @@
-﻿@model DreamJob.ViewModels.JobOfferStatusChangeViewModel
+﻿@using DreamJob.ViewModels
+@model DreamJob.ViewModels.JobOfferStatusChangeViewModel
 <div class="row">
     <div class="col-md-2">
         @Model.CreateDateTime
     </div>
-    <div class="col-md-1">
-        @Model.Status
+    <div class="col-md-2">
+            @Model.Status
+            @if (Model.Status == JobOfferStatus.Accepted)
+            {
+                <a href="@Url.Action("ContactDetails", "JobOffer", new { id = Model.Id })">
+                    <span class="glyphicon glyphicon-info-sign" id="nocss-contact-details-id-@Model.Id"></span>
+                </a>
+            }
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         @Model.AuthorName
     </div>
     <div class="col-md-6">

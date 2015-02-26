@@ -204,6 +204,7 @@
     <Compile Include="ViewModels\JobOfferCancelViewModel.cs" />
     <Compile Include="ViewModels\JobOfferCommentViewModel.cs" />
     <Compile Include="ViewModels\JobOfferConfirmViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferContactDetailsViewModel.cs" />
     <Compile Include="ViewModels\JobOfferDetailsViewModel.cs" />
     <Compile Include="ViewModels\JobOfferDetailViewModel.cs" />
     <Compile Include="ViewModels\JobOfferIndexViewModel.cs" />
@@ -271,6 +272,8 @@
     <Content Include="Views\JobOffer\EditorTemplates\ContactInformationViewModel.cshtml" />
     <Content Include="Views\JobOffer\DisplayTemplates\JobOfferStatusChangeViewModel.cshtml" />
     <Content Include="Views\JobOffer\DisplayTemplates\JobOfferCommentViewModel.cshtml" />
+    <Content Include="Views\JobOffer\ContactDetails.cshtml" />
+    <Content Include="Views\JobOffer\DisplayTemplates\ContactInformationViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

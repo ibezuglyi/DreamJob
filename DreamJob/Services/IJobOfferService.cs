@@ -19,5 +19,7 @@
         void CancelOffer(JobOfferCancelDto dto);
         void AcceptOffer(JobOfferAcceptDto dto);
         void ConfirmOffer(JobOfferConfirmDto dto);
+
+        JobOfferContactDetailsViewModel GetContactDetailsById(long id);
     }
 }

@@ -100,7 +100,7 @@
             jobOfferDetailViewModel.JobOfferStatusChangeViewModels
                 .Where(s => s.AuthorRole == ApplicationUserRole.Recruiter)
                 .Each(s => s.AuthorName = string.Format("{0} {1}", recruiterModel.FirstName, recruiterModel.LastName));
-            
+
             jobOfferDetailViewModel.JobOfferStatusChangeViewModels
                 .Where(s => s.AuthorRole == ApplicationUserRole.Developer)
                 .Each(s => s.AuthorName = developerModel.DisplayName);
@@ -180,6 +180,17 @@
             model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
             this.applicationDatabase.JobOfferStatusChanges.Add(model);
             this.applicationDatabase.SaveChanges();
+        }
+
+        public JobOfferContactDetailsViewModel GetContactDetailsById(long id)
+        {
+            var model = this.applicationDatabase
+                .ContactInformations
+                .Include(c => c.JobOfferStatusChange)
+                .First(c => c.Id == id);
+            var ciViewModel = Mapper.Map<ContactInformation, ContactInformationViewModel>(model);
+            var result = new JobOfferContactDetailsViewModel(ciViewModel);
+            return result;
         }
 
         private List<JobOfferStatus> GetOfferActionsForRoleAndOfferStatus(

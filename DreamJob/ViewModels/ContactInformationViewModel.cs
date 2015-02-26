@@ -22,5 +22,6 @@ namespace DreamJob.ViewModels
         public string Note { get; set; }
         public long Id { get; set; }
         public DateTime CreateDateTime { get; set; }
+        public long JobOfferId { get; set; }
     }
 }

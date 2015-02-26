@@ -125,5 +125,12 @@
             var viewmodel = new JobOfferConfirmViewModel(dto);
             return this.View("Confirm", viewmodel);
         }
+
+        [HttpGet]
+        public ActionResult ContactDetails(long id)
+        {
+            var viewmodel=this.jobofferService.GetContactDetailsById(id);
+            return this.View("ContactDetails", viewmodel);
+        }
     }
 }
