@@ -9,6 +9,7 @@
         public string AboutMe { get; set; }
         public string LookingFor { get; set; }
         public decimal Salary { get; set; }
+        public bool IsActive { get; set; }
 
         public long UserAccountId { get; set; }
 
@@ -16,5 +17,6 @@
         public virtual UserAccount Account { get; set; }
 
         public virtual List<DeveloperSkill> Skills { get; set; }
+
     }
 }

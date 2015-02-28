@@ -16,5 +16,10 @@
     @Html.LabelFor(m => m.Employer)
     @Html.TextBoxFor(m => m.Employer, new { @class = "form-control" })
 </div>
+<div class="form-group">
+    @Html.CheckBoxFor(m => m.IsActive)
+    @Html.LabelFor(m => m.IsActive)
+</div>
+
 
 

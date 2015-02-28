@@ -4,13 +4,9 @@
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
-    using System.Security.Policy;
-    using System.Web;
-    using System.Web.Mvc;
 
     using AutoMapper;
 
-    using DreamJob.Controllers;
     using DreamJob.Dtos;
     using DreamJob.Infrastructure;
     using DreamJob.Models;
@@ -39,7 +35,8 @@
         public ProfilePublicViewModel GetPublicDataForUserId(long id)
         {
             var model =
-                this.applicationDatabase.Profiles.Include(p => p.Developer)
+                this.applicationDatabase.Profiles
+                    .Include(p => p.Developer)
                     .Include(p => p.Recruiter)
                     .Include(p => p.Developer)
                     .Include(p => p.Developer.Skills)
@@ -108,6 +105,7 @@
             model.Recruiter.LastName = dto.LastName;
             model.Recruiter.Email = dto.Email;
             model.Recruiter.Employer = dto.Employer;
+            model.Recruiter.IsActive = dto.IsActive;
         }
 
         public void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto)
@@ -137,6 +135,7 @@
             model.Developer.AboutMe = dto.AboutMe;
             model.Developer.LookingFor = dto.LookingFor;
             model.Developer.Salary = dto.Salary;
+            model.Developer.IsActive = dto.IsActive;
 
             dto.Skills.Where(skillDto => skillDto.SkillId != 0)
                 .ToList()
@@ -176,7 +175,11 @@
 
         public HomeIndexViewModel GetDevelopersHeadlines()
         {
-            var allDevelopers = this.applicationDatabase.Developers.Include(d => d.Skills).ToList();
+            var allDevelopers = this.applicationDatabase
+                .Developers
+                .Where(d=>d.IsActive)
+                .Include(d => d.Skills)
+                .ToList();
             var headlines = Mapper.Map<List<Developer>, List<DeveloperHeadlineViewModel>>(allDevelopers);
             var viewModel = new HomeIndexViewModel(headlines);
             return viewModel;
@@ -191,7 +194,10 @@
             var skillsIds = skills.Select(s => s.Id).ToList();
 
             var developersWithSkill =
-                this.applicationDatabase.DeveloperSkills.Include(ds => ds.Developer)
+                this.applicationDatabase
+                    .DeveloperSkills
+                    .Include(ds => ds.Developer)
+                    .Where(d => d.Developer.IsActive)
                     .Where(ds => skillsIds.Contains(ds.Id))
                     .Distinct()
                     .Select(ds => ds.Developer)
@@ -205,8 +211,11 @@
 
         public SearchResultViewModel GetDevelopersHeadlinesWithSalaryInRange(SearchSalaryDto dto)
         {
-            var developersHeadlines = this.applicationDatabase
-                .Developers.Include(d => d.Skills)
+            var developersHeadlines =
+                this.applicationDatabase
+                .Developers
+                .Include(d => d.Skills)
+                .Where(d => d.IsActive)
                 .Where(d => d.Salary < dto.Maximum)
                 .Where(d => d.Salary > dto.Minimum)
                 .ToList();

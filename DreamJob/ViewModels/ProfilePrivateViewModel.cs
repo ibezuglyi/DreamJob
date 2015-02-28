@@ -7,8 +7,12 @@
 
     public class ProfilePrivateViewModel
     {
-        public ProfilePrivateViewModel(ProfilePrivateDeveloperEditDto developerDto, ProfilePrivateRecruiterDto recruiterDto)
+        public ProfilePrivateViewModel(
+            ProfilePrivateDeveloperEditDto developerDto,
+            ProfilePrivateRecruiterDto recruiterDto,
+            ApplicationUserRole loggedInUserRole)
         {
+            this.LoggedInUserRole = loggedInUserRole;
             this.Developer = new ProfilePrivateDeveloperViewModel(developerDto);
             this.Recruiter = new ProfilePrivateRecruiterViewModel(recruiterDto);
 
@@ -21,15 +25,15 @@
         }
 
         public ProfilePrivateViewModel()
-            : this(new ProfilePrivateDeveloperEditDto(), new ProfilePrivateRecruiterDto())
+            : this(new ProfilePrivateDeveloperEditDto(), new ProfilePrivateRecruiterDto(), ApplicationUserRole.None)
         { }
 
         public ProfilePrivateViewModel(ProfilePrivateDeveloperEditDto dto)
-            : this(dto, new ProfilePrivateRecruiterDto())
+            : this(dto, new ProfilePrivateRecruiterDto(), ApplicationUserRole.Developer)
         { }
 
         public ProfilePrivateViewModel(ProfilePrivateRecruiterDto dto)
-            : this(new ProfilePrivateDeveloperEditDto(), dto)
+            : this(new ProfilePrivateDeveloperEditDto(), dto, ApplicationUserRole.Recruiter)
         { }
 
         public ProfilePrivateDeveloperViewModel Developer { get; set; }

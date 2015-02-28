@@ -155,7 +155,6 @@
     <Compile Include="Dtos\JobOfferSendDto.cs" />
     <Compile Include="Dtos\ProfileLoginDto.cs" />
     <Compile Include="Dtos\ProfilePrivateDeveloperEditDto.cs" />
-    <Compile Include="Dtos\ProfilePrivateEditDto.cs" />
     <Compile Include="Dtos\ProfilePrivateRecruiterDto.cs" />
     <Compile Include="Dtos\SearchSalaryDto.cs" />
     <Compile Include="Dtos\SearchSkillDto.cs" />
@@ -163,6 +162,10 @@
     <Compile Include="Migrations\201502280934411_init.cs" />
     <Compile Include="Migrations\201502280934411_init.Designer.cs">
       <DependentUpon>201502280934411_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502282335572_dev and rec can be marked as active.cs" />
+    <Compile Include="Migrations\201502282335572_dev and rec can be marked as active.Designer.cs">
+      <DependentUpon>201502282335572_dev and rec can be marked as active.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDatabase.cs" />
@@ -288,6 +291,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201502280934411_init.resx">
       <DependentUpon>201502280934411_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502282335572_dev and rec can be marked as active.resx">
+      <DependentUpon>201502282335572_dev and rec can be marked as active.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

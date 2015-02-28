@@ -22,6 +22,10 @@
         <span class="input-group-addon">pln monthly netto</span>
     </div>
 </div>
+<div class="form-group">
+    @Html.CheckBoxFor(m => m.IsActive)
+    @Html.LabelFor(m => m.IsActive)
+</div>
 <label>Skills:</label>
 @Html.EditorFor(m => m.Skills)
 

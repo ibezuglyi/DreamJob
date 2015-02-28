@@ -24,6 +24,8 @@
 
         public string AboutMe { get; set; }
         public string LookingFor { get; set; }
+        public bool IsActive { get; set; }
+
 
         public List<DeveloperSkillViewModel> Skills { get; set; }
 

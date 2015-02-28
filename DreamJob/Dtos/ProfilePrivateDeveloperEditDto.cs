@@ -26,5 +26,6 @@
         public decimal Salary { get; set; }
 
         public string Action { get; set; }
+        public bool IsActive { get; set; }
     }
 }

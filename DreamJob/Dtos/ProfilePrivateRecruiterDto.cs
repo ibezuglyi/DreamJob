@@ -12,5 +12,7 @@ namespace DreamJob.Dtos
         public string Email { get; set; }
         [Required]
         public string Employer { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }
