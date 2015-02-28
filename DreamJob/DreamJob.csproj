@@ -157,6 +157,8 @@
     <Compile Include="Dtos\ProfilePrivateDeveloperEditDto.cs" />
     <Compile Include="Dtos\ProfilePrivateEditDto.cs" />
     <Compile Include="Dtos\ProfilePrivateRecruiterDto.cs" />
+    <Compile Include="Dtos\SearchSalaryDto.cs" />
+    <Compile Include="Dtos\SearchSkillDto.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Migrations\201502252157157_INIT.cs" />
     <Compile Include="Migrations\201502252157157_INIT.Designer.cs">

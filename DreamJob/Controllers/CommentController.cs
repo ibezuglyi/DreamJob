@@ -5,6 +5,7 @@
     using DreamJob.Dtos;
     using DreamJob.Services;
 
+    [Authorize]
     public class CommentController : Controller
     {
         private readonly ICommentService commentService;
@@ -20,7 +21,7 @@
             {
                 this.commentService.Add(dto);
             }
-            return this.RedirectToAction("Details", "JobOffer", new { id=dto.JobOfferId });
+            return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
         }
 
     }

@@ -1,11 +1,11 @@
 ﻿namespace DreamJob.Dtos
 {
-    using DreamJob.ViewModels;
+    using System.ComponentModel.DataAnnotations;
 
     public class CommentAddDto
     {
         public long JobOfferId { get; set; }
+        [Required]
         public string Text { get; set; }
-        public JobOfferStatus Status { get; set; }
     }
 }

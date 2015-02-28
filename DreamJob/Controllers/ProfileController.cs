@@ -7,6 +7,7 @@
     using DreamJob.Services;
     using DreamJob.ViewModels;
 
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly IProfileService profileService;
@@ -19,12 +20,14 @@
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return this.View("Register");
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Login()
         {
             var viewModel = new ProfileLoginViewModel();
@@ -38,6 +41,7 @@
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Login(ProfileLoginDto dto)
         {
             if (this.ModelState.IsValid == false)
@@ -66,6 +70,7 @@
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult RegisterDeveloper()
         {
             var viewmodel = new ProfileRegisterViewModel();
@@ -73,6 +78,7 @@
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult RegisterDeveloper(ProfileRegisterDto dto)
         {
             if (this.ModelState.IsValid == false)
@@ -127,6 +133,7 @@
 
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult RegistrationSuccess()
         {
             var viewModel = new ProfileRegistrationSuccessViewModel();
@@ -134,6 +141,7 @@
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult RegisterRecruiter()
         {
             var viewmodel = new ProfileRegisterViewModel();
@@ -141,6 +149,7 @@
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult RegisterRecruiter(ProfileRegisterDto dto)
         {
             if (this.ModelState.IsValid == false)

@@ -2,9 +2,11 @@
 {
     using System.Web.Mvc;
 
+    using DreamJob.Dtos;
     using DreamJob.Services;
     using DreamJob.ViewModels;
 
+    [Authorize]
     public class SearchController : Controller
     {
         private readonly IProfileService profileService;
@@ -14,6 +16,7 @@
             this.profileService = profileService;
         }
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var viewmodel = new SearchIndexViewModel();
@@ -21,6 +24,7 @@
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Skill(SearchSkillDto dto)
         {
             var viewModel = this.profileService.GetDevelopersHeadlinesWithSkill(dto);
@@ -28,21 +32,11 @@
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Salary(SearchSalaryDto dto)
         {
             var viewModel = this.profileService.GetDevelopersHeadlinesWithSalaryInRange(dto);
             return this.View("Salary", viewModel);
         }
-    }
-
-    public class SearchSalaryDto
-    {
-        public decimal Minimum { get; set; }
-        public decimal Maximum { get; set; }
-    }
-
-    public class SearchSkillDto
-    {
-        public string Skill { get; set; }
     }
 }

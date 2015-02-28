@@ -6,6 +6,7 @@
     using DreamJob.Services;
     using DreamJob.ViewModels;
 
+    [Authorize]
     public class JobOfferController : Controller
     {
         private readonly IJobOfferService jobofferService;

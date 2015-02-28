@@ -4,6 +4,7 @@
 
     using DreamJob.Services;
 
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IProfileService profileService;
@@ -13,6 +14,7 @@
             this.profileService = profileService;
         }
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var viewmodel = this.profileService.GetDevelopersHeadlines();

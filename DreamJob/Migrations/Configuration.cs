@@ -3,6 +3,7 @@ namespace DreamJob.Migrations
     using System.Data.Entity.Migrations;
 
     using DreamJob.Models;
+    using DreamJob.ViewModels;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDatabase>
     {
@@ -13,8 +14,11 @@ namespace DreamJob.Migrations
 
         protected override void Seed(ApplicationDatabase context)
         {
-            context.Roles.Add(new Role { RoleName = "Developer" });
-            context.Roles.Add(new Role { RoleName = "Recruiter" });
+            context.Roles.Add(new Role { RoleName = ApplicationUserRole.Recruiter.ToString(),
+                                         RoleId = (int)ApplicationUserRole.Recruiter });
+            
+            context.Roles.Add(new Role { RoleName = ApplicationUserRole.Developer.ToString(), 
+                                         RoleId = (int)ApplicationUserRole.Developer });
             context.SaveChanges();
         }
     }
