@@ -108,11 +108,13 @@
         public ActionResult Edit()
         {
             var viewModel = this.profileService.GetPrivateDataForLoggedUser();
+            viewModel.FormActionUpdateDeveloper = this.Url.Action("UpdateDeveloper", "Profile");
+            viewModel.FormActionUpdateRecruiter = this.Url.Action("UpdateRecruiter", "Profile");
             return this.View("Edit", viewModel);
         }
 
         [HttpPost]
-        public ActionResult Edit(ProfilePrivateEditDto dto)
+        public ActionResult UpdateDeveloper(ProfilePrivateDeveloperEditDto dto)
         {
             if (this.ModelState.IsValid)
             {
@@ -123,7 +125,7 @@
                 }
                 else
                 {
-                    this.profileService.UpdatePrivateProfile(dto);
+                    this.profileService.UpdateDeveloperProfile(dto);
                 }
                 return this.RedirectToAction("Edit", "Profile");
             }
@@ -131,6 +133,17 @@
             return this.View("Edit", viewmodel);
         }
 
+        [HttpPost]
+        public ActionResult UpdateRecruiter(ProfilePrivateRecruiterDto dto)
+        {
+            if (this.ModelState.IsValid)
+            {
+                this.profileService.UpdateRecruiterProfile(dto);
+                return this.RedirectToAction("Edit", "Profile");
+            }
+            var viewmodel = new ProfilePrivateViewModel(dto);
+            return this.View("Edit", viewmodel);
+        }
 
         [HttpGet]
         [AllowAnonymous]

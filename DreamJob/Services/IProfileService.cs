@@ -1,6 +1,5 @@
 ﻿namespace DreamJob.Services
 {
-    using DreamJob.Controllers;
     using DreamJob.Dtos;
     using DreamJob.ViewModels;
 
@@ -12,7 +11,8 @@
         ProfilePublicViewModel GetPublicDataForLoggedUser();
         ProfilePrivateViewModel GetPrivateDataForLoggedUser();
 
-        void UpdatePrivateProfile(ProfilePrivateEditDto dto);
+        void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto);
+        void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto);
 
         void RemoveSkillFromProfile(long skillId);
 

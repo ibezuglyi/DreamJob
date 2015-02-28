@@ -4,6 +4,9 @@
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
+    using System.Security.Policy;
+    using System.Web;
+    using System.Web.Mvc;
 
     using AutoMapper;
 
@@ -67,41 +70,32 @@
         {
             var userId = this.authentication.GetCurrentLoggedUserId();
             var model =
-                this.applicationDatabase.Profiles.Include(p => p.Developer)
+                this.applicationDatabase.Profiles
+                    .Include(p => p.Developer)
                     .Include(p => p.Recruiter)
                     .Include(p => p.Developer)
                     .Include(p => p.Developer.Skills)
                     .Include(p => p.Developer.Skills.Select(dd => dd.Skill))
                     .First(d => d.Id == userId);
             var viewmodel = Mapper.Map<UserAccount, ProfilePrivateViewModel>(model);
-
+            viewmodel.LoggedInUserRole = this.authentication.GetCurrentLoggedUserRole();
             return viewmodel;
         }
 
-        public void UpdatePrivateProfile(ProfilePrivateEditDto dto)
+        public void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto)
         {
             var currentUserid = this.authentication.GetCurrentLoggedUserId();
 
             var model =
-                this.applicationDatabase.Profiles.Include(p => p.Developer)
+                this.applicationDatabase.Profiles
                     .Include(p => p.Recruiter)
-                    .Include(p => p.Developer)
-                    .Include(p => p.Developer.Skills)
-                    .Include(p => p.Developer.Skills.Select(dd => dd.Skill))
                     .First(d => d.Id == currentUserid);
 
-            if (model.Role == ApplicationUserRole.Developer)
-            {
-                this.UpdateDeveloperProfile(dto, model, currentUserid);
-            }
-            else
-            {
-                this.UpdateRecruiterProfile(dto, model, currentUserid);
-            }
+            this.UpdateRecruiterProfile(dto, model, currentUserid);
             this.applicationDatabase.SaveChanges();
         }
 
-        private void UpdateRecruiterProfile(ProfilePrivateEditDto dto, UserAccount model, long currentUserid)
+        private void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto, UserAccount model, long currentUserid)
         {
             if (model.Recruiter == null)
             {
@@ -110,13 +104,27 @@
                 model.Recruiter.UserAccountId = currentUserid;
             }
 
-            model.Recruiter.FirstName = dto.Recruiter.FirstName;
-            model.Recruiter.LastName = dto.Recruiter.LastName;
-            model.Recruiter.Email = dto.Recruiter.Email;
-            model.Recruiter.Employer = dto.Recruiter.Employer;
+            model.Recruiter.FirstName = dto.FirstName;
+            model.Recruiter.LastName = dto.LastName;
+            model.Recruiter.Email = dto.Email;
+            model.Recruiter.Employer = dto.Employer;
         }
 
-        private void UpdateDeveloperProfile(ProfilePrivateEditDto dto, UserAccount model, long currentUserid)
+        public void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto)
+        {
+            var currentUserid = this.authentication.GetCurrentLoggedUserId();
+
+            var model =
+                this.applicationDatabase.Profiles.Include(p => p.Developer)
+                    .Include(p => p.Developer)
+                    .Include(p => p.Developer.Skills)
+                    .Include(p => p.Developer.Skills.Select(dd => dd.Skill))
+                    .First(d => d.Id == currentUserid);
+            this.UpdateDeveloperProfile(dto, model, currentUserid);
+            this.applicationDatabase.SaveChanges();
+        }
+
+        private void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto, UserAccount model, long currentUserid)
         {
             if (model.Developer == null)
             {
@@ -125,12 +133,12 @@
                 model.Developer.UserAccountId = model.Id;
             }
 
-            model.Developer.DisplayName = dto.Developer.DisplayName;
-            model.Developer.AboutMe = dto.Developer.AboutMe;
-            model.Developer.LookingFor = dto.Developer.LookingFor;
-            model.Developer.Salary = dto.Developer.Salary;
+            model.Developer.DisplayName = dto.DisplayName;
+            model.Developer.AboutMe = dto.AboutMe;
+            model.Developer.LookingFor = dto.LookingFor;
+            model.Developer.Salary = dto.Salary;
 
-            dto.Developer.Skills.Where(skillDto => skillDto.SkillId != 0)
+            dto.Skills.Where(skillDto => skillDto.SkillId != 0)
                 .ToList()
                 .ForEach(
                     skillDto =>
@@ -138,7 +146,7 @@
                     skillDto.Level);
 
             var newSkill =
-                dto.Developer.Skills.FirstOrDefault(
+                dto.Skills.FirstOrDefault(
                     skill => skill.SkillId == 0 && string.IsNullOrEmpty(skill.Name) == false && skill.Level > 0);
             if (newSkill != null)
             {

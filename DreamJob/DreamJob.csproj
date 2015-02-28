@@ -276,6 +276,8 @@
     <Content Include="Views\JobOffer\DisplayTemplates\JobOfferCommentViewModel.cshtml" />
     <Content Include="Views\JobOffer\ContactDetails.cshtml" />
     <Content Include="Views\JobOffer\DisplayTemplates\ContactInformationViewModel.cshtml" />
+    <Content Include="Views\Profile\_EditorForProfilePrivateDeveloperViewModel.cshtml" />
+    <Content Include="Views\Profile\_EditorForProfilePrivateRecruiterViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

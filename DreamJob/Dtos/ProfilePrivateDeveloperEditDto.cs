@@ -24,5 +24,7 @@
 
         [Required]
         public decimal Salary { get; set; }
+
+        public string Action { get; set; }
     }
 }
