@@ -160,9 +160,9 @@
     <Compile Include="Dtos\SearchSalaryDto.cs" />
     <Compile Include="Dtos\SearchSkillDto.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
-    <Compile Include="Migrations\201502252157157_INIT.cs" />
-    <Compile Include="Migrations\201502252157157_INIT.Designer.cs">
-      <DependentUpon>201502252157157_INIT.cs</DependentUpon>
+    <Compile Include="Migrations\201502280934411_init.cs" />
+    <Compile Include="Migrations\201502280934411_init.Designer.cs">
+      <DependentUpon>201502280934411_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDatabase.cs" />
@@ -284,8 +284,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502252157157_INIT.resx">
-      <DependentUpon>201502252157157_INIT.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201502280934411_init.resx">
+      <DependentUpon>201502280934411_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

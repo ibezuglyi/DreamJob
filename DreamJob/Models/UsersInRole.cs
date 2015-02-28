@@ -7,18 +7,15 @@
     public class UsersInRole
     {
         [Key, Column(Order = 0)]
-        public int RoleId { get; set; }
+        public int UserId { get; set; }
 
         [Key, Column(Order = 1)]
-        public int UserId { get; set; }
+        public int RoleId { get; set; }
 
         [Column("RoleId"), InverseProperty("UsersInRoles")]
         public Role Roles { get; set; }
 
         [Column("UserId"), InverseProperty("UsersInRoles")]
         public Membership Members { get; set; }
-
-
-
     }
 }
