@@ -7,6 +7,7 @@
             <div class="has-error text-danger">
                 @Html.ValidationSummary()
             </div>
+            @Html.HiddenFor(m => m.ReturnUrl)
             <div class="form-group">
                 @Html.LabelFor(m => m.Email)
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })

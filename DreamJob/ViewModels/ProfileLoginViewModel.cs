@@ -8,13 +8,16 @@
         {
             this.Email = dto.Email;
             this.RememberMe = dto.RememberMe;
+            this.ReturnUrl = dto.ReturnUrl;
         }
 
-        public ProfileLoginViewModel()
-            : this(new ProfileLoginDto())
+
+        public ProfileLoginViewModel(string returnUrl="")
+            : this(new ProfileLoginDto(returnUrl))
         {
         }
 
+        public string ReturnUrl { get; set; }
         public bool RememberMe { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }

@@ -28,9 +28,9 @@
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl)
         {
-            var viewModel = new ProfileLoginViewModel();
+            var viewModel = new ProfileLoginViewModel(returnUrl);
             return this.View("Login", viewModel);
         }
 
@@ -52,7 +52,14 @@
             var correct = this.accountService.Login(dto);
             if (correct)
             {
-                return this.RedirectToAction("LoginSuccess", "Profile");
+                if (string.IsNullOrWhiteSpace(dto.ReturnUrl))
+                {
+                    return this.RedirectToAction("LoginSuccess", "Profile");
+                }
+                else
+                {
+                    return this.Redirect(dto.ReturnUrl);
+                }
             }
             else
             {
