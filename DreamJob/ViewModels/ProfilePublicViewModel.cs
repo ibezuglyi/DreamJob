@@ -13,5 +13,7 @@
         public ProfilePublicRecruiterViewModel Recruiter { get; set; }
 
         public ApplicationUserRole CurrentUserRole { get; set; }
+
+        public bool CurrentUserProfileIsActive { get; set; }
     }
 }

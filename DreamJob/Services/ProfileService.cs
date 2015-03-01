@@ -43,9 +43,19 @@
                     .Include(p => p.Developer.Skills.Select(dd => dd.Skill))
                     .First(d => d.Id == id);
             var viewmodel = Mapper.Map<UserAccount, ProfilePublicViewModel>(model);
-            viewmodel.CurrentUserRole = this.authentication.GetCurrentLoggedUserRole();
-            this.authentication.GetCurrentLoggedUserRole();
+            
+            var currentLoggedUserRole = this.authentication.GetCurrentLoggedUserRole();
+            var currentLoggedUserId = this.authentication.GetCurrentLoggedUserId();
 
+            viewmodel.CurrentUserRole = currentLoggedUserRole;
+
+            var currentLoggedInUserModel =
+                this.applicationDatabase.Profiles.Include(r => r.Recruiter)
+                    .Include(r => r.Developer)
+                    .First(p => p.Id == currentLoggedUserId);
+            viewmodel.CurrentUserProfileIsActive = currentLoggedInUserModel.Role == ApplicationUserRole.Developer
+                                                       ? currentLoggedInUserModel.Developer.IsActive
+                                                       : currentLoggedInUserModel.Recruiter.IsActive;
             return viewmodel;
         }
 
@@ -177,7 +187,7 @@
         {
             var allDevelopers = this.applicationDatabase
                 .Developers
-                .Where(d=>d.IsActive)
+                .Where(d => d.IsActive)
                 .Include(d => d.Skills)
                 .ToList();
             var headlines = Mapper.Map<List<Developer>, List<DeveloperHeadlineViewModel>>(allDevelopers);
