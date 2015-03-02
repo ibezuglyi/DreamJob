@@ -19,6 +19,6 @@
         @Model.Status
     </div>
     <div class="col-md-1">
-        @Html.ActionLink("Details", "Details", "JobOffer", new { id = @Model.Id }, new { @class = "btn btn-info" })
+        @Html.ActionLink(string.Format("Deails ({0})", @Model.MessagesCount), "Details", "JobOffer", new { id = @Model.Id }, new { @class = "btn btn-info" })
     </div>
 </div>

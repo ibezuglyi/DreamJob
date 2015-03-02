@@ -13,5 +13,7 @@ namespace DreamJob.ViewModels
         public JobOfferStatus Status { get; set; }
 
         public long DeveloperId { get; set; }
+
+        public long MessagesCount { get; set; }
     }
 }

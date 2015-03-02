@@ -4,6 +4,12 @@
 
     public class JobOffer : DJDbBase
     {
+        public JobOffer()
+        {
+            this.JobOfferComments = new List<JobOfferComment>();
+            this.Statuses = new List<JobOfferStatusChange>();
+            this.NewMessagesToRead = new List<NewMessageToRead>();
+        }
         public string JobOfferText { get; set; }
         public string Position { get; set; }
         public decimal Salary { get; set; }
@@ -19,7 +25,7 @@
         public virtual Recruiter Recruiter { get; set; }
 
         public virtual List<JobOfferComment> JobOfferComments { get; set; }
-
         public virtual List<JobOfferStatusChange> Statuses { get; set; }
+        public virtual List<NewMessageToRead> NewMessagesToRead { get; set; }
     }
 }

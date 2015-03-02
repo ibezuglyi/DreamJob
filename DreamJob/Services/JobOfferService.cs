@@ -58,12 +58,14 @@
             List<JobOffer> offers;
             var jobOffers = this.applicationDatabase
                     .JobOffers
+                    .Include(d=>d.NewMessagesToRead)
                     .Include(d => d.Statuses)
                     .Include(d => d.Developer);
 
             if (currentRole == ApplicationUserRole.Recruiter)
             {
-                offers = jobOffers.Where(o => o.RecruiterId == currentUserId).ToList();
+                offers = jobOffers
+                    .Where(o => o.RecruiterId == currentUserId).ToList();
             }
             else
             {
@@ -71,6 +73,11 @@
             }
 
             var offersList = Mapper.Map<List<JobOffer>, List<JobOfferHeadlineViewModel>>(offers);
+            offersList.ForEach(
+                offer =>
+                offer.MessagesCount =
+                jobOffers.First(model => model.Id == offer.Id)
+                    .NewMessagesToRead.Count(message => message.UserAccountId == currentUserId));
             var viewmodel = new JobOfferIndexViewModel(offersList);
             return viewmodel;
         }
