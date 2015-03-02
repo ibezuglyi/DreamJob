@@ -58,7 +58,7 @@
             List<JobOffer> offers;
             var jobOffers = this.applicationDatabase
                     .JobOffers
-                    .Include(d=>d.NewMessagesToRead)
+                    .Include(d => d.NewMessagesToRead)
                     .Include(d => d.Statuses)
                     .Include(d => d.Developer);
 
@@ -84,13 +84,22 @@
 
         public JobOfferDetailsViewModel GetDetailsById(long id)
         {
+            var currentUserRole = this.authentication.GetCurrentLoggedUserRole();
+            var currentLoggedUserId = this.authentication.GetCurrentLoggedUserId();
             var model =
                 this.applicationDatabase
                     .JobOffers
                     .Include(o => o.Developer)
                     .Include(o => o.JobOfferComments)
                     .Include(o => o.Statuses)
+                    .Include(o => o.NewMessagesToRead)
                     .First(o => o.Id == id);
+
+
+            var newMessagesForMe =
+                model.NewMessagesToRead.Where(message => message.UserAccountId == currentLoggedUserId).ToList();
+            newMessagesForMe.Each(m => this.applicationDatabase.NewMessagesToRead.Remove(m));
+            this.applicationDatabase.SaveChanges();
 
             var developerComment =
                 model.JobOfferComments.FirstOrDefault(comment => comment.AuthorRole == ApplicationUserRole.Developer);
@@ -120,7 +129,6 @@
 
 
             var result = new JobOfferDetailsViewModel(jobOfferDetailViewModel);
-            var currentUserRole = this.authentication.GetCurrentLoggedUserRole();
 
             var currentStatus = model.Statuses.OrderByDescending(s => s.CreateDateTime).First().Status;
             var actions = this.GetOfferActionsForRoleAndOfferStatus(currentUserRole, currentStatus);
