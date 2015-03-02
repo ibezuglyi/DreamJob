@@ -18,7 +18,9 @@
         public IDbSet<JobOffer> JobOffers { get; set; }
         public IDbSet<JobOfferComment> JobOffersComments { get; set; }
         public IDbSet<JobOfferStatusChange> JobOfferStatusChanges { get; set; }
-        public IDbSet<ContactInformation> ContactInformations { get; set; } 
+        public IDbSet<ContactInformation> ContactInformations { get; set; }
+
+        public IDbSet<NewMessageToRead> NewMessagesToRead { get; set; }
 
 
 

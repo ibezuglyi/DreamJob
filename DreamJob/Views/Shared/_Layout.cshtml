@@ -29,7 +29,8 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li>
-                        @Html.ActionLink("Offers", "Index", "JobOffer")
+                        @Html.Action("NewMessages","Menu")
+                        @*@Html.ActionLink("Offers", "Index", "JobOffer")*@
                     </li>
                 }
             </ul>

@@ -33,10 +33,10 @@
         [HttpPost]
         public ActionResult Send(JobOfferSendDto dto)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 this.jobofferService.Add(dto);
-                return RedirectToAction("Index", "Home");
+                return this.RedirectToAction("Index", "Home");
             }
             var viewmodel = new JobOfferSendViewModel(dto);
             return this.View("Send", viewmodel);
@@ -130,7 +130,7 @@
         [HttpGet]
         public ActionResult ContactDetails(long id)
         {
-            var viewmodel=this.jobofferService.GetContactDetailsById(id);
+            var viewmodel = this.jobofferService.GetContactDetailsById(id);
             return this.View("ContactDetails", viewmodel);
         }
     }

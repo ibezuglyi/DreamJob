@@ -17,8 +17,10 @@
 
             builder.RegisterType<ProfileService>().As<IProfileService>();
             builder.RegisterType<JobOfferService>().As<IJobOfferService>();
+            builder.RegisterType<MenuService>().As<IMenuService>();
             builder.RegisterType<CommentService>().As<ICommentService>();
             builder.RegisterType<WebSecurityAccountService>().As<IAccountService>();
+
             builder.RegisterType<ApplicationDatabase>().InstancePerLifetimeScope();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 

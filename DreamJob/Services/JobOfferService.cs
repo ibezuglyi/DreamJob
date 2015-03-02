@@ -41,6 +41,12 @@
 
             this.applicationDatabase.JobOffers.Add(model);
             this.applicationDatabase.JobOfferStatusChanges.Add(josc);
+
+            var newMessage = new NewMessageToRead(dto.DeveloperId, model.Id, ApplicationMessageType.JobOffer);
+            newMessage.CreateDateTime = DateTime.Now;
+
+            this.applicationDatabase.NewMessagesToRead.Add(newMessage);
+
             this.applicationDatabase.SaveChanges();
         }
 
@@ -147,6 +153,15 @@
             model.AuthorId = this.authentication.GetCurrentLoggedUserId();
             model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
             this.applicationDatabase.JobOfferStatusChanges.Add(model);
+
+            var jobOfferModel = this.applicationDatabase.JobOffers.First(joboffer => joboffer.Id == dto.JobOfferId);
+            var newMessage = new NewMessageToRead(
+                jobOfferModel.RecruiterId,
+                dto.JobOfferId,
+                ApplicationMessageType.Status);
+            newMessage.CreateDateTime = DateTime.Now;
+            this.applicationDatabase.NewMessagesToRead.Add(newMessage);
+
             this.applicationDatabase.SaveChanges();
         }
 
@@ -157,6 +172,16 @@
             model.AuthorId = this.authentication.GetCurrentLoggedUserId();
             model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
             this.applicationDatabase.JobOfferStatusChanges.Add(model);
+
+            var jobOfferModel = this.applicationDatabase.JobOffers.First(jobOffer => jobOffer.Id == dto.JobOfferId);
+
+            var newMessage = new NewMessageToRead(
+                jobOfferModel.DeveloperId,
+                dto.JobOfferId,
+                ApplicationMessageType.Status);
+            newMessage.CreateDateTime = DateTime.Now;
+
+            this.applicationDatabase.NewMessagesToRead.Add(newMessage);
             this.applicationDatabase.SaveChanges();
         }
 
@@ -169,6 +194,15 @@
             model.ContactInformation.CreateDateTime = DateTime.Now;
             model.ContactInformation.JobOfferStatusChangeId = model.Id;
             this.applicationDatabase.JobOfferStatusChanges.Add(model);
+
+            var jobOfferModel = this.applicationDatabase.JobOffers.First(joboffer => joboffer.Id == dto.JobOfferId);
+            var newMessage = new NewMessageToRead(
+                jobOfferModel.RecruiterId,
+                dto.JobOfferId,
+                ApplicationMessageType.Status);
+            newMessage.CreateDateTime = DateTime.Now;
+            this.applicationDatabase.NewMessagesToRead.Add(newMessage);
+
             this.applicationDatabase.SaveChanges();
         }
 
@@ -179,6 +213,15 @@
             model.AuthorId = this.authentication.GetCurrentLoggedUserId();
             model.AuthorRole = this.authentication.GetCurrentLoggedUserRole();
             this.applicationDatabase.JobOfferStatusChanges.Add(model);
+
+            var jobOfferModel = this.applicationDatabase.JobOffers.First(joboffer => joboffer.Id == dto.JobOfferId);
+            var newMessage = new NewMessageToRead(
+                jobOfferModel.RecruiterId,
+                dto.JobOfferId,
+                ApplicationMessageType.Status);
+            newMessage.CreateDateTime = DateTime.Now;
+            this.applicationDatabase.NewMessagesToRead.Add(newMessage);
+
             this.applicationDatabase.SaveChanges();
         }
 
