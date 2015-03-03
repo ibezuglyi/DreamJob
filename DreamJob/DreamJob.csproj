@@ -143,6 +143,7 @@
   <ItemGroup>
     <Compile Include="App_Start\ApplicationMapper.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\JobOfferController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -291,6 +292,8 @@
     <Content Include="Views\Profile\_EditorForProfilePrivateDeveloperViewModel.cshtml" />
     <Content Include="Views\Profile\_EditorForProfilePrivateRecruiterViewModel.cshtml" />
     <Content Include="Views\Menu\NewMessages.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

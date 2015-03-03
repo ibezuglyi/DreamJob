@@ -101,11 +101,6 @@
             newMessagesForMe.Each(m => this.applicationDatabase.NewMessagesToRead.Remove(m));
             this.applicationDatabase.SaveChanges();
 
-            var developerComment =
-                model.JobOfferComments.FirstOrDefault(comment => comment.AuthorRole == ApplicationUserRole.Developer);
-            var recruiterComment =
-                model.JobOfferComments.FirstOrDefault(comment => comment.AuthorRole == ApplicationUserRole.Recruiter);
-
             Developer developerModel = this.applicationDatabase.Developers.First(d => d.Id == model.DeveloperId);
             Recruiter recruiterModel = this.applicationDatabase.Recruiters.First(d => d.Id == model.RecruiterId);
 

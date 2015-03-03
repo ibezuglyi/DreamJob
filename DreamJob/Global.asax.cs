@@ -1,5 +1,7 @@
 ﻿namespace DreamJob
 {
+    using System;
+    using System.Net.Mail;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
