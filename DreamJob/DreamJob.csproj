@@ -213,6 +213,8 @@
     <Compile Include="ViewModels\ContactInformationViewModel.cs" />
     <Compile Include="ViewModels\DeveloperHeadlineViewModel.cs" />
     <Compile Include="ViewModels\DeveloperSkillViewModel.cs" />
+    <Compile Include="ViewModels\ErrorIndexViewModel.cs" />
+    <Compile Include="ViewModels\ErrorNotFoundViewModel.cs" />
     <Compile Include="ViewModels\HomeIndexViewModel.cs" />
     <Compile Include="ViewModels\JobOfferAcceptViewModel.cs" />
     <Compile Include="ViewModels\JobOfferCancelViewModel.cs" />

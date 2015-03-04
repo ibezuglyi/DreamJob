@@ -2,6 +2,8 @@
 {
     using System.Web.Mvc;
 
+    using DreamJob.ViewModels;
+
     public class ErrorController : Controller
     {
         public ActionResult Index()
@@ -15,14 +17,5 @@
             var viewmodel = new ErrorNotFoundViewModel();
             return this.View("NotFound", viewmodel);
         }
-
-    }
-
-    public class ErrorNotFoundViewModel
-    {
-    }
-
-    public class ErrorIndexViewModel
-    {
     }
 }
