@@ -7,14 +7,17 @@
         public List<DeveloperHeadlineViewModel> Headlines { get; set; }
         public List<SkillViewModel> SkillsMatchedFount { get; set; }
 
+        public List<string> RequestedSkills { get; set; }
+
         public SearchResultViewModel(List<DeveloperHeadlineViewModel> headlines)
-            : this(headlines, new List<SkillViewModel>())
+            : this(headlines, new List<SkillViewModel>(), new List<string>())
         { }
 
-        public SearchResultViewModel(List<DeveloperHeadlineViewModel> headlines, List<SkillViewModel> skillsMatchedFount)
+        public SearchResultViewModel(List<DeveloperHeadlineViewModel> headlines, List<SkillViewModel> skillsMatchedFount, List<string> requestedSkills)
         {
             this.Headlines = headlines;
             this.SkillsMatchedFount = skillsMatchedFount;
+            this.RequestedSkills = requestedSkills;
         }
     }
 }

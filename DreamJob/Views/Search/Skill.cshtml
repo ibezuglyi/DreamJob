@@ -3,7 +3,14 @@
 <div class="container">
     <div class="col-md-10 col-md-offset-1">
         <div class="row">
-            Showing results for following skills:
+            Requested skills:
+            @foreach (var skillquery in @Model.RequestedSkills)
+            {
+                <span class="label label-info">@skillquery</span>
+            }
+        </div>
+        <div class="row">
+            Matching skills:
             @Html.DisplayFor(m => m.SkillsMatchedFount)
         </div>
         <div class="row">

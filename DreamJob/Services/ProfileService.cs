@@ -197,9 +197,11 @@
 
         public SearchResultViewModel GetDevelopersHeadlinesWithSkill(SearchSkillDto dto)
         {
+            var requestedSkills = dto.Skill.ToLower().Split(new[] { " ", ",", ";", }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
             var skills =
-                this.applicationDatabase.Skills.Where(skill => skill.Name.ToLower().Contains(dto.Skill.ToLower()))
-                    .ToList();
+                this.applicationDatabase.Skills.Where(
+                    skill => requestedSkills.Any(rs => skill.Name.ToLower().Contains(rs))).ToList();
 
             var skillsIds = skills.Select(s => s.Id).ToList();
 
@@ -216,7 +218,7 @@
 
             var skillMatchedFount = Mapper.Map<List<Skill>, List<SkillViewModel>>(skills);
             var headlines = Mapper.Map<List<Developer>, List<DeveloperHeadlineViewModel>>(developersWithSkill);
-            return new SearchResultViewModel(headlines, skillMatchedFount);
+            return new SearchResultViewModel(headlines, skillMatchedFount, requestedSkills);
         }
 
         public SearchResultViewModel GetDevelopersHeadlinesWithSalaryInRange(SearchSalaryDto dto)
