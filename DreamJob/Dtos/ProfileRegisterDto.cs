@@ -8,11 +8,6 @@
     public class ProfileRegisterDto
     {
         [Required]
-        [MinLength(3)]
-        [AllowHtml]
-        public string DisplayName { get; set; }
-
-        [Required]
         [EmailAddress]
         [AllowHtml]
         public string Email { get; set; }

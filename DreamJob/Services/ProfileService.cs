@@ -205,13 +205,16 @@
 
             var skillsIds = skills.Select(s => s.Id).ToList();
 
+            var activeDevelopers = this.applicationDatabase
+                .DeveloperSkills
+                .Include(ds => ds.Developer)
+                .Where(d => d.Developer.IsActive);
+
+            var developerSkills = activeDevelopers
+                .Where(ds => skillsIds.Contains(ds.SkillId));
             var developersWithSkill =
-                this.applicationDatabase
-                    .DeveloperSkills
-                    .Include(ds => ds.Developer)
-                    .Where(d => d.Developer.IsActive)
-                    .Where(ds => skillsIds.Contains(ds.Id))
-                    .Distinct()
+                developerSkills
+                    //.Distinct()
                     .Select(ds => ds.Developer)
                     .Include(d => d.Skills)
                     .ToList();

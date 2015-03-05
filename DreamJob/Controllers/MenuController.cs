@@ -13,7 +13,7 @@
             this.menuService = menuService;
         }
 
-        [HttpGet]
+        //[HttpGet]
         [ChildActionOnly]
         public ActionResult NewMessages()
         {
