@@ -1,6 +1,7 @@
 ﻿namespace DreamJob.Dtos
 {
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
     public class JobOfferSendDto
     {
@@ -25,10 +26,12 @@
 
         [Required]
         [MinLength(10)]
+        [AllowHtml]
         public string JobOfferText { get; set; }
 
         [Required]
         [MinLength(3)]
+        [AllowHtml]
         public string Position { get; set; }
 
         [Required]
@@ -36,10 +39,12 @@
 
         [Required]
         [MinLength(3)]
+        [AllowHtml]
         public string CompanyName { get; set; }
 
         [Required]
         [MinLength(3)]
+        [AllowHtml]
         public string Requirements { get; set; }
 
         [Required]

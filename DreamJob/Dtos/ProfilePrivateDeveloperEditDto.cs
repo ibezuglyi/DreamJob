@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
     public class ProfilePrivateDeveloperEditDto
     {
@@ -15,17 +16,24 @@
         }
 
         [Required]
+        [AllowHtml]
         public string DisplayName { get; set; }
+
         [Required]
+        [AllowHtml]
         public string AboutMe { get; set; }
+        
         [Required]
+        [AllowHtml]
         public string LookingFor { get; set; }
+        
         public List<DeveloperSkillDto> Skills { get; set; }
 
         [Required]
         public decimal Salary { get; set; }
 
         public string Action { get; set; }
+        
         public bool IsActive { get; set; }
     }
 }
