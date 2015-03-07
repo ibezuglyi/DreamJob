@@ -46,6 +46,10 @@
         public ActionResult Details(long id)
         {
             var viewmodel = this.jobofferService.GetDetailsById(id);
+            if (viewmodel == null)
+            {
+                return new HttpUnauthorizedResult();
+            }
             return this.View("Details", viewmodel);
         }
 

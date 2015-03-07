@@ -95,6 +95,14 @@
                     .Include(o => o.NewMessagesToRead)
                     .First(o => o.Id == id);
 
+            if (currentUserRole == ApplicationUserRole.Developer && model.DeveloperId != currentLoggedUserId)
+            {
+                return null;
+            }
+            if (currentUserRole == ApplicationUserRole.Recruiter && model.RecruiterId != currentLoggedUserId)
+            {
+                return null;
+            }
 
             var newMessagesForMe =
                 model.NewMessagesToRead.Where(message => message.UserAccountId == currentLoggedUserId).ToList();
