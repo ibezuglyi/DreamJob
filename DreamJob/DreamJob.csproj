@@ -135,6 +135,7 @@
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\sendJobOffer.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-2.1.3.min.map" />
     <Content Include="Views\Profile\Register.cshtml" />
@@ -144,6 +145,7 @@
     <Compile Include="App_Start\ApplicationMapper.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExtensionMethods\ControllersExtensions.cs" />
     <Compile Include="Controllers\JobOfferController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -296,6 +298,7 @@
     <Content Include="Views\Menu\NewMessages.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\JobOffer\_SendJobOfferForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

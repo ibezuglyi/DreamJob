@@ -1,7 +1,5 @@
 ﻿namespace DreamJob
 {
-    using System;
-    using System.Net.Mail;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
@@ -16,6 +14,8 @@
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             ApplicationIocContainer.Initialize();
             ApplicationMapper.Initialize();
+
+
 
             WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserAccounts", "Id", "Email", false);
         }

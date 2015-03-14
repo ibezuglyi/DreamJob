@@ -2,6 +2,7 @@
 {
     using System.Web.Mvc;
 
+    using DreamJob.Controllers.ExtensionMethods;
     using DreamJob.Dtos;
     using DreamJob.Services;
     using DreamJob.ViewModels;
@@ -28,6 +29,34 @@
         {
             var viewmodel = new JobOfferSendViewModel(id);
             return this.View("Send", viewmodel);
+        }
+
+
+        [HttpGet]
+        public ActionResult SendJobOfferDialog(long id)
+        {
+            var viewmodel = new JobOfferSendViewModel(id);
+            var stringView = this.PartialViewAsString("_SendJobOfferForm", viewmodel);
+            var jsonResult = new JsonResult() { Data = stringView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            return jsonResult;
+        }
+
+        [HttpPost]
+        public ActionResult SendJobOfferDialog(JobOfferSendDto dto)
+        {
+            JsonResult jsonResult;
+            if (this.ModelState.IsValid)
+            {
+                this.jobofferService.Add(dto);
+                jsonResult = new JsonResult { Data = string.Empty };
+            }
+            else
+            {
+                var viewmodel = new JobOfferSendViewModel(dto);
+                var stringView = this.PartialViewAsString("_SendJobOfferForm", viewmodel);
+                jsonResult = new JsonResult { Data = stringView };
+            }
+            return jsonResult;
         }
 
         [HttpPost]

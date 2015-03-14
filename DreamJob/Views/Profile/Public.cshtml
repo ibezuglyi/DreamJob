@@ -32,11 +32,9 @@
         </div>
     }
 
-    @if (Model.CurrentUserRole == ApplicationUserRole.Recruiter
-        && Model.ProfileRole == ApplicationUserRole.Developer
-        && Model.CurrentUserProfileIsActive)
+    @if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.ProfileRole == ApplicationUserRole.Developer && Model.CurrentUserProfileIsActive)
     {
-        @Html.ActionLink("Send job offer", "Send", "JobOffer", new { id = @Model.Developer.Id }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Send job offer", "Send", "JobOffer", new { id = @Model.Developer.Id }, new { @class = "btn btn-default nocss-button-send-job-offer" })
     }
     @if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.CurrentUserProfileIsActive == false)
     {
@@ -46,4 +44,32 @@
             @Html.ActionLink("Go to profile edit", "Edit", "Profile", null, new { @class = "btn btn-default btn-sm" })
         </div>
     }
+
+
 </div>
+<div class="modal nocss-dialog-send-job-offer" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content nocss-content-send-job-offer"></div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/sendJobOffer.js"></script>
+    <script type="text/javascript">
+        var sendJobOfferOptions = {
+            formSendJobOffer: ".nocss-form-job-offer",
+            alertSuccess: ".nocss-alert-success",
+            errorError: ".nocss-alert-error",
+            buttonSendJobOfferSubmit: ".nocss-button-job-offer-submit",
+            buttonSendJobOffer: ".nocss-button-send-job-offer",
+            contentSendJobOfferDialog: ".nocss-content-send-job-offer",
+            placeholderSendJobOfferDialog: ".nocss-dialog-send-job-offer",
+            urlSendJobOfferDialog: "@Url.Action("SendJobOfferDialog","JobOffer",new{id=@Model.Developer.Id})"
+        };
+
+        $(window).ready(function() {
+            sendJobOffer.initialize(sendJobOfferOptions);
+        });
+    </script>
+}
