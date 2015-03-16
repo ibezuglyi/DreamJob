@@ -132,6 +132,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\jobOfferDetailsComments.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
     <Content Include="Scripts\npm.js" />
@@ -174,6 +175,10 @@
     <Compile Include="Migrations\201503022102101_new message to read.cs" />
     <Compile Include="Migrations\201503022102101_new message to read.Designer.cs">
       <DependentUpon>201503022102101_new message to read.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503162207303_comment-with-author.cs" />
+    <Compile Include="Migrations\201503162207303_comment-with-author.Designer.cs">
+      <DependentUpon>201503162207303_comment-with-author.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDatabase.cs" />
@@ -299,6 +304,8 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\JobOffer\_SendJobOfferForm.cshtml" />
+    <Content Include="Views\Shared\_JobOfferComment.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\JobOfferCommentViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -315,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503022102101_new message to read.resx">
       <DependentUpon>201503022102101_new message to read.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503162207303_comment-with-author.resx">
+      <DependentUpon>201503162207303_comment-with-author.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

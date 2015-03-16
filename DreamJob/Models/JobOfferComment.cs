@@ -5,6 +5,8 @@ namespace DreamJob.Models
     public class JobOfferComment : DJDbBase
     {
         public long AuthorId { get; set; }
+        public virtual UserAccount Author { get; set; }
+
         public ApplicationUserRole AuthorRole { get; set; }
         public string Text { get; set; }
 

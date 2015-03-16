@@ -1,9 +1,11 @@
 ﻿namespace DreamJob.Services
 {
     using DreamJob.Dtos;
+    using DreamJob.ViewModels;
 
     public interface ICommentService
     {
-        void Add(CommentAddDto dto);
+        long Add(CommentAddDto dto);
+        JobOfferCommentViewModel AddAndGetViewModelForCurrentUser(CommentAddDto dto);
     }
 }

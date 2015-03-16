@@ -1,8 +1,8 @@
 ﻿namespace DreamJob.Services
 {
     using System;
+    using System.Data.Entity;
     using System.Linq;
-    using System.Web;
 
     using AutoMapper;
 
@@ -23,7 +23,7 @@
             this.applicationDatabase = applicationDatabase;
         }
 
-        public void Add(CommentAddDto dto)
+        public long Add(CommentAddDto dto)
         {
             var currentUserId = this.authentication.GetCurrentLoggedUserId();
             var currentUserRole = this.authentication.GetCurrentLoggedUserRole();
@@ -45,6 +45,32 @@
 
             this.applicationDatabase.JobOffersComments.Add(model);
             this.applicationDatabase.SaveChanges();
+            return model.Id;
+        }
+
+        public JobOfferCommentViewModel AddAndGetViewModelForCurrentUser(CommentAddDto dto)
+        {
+            var newCommentId = this.Add(dto);
+            var commentModel =
+                this.applicationDatabase.JobOffersComments.Include(c => c.Author)
+                    .Include(c => c.Author.Recruiter)
+                    .Include(c => c.Author.Developer)
+                    .First(comment => comment.Id == newCommentId);
+            var viewmodel = Mapper.Map<JobOfferComment, JobOfferCommentViewModel>(commentModel);
+            var currentLoggedUserRole = this.authentication.GetCurrentLoggedUserRole();
+            if (currentLoggedUserRole == ApplicationUserRole.Developer)
+            {
+                viewmodel.AuthorDisplayName = commentModel.Author.Developer.DisplayName;
+            }
+            else
+            {
+                viewmodel.AuthorDisplayName = string.Format(
+                    "{0} {1}",
+                    commentModel.Author.Recruiter.FirstName,
+                    commentModel.Author.Recruiter.LastName);
+            }
+
+            return viewmodel;
         }
     }
 }

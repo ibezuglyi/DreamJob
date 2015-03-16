@@ -12,3 +12,18 @@
         @Html.EditorFor(m => m.NewCommentViewModel)
     </div>
 </div>
+
+<script src="~/Scripts/jobOfferDetailsComments.js"></script>
+<script type="text/javascript">
+
+    var jobOfferDetailsCommentOptions = {
+        buttonJobOfferDetailAddComment: ".nocss-button-job-offer-add-comment",
+        formAddComment: ".nocss-form-job-offer-add-comment",
+        containerJobOfferComments: ".nocss-container-job-offer-comments",
+        urlJobOfferAddComment:"@Url.Action("AddPartial","Comment")"
+    };
+
+    $(document).ready(function() {
+        jobOfferDetailsComments.initialize(jobOfferDetailsCommentOptions);
+    });
+</script>                                                                                      

@@ -6,7 +6,7 @@
     </h1>
     <h2>
         <span>@Model.DeveloperDisplayName</span>
-        <span class="small">@Html.ActionLink("( view profile)", "Public", "Profile", new { id = Model.DeveloperId },null)</span>
+        <span class="small">@Html.ActionLink("( view profile)", "Public", "Profile", new { id = Model.DeveloperId }, null)</span>
     </h2>
     <h5>
         <span>@Html.DisplayFor(m => m.CreateDateTime) <span class="badge">@Model.Status</span> </span>
@@ -36,6 +36,8 @@
 
 <div>
     <label>Comments:</label>
-    @Html.DisplayFor(m => m.JobOfferComments)
+    <div class="nocss-container-job-offer-comments">
+        @Html.DisplayFor(m => m.JobOfferComments)
+    </div>
 </div>
 
