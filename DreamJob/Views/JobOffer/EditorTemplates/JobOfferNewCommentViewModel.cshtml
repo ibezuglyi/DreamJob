@@ -3,22 +3,22 @@
 
 @using (Html.BeginForm("Add", "Comment", FormMethod.Post, new { @class = "nocss-form-job-offer-add-comment" }))
 {
-    <input type="hidden" name="JobOfferId" value="@Model.JobOfferId" />
+    <input type="hidden" name="JobOfferId" value="@Model.JobOfferId"/>
     foreach (var s in Model.Statuses)
     {
         switch (s)
         {
             case JobOfferStatus.Rejected:
-                @Html.ActionLink(s.ToString(), "Reject", "JobOffer",new{id=@Model.JobOfferId},new{@class="btn btn-danger"});
+                @Html.ActionLink(s.ToString(), "Reject", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Rejected.ToString() })
                 break;
             case JobOfferStatus.Canceled:
-                @Html.ActionLink(s.ToString(), "Cancel", "JobOffer",new{id=@Model.JobOfferId},new{@class="btn btn-danger"});
+                @Html.ActionLink(s.ToString(), "Cancel", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Canceled.ToString() })
                 break;
             case JobOfferStatus.Accepted:
-                @Html.ActionLink(s.ToString(), "Accept", "JobOffer",new{id=@Model.JobOfferId},new{@class="btn btn-primary"})
+                @Html.ActionLink(s.ToString(), "Accept", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Accepted.ToString() })
                 break;
             case JobOfferStatus.Confirmed:
-                @Html.ActionLink(s.ToString(), "Confirm", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary" });
+                @Html.ActionLink(s.ToString(), "Confirm", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Rejected.ToString() })
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

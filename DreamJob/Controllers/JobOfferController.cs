@@ -1,5 +1,6 @@
 ﻿namespace DreamJob.Controllers
 {
+    using System;
     using System.Web.Mvc;
 
     using DreamJob.Controllers.ExtensionMethods;
@@ -80,6 +81,35 @@
                 return new HttpUnauthorizedResult();
             }
             return this.View("Details", viewmodel);
+        }
+
+        [HttpGet]
+        public ActionResult StatusChange(long id, JobOfferStatus status)
+        {
+            var viewAsString = string.Empty;
+            switch (status)
+            {
+                case JobOfferStatus.Rejected:
+                    var rejectViewModel = this.jobofferService.GetJobOfferRejectViewModel(id);
+                    viewAsString = this.PartialViewAsString("Reject", rejectViewModel);
+                    break;
+                case JobOfferStatus.Canceled:
+                    var cancelViewModel = this.jobofferService.GetJobOfferCancelViewModel(id);
+                    viewAsString = this.PartialViewAsString("Cancel", cancelViewModel);
+                    break;
+                case JobOfferStatus.Accepted:
+                    var acceptViewModel = this.jobofferService.GetJobOfferAcceptViewModel(id);
+                    viewAsString = this.PartialViewAsString("Accept", acceptViewModel);
+                    break;
+                case JobOfferStatus.Confirmed:
+                    var confirmViewModel = this.jobofferService.GetJobOfferConfirmViewModel(id);
+                    viewAsString = this.PartialViewAsString("Confirm", confirmViewModel);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("status");
+            }
+            var jsonResult = new JsonResult { Data = viewAsString, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            return jsonResult;
         }
 
         [HttpGet]

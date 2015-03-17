@@ -13,7 +13,14 @@
     </div>
 </div>
 
+<div class="modal nocss-dialog-job-offer-change-status" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content nocss-content-job-offer-change-status"></div>
+    </div>
+</div>
+
 <script src="~/Scripts/jobOfferDetailsComments.js"></script>
+<script src="~/Scripts/jobOfferDetailsChangeStatus.js"></script>
 <script type="text/javascript">
 
     var jobOfferDetailsCommentOptions = {
@@ -23,7 +30,17 @@
         urlJobOfferAddComment:"@Url.Action("AddPartial","Comment")"
     };
 
+    var jobOfferDetailsChangeStatusOptions = {
+        containerJobOfferStatusChangeDialog: ".nocss-dialog-job-offer-change-status",
+        containerJobOfferStatusChangeContent: ".nocss-content-job-offer-change-status",
+        buttonJobOfferStatusChange: ".nocss-button-status-change",
+        dataJobOfferDataAttributeStatus: "job-offer-status",
+        dataJobOfferId: "@Model.JobOfferDetailViewModel.Id",
+        urlJobOfferStatusChange: '@Url.Action("StatusChange","JobOffer")'
+    };
+
     $(document).ready(function() {
         jobOfferDetailsComments.initialize(jobOfferDetailsCommentOptions);
+        jobOfferDetailsChangeStatus.initialize(jobOfferDetailsChangeStatusOptions);
     });
 </script>                                                                                      
