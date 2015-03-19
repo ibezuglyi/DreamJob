@@ -112,6 +112,16 @@
             return jsonResult;
         }
 
+        [HttpPost]
+        public ActionResult StatusChange(JobOfferStatusChangeDto dto)
+        {
+            if (ModelState.IsValid)
+            {
+                this.jobofferService.ChangeStatus(dto);
+            }
+            return new JsonResult { Data = "OK" };
+        }
+
         [HttpGet]
         public ActionResult Reject(long id)
         {

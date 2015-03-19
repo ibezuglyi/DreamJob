@@ -243,6 +243,32 @@
             this.applicationDatabase.SaveChanges();
         }
 
+        public void ChangeStatus(JobOfferStatusChangeDto dto)
+        {
+            switch (dto.Status)
+            {
+                case JobOfferStatus.Rejected:
+                    var rejectDto = Mapper.Map<JobOfferStatusChangeDto, JobOfferRejectDto>(dto);
+                    this.RejectOffer(rejectDto);
+                    break;
+                case JobOfferStatus.Canceled:
+                    var cancelDto = Mapper.Map<JobOfferStatusChangeDto, JobOfferCancelDto>(dto);
+                    this.CancelOffer(cancelDto);
+                    break;
+                case JobOfferStatus.Accepted:
+                    var acceptDto = Mapper.Map<JobOfferStatusChangeDto, JobOfferAcceptDto>(dto);
+                    this.AcceptOffer(acceptDto);
+                    break;
+                case JobOfferStatus.Confirmed:
+                    var confirmDto = Mapper.Map<JobOfferStatusChangeDto, JobOfferConfirmDto>(dto);
+                    this.ConfirmOffer(confirmDto);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+        }
+
         public JobOfferContactDetailsViewModel GetContactDetailsById(long id)
         {
             var model = this.applicationDatabase

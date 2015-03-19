@@ -159,6 +159,7 @@
     <Compile Include="Dtos\JobOfferConfirmDto.cs" />
     <Compile Include="Dtos\JobOfferRejectDto.cs" />
     <Compile Include="Dtos\JobOfferSendDto.cs" />
+    <Compile Include="Dtos\JobOfferStatusChangeDto.cs" />
     <Compile Include="Dtos\ProfileLoginDto.cs" />
     <Compile Include="Dtos\ProfilePrivateDeveloperEditDto.cs" />
     <Compile Include="Dtos\ProfilePrivateRecruiterDto.cs" />

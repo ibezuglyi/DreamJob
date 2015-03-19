@@ -19,7 +19,9 @@
         void CancelOffer(JobOfferCancelDto dto);
         void AcceptOffer(JobOfferAcceptDto dto);
         void ConfirmOffer(JobOfferConfirmDto dto);
+        void ChangeStatus(JobOfferStatusChangeDto dto);
 
         JobOfferContactDetailsViewModel GetContactDetailsById(long id);
+
     }
 }

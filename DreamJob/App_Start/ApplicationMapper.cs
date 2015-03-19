@@ -80,6 +80,12 @@ namespace DreamJob
             Mapper.CreateMap<ContactInformationDto, ContactInformation>();
             Mapper.CreateMap<ContactInformation, ContactInformationViewModel>()
                 .ForMember(d => d.JobOfferId, o => o.MapFrom(s => s.JobOfferStatusChange.JobOfferId));
+
+            Mapper.CreateMap<JobOfferStatusChangeDto, JobOfferRejectDto>();
+            Mapper.CreateMap<JobOfferStatusChangeDto, JobOfferCancelDto>();
+            Mapper.CreateMap<JobOfferStatusChangeDto, JobOfferAcceptDto>();
+            Mapper.CreateMap<JobOfferStatusChangeDto, JobOfferConfirmDto>();
+
         }
     }
 }

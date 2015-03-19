@@ -18,7 +18,7 @@
                 @Html.ActionLink(s.ToString(), "Accept", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Accepted.ToString() })
                 break;
             case JobOfferStatus.Confirmed:
-                @Html.ActionLink(s.ToString(), "Confirm", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Rejected.ToString() })
+                @Html.ActionLink(s.ToString(), "Confirm", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Confirmed.ToString() })
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

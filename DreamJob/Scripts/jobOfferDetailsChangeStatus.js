@@ -2,9 +2,38 @@
     var module = {};
     var _options = {};
 
+    var onJobOfferStatusSubmitSuccess = function(data, status) {
+        //_options.modal.modal("close");
+        //_options.modal = null;
+        location.reload();
+    };
+
+    var onJobOfferStatusSubmitError = function(data, status) {
+        console.log("!ERROR: onJobOfferStatusSubmitError");
+        console.log("\t- " + data);
+        console.log("\t- " + status);
+    };
+
+    var onButtonJobOfferStatusChangeSubmitClicked = function(e) {
+        e.preventDefault();
+        var form = $(e.target).closest("form");
+        var formData = form.serialize() + "&status=" + _options.status;
+
+        var ajaxOptions = {
+            url: _options.urlJobOfferStatusChange,
+            data: formData,
+            dataType: "JSON",
+            type: "POST",
+            success: onJobOfferStatusSubmitSuccess,
+            error: onJobOfferStatusSubmitError
+        };
+        $.ajax(ajaxOptions);
+    };
+
     var onGetJobOfferStatusSuccess = function(data, status) {
         $(_options.containerJobOfferStatusChangeContent).html(data);
-        $(_options.containerJobOfferStatusChangeDialog).modal("show");
+        _options.modal = $(_options.containerJobOfferStatusChangeDialog).modal("show");
+        $(_options.buttonJobOfferStatusChangeSubmit).on("click", onButtonJobOfferStatusChangeSubmitClicked);
 
     };
     var onGetJobOfferStatusError = function() {
@@ -16,6 +45,7 @@
     var onButtonJobOfferStatusChangeClicked = function(e) {
         e.preventDefault();
         var newJobStatusType = $(e.target).data(_options.dataJobOfferDataAttributeStatus);
+        _options.status = newJobStatusType;
         var ajaxOptions = {
             type: "GET",
             dataType: "JSON",
