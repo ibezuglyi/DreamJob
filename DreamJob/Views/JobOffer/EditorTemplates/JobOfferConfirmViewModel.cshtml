@@ -2,6 +2,9 @@
 
 @using (Html.BeginForm("Confirm", "JobOffer", FormMethod.Post))
 {
+    <div class="has-error text-danger">
+        @Html.ValidationSummary(false, string.Empty, new { @class = "nocss-validation-errors" })
+    </div>
     @Html.HiddenFor(m => m.JobOfferId)
     <div class="form-group">
         @Html.LabelFor(m => m.Text)

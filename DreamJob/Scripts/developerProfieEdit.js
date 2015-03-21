@@ -3,7 +3,7 @@
     var _options = {};
 
     var onSkillRemoveSuccess = function(data, status) {
-        if (data.length > 0) {
+        if (data.Success === true) {
             module._button.closest(_options.skillRow).remove();
         }
     };

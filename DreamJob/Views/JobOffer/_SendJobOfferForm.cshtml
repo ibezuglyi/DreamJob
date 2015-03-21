@@ -1,6 +1,6 @@
 ﻿@model DreamJob.ViewModels.JobOfferSendViewModel
 
-@Html.ValidationSummary()
+@Html.ValidationSummary(false, string.Empty, new { @class="nocss-validation-errors"})
 <form action="@Url.Action("Send", "JobOffer")" method="post" class="nocss-form-job-offer">
     @Html.HiddenFor(m => m.DeveloperId)
 

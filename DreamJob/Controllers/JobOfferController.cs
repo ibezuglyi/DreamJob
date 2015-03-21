@@ -1,6 +1,9 @@
 ﻿namespace DreamJob.Controllers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Data.SqlTypes;
+    using System.Linq;
     using System.Web.Mvc;
 
     using DreamJob.Controllers.ExtensionMethods;
@@ -36,27 +39,33 @@
         [HttpGet]
         public ActionResult SendJobOfferDialog(long id)
         {
+            var result = new DjJsonResultDto<string>();
             var viewmodel = new JobOfferSendViewModel(id);
-            var stringView = this.PartialViewAsString("_SendJobOfferForm", viewmodel);
-            var jsonResult = new JsonResult() { Data = stringView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            var viewAsString = this.PartialViewAsString("_SendJobOfferForm", viewmodel);
+            result.Success = true;
+            result.Data = viewAsString;
+            var jsonResult = new JsonResult() { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             return jsonResult;
         }
 
         [HttpPost]
         public ActionResult SendJobOfferDialog(JobOfferSendDto dto)
         {
-            JsonResult jsonResult;
+            var result = new DjJsonResultDto<string>();
             if (this.ModelState.IsValid)
             {
                 this.jobofferService.Add(dto);
-                jsonResult = new JsonResult { Data = string.Empty };
+                result.Success = true;
+                result.Data = string.Empty;
             }
             else
             {
-                var viewmodel = new JobOfferSendViewModel(dto);
-                var stringView = this.PartialViewAsString("_SendJobOfferForm", viewmodel);
-                jsonResult = new JsonResult { Data = stringView };
+                result.Success = false;
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                result.Errors = errors.ToList();
             }
+
+            var jsonResult = new JsonResult { Data = result };
             return jsonResult;
         }
 
@@ -87,6 +96,8 @@
         public ActionResult StatusChange(long id, JobOfferStatus status)
         {
             var viewAsString = string.Empty;
+            var result = new DjJsonResultDto<string>();
+            result.Success = true;
             switch (status)
             {
                 case JobOfferStatus.Rejected:
@@ -106,20 +117,34 @@
                     viewAsString = this.PartialViewAsString("Confirm", confirmViewModel);
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("status");
+                    result.Success = false;
+                    result.Errors = new List<string> { "Status unknown" };
+                    break;
             }
-            var jsonResult = new JsonResult { Data = viewAsString, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            result.Data = viewAsString;
+            var jsonResult = new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             return jsonResult;
         }
 
         [HttpPost]
         public ActionResult StatusChange(JobOfferStatusChangeDto dto)
         {
+            var result = new DjJsonResultDto<string>();
             if (ModelState.IsValid)
             {
                 this.jobofferService.ChangeStatus(dto);
+                result.Success = true;
+                result.Data = string.Empty;
             }
-            return new JsonResult { Data = "OK" };
+            else
+            {
+                result.Success = false;
+                result.Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+            }
+
+            var jsonResult = new JsonResult { Data = result };
+            return jsonResult;
         }
 
         [HttpGet]

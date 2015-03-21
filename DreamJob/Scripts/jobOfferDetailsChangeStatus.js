@@ -3,9 +3,19 @@
     var _options = {};
 
     var onJobOfferStatusSubmitSuccess = function(data, status) {
-        //_options.modal.modal("close");
-        //_options.modal = null;
-        location.reload();
+            var content = $(_options.containerJobOfferStatusChangeContent);
+        if (data.Success === true) {
+            content.html("");
+            module.modal.modal("hide");
+            document.location.reload();
+        } else {
+            var errorsHolder = content.find(_options.contentHolderValidationError);
+            var errorsList = $("<ul></ul>");
+            $.each(data.Errors, function(index, errorMessage) {
+                errorsList.append("<li>" + errorMessage + "</li>");
+            });
+            errorsHolder.html(errorsList);
+        }
     };
 
     var onJobOfferStatusSubmitError = function(data, status) {
@@ -31,10 +41,11 @@
     };
 
     var onGetJobOfferStatusSuccess = function(data, status) {
-        $(_options.containerJobOfferStatusChangeContent).html(data);
-        _options.modal = $(_options.containerJobOfferStatusChangeDialog).modal("show");
-        $(_options.buttonJobOfferStatusChangeSubmit).on("click", onButtonJobOfferStatusChangeSubmitClicked);
-
+        if (data.Success) {
+            $(_options.containerJobOfferStatusChangeContent).html(data.Data);
+            module.modal = $(_options.containerJobOfferStatusChangeDialog).modal("show");
+            $(_options.buttonJobOfferStatusChangeSubmit).on("click", onButtonJobOfferStatusChangeSubmitClicked);
+        }
     };
     var onGetJobOfferStatusError = function() {
         console.log("!ERROR: onGetJobOfferStatusError");

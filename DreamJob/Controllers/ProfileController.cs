@@ -12,6 +12,7 @@
     public class ProfileController : Controller
     {
         private readonly IProfileService profileService;
+
         private readonly IAccountService accountService;
 
         public ProfileController(IProfileService profileService, IAccountService accountService)
@@ -186,17 +187,21 @@
         [HttpPost]
         public ActionResult RemoveDeveloperSkill(RemoveSkillDto dto)
         {
-            var result = new JsonResult();
+            var result = new DjJsonResultDto<string>();
             if (this.ModelState.IsValid)
             {
                 this.profileService.RemoveSkillFromProfile(dto.SkillId);
-                result.Data = "Skill removed";
+                result.Success = true;
+                result.Data = "Skill removed successfully";
             }
             else
             {
-                result.Data = "";
+                result.Success = false;
+                var errors = this.ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                result.Errors = errors.ToList();
             }
-            return result;
+            var jsonResult = new JsonResult { Data = result };
+            return jsonResult;
         }
     }
 }

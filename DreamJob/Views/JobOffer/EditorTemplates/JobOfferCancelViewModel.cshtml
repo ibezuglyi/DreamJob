@@ -3,6 +3,9 @@
 <div class="col-md-12">
     @using (Html.BeginForm("Cancel", "JobOffer", FormMethod.Post))
     {
+        <div class="has-error text-danger">
+            @Html.ValidationSummary(false, string.Empty, new { @class = "nocss-validation-errors" })
+        </div>
         @Html.HiddenFor(m => m.JobOfferId)
         <div class="form-group">
             @Html.LabelFor(m => m.Text)

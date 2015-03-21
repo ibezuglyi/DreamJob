@@ -3,14 +3,18 @@ var sendJobOffer = (function ($) {
     var module = {};
     var _options = {};
 
-    var onSendJobOfferDialogSubmitSuccess = function (data, status) {
+    var onSendJobOfferDialogSubmitSuccess = function(data, status) {
         var content = module._dialog.find(_options.contentSendJobOfferDialog);
-        if (data && data.length > 0) {
-            content.html(data);
-            $(_options.buttonSendJobOfferSubmit).on("click", onButtonSendJobOfferSubmitClicked);
-        } else {
+        if (data.Success === true) {
             content.html('');
             module._dialog.modal("hide");
+        } else {
+            var errorsHolder = content.find(_options.contentHolderValidationError);
+            var errorsList = $("<ul></ul>");
+            $.each(data.Errors, function(index,errorMessage) {
+                errorsList.append("<li>" + errorMessage + "</li>");
+            });
+            errorsHolder.html(errorsList);
         }
     };
     var onSendJobOfferDialogSubmitError = function (data, status) {
@@ -35,11 +39,13 @@ var sendJobOffer = (function ($) {
     };
 
     var onGetSendJobOfferDialogSuccess = function (data, status) {
-        var dialog = $(_options.placeholderSendJobOfferDialog);
-        var content = dialog.find(_options.contentSendJobOfferDialog);
-        content.html(data);
-        $(_options.buttonSendJobOfferSubmit).on("click", onButtonSendJobOfferSubmitClicked);
-        module._dialog = dialog.modal("show");
+        if (data.Success === true) {
+            var dialog = $(_options.placeholderSendJobOfferDialog);
+            var content = dialog.find(_options.contentSendJobOfferDialog);
+            content.html(data.Data);
+            $(_options.buttonSendJobOfferSubmit).on("click", onButtonSendJobOfferSubmitClicked);
+            module._dialog = dialog.modal("show");
+        }
     };
 
 

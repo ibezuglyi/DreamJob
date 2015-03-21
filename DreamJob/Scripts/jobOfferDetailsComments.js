@@ -4,8 +4,8 @@
 
 
     var onJobOfferDetailsAddCommentSuccess = function(data, status) {
-        if (data && data.length > 0) {
-            $(_options.containerJobOfferComments).append(data);
+        if (data.Success === true) {
+            $(_options.containerJobOfferComments).append(data.Data);
             $(_options.formAddComment)[0].reset();
         }
     };

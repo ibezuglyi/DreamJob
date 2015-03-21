@@ -3,7 +3,7 @@
 @using (Html.BeginForm("Accept", "JobOffer", FormMethod.Post))
 {
     <div class="has-error text-danger">
-        @Html.ValidationSummary()
+        @Html.ValidationSummary(false, string.Empty, new {@class="nocss-validation-errors"})
     </div>
     @Html.HiddenFor(m => m.JobOfferId)
     <div class="form-group">

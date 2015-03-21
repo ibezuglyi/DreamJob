@@ -155,6 +155,7 @@
     <Compile Include="Dtos\CommentAddDto.cs" />
     <Compile Include="Dtos\ContactInformationDto.cs" />
     <Compile Include="Dtos\DeveloperSkillDto.cs" />
+    <Compile Include="Dtos\DjJsonResultDto.cs" />
     <Compile Include="Dtos\JobOfferAcceptDto.cs" />
     <Compile Include="Dtos\JobOfferCancelDto.cs" />
     <Compile Include="Dtos\JobOfferConfirmDto.cs" />
