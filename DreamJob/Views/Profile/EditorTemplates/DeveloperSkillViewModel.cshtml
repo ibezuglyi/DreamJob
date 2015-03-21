@@ -1,13 +1,20 @@
 ﻿@model DreamJob.ViewModels.DeveloperSkillViewModel
 
-<div class="input-group">
+<div class="input-group nocss-skill-row">
     @Html.HiddenFor(m => m.SkillId)
     @if (@Model.SkillId != 0)
     {
         <span class="input-group-addon">@Model.Name</span>
         @Html.TextBoxFor(m => m.Level, new { @class = "form-control", @type = "number" })
         <span class="input-group-btn">
-            <button value="@Model.SkillId" name="Action" class="btn btn-danger " type="submit" role="button">remove</button>
+            <button value="@Model.SkillId"
+                    name="Action"
+                    class="btn btn-danger nocss-remove-skill"
+                    data-skill-id="@Model.SkillId"
+                    type="submit"
+                    role="button">
+                remove
+            </button>
         </span>
     }
     else

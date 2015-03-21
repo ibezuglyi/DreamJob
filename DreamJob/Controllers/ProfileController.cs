@@ -1,5 +1,6 @@
 ﻿namespace DreamJob.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
 
     using DreamJob.Dtos;
@@ -180,6 +181,22 @@
 
             this.accountService.RegisterRecruiter(dto);
             return this.RedirectToAction("RegistrationSuccess", "Profile");
+        }
+
+        [HttpPost]
+        public ActionResult RemoveDeveloperSkill(RemoveSkillDto dto)
+        {
+            var result = new JsonResult();
+            if (this.ModelState.IsValid)
+            {
+                this.profileService.RemoveSkillFromProfile(dto.SkillId);
+                result.Data = "Skill removed";
+            }
+            else
+            {
+                result.Data = "";
+            }
+            return result;
         }
     }
 }

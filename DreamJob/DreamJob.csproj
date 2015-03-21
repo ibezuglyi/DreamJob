@@ -132,6 +132,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\developerProfieEdit.js" />
     <Content Include="Scripts\jobOfferDetailsChangeStatus.js" />
     <Content Include="Scripts\jobOfferDetailsComments.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
@@ -163,6 +164,7 @@
     <Compile Include="Dtos\ProfileLoginDto.cs" />
     <Compile Include="Dtos\ProfilePrivateDeveloperEditDto.cs" />
     <Compile Include="Dtos\ProfilePrivateRecruiterDto.cs" />
+    <Compile Include="Dtos\RemoveSkillDto.cs" />
     <Compile Include="Dtos\SearchSalaryDto.cs" />
     <Compile Include="Dtos\SearchSkillDto.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />

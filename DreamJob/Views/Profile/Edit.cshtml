@@ -20,3 +20,20 @@
         </div>
     </form>
 </div>
+
+@section scripts
+{
+    <script src="~/Scripts/developerProfieEdit.js"></script>
+    <script type="text/javascript">
+        var developerProfileEditOptions = {
+            buttonRemoveSkill: ".nocss-remove-skill",
+            skillRow:".nocss-skill-row",
+            dataSkillId: "skill-id",
+            urlRemoveSkill: "@Url.Action("RemoveDeveloperSkill", "Profile")",
+        };
+
+        $(document).ready(function() {
+            developerProfileEdit.initialize(developerProfileEditOptions);
+        });
+    </script>
+}
