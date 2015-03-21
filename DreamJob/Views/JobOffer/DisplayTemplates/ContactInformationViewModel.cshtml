@@ -31,4 +31,4 @@
     var url = Url.Action("Details", "JobOffer", new { id = Model.JobOfferId });
     url += "#nocss-contact-details-id-" + @Model.Id;
 }
-<a href="@url">Back to offer</a>
+<a href="@url" class="btn btn-default nocss-close-contact-details">Back to offer</a>

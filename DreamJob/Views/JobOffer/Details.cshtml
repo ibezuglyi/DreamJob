@@ -21,6 +21,7 @@
 
 <script src="~/Scripts/jobOfferDetailsComments.js"></script>
 <script src="~/Scripts/jobOfferDetailsChangeStatus.js"></script>
+<script src="~/Scripts/jobOfferContactDetails.js"></script>
 <script type="text/javascript">
 
     var jobOfferDetailsCommentOptions = {
@@ -41,8 +42,19 @@
         urlJobOfferStatusChange: '@Url.Action("StatusChange","JobOffer")'
     };
 
+    var jobOfferContactDetailsOptions = {
+        buttonContactDetails: ".nocss-contact-details",
+        buttonCloseContactDetails: ".nocss-close-contact-details",
+        urlGetContactDetails: "@Url.Action("ContactDetailsPartial", "JobOffer")",
+        dataContactDetailsId: "contact-details-id",
+        dialog: ".nocss-dialog-job-offer-change-status",
+        content: ".nocss-content-job-offer-change-status",
+    };
+
+
     $(document).ready(function() {
         jobOfferDetailsComments.initialize(jobOfferDetailsCommentOptions);
         jobOfferDetailsChangeStatus.initialize(jobOfferDetailsChangeStatusOptions);
+        jobOfferContactDetails.initialize(jobOfferContactDetailsOptions);
     });
 </script>                                                                                      

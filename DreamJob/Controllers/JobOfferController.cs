@@ -1,8 +1,6 @@
 ﻿namespace DreamJob.Controllers
 {
-    using System;
     using System.Collections.Generic;
-    using System.Data.SqlTypes;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -231,5 +229,19 @@
             var viewmodel = this.jobofferService.GetContactDetailsById(id);
             return this.View("ContactDetails", viewmodel);
         }
+
+        [HttpGet]
+        public ActionResult ContactDetailsPartial(long id)
+        {
+            var viewmodel = this.jobofferService.GetContactDetailsById(id);
+            var viewAsString = this.PartialViewAsString("ContactDetails", viewmodel);
+            var result = new DjJsonResultDto<string>();
+            result.Success = true;
+            result.Data = viewAsString;
+            var jsonResult = new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            return jsonResult;
+        }
+
+
     }
 }
