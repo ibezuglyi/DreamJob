@@ -1,15 +1,16 @@
 ﻿@model DreamJob.ViewModels.JobOfferCommentViewModel
-
-<div class="row">
-    <div class="col-md-2">
-        @Model.CreateDateTime
+<div class="nocss-job-offer-comment">
+    <div class="row">
+        <div class="col-md-2">
+            @Model.CreateDateTime
+        </div>
+        <div class="col-md-3 col-md-offset-1">
+            @Model.AuthorDisplayName
+        </div>
     </div>
-    <div class="col-md-3 col-md-offset-1">
-        @Model.AuthorDisplayName
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-10 col-md-offset-2">
-        @Model.Text
+    <div class="row">
+        <div class="col-md-10 col-md-offset-2">
+            @Model.Text
+        </div>
     </div>
 </div>

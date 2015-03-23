@@ -1,6 +1,7 @@
 ﻿namespace DreamJob.Services
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
 
@@ -48,29 +49,20 @@
             return model.Id;
         }
 
-        public JobOfferCommentViewModel AddAndGetViewModelForCurrentUser(CommentAddDto dto)
+        public JobOfferCommentsViewModel GetNewComments(long jobOfferId, int commentsCount)
         {
-            var newCommentId = this.Add(dto);
-            var commentModel =
+            var models =
                 this.applicationDatabase.JobOffersComments.Include(c => c.Author)
-                    .Include(c => c.Author.Recruiter)
                     .Include(c => c.Author.Developer)
-                    .First(comment => comment.Id == newCommentId);
-            var viewmodel = Mapper.Map<JobOfferComment, JobOfferCommentViewModel>(commentModel);
-            var currentLoggedUserRole = this.authentication.GetCurrentLoggedUserRole();
-            if (currentLoggedUserRole == ApplicationUserRole.Developer)
-            {
-                viewmodel.AuthorDisplayName = commentModel.Author.Developer.DisplayName;
-            }
-            else
-            {
-                viewmodel.AuthorDisplayName = string.Format(
-                    "{0} {1}",
-                    commentModel.Author.Recruiter.FirstName,
-                    commentModel.Author.Recruiter.LastName);
-            }
-
-            return viewmodel;
+                    .Include(c => c.Author.Recruiter)
+                    .OrderBy(c => c.CreateDateTime)
+                    .Where(c => c.JobOfferId == jobOfferId)
+                    .Skip(commentsCount)
+                    .ToList();
+            var viewmodel = Mapper.Map<List<JobOfferComment>, List<JobOfferCommentViewModel>>(models);
+            var result = new JobOfferCommentsViewModel(viewmodel);
+            return result;
         }
+
     }
 }

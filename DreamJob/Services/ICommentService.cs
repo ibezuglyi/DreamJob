@@ -6,6 +6,6 @@
     public interface ICommentService
     {
         long Add(CommentAddDto dto);
-        JobOfferCommentViewModel AddAndGetViewModelForCurrentUser(CommentAddDto dto);
+        JobOfferCommentsViewModel GetNewComments(long jobOfferId, int commentsCount);
     }
 }

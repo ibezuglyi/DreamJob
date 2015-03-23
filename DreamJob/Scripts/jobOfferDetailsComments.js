@@ -3,15 +3,43 @@
     var _options = {};
 
 
+    var onGetNewCommentsSuccess = function(data) {
+        $(_options.containerJobOfferComments).append(data.Data);
+        var form = $(_options.formAddComment);
+        form[0].reset();
+    };
+
+    var onGetNewCommentsError = function(data, status) {
+        console.log("!ERROR: onGetNewCommentsError");
+        console.log("\t- " + data);
+        console.log("\t- " + status);
+    };
+
+    var fetchNewComments = function() {
+        var currentCommentCount = $(_options.selectorComment).length;
+        var ajaxOptions = {
+            data: {
+                commentsCount: currentCommentCount,
+                jobOfferId: _options.dataJobOfferId
+            },
+            url: _options.urlGetNewComments,
+            type: "GET",
+            dataType: "JSON",
+            success: onGetNewCommentsSuccess,
+            error: onGetNewCommentsError
+        }
+        $.ajax(ajaxOptions);
+    };
+
+
     var onJobOfferDetailsAddCommentSuccess = function(data, status) {
         if (data.Success === true) {
-            $(_options.containerJobOfferComments).append(data.Data);
-            $(_options.formAddComment)[0].reset();
+            fetchNewComments();
         }
     };
 
     var onJobOfferDetailsAddCommentError = function(data, status) {
-         console.log("!ERROR: onJobOfferDetailsAddCommentError");
+        console.log("!ERROR: onJobOfferDetailsAddCommentError");
         console.log("\t- " + data);
         console.log("\t- " + status);
     };

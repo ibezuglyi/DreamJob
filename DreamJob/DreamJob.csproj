@@ -237,6 +237,7 @@
     <Compile Include="ViewModels\JobOfferDetailsViewModel.cs" />
     <Compile Include="ViewModels\JobOfferDetailViewModel.cs" />
     <Compile Include="ViewModels\JobOfferIndexViewModel.cs" />
+    <Compile Include="ViewModels\JobOfferCommentsViewModel.cs" />
     <Compile Include="ViewModels\JobOfferNewCommentViewModel.cs" />
     <Compile Include="ViewModels\JobOfferRejectViewModel.cs" />
     <Compile Include="ViewModels\JobOfferSendViewModel.cs" />
@@ -301,7 +302,6 @@
     <Content Include="Views\JobOffer\EditorTemplates\JobOfferConfirmViewModel.cshtml" />
     <Content Include="Views\JobOffer\EditorTemplates\ContactInformationViewModel.cshtml" />
     <Content Include="Views\JobOffer\DisplayTemplates\JobOfferStatusChangeViewModel.cshtml" />
-    <Content Include="Views\JobOffer\DisplayTemplates\JobOfferCommentViewModel.cshtml" />
     <Content Include="Views\JobOffer\ContactDetails.cshtml" />
     <Content Include="Views\JobOffer\DisplayTemplates\ContactInformationViewModel.cshtml" />
     <Content Include="Views\Profile\_EditorForProfilePrivateDeveloperViewModel.cshtml" />
@@ -310,8 +310,9 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\JobOffer\_SendJobOfferForm.cshtml" />
-    <Content Include="Views\Shared\_JobOfferComment.cshtml" />
+    <Content Include="Views\Comment\_JobOfferComment.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\JobOfferCommentViewModel.cshtml" />
+    <Content Include="Views\Comment\_JobOfferComments.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -332,6 +333,9 @@
     <EmbeddedResource Include="Migrations\201503162207303_comment-with-author.resx">
       <DependentUpon>201503162207303_comment-with-author.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Comment\DisplayTemplates\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -28,7 +28,10 @@
         buttonJobOfferDetailAddComment: ".nocss-button-job-offer-add-comment",
         formAddComment: ".nocss-form-job-offer-add-comment",
         containerJobOfferComments: ".nocss-container-job-offer-comments",
-        urlJobOfferAddComment:"@Url.Action("AddPartial","Comment")"
+        dataJobOfferId: "@Model.JobOfferDetailViewModel.Id",
+        urlJobOfferAddComment: "@Url.Action("AddPartial","Comment")",
+        urlGetNewComments: "@Url.Action("GetNewComments","Comment")",
+        selectorComment:".nocss-job-offer-comment"
     };
 
     var jobOfferDetailsChangeStatusOptions = {

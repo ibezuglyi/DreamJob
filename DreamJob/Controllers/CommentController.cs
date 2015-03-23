@@ -30,23 +30,36 @@
         [HttpPost]
         public ActionResult AddPartial(CommentAddDto dto)
         {
-            var result = new DjJsonResultDto<string>();
+            var result = new DjJsonResultDto<bool>();
             if (this.ModelState.IsValid)
             {
-                var viewModel = this.commentService.AddAndGetViewModelForCurrentUser(dto);
-                var viewAsString = this.PartialViewAsString("_JobOfferComment", viewModel);
+                this.commentService.Add(dto);
                 result.Success = true;
-                result.Data = viewAsString;
+                result.Data = true;
             }
             else
             {
                 result.Success = false;
-                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                var errors = this.ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
                 result.Errors = errors.ToList();
             }
 
             var jsonResult = new JsonResult { Data = result };
             return jsonResult;
+        }
+
+
+        [HttpGet]
+        public ActionResult GetNewComments(long jobOfferId, int commentsCount)
+        {
+            var result = new DjJsonResultDto<string>();
+            var viewModel = this.commentService.GetNewComments(jobOfferId, commentsCount);
+            var viewAsString = this.PartialViewAsString("_JobOfferComments", viewModel);
+            result.Success = true;
+            result.Data = viewAsString;
+            var jsonResult = new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            return jsonResult;
+
         }
 
     }
