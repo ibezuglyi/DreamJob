@@ -3,9 +3,9 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using DreamJob.Controllers.ExtensionMethods;
-    using DreamJob.Dtos;
-    using DreamJob.Services;
+    using ExtensionMethods;
+    using Dtos;
+    using Services;
 
     [Authorize]
     public class CommentController : Controller

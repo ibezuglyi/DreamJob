@@ -4,10 +4,10 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using DreamJob.Controllers.ExtensionMethods;
-    using DreamJob.Dtos;
-    using DreamJob.Services;
-    using DreamJob.ViewModels;
+    using ExtensionMethods;
+    using Dtos;
+    using Services;
+    using ViewModels;
 
     [Authorize]
     public class JobOfferController : Controller

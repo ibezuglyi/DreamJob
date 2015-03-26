@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    using DreamJob.Services;
+    using Services;
 
     [Authorize]
     public class HomeController : Controller

@@ -3,10 +3,10 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using DreamJob.Dtos;
-    using DreamJob.Infrastructure;
-    using DreamJob.Services;
-    using DreamJob.ViewModels;
+    using Dtos;
+    using Infrastructure;
+    using Services;
+    using ViewModels;
 
     [Authorize]
     public class ProfileController : Controller

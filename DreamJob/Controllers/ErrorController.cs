@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    using DreamJob.ViewModels;
+    using ViewModels;
 
     public class ErrorController : Controller
     {

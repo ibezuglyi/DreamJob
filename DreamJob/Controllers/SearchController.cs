@@ -2,9 +2,9 @@
 {
     using System.Web.Mvc;
 
-    using DreamJob.Dtos;
-    using DreamJob.Services;
-    using DreamJob.ViewModels;
+    using Dtos;
+    using Services;
+    using ViewModels;
 
     [Authorize]
     public class SearchController : Controller

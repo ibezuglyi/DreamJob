@@ -1,13 +1,15 @@
-﻿namespace DreamJob
+﻿using System.Web.Mvc;
+
+using Autofac;
+using Autofac.Integration.Mvc;
+
+using DreamJob.Infrastructure;
+using DreamJob.Models;
+using DreamJob.Services;
+
+namespace DreamJob
 {
-    using System.Web.Mvc;
-
-    using Autofac;
-    using Autofac.Integration.Mvc;
-
-    using DreamJob.Infrastructure;
-    using DreamJob.Models;
-    using DreamJob.Services;
+   
 
     public static class ApplicationIocContainer
     {
