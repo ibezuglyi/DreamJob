@@ -153,6 +153,7 @@
     <Compile Include="Controllers\JobOfferController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Dtos\CommentAddDto.cs" />
     <Compile Include="Dtos\ContactInformationDto.cs" />
     <Compile Include="Dtos\DeveloperSkillDto.cs" />
@@ -219,9 +220,11 @@
     <Compile Include="Services\IJobOfferService.cs" />
     <Compile Include="Services\IMenuService.cs" />
     <Compile Include="Services\IProfileService.cs" />
+    <Compile Include="Services\ITestService.cs" />
     <Compile Include="Services\JobOfferService.cs" />
     <Compile Include="Services\ProfileService.cs" />
     <Compile Include="Infrastructure\WebSecurityAccountService.cs" />
+    <Compile Include="Services\TestService.cs" />
     <Compile Include="ViewModels\ApplicationUserRole.cs" />
     <Compile Include="ViewModels\ContactInformationViewModel.cs" />
     <Compile Include="ViewModels\DeveloperHeadlineViewModel.cs" />
@@ -313,6 +316,7 @@
     <Content Include="Views\Comment\_JobOfferComment.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\JobOfferCommentViewModel.cshtml" />
     <Content Include="Views\Comment\_JobOfferComments.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

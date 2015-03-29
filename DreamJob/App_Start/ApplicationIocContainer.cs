@@ -21,6 +21,7 @@ namespace DreamJob
             builder.RegisterType<JobOfferService>().As<IJobOfferService>();
             builder.RegisterType<MenuService>().As<IMenuService>();
             builder.RegisterType<CommentService>().As<ICommentService>();
+            builder.RegisterType<TestService>().As<ITestService>();
             builder.RegisterType<WebSecurityAccountService>().As<IAccountService>();
 
             builder.RegisterType<ApplicationDatabase>().InstancePerLifetimeScope();

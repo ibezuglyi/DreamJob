@@ -59,8 +59,6 @@
             result.Data = viewAsString;
             var jsonResult = new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             return jsonResult;
-
         }
-
     }
 }

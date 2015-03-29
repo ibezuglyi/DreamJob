@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Services
+﻿using AutoMapper.Internal;
+
+namespace DreamJob.Services
 {
     using System;
     using System.Collections.Generic;
@@ -102,6 +104,8 @@
             this.applicationDatabase.SaveChanges();
         }
 
+        
+
         private void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto, UserAccount model, long currentUserid)
         {
             if (model.Recruiter == null)
@@ -116,6 +120,18 @@
             model.Recruiter.Email = dto.Email;
             model.Recruiter.Employer = dto.Employer;
             model.Recruiter.IsActive = dto.IsActive;
+        }
+
+        public void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto, long id)
+        {
+            var model =
+                this.applicationDatabase.Profiles.Include(p => p.Developer)
+                    .Include(p => p.Developer)
+                    .Include(p => p.Developer.Skills)
+                    .Include(p => p.Developer.Skills.Select(dd => dd.Skill))
+                    .First(d => d.Id == id);
+            this.UpdateDeveloperProfile(dto, model, id);
+            this.applicationDatabase.SaveChanges();
         }
 
         public void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto)
@@ -154,10 +170,11 @@
                     model.Developer.Skills.First(developerSkill => developerSkill.SkillId == skillDto.SkillId).Level =
                     skillDto.Level);
 
-            var newSkill =
-                dto.Skills.FirstOrDefault(
+            var newSkills =
+                dto.Skills.Where(
                     skill => skill.SkillId == 0 && string.IsNullOrEmpty(skill.Name) == false && skill.Level > 0);
-            if (newSkill != null)
+
+            newSkills.ToList().ForEach(newSkill =>
             {
                 var skillInDb = this.applicationDatabase.Skills.FirstOrDefault(dbSkill => dbSkill.Name == newSkill.Name);
 
@@ -171,7 +188,7 @@
                 var developerSkill = new DeveloperSkill(skillInDb.Id, currentUserid, newSkill.Level);
                 developerSkill.CreateDateTime = DateTime.Now;
                 model.Developer.Skills.Add(developerSkill);
-            }
+            });
         }
 
         public void RemoveSkillFromProfile(long skillId)

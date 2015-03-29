@@ -1,18 +1,20 @@
 ﻿namespace DreamJob.Services
 {
-    using DreamJob.Dtos;
-    using DreamJob.ViewModels;
+    using Dtos;
+    using ViewModels;
 
     public interface IProfileService
     {
-        void RegisterDeveloper(ProfileRegisterDto dto);
-
         ProfilePublicViewModel GetPublicDataForUserId(long id);
         ProfilePublicViewModel GetPublicDataForLoggedUser();
         ProfilePrivateViewModel GetPrivateDataForLoggedUser();
 
         void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto);
         void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto);
+
+
+        void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto updateProfile, long id);
+
 
         void RemoveSkillFromProfile(long skillId);
 
