@@ -317,6 +317,7 @@
     <Content Include="Views\Shared\DisplayTemplates\JobOfferCommentViewModel.cshtml" />
     <Content Include="Views\Comment\_JobOfferComments.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Shared\_ValidationSummary.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

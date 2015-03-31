@@ -5,9 +5,7 @@
     @using (Html.BeginForm("RegisterDeveloper", "Profile", FormMethod.Post))
     {
         @Html.Hidden("Role", ApplicationUserRole.Developer)
-        <div class="has-error text-danger">
-            @Html.ValidationSummary()
-        </div>
+        @Html.Partial("_ValidationSummary")
         @Html.Partial("_RegisterProfile", Model)
         <button class="btn btn-primary pull-right" role="button">register</button>
     }

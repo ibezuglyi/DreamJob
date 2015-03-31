@@ -4,9 +4,7 @@
     <div class="col-md-6 col-md-offset-3">
         @using (Html.BeginForm("Login", "Profile", FormMethod.Post))
         {
-            <div class="has-error text-danger">
-                @Html.ValidationSummary()
-            </div>
+            @Html.Partial("_ValidationSummary")
             @Html.HiddenFor(m => m.ReturnUrl)
             <div class="form-group">
                 @Html.LabelFor(m => m.Email)
