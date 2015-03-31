@@ -1,3 +1,5 @@
+using DreamJob.ValueResolvers;
+
 namespace DreamJob
 {
     using System.Linq;
@@ -60,8 +62,10 @@ namespace DreamJob
                     o => o.MapFrom(s => s.Statuses.OrderByDescending(status => status.CreateDateTime).First().Status));
 
             Mapper.CreateMap<CommentAddDto, JobOfferComment>();
-            Mapper.CreateMap<JobOfferComment, JobOfferCommentViewModel>();
-
+            Mapper.CreateMap<JobOfferComment, JobOfferCommentViewModel>()
+                .ForMember(d => d.AuthorDisplayName,
+                    o => o.ResolveUsing<JobOfferCommentAuthorDisplayNameResolver>());
+                    
 
             Mapper.CreateMap<JobOfferRejectDto, JobOfferStatusChange>()
                 .ForMember(d => d.Status, o => o.UseValue(JobOfferStatus.Rejected));

@@ -7,10 +7,10 @@
 
     using AutoMapper;
 
-    using DreamJob.Dtos;
-    using DreamJob.Infrastructure;
-    using DreamJob.Models;
-    using DreamJob.ViewModels;
+    using Dtos;
+    using Infrastructure;
+    using Models;
+    using ViewModels;
 
     public class CommentService : ICommentService
     {
@@ -24,7 +24,7 @@
             this.applicationDatabase = applicationDatabase;
         }
 
-        public long Add(CommentAddDto dto)
+        public void Add(CommentAddDto dto)
         {
             var currentUserId = this.authentication.GetCurrentLoggedUserId();
             var currentUserRole = this.authentication.GetCurrentLoggedUserRole();
@@ -46,19 +46,23 @@
 
             this.applicationDatabase.JobOffersComments.Add(model);
             this.applicationDatabase.SaveChanges();
-            return model.Id;
         }
 
         public JobOfferCommentsViewModel GetNewComments(long jobOfferId, int commentsCount)
         {
             var models =
-                this.applicationDatabase.JobOffersComments.Include(c => c.Author)
+                this.applicationDatabase.JobOffersComments
+                    .Include(c => c.JobOffer)
+                    .Include(c => c.JobOffer.Developer)
+                    .Include(c => c.JobOffer.Recruiter)
+                    .Include(c => c.Author)
                     .Include(c => c.Author.Developer)
                     .Include(c => c.Author.Recruiter)
                     .OrderBy(c => c.CreateDateTime)
                     .Where(c => c.JobOfferId == jobOfferId)
                     .Skip(commentsCount)
                     .ToList();
+
             var viewmodel = Mapper.Map<List<JobOfferComment>, List<JobOfferCommentViewModel>>(models);
             var result = new JobOfferCommentsViewModel(viewmodel);
             return result;

@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ApplicationMapper.cs" />
+    <Compile Include="App_Start\ValueResolvers\JobOfferCommentAuthorDisplayNameResolver.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ExtensionMethods\ControllersExtensions.cs" />

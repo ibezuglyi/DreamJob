@@ -1,6 +1,6 @@
 namespace DreamJob.Models
 {
-    using DreamJob.ViewModels;
+    using ViewModels;
 
     public class JobOfferComment : DJDbBase
     {

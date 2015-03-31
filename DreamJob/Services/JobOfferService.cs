@@ -91,6 +91,9 @@
                     .JobOffers
                     .Include(o => o.Developer)
                     .Include(o => o.JobOfferComments)
+                    .Include(o => o.JobOfferComments.Select(c=>c.Author))
+                    .Include(o => o.JobOfferComments.Select(c=>c.Author.Developer))
+                    .Include(o => o.JobOfferComments.Select(c=>c.Author.Recruiter))
                     .Include(o => o.Statuses)
                     .Include(o => o.NewMessagesToRead)
                     .First(o => o.Id == id);
@@ -113,14 +116,6 @@
             Recruiter recruiterModel = this.applicationDatabase.Recruiters.First(d => d.Id == model.RecruiterId);
 
             var jobOfferDetailViewModel = Mapper.Map<JobOffer, JobOfferDetailViewModel>(model);
-
-            jobOfferDetailViewModel.JobOfferComments
-                .Where(c => c.AuthorRole == ApplicationUserRole.Developer)
-                .Each(c => c.AuthorDisplayName = developerModel.DisplayName);
-
-            jobOfferDetailViewModel.JobOfferComments
-                .Where(c => c.AuthorRole == ApplicationUserRole.Recruiter)
-                .Each(c => c.AuthorDisplayName = string.Format("{0} {1}", recruiterModel.FirstName, recruiterModel.LastName));
 
             jobOfferDetailViewModel.JobOfferStatusChangeViewModels
                 .Where(s => s.AuthorRole == ApplicationUserRole.Recruiter)
