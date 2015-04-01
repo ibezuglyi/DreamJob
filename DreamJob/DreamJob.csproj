@@ -319,6 +319,10 @@
     <Content Include="Views\Comment\_JobOfferComments.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Shared\_ValidationSummary.cshtml" />
+    <Content Include="Views\JobOffer\_JobOfferAcceptForm.cshtml" />
+    <Content Include="Views\JobOffer\_JobOfferCancelForm.cshtml" />
+    <Content Include="Views\JobOffer\_JobOfferConfirmForm.cshtml" />
+    <Content Include="Views\JobOffer\_JobOfferRejectForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

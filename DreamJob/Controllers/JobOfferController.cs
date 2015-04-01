@@ -100,19 +100,19 @@
             {
                 case JobOfferStatus.Rejected:
                     var rejectViewModel = this.jobofferService.GetJobOfferRejectViewModel(id);
-                    viewAsString = this.PartialViewAsString("Reject", rejectViewModel);
+                    viewAsString = this.PartialViewAsString("_JobOfferRejectForm", rejectViewModel);
                     break;
                 case JobOfferStatus.Canceled:
                     var cancelViewModel = this.jobofferService.GetJobOfferCancelViewModel(id);
-                    viewAsString = this.PartialViewAsString("Cancel", cancelViewModel);
+                    viewAsString = this.PartialViewAsString("_JobOfferCancelForm", cancelViewModel);
                     break;
                 case JobOfferStatus.Accepted:
                     var acceptViewModel = this.jobofferService.GetJobOfferAcceptViewModel(id);
-                    viewAsString = this.PartialViewAsString("Accept", acceptViewModel);
+                    viewAsString = this.PartialViewAsString("_JobOfferAcceptForm", acceptViewModel);
                     break;
                 case JobOfferStatus.Confirmed:
                     var confirmViewModel = this.jobofferService.GetJobOfferConfirmViewModel(id);
-                    viewAsString = this.PartialViewAsString("Confirm", confirmViewModel);
+                    viewAsString = this.PartialViewAsString("_JobOfferConfirmForm", confirmViewModel);
                     break;
                 default:
                     result.Success = false;

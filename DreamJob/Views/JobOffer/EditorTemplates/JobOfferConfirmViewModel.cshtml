@@ -1,14 +1,2 @@
 ﻿@model DreamJob.ViewModels.JobOfferConfirmViewModel
-
-@using (Html.BeginForm("Confirm", "JobOffer", FormMethod.Post))
-{
-    @Html.Partial("_ValidationSummary")
-    @Html.HiddenFor(m => m.JobOfferId)
-    <div class="form-group">
-        @Html.LabelFor(m => m.Text)
-        @Html.TextAreaFor(m => m.Text, new { @class = "form-control" })
-    </div>
-    <button type="submit" role="button" class="btn btn-primary nocss-button-job-offer-status-change">Submit</button>
-    @Html.ActionLink("Cancel", "Details", "JobOffer", new { id = Model.JobOfferId }, new { @class = "btn btn-default" })
-
-}
+@Html.Partial("_JobOfferConfirmForm",Model)
