@@ -17,49 +17,52 @@
     <div class="modal-dialog">
         <div class="modal-content ">
             <div class="modal-body nocss-content-job-offer-change-status"></div>
-            </div>
+        </div>
     </div>
 </div>
+@section scripts
+{
 
-<script src="~/Scripts/jobOfferDetailsComments.js"></script>
-<script src="~/Scripts/jobOfferDetailsChangeStatus.js"></script>
-<script src="~/Scripts/jobOfferContactDetails.js"></script>
-<script type="text/javascript">
+    <script src="~/Scripts/jobOfferDetailsComments.js"></script>
+    <script src="~/Scripts/jobOfferDetailsChangeStatus.js"></script>
+    <script src="~/Scripts/jobOfferContactDetails.js"></script>
+    <script type="text/javascript">
 
-    var jobOfferDetailsCommentOptions = {
-        buttonJobOfferDetailAddComment: ".nocss-button-job-offer-add-comment",
-        formAddComment: ".nocss-form-job-offer-add-comment",
-        containerJobOfferComments: ".nocss-container-job-offer-comments",
-        dataJobOfferId: "@Model.JobOfferDetailViewModel.Id",
-        urlJobOfferAddComment: "@Url.Action("AddPartial","Comment")",
-        urlGetNewComments: "@Url.Action("GetNewComments","Comment")",
-        selectorComment:".nocss-job-offer-comment"
-    };
+        var jobOfferDetailsCommentOptions = {
+            buttonJobOfferDetailAddComment: ".nocss-button-job-offer-add-comment",
+            formAddComment: ".nocss-form-job-offer-add-comment",
+            containerJobOfferComments: ".nocss-container-job-offer-comments",
+            dataJobOfferId: "@Model.JobOfferDetailViewModel.Id",
+            urlJobOfferAddComment: "@Url.Action("AddPartial","Comment")",
+            urlGetNewComments: "@Url.Action("GetNewComments","Comment")",
+            selectorComment: ".nocss-job-offer-comment"
+        };
 
-    var jobOfferDetailsChangeStatusOptions = {
-        containerJobOfferStatusChangeDialog: ".nocss-dialog-job-offer-change-status",
-        containerJobOfferStatusChangeContent: ".nocss-content-job-offer-change-status",
-        buttonJobOfferStatusChange: ".nocss-button-status-change",
-        buttonJobOfferStatusChangeSubmit: ".nocss-button-job-offer-status-change",
-        dataJobOfferDataAttributeStatus: "job-offer-status",
-        dataJobOfferId: "@Model.JobOfferDetailViewModel.Id",
-        contentHolderValidationError: ".nocss-validation-errors",
-        urlJobOfferStatusChange: '@Url.Action("StatusChange","JobOffer")'
-    };
+        var jobOfferDetailsChangeStatusOptions = {
+            containerJobOfferStatusChangeDialog: ".nocss-dialog-job-offer-change-status",
+            containerJobOfferStatusChangeContent: ".nocss-content-job-offer-change-status",
+            buttonJobOfferStatusChange: ".nocss-button-status-change",
+            buttonJobOfferStatusChangeSubmit: ".nocss-button-job-offer-status-change",
+            dataJobOfferDataAttributeStatus: "job-offer-status",
+            dataJobOfferId: "@Model.JobOfferDetailViewModel.Id",
+            contentHolderValidationError: ".nocss-validation-errors",
+            urlJobOfferStatusChange: '@Url.Action("StatusChange","JobOffer")'
+        };
 
-    var jobOfferContactDetailsOptions = {
-        buttonContactDetails: ".nocss-contact-details",
-        buttonCloseContactDetails: ".nocss-close-contact-details",
-        urlGetContactDetails: "@Url.Action("ContactDetailsPartial", "JobOffer")",
-        dataContactDetailsId: "contact-details-id",
-        dialog: ".nocss-dialog-job-offer-change-status",
-        content: ".nocss-content-job-offer-change-status",
-    };
+        var jobOfferContactDetailsOptions = {
+            buttonContactDetails: ".nocss-contact-details",
+            buttonCloseContactDetails: ".nocss-close-contact-details",
+            urlGetContactDetails: "@Url.Action("ContactDetailsPartial", "JobOffer")",
+            dataContactDetailsId: "contact-details-id",
+            dialog: ".nocss-dialog-job-offer-change-status",
+            content: ".nocss-content-job-offer-change-status",
+        };
 
 
-    $(document).ready(function() {
-        jobOfferDetailsComments.initialize(jobOfferDetailsCommentOptions);
-        jobOfferDetailsChangeStatus.initialize(jobOfferDetailsChangeStatusOptions);
-        jobOfferContactDetails.initialize(jobOfferContactDetailsOptions);
-    });
-</script>                                                                                      
+        $(document).ready(function () {
+            jobOfferDetailsComments.initialize(jobOfferDetailsCommentOptions);
+            jobOfferDetailsChangeStatus.initialize(jobOfferDetailsChangeStatusOptions);
+            jobOfferContactDetails.initialize(jobOfferContactDetailsOptions);
+        });
+    </script>
+}

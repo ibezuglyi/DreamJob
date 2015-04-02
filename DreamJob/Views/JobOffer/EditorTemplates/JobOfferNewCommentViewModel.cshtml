@@ -9,16 +9,16 @@
         switch (s)
         {
             case JobOfferStatus.Rejected:
-                @Html.ActionLink(s.ToString(), "Reject", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Rejected.ToString() })
+                @Html.ActionLink("Reject", "Reject", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Rejected.ToString() })
                 break;
             case JobOfferStatus.Canceled:
-                @Html.ActionLink(s.ToString(), "Cancel", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Canceled.ToString() })
+                @Html.ActionLink("Cancel", "Cancel", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Canceled.ToString() })
                 break;
             case JobOfferStatus.Accepted:
-                @Html.ActionLink(s.ToString(), "Accept", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Accepted.ToString() })
+                @Html.ActionLink("Accept", "Accept", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Accepted.ToString() })
                 break;
             case JobOfferStatus.Confirmed:
-                @Html.ActionLink(s.ToString(), "Confirm", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Confirmed.ToString() })
+                @Html.ActionLink("Confirm", "Confirm", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Confirmed.ToString() })
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
