@@ -1,6 +1,6 @@
 ﻿namespace DreamJob.ViewModels
 {
-    using DreamJob.Dtos;
+    using Dtos;
 
     public class DeveloperSkillViewModel
     {

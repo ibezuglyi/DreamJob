@@ -5,7 +5,13 @@
     @if (@Model.SkillId != 0)
     {
         <span class="input-group-addon">@Model.Name</span>
-        @Html.TextBoxFor(m => m.Level, new { @class = "form-control", @type = "number" })
+
+        for (int i = 1; i <= 10; i++)
+        {
+            @Html.RadioButtonFor(m => m.Level, i);
+        }
+
+
         <span class="input-group-btn">
             <button value="@Model.SkillId"
                     name="Action"
@@ -22,6 +28,9 @@
         <label>New skill name</label>
         @Html.EditorFor(m => m.Name, new { @class = "form-control" })<br />
         <label>New skill level</label>
-        @Html.EditorFor(m => m.Level, new { @class = "form-control" })
+        for (int i = 1; i <= 10; i++)
+        {
+            @Html.RadioButtonFor(m => m.Level, i);
+        }
     }
 </div>
