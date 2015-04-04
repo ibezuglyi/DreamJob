@@ -1,6 +1,6 @@
 ﻿namespace DreamJob.Infrastructure
 {
-    using DreamJob.ViewModels;
+    using ViewModels;
 
     public class ApplicationUser
     {
