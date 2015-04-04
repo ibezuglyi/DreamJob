@@ -66,15 +66,18 @@ namespace DreamJob.Services
             var allList = this.database.Skills.ToList();
             var list = new List<DeveloperSkillDto>();
 
-            for (int i = 0; i < oldSkills; i++)
+            if (allList.Any())
             {
-                var oldSkill = allList.ElementAt(this.random.Next(allList.Count - 1));
-                var dto = new DeveloperSkillDto
+                for (int i = 0; i < oldSkills; i++)
                 {
-                    Level = this.random.Next(100),
-                    Name = oldSkill.Name
-                };
-                list.Add(dto);
+                    var oldSkill = allList.ElementAt(this.random.Next(allList.Count - 1));
+                    var dto = new DeveloperSkillDto
+                    {
+                        Level = this.random.Next(100),
+                        Name = oldSkill.Name
+                    };
+                    list.Add(dto);
+                }
             }
 
             for (int i = 0; i < newSkills; i++)
@@ -96,7 +99,7 @@ namespace DreamJob.Services
             var sb = new StringBuilder();
             for (int index = 0; index < wordsCount; index++)
             {
-                sb.AppendFormat("{0} ",this.GetWord(this.random.Next(3, 15)));
+                sb.AppendFormat("{0} ", this.GetWord(this.random.Next(3, 15)));
             }
             sb.Append(".");
             return sb.ToString();
@@ -106,7 +109,7 @@ namespace DreamJob.Services
         {
             var letters = "qwertyuioplkjhgfdsazxcvbnm";
             var sb = new StringBuilder();
-            
+
             for (int index = 0; index < lenght; index++)
             {
                 sb.Append(letters[this.random.Next(letters.Length - 1)]);
