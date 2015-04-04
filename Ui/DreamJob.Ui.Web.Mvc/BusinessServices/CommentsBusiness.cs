@@ -35,14 +35,12 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
             {
                 return new DjOperationResult<JobOfferCommentDto>(false, addCommentResult.Errors);
             }
-            if (getUserResult.Data.AccountType == UserAccountType.Developer)
-            {
-                offerService.MarkOffer(offerId, getUserResult.Data.Id, OfferStatus.Read);
-            }
-            
+            var newOfferstatus = offerService.MarkOffer(offerId, getUserResult.Data.Id, OfferStatus.Read);
+
             NotifyNewCommentAdded(offerId, loginUrl, getUserResult.Data);
-            
+
             var getCommentResult = this.serviceComment.GetCommentWithAuthor(addCommentResult.Data);
+            getCommentResult.Data.NewOfferStatus = newOfferstatus.Data;
             return getCommentResult;
         }
 
@@ -50,8 +48,8 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         {
             var offer = offerService.GetJobOffer(offerId);
             var recepient = userResult.Id == offer.Data.FromRecruiterId
-                ? (User) offer.Data.ToDeveloper
-                : (User) offer.Data.FromRecruiter;
+                ? (User)offer.Data.ToDeveloper
+                : (User)offer.Data.FromRecruiter;
             emailService.NotifyNewMessageReceived(recepient.Email, recepient.DisplayName, userResult.DisplayName,
                 loginUrl);
         }

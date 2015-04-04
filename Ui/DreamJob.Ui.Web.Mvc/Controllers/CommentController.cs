@@ -5,7 +5,8 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
     using System.Web.Mvc;
 
     using DreamJob.Ui.Web.Mvc.BusinessServices;
-
+    
+    [Authorize]
     public class CommentController : Controller
     {
         private readonly ICommentBusiness commentBusiness;
@@ -16,7 +17,6 @@ namespace DreamJob.Ui.Web.Mvc.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public JsonResult Add(long offerId, string text)
         {
             var result = this.commentBusiness.AddNewComment(offerId, text, this.GetSystemLoginUrl());

@@ -11,34 +11,24 @@
     public class CommentService : ICommentService
     {
         private readonly IDateTimeAdapter adapterDateTime;
+        private readonly ICommentsRepository commentsRepository;
 
-        private readonly ICommentsRepository repositoryComments;
-
-        public CommentService(IDateTimeAdapter adapterDateTime, ICommentsRepository repositoryComments)
+        public CommentService(IDateTimeAdapter adapterDateTime, ICommentsRepository commentsRepository)
         {
             this.adapterDateTime = adapterDateTime;
-            this.repositoryComments = repositoryComments;
+            this.commentsRepository = commentsRepository;
         }
 
         public DjOperationResult<long> AddNewComment(long offerId, string text, long authorId)
         {
-            var jobOfferComment = new JobOfferComment
-                                      {
-                                          AuthorId = authorId,
-                                          Add = this.adapterDateTime.Now,
-                                          Edit = this.adapterDateTime.Now,
-                                          JobOfferId = offerId,
-                                          Status = JobOfferCommentStatus.New,
-                                          Text = string.IsNullOrEmpty(text)?string.Empty : text.Trim()
-                                      };
-
-            var insertResult = this.repositoryComments.InsertComment(jobOfferComment);
+            var jobOfferComment = new JobOfferComment(authorId, this.adapterDateTime.Now,this.adapterDateTime.Now,offerId,JobOfferCommentStatus.New,string.IsNullOrEmpty(text) ? string.Empty : text.Trim());
+            var insertResult = this.commentsRepository.InsertComment(jobOfferComment);
             return insertResult;
         }
 
         public DjOperationResult<JobOfferCommentDto> GetCommentWithAuthor(long commentId)
         {
-            var getOfferCommentResult = this.repositoryComments.GetCommentWithAuthor(commentId);
+            var getOfferCommentResult = this.commentsRepository.GetCommentWithAuthor(commentId);
             if (getOfferCommentResult.IsSuccess == false)
             {
                 return new DjOperationResult<JobOfferCommentDto>(false, getOfferCommentResult.Errors);

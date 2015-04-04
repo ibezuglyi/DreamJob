@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿using System;
+
+namespace DreamJob.Ui.Web.Mvc.Repositories
 {
     using System.Collections.Generic;
 
@@ -11,8 +13,7 @@
         DjOperationResult<List<JobOffer>> OffersFrom(long recruiterId);
         DjOperationResult<JobOffer> GetDetails(long offerId);
         DjOperationResult<bool> InsertOffer(JobOffer jobOffer);
-        DjOperationResult<bool> UpdateStatus(JobOffer offer);
-
+        DjOperationResult<bool> UpdateStatus(long offerId, OfferStatus offerStatus, DateTime now);
         DjOperationResult<long> GetOffersCountTo(long toUserId, OfferStatus offerStatus);
     }
 }

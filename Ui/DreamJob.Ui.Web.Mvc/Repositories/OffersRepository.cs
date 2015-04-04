@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Repositories
+﻿using System;
+
+namespace DreamJob.Ui.Web.Mvc.Repositories
 {
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -62,13 +64,11 @@
             return DjOperationResult<bool>.Success();
         }
 
-        
-
-        public DjOperationResult<bool> UpdateStatus(JobOffer offer)
+        public DjOperationResult<bool> UpdateStatus(long offerId, OfferStatus offerStatus, DateTime editTime)
         {
-            var offerToUpdate = this.context.JobOffers.Single(o => o.Id == offer.Id);
-            offerToUpdate.OfferStatus = offer.OfferStatus;
-            offerToUpdate.Edit = offer.Edit;
+            var offerToUpdate = this.context.JobOffers.Single(o => o.Id == offerId);
+            offerToUpdate.OfferStatus = offerStatus;
+            offerToUpdate.Edit = editTime;
             this.context.SaveChanges();
             return DjOperationResult<bool>.Success();
         }

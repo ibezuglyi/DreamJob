@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Ui.Web.Mvc.Models.Dto
+﻿using DreamJob.Common.Enum;
+
+namespace DreamJob.Ui.Web.Mvc.Models.Dto
 {
     using System;
 
@@ -12,5 +14,6 @@
         public string Author { get; set; }
         public string Text { get; set; }
         public JobOfferCommentStatus Status { get; set; }
+        public OfferStatus NewOfferStatus { get; set; }
     }
 }

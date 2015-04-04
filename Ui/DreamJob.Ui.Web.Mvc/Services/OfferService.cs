@@ -69,14 +69,11 @@
             return insertResult;
         }
 
-        public DjOperationResult<bool> MarkOffer(long offerId, long userId, OfferStatus offerStatus)
+        public DjOperationResult<OfferStatus> MarkOffer(long offerId, long readerUserId, OfferStatus offerStatus)
         {
-            var getOfferResult = this.offersRepository.GetDetails(offerId);
-            var offer = getOfferResult.Data;
-            offer.OfferStatus = offerStatus;
-            offer.Edit = this.dateTimeAdapter.Now;
-            var operationResult = this.offersRepository.UpdateStatus(offer);
-            return operationResult;
+
+            this.offersRepository.UpdateStatus(offerId, offerStatus, dateTimeAdapter.Now);
+            return new DjOperationResult<OfferStatus>(offerStatus);
         }
 
         public DjOperationResult<long> GetNewOffersCountByUserId(long userId)

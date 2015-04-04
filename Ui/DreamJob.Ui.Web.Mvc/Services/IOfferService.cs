@@ -13,7 +13,7 @@
         DjOperationResult<List<JobOffer>> GetOffersFrom(long recruiterId);
         DjOperationResult<JobOfferDetailsDto> GetDetails(long offerId);
         DjOperationResult<bool> SendJobOffer(long recruiterUserId, NewJobOfferDto model);
-        DjOperationResult<bool> MarkOffer(long offerId, long userId, OfferStatus offerStatus);
+        DjOperationResult<OfferStatus> MarkOffer(long offerId, long userId, OfferStatus offerStatus);
 
         DjOperationResult<long> GetNewOffersCountByUserId(long userId);
     }

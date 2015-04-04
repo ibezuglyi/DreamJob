@@ -21,7 +21,8 @@
                 djClientApi.getMyOffers()
                     .success(function (response) {
                         $scope.offers = response;
-                    });
+                        offersCountService.offers = response;
+                });
             };
             $scope.switchToOfferList = function () {
                 $scope.IsOfferDetailsMode = false;
@@ -29,12 +30,13 @@
             $scope.details = function (offer) {
                 $scope.comment.text = '';
                 djClientApi.offerDetails(offer.Id)
-                    .success(function (response) {
-                        $scope.offer = response;
+                    .success(function (offerFromResponse) {
+                        $scope.offer = offerFromResponse;
+                        $scope.offerComments = offerFromResponse.JobOfferComments;
+                        $scope.offer.IsLocked = isOfferLocked(offerFromResponse.OfferStatus);
                         $scope.IsOfferDetailsMode = true;
-                        $scope.offerComments = response.JobOfferComments;
-                        $scope.offer.IsLocked = isOfferLocked(response.OfferStatus);
-                    });
+                        offersCountService.updateOffer(offerFromResponse);
+                });
             };
             $scope.addOfferComment = function () {
                 var data = {

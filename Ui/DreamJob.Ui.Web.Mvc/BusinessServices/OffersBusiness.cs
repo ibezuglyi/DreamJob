@@ -132,7 +132,7 @@ namespace DreamJob.Ui.Web.Mvc.BusinessServices
         private DjOperationResult<bool> MarkOffer(long offerId, long userId, OfferStatus offerStatus)
         {
             var operationStatus = this.offersService.MarkOffer(offerId, userId, offerStatus);
-            return operationStatus;
+            return new DjOperationResult<bool>();
         }
     }
 }
