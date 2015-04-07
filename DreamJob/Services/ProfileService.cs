@@ -45,7 +45,7 @@ namespace DreamJob.Services
                     .Include(p => p.Developer.Skills.Select(dd => dd.Skill))
                     .First(d => d.Id == id);
             var viewmodel = Mapper.Map<UserAccount, ProfilePublicViewModel>(model);
-            
+
             var currentLoggedUserRole = this.authentication.GetCurrentLoggedUserRole();
             var currentLoggedUserId = this.authentication.GetCurrentLoggedUserId();
 
@@ -91,10 +91,19 @@ namespace DreamJob.Services
             return viewmodel;
         }
 
+        public void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto, long userId)
+        {
+            this.UpdateRecruiterProfileById(dto, userId);
+        }
+
         public void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto)
         {
             var currentUserid = this.authentication.GetCurrentLoggedUserId();
+            this.UpdateRecruiterProfileById(dto, currentUserid);
+        }
 
+        private void UpdateRecruiterProfileById(ProfilePrivateRecruiterDto dto, long currentUserid)
+        {
             var model =
                 this.applicationDatabase.Profiles
                     .Include(p => p.Recruiter)
@@ -104,7 +113,6 @@ namespace DreamJob.Services
             this.applicationDatabase.SaveChanges();
         }
 
-        
 
         private void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto, UserAccount model, long currentUserid)
         {
@@ -231,7 +239,7 @@ namespace DreamJob.Services
                 .Where(ds => skillsIds.Contains(ds.SkillId));
             var developersWithSkill =
                 developerSkills
-                    //.Distinct()
+                //.Distinct()
                     .Select(ds => ds.Developer)
                     .Include(d => d.Skills)
                     .ToList();

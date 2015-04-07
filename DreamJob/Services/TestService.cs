@@ -35,7 +35,7 @@ namespace DreamJob.Services
 
         private void CreateNewDeveloper()
         {
-            string email = this.GetWord(10) + "@" + this.GetWord(10) + ".com";
+            string email = this.GetWord(10) + Faker.InternetFaker.Email();
             var dto = new ProfileRegisterDto
             {
                 ConfirmPassword = "1234",
@@ -119,7 +119,36 @@ namespace DreamJob.Services
 
         public void CreateNewRecruites(int count)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < count; i++)
+            {
+                this.CreateNewRecruiter();
+            }
+        }
+
+        private void CreateNewRecruiter()
+        {
+            string email = this.GetWord(10) + Faker.InternetFaker.Email();
+            var dto = new ProfileRegisterDto
+            {
+                ConfirmPassword = "1234",
+                Email = email,
+                Password = "1234",
+                Role = ApplicationUserRole.Recruiter
+            };
+
+            this.accountService.RegisterRecruiter(dto);
+            var profile = this.database.Profiles.First(p => p.Email == email);
+
+            var updateProfile = new ProfilePrivateRecruiterDto
+            {
+                Email = email,
+                Employer = Faker.InternetFaker.Domain(),
+                FirstName = Faker.NameFaker.FirstName(),
+                IsActive = true,
+                LastName = Faker.NameFaker.LastName()
+            };
+
+            this.profileService.UpdateRecruiterProfile(updateProfile, profile.Id);
         }
 
         public void CreateComments(int commentCounts, int offerCount)
