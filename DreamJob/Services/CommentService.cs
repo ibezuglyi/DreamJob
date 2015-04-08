@@ -68,5 +68,9 @@
             return result;
         }
 
+        public void AddByAuthorId(CommentAddDto comment, long authorId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

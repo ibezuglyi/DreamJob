@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using Autofac;
 using DreamJob.Dtos;
 using DreamJob.Infrastructure;
 using DreamJob.Models;
@@ -16,12 +17,18 @@ namespace DreamJob.Services
         private readonly IProfileService profileService;
         private readonly ApplicationDatabase database;
         private readonly Random random;
+        private readonly ICommentService commentService;
 
-        public TestService(IAccountService accountService, IProfileService profileService, ApplicationDatabase database)
+        public TestService(
+            IAccountService accountService,
+            IProfileService profileService,
+            ApplicationDatabase database,
+            ICommentService commentService)
         {
             this.accountService = accountService;
             this.profileService = profileService;
             this.database = database;
+            this.commentService = commentService;
             this.random = new Random();
         }
 
@@ -153,7 +160,63 @@ namespace DreamJob.Services
 
         public void CreateComments(int commentCounts, int offerCount)
         {
-            throw new System.NotImplementedException();
+            if (offerCount == 1)
+            {
+                this.CreateCommentsForOneOffer(commentCounts);
+            }
+            if (offerCount == 0)
+            {
+                this.CreateCommentsForRandomOffers(commentCounts);
+            }
+        }
+
+        private void CreateCommentsForRandomOffers(int commentCounts)
+        {
+            var jobOffers = this.database.JobOffers.ToList();
+            var offerCount = jobOffers.Count();
+            for (int i = 0; i < commentCounts; i++)
+            {
+                var offer = jobOffers.ElementAt(this.random.Next(0, offerCount));
+                var comment = this.GetRandomComment(offer.Id);
+                var authorId = this.GetOfferRandomAuthorId(offer);
+                this.commentService.AddByAuthorId(comment, authorId);
+            }
+        }
+
+        private void CreateCommentsForOneOffer(int commentCounts)
+        {
+            var jobOffers = this.database.JobOffers.ToList();
+            var offerCount = jobOffers.Count();
+            var index = this.random.Next(0, offerCount);
+            var offer = jobOffers.ElementAt(index);
+            for (int i = 0; i < commentCounts; i++)
+            {
+                var comment = this.GetRandomComment(offer.Id);
+                var authorId = this.GetOfferRandomAuthorId(offer);
+                this.commentService.AddByAuthorId(comment, authorId);
+            }
+        }
+
+        private long GetOfferRandomAuthorId(JobOffer offer)
+        {
+            if (this.random.Next(1, 2) % 2 == 0)
+            {
+                return offer.DeveloperId;
+            }
+            else
+            {
+                return offer.RecruiterId;
+            }
+        }
+
+        private CommentAddDto GetRandomComment(long id)
+        {
+            var result = new CommentAddDto
+            {
+                JobOfferId = id,
+                Text = Faker.TextFaker.Sentences(this.random.Next(10))
+            };
+            return result;
         }
 
         public void CreateOffers(int count)
