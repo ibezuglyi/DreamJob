@@ -9,10 +9,12 @@ using DreamJob.Services;
 
 namespace DreamJob
 {
-   
+
 
     public static class ApplicationIocContainer
     {
+        public static IContainer Container { get; private set; }
+
         public static void Initialize()
         {
             var builder = new ContainerBuilder();
@@ -27,9 +29,9 @@ namespace DreamJob
             builder.RegisterType<ApplicationDatabase>().InstancePerLifetimeScope();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            var container = builder.Build();
+            Container = builder.Build();
 
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(Container));
         }
     }
 }

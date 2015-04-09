@@ -91,11 +91,6 @@ namespace DreamJob.Services
             return viewmodel;
         }
 
-        public void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto, long userId)
-        {
-            this.UpdateRecruiterProfileById(dto, userId);
-        }
-
         public void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto)
         {
             var currentUserid = this.authentication.GetCurrentLoggedUserId();
@@ -128,18 +123,6 @@ namespace DreamJob.Services
             model.Recruiter.Email = dto.Email;
             model.Recruiter.Employer = dto.Employer;
             model.Recruiter.IsActive = dto.IsActive;
-        }
-
-        public void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto, long id)
-        {
-            var model =
-                this.applicationDatabase.Profiles.Include(p => p.Developer)
-                    .Include(p => p.Developer)
-                    .Include(p => p.Developer.Skills)
-                    .Include(p => p.Developer.Skills.Select(dd => dd.Skill))
-                    .First(d => d.Id == id);
-            this.UpdateDeveloperProfile(dto, model, id);
-            this.applicationDatabase.SaveChanges();
         }
 
         public void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto)

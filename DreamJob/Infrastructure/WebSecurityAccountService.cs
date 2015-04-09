@@ -1,13 +1,11 @@
-﻿namespace DreamJob.Infrastructure
+﻿
+namespace DreamJob.Infrastructure
 {
     using System;
     using System.Linq;
-    using System.Web;
     using System.Web.Security;
-
-    using DreamJob.Dtos;
-    using DreamJob.ViewModels;
-
+    using Dtos;
+    using ViewModels;
     using WebMatrix.WebData;
 
     class WebSecurityAccountService : IAccountService

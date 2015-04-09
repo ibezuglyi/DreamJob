@@ -269,6 +269,7 @@
     <Compile Include="ViewModels\SearchIndexViewModel.cs" />
     <Compile Include="ViewModels\SearchResultViewModel.cs" />
     <Compile Include="ViewModels\SkillViewModel.cs" />
+    <Compile Include="ViewModels\TestIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

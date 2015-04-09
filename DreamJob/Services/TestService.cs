@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Web.Mvc;
 using Autofac;
+using Autofac.Integration.Mvc;
+using DreamJob.Controllers;
 using DreamJob.Dtos;
 using DreamJob.Infrastructure;
 using DreamJob.Models;
@@ -19,16 +22,15 @@ namespace DreamJob.Services
         private readonly Random random;
         private readonly ICommentService commentService;
 
-        public TestService(
-            IAccountService accountService,
-            IProfileService profileService,
-            ApplicationDatabase database,
-            ICommentService commentService)
+        public TestService()
         {
-            this.accountService = accountService;
-            this.profileService = profileService;
-            this.database = database;
-            this.commentService = commentService;
+
+            
+
+            this.accountService = ApplicationIocContainer.Container.Resolve<IAccountService>();
+            this.profileService = ApplicationIocContainer.Container.Resolve<IProfileService>();
+            this.database = ApplicationIocContainer.Container.Resolve<ApplicationDatabase>();
+            this.commentService = ApplicationIocContainer.Container.Resolve<ICommentService>();
             this.random = new Random();
         }
 
@@ -65,7 +67,9 @@ namespace DreamJob.Services
                 Action = string.Empty
             };
 
-            this.profileService.UpdateDeveloperProfile(updateProfile, profile.Id);
+            TestAccountService.CurrectLoggedUserId = profile.Id;
+            TestAccountService.CurrentLoggedUserRole = ApplicationUserRole.Developer;
+            this.profileService.UpdateDeveloperProfile(updateProfile);
         }
 
         private List<DeveloperSkillDto> GetSkills(int oldSkills, int newSkills)
@@ -91,7 +95,7 @@ namespace DreamJob.Services
             {
                 var dto = new DeveloperSkillDto
                 {
-                    Level = this.random.Next(100),
+                    Level = this.random.Next(1,10),
                     Name = this.GetWord(10),
                     SkillId = 0
                 };
@@ -155,7 +159,9 @@ namespace DreamJob.Services
                 LastName = Faker.NameFaker.LastName()
             };
 
-            this.profileService.UpdateRecruiterProfile(updateProfile, profile.Id);
+            TestAccountService.CurrentLoggedUserRole = ApplicationUserRole.Recruiter;
+            TestAccountService.CurrectLoggedUserId = profile.Id;
+            this.profileService.UpdateRecruiterProfile(updateProfile);
         }
 
         public void CreateComments(int commentCounts, int offerCount)
@@ -178,8 +184,8 @@ namespace DreamJob.Services
             {
                 var offer = jobOffers.ElementAt(this.random.Next(0, offerCount));
                 var comment = this.GetRandomComment(offer.Id);
-                var authorId = this.GetOfferRandomAuthorId(offer);
-                this.commentService.AddByAuthorId(comment, authorId);
+                this.SetOfferRandomAuthorId(offer);
+                this.commentService.Add(comment);
             }
         }
 
@@ -192,20 +198,22 @@ namespace DreamJob.Services
             for (int i = 0; i < commentCounts; i++)
             {
                 var comment = this.GetRandomComment(offer.Id);
-                var authorId = this.GetOfferRandomAuthorId(offer);
-                this.commentService.AddByAuthorId(comment, authorId);
+                this.SetOfferRandomAuthorId(offer);
+                this.commentService.Add(comment);
             }
         }
 
-        private long GetOfferRandomAuthorId(JobOffer offer)
+        private void SetOfferRandomAuthorId(JobOffer offer)
         {
             if (this.random.Next(1, 2) % 2 == 0)
             {
-                return offer.DeveloperId;
+                TestAccountService.CurrectLoggedUserId = offer.DeveloperId;
+                TestAccountService.CurrentLoggedUserRole = ApplicationUserRole.Developer;
             }
             else
             {
-                return offer.RecruiterId;
+                TestAccountService.CurrectLoggedUserId = offer.RecruiterId;
+                TestAccountService.CurrentLoggedUserRole = ApplicationUserRole.Recruiter;
             }
         }
 
@@ -214,7 +222,7 @@ namespace DreamJob.Services
             var result = new CommentAddDto
             {
                 JobOfferId = id,
-                Text = Faker.TextFaker.Sentences(this.random.Next(10))
+                Text = Faker.TextFaker.Sentences(this.random.Next(1,10))
             };
             return result;
         }
@@ -229,6 +237,70 @@ namespace DreamJob.Services
             throw new System.NotImplementedException();
         }
 
+        public void HijacIoc()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<TestAccountService>().As<IAccountService>().SingleInstance();
+            builder.Update(ApplicationIocContainer.Container);
+        }
 
+        public void Restore()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<WebSecurityAccountService>().As<IAccountService>();
+            builder.Update(ApplicationIocContainer.Container);
+        }
+
+        public TestIndexViewModel GetViewModel()
+        {
+            var isHijacked = ApplicationIocContainer.Container.Resolve<IAccountService>() is TestAccountService;
+            var result = new TestIndexViewModel(isHijacked);
+            return result;
+        }
+    }
+
+    internal class TestAccountService : IAccountService
+    {
+        private WebSecurityAccountService trueAccountService;
+
+        public TestAccountService()
+        {
+            this.trueAccountService = new WebSecurityAccountService();
+        }
+
+        public void Logout()
+        {
+            //empty on purpose
+        }
+
+        public static bool LoginResult { get; set; }
+        public bool Login(ProfileLoginDto dto)
+        {
+            return LoginResult;
+        }
+
+        public void RegisterDeveloper(ProfileRegisterDto dto)
+        {
+            this.trueAccountService.RegisterDeveloper(dto);
+        }
+
+        public void RegisterRecruiter(ProfileRegisterDto dto)
+        {
+            this.trueAccountService.RegisterRecruiter(dto);
+        }
+
+        public long GetCurrentLoggedUserId()
+        {
+            return CurrectLoggedUserId;
+        }
+
+        public static long CurrectLoggedUserId { get; set; }
+
+        public ApplicationUserRole GetCurrentLoggedUserRole()
+        {
+            return CurrentLoggedUserRole;
+        }
+
+        public static ApplicationUserRole CurrentLoggedUserRole { get; set; }
     }
 }

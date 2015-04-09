@@ -1,73 +1,88 @@
-﻿@model DreamJob.Controllers.TestIndexViewModel
+﻿@model DreamJob.ViewModels.TestIndexViewModel
 
 <div class="container">
     <div class="row">
-        @Html.ActionLink("Create new 1 developer", "NewDeveloper", "Test", new { d = 1 }, new { @class = "btn btn-default" })
+        @if (Model.IsHijacked)
+        {
+            <div class="alert alert-danger">IOC HIJACKED</div>
+        }
+        else
+        {
+            <div class="alert alert-info">IOC in normal mode</div>
+        }
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 10 developers", "NewDeveloper", "Test", new { d = 10 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("HIJAK", "Hijac", "Test", null, new {@class = "btn btn-danger"})
+        @Html.ActionLink("RESTORE", "Restore", "Test", null, new {@class = "btn btn-info"})
+    </div>
+
+    <div class="row">
+        @Html.ActionLink("Create new 1 developer", "NewDeveloper", "Test", new {d = 1}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 100 developers", "NewDeveloper", "Test", new { d = 100 }, new { @class = "btn btn-default" })
-    </div>
-    
-    <div class="row">
-        @Html.ActionLink("Create new 1 recruiter", "NewRecruiter", "Test", new { r = 1 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 10 developers", "NewDeveloper", "Test", new {d = 10}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 10 recruiter", "NewRecruiter", "Test", new { r = 10 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 100 developers", "NewDeveloper", "Test", new {d = 100}, new {@class = "btn btn-default"})
+    </div>
+
+    <div class="row">
+        @Html.ActionLink("Create new 1 recruiter", "NewRecruiter", "Test", new {r = 1}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 100 recruiter", "NewRecruiter", "Test", new { r = 100 }, new { @class = "btn btn-default" })
-    </div>
-    
-    <div class="row">
-        @Html.ActionLink("Create new 1 comment in 1 offer", "NewComment", "Test", new { c = 1,o=1 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 10 recruiter", "NewRecruiter", "Test", new {r = 10}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 10 comments in 1 offer", "NewComment", "Test", new { c = 10,o=1 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 100 recruiter", "NewRecruiter", "Test", new {r = 100}, new {@class = "btn btn-default"})
+    </div>
+
+    <div class="row">
+        @Html.ActionLink("Create new 1 comment in 1 offer", "NewComment", "Test", new {c = 1, o = 1}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 100 comments in 1 offer", "NewComment", "Test", new { c = 100,o=1 }, new { @class = "btn btn-default" })
-    </div>
-    
-    <div class="row">
-        @Html.ActionLink("Create new 1 comment in all offers", "NewComment", "Test", new { c = 1, o = 0 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 10 comments in 1 offer", "NewComment", "Test", new {c = 10, o = 1}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 10 comment in all offers", "NewComment", "Test", new { c = 10, o = 0 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 100 comments in 1 offer", "NewComment", "Test", new {c = 100, o = 1}, new {@class = "btn btn-default"})
+    </div>
+
+    <div class="row">
+        @Html.ActionLink("Create new 1 comment in all offers", "NewComment", "Test", new {c = 1, o = 0}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 10 comment in all offers", "NewComment", "Test", new { c = 100, o = 0 }, new { @class = "btn btn-default" })
-    </div>
-    
-    <div class="row">
-        @Html.ActionLink("Create new 1 offer", "NewOffer", "Test", new { o = 1 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 10 comment in all offers", "NewComment", "Test", new {c = 10, o = 0}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 10 offer", "NewOffer", "Test", new { o = 10 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 100 comment in all offers", "NewComment", "Test", new {c = 100, o = 0}, new {@class = "btn btn-default"})
+    </div>
+
+    <div class="row">
+        @Html.ActionLink("Create new 1 offer", "NewOffer", "Test", new {o = 1}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 100 offer", "NewOffer", "Test", new { o = 100 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 10 offer", "NewOffer", "Test", new {o = 10}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 1 response in 1 offer", "NewResponse", "Test", new { r=1,o = 1 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 100 offer", "NewOffer", "Test", new {o = 100}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 10 response in 1 offer", "NewResponse", "Test", new { r=10,o = 1 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 1 response in 1 offer", "NewResponse", "Test", new {r = 1, o = 1}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 100 response in 1 offer", "NewResponse", "Test", new { r=100,o = 1 }, new { @class = "btn btn-default" })
-    </div>
-    
-    <div class="row">
-        @Html.ActionLink("Create new 1 response in all", "NewResponse", "Test", new { r = 1, o = 0 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 10 response in 1 offer", "NewResponse", "Test", new {r = 10, o = 1}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 10 response in all", "NewResponse", "Test", new { r = 10, o =0 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 100 response in 1 offer", "NewResponse", "Test", new {r = 100, o = 1}, new {@class = "btn btn-default"})
+    </div>
+
+    <div class="row">
+        @Html.ActionLink("Create new 1 response in all", "NewResponse", "Test", new {r = 1, o = 0}, new {@class = "btn btn-default"})
     </div>
     <div class="row">
-        @Html.ActionLink("Create new 100 response in all", "NewResponse", "Test", new { r = 100, o = 0 }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Create new 10 response in all", "NewResponse", "Test", new {r = 10, o = 0}, new {@class = "btn btn-default"})
+    </div>
+    <div class="row">
+        @Html.ActionLink("Create new 100 response in all", "NewResponse", "Test", new {r = 100, o = 0}, new {@class = "btn btn-default"})
     </div>
 
 </div>

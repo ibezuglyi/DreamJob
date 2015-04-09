@@ -14,7 +14,7 @@ namespace DreamJob.Controllers
 
         public ActionResult Index()
         {
-            var viewModel = new TestIndexViewModel();
+            var viewModel = this.testService.GetViewModel();
             return this.View("Index", viewModel);
         }
 
@@ -48,9 +48,17 @@ namespace DreamJob.Controllers
             this.testService.CreateOfferResponses(r, o);
             return this.RedirectToAction("Index");
         }
-    }
 
-    public class TestIndexViewModel
-    {
+        public ActionResult Hijac()
+        {
+            this.testService.HijacIoc();
+            return this.RedirectToAction("Index");
+        }
+
+        public ActionResult Restore()
+        {
+            this.testService.Restore();
+            return this.RedirectToAction("Index");
+        }
     }
 }

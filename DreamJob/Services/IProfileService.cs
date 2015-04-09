@@ -12,11 +12,6 @@
         void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto);
         void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto);
 
-
-        void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto updateProfile, long id);
-        void UpdateRecruiterProfile(ProfilePrivateRecruiterDto updateProfile, long id);
-
-
         void RemoveSkillFromProfile(long skillId);
 
         HomeIndexViewModel GetDevelopersHeadlines();
