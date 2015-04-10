@@ -7,10 +7,10 @@
 
     using AutoMapper;
 
-    using DreamJob.Dtos;
-    using DreamJob.Infrastructure;
-    using DreamJob.Models;
-    using DreamJob.ViewModels;
+    using Dtos;
+    using Infrastructure;
+    using Models;
+    using ViewModels;
 
     class JobOfferService : IJobOfferService
     {

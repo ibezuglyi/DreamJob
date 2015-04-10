@@ -21,17 +21,21 @@ namespace DreamJob.Services
         private readonly ApplicationDatabase database;
         private readonly Random random;
         private readonly ICommentService commentService;
+        private IJobOfferService jobOfferService;
 
-        public TestService()
+
+        public TestService(IAccountService accountService,
+            IProfileService profileService,
+            ApplicationDatabase database,
+            ICommentService commentService,
+            IJobOfferService jobOfferService)
         {
-
-            
-
-            this.accountService = ApplicationIocContainer.Container.Resolve<IAccountService>();
-            this.profileService = ApplicationIocContainer.Container.Resolve<IProfileService>();
-            this.database = ApplicationIocContainer.Container.Resolve<ApplicationDatabase>();
-            this.commentService = ApplicationIocContainer.Container.Resolve<ICommentService>();
+            this.accountService = accountService;
+            this.profileService = profileService;
+            this.database = database;
+            this.commentService = commentService;
             this.random = new Random();
+            this.jobOfferService = jobOfferService;
         }
 
         public void CreateNewDevelopers(int count)
@@ -95,7 +99,7 @@ namespace DreamJob.Services
             {
                 var dto = new DeveloperSkillDto
                 {
-                    Level = this.random.Next(1,10),
+                    Level = this.random.Next(1, 10),
                     Name = this.GetWord(10),
                     SkillId = 0
                 };
@@ -222,14 +226,44 @@ namespace DreamJob.Services
             var result = new CommentAddDto
             {
                 JobOfferId = id,
-                Text = Faker.TextFaker.Sentences(this.random.Next(1,10))
+                Text = Faker.TextFaker.Sentences(this.random.Next(1, 10))
             };
             return result;
         }
 
         public void CreateOffers(int count)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < count; i++)
+            {
+                this.CreateOffer();
+            }
+        }
+
+        private void CreateOffer()
+        {
+            var allDevelopers = this.database.Developers.ToList();
+            var allRecruiters = this.database.Recruiters.ToList();
+
+            var recruiter = allRecruiters.ElementAt(this.random.Next(allRecruiters.Count - 1));
+            var developer = allDevelopers.ElementAt(this.random.Next(allDevelopers.Count - 1));
+            var dto = new JobOfferSendDto
+            {
+                CompanyName = Faker.CompanyFaker.Name(),
+                DeveloperId = developer.Id,
+                JobOfferText = Faker.TextFaker.Sentence(),
+                OfferMatchesProfile = true,
+                Position = "developer",
+                ProfileWasReadBeforeSending = true,
+                Requirements = Faker.TextFaker.Sentence(),
+                Salary = developer.Salary
+            };
+
+
+
+            TestAccountService.CurrectLoggedUserId = recruiter.UserAccountId;
+            TestAccountService.CurrentLoggedUserRole = ApplicationUserRole.Recruiter;
+
+            this.jobOfferService.Add(dto);
         }
 
         public void CreateOfferResponses(int count, int offersCount)
