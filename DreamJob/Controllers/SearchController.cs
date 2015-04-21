@@ -27,6 +27,10 @@
         [AllowAnonymous]
         public ActionResult Skill(SearchSkillDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return this.View("Index", new SearchIndexViewModel());
+            }
             var viewModel = this.profileService.GetDevelopersHeadlinesWithSkill(dto);
             return this.View("Skill", viewModel);
         }
