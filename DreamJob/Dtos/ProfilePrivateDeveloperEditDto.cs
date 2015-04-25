@@ -22,18 +22,19 @@
         [Required]
         [AllowHtml]
         public string AboutMe { get; set; }
-        
+
         [Required]
         [AllowHtml]
         public string LookingFor { get; set; }
-        
+
         public List<DeveloperSkillDto> Skills { get; set; }
 
         [Required]
+        [Range(typeof(decimal), "1", "1000000000")]
         public decimal Salary { get; set; }
 
         public string Action { get; set; }
-        
+
         public bool IsActive { get; set; }
     }
 }
