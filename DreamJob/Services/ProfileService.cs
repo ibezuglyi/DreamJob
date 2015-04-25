@@ -197,6 +197,7 @@ namespace DreamJob.Services
                 .Developers
                 .Where(d => d.IsActive)
                 .Include(d => d.Skills)
+                .OrderByDescending(d => d.CreateDateTime)
                 .ToList();
             var headlines = Mapper.Map<List<Developer>, List<DeveloperHeadlineViewModel>>(allDevelopers);
             var viewModel = new HomeIndexViewModel(headlines);
