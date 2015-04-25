@@ -1,58 +1,7 @@
 ﻿@using DreamJob.ViewModels
 @model ProfilePublicViewModel
 <div class="container col-md-6 col-md-offset-3">
-    <div class="jumbotron">
-        <h1>
-            @if (Model.ProfileRole == ApplicationUserRole.Developer)
-            {
-                @Model.Developer.DisplayName
-            }
-            else
-            {
-                @Model.Recruiter.FirstName
-                @Model.Recruiter.LastName
-            }
-        </h1>
-        <h5>@Model.ProfileRole</h5>
-        @if (Model.ProfileRole == ApplicationUserRole.Developer)
-        {
-            <h6>
-                @Html.LabelFor(m => m.Developer.Salary)
-                @Html.DisplayFor(m => m.Developer.Salary)
-                <span>montly netto pln</span>
-            </h6>
-        }
-    </div>
-    @if (Model.ProfileRole == ApplicationUserRole.Developer)
-    {
-        <label>Skills:</label>
-        <div>
-            @foreach (var skill in Model.Developer.SkillsViewModels.OrderByDescending(s => s.Level))
-            {
-                <button class="btn">@skill.Name <span class="badge">@skill.Level</span></button>
-            }
-        </div>
-        <div>
-            @Html.LabelFor(m => m.Developer.AboutMe)
-            <p class="text-justify">
-                @Model.Developer.AboutMe
-            </p>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.Developer.LookingFor)
-            <p class="text-justify">
-                @Model.Developer.LookingFor
-            </p>
-        </div>
-    }
-
-    @if (Model.ProfileRole == ApplicationUserRole.Recruiter)
-    {
-        <div>Employed</div>
-        <div>@Model.Recruiter.Employer</div>
-        <div>Reach me at:</div>
-        <div>@Model.Recruiter.Email</div>
-    }
+    @Html.Partial("_Public", Model)
     <hr />
     @Html.ActionLink("Edit", "Edit", "Profile", null, new { @class = "btn btn-default" })
 

@@ -332,6 +332,7 @@
     <Content Include="Views\JobOffer\_JobOfferConfirmForm.cshtml" />
     <Content Include="Views\JobOffer\_JobOfferRejectForm.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Profile\_Public.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
