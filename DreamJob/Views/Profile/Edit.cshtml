@@ -1,6 +1,6 @@
 ﻿@using DreamJob.ViewModels
 @model ProfilePrivateViewModel
-<div class="container col-md-6 col-md-offset-3">
+<div class="container">
     <form action=@Model.GetCurrentUserFormActionUrl() method="POST">
         @Html.Partial("_ValidationSummary")
         @if (Model.LoggedInUserRole == ApplicationUserRole.Developer)

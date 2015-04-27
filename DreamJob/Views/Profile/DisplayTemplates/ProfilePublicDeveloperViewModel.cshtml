@@ -1,7 +1,23 @@
 ﻿@model DreamJob.ViewModels.ProfilePublicDeveloperViewModel
-<h1>@Model.DisplayName</h1>
-<h6>
-    @Html.LabelFor(m => m.Salary)
-    @Html.DisplayFor(m => m.Salary)
-    <span>montly netto pln</span>
-</h6>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <span class="pull-left">@Model.LookingFor</span>
+            <span class="pull-right">@Html.DisplayFor(m => m.Salary) PLN</span>
+            <span class="clearfix"></span>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <p>
+            @Model.AboutMe
+        </p>
+        @Html.DisplayFor(m => m.SkillsViewModels)
+    </div>
+</div>
+
+
+
+    
+
+

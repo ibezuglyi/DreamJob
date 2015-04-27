@@ -1,35 +1,13 @@
 ﻿@using DreamJob.ViewModels
 @model ProfilePublicViewModel
 
-<div class="jumbotron">
-    <h5>@Model.ProfileRole</h5>
-    @if (Model.ProfileRole == ApplicationUserRole.Developer)
-    {
-        @Html.DisplayFor(m => m.Developer)
-    }
-    @if (Model.ProfileRole == ApplicationUserRole.Recruiter)
-    {
-        @Html.DisplayFor(m => m.Recruiter)
-    }
-</div>
 @if (Model.ProfileRole == ApplicationUserRole.Developer)
 {
-    <label>Skills:</label>
-    <div>
-        @Html.DisplayFor(m => m.Developer.SkillsViewModels)
-    </div>
-    <div>
-        @Html.LabelFor(m => m.Developer.AboutMe)
-        <p class="text-justify">
-            @Model.Developer.AboutMe
-        </p>
-    </div>
-    <div>
-        @Html.LabelFor(m => m.Developer.LookingFor)
-        <p class="text-justify">
-            @Model.Developer.LookingFor
-        </p>
-    </div>
+    @Html.DisplayFor(m => m.Developer)
+}
+@if (Model.ProfileRole == ApplicationUserRole.Recruiter)
+{
+    @Html.DisplayFor(m => m.Recruiter)
 }
 
 @if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.ProfileRole == ApplicationUserRole.Developer && Model.CurrentUserProfileIsActive)
@@ -40,7 +18,7 @@
 {
     <div>
         <span class="label label-warning">Warning</span>
-        <p>Yours profile in not active, change that in order to send job offers to best developers like one</p>
+        <p>Your's profile in not active, change that in order to send job offers to best developers like one</p>
         @Html.ActionLink("Go to profile edit", "Edit", "Profile", null, new { @class = "btn btn-default btn-sm" })
     </div>
 }

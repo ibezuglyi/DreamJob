@@ -1,9 +1,12 @@
 ﻿@model DreamJob.ViewModels.DeveloperSkillViewModel
-<span>
-    <button class="btn btn-primary disabled">
-        @Model.Name
-        <span class="badge">
-            @Model.Level
-        </span>
-    </button>
-</span>
+
+<div>
+    <div class="col-md-3">@Model.Name</div>
+    <div class="col-md-9">
+        <div class="progress">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="@Model.Level" aria-valuemin="0" style="width: @Model.Level%">
+                <span class="sr-only">@Model.Level</span>
+            </div>
+        </div>
+    </div>
+</div>

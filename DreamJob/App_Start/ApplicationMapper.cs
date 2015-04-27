@@ -23,7 +23,7 @@ namespace DreamJob
                 .ForMember(d => d.Recruiter, o => o.NullSubstitute(new ProfilePublicRecruiterViewModel()));
 
             Mapper.CreateMap<Developer, ProfilePublicDeveloperViewModel>()
-                .ForMember(d => d.SkillsViewModels, o => o.MapFrom(s => s.Skills));
+                .ForMember(d => d.SkillsViewModels, o => o.MapFrom(s => s.Skills.OrderByDescending(r=>r.Level)));
 
             Mapper.CreateMap<Developer, ProfilePrivateDeveloperViewModel>()
                 .ForMember(d => d.Skills, o => o.MapFrom(s => s.Skills))
@@ -65,7 +65,7 @@ namespace DreamJob
             Mapper.CreateMap<JobOfferComment, JobOfferCommentViewModel>()
                 .ForMember(d => d.AuthorDisplayName,
                     o => o.ResolveUsing<JobOfferCommentAuthorDisplayNameResolver>());
-                    
+
 
             Mapper.CreateMap<JobOfferRejectDto, JobOfferStatusChange>()
                 .ForMember(d => d.Status, o => o.UseValue(JobOfferStatus.Rejected));
