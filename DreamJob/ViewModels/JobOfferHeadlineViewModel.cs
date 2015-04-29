@@ -15,5 +15,13 @@ namespace DreamJob.ViewModels
         public long DeveloperId { get; set; }
 
         public long MessagesCount { get; set; }
+        public string MessageCountToShow
+        {
+            get { return MessagesCount > 0 ? string.Format("({0})",MessagesCount.ToString()) : string.Empty; }
+        }
+        public bool IsBoldedLine
+        {
+            get { return MessagesCount > 0; }
+        }
     }
 }

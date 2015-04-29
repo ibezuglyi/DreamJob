@@ -1,4 +1,6 @@
-﻿namespace DreamJob.ViewModels
+﻿using System.Linq;
+
+namespace DreamJob.ViewModels
 {
     using System.Collections.Generic;
 
@@ -8,7 +10,7 @@
 
         public JobOfferIndexViewModel(List<JobOfferHeadlineViewModel> offersList)
         {
-            this.OffersList = offersList;
+            this.OffersList = offersList.OrderByDescending(r=>r.MessagesCount).ToList();
         }
     }
 }

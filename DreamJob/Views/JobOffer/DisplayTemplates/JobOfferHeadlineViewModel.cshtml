@@ -1,24 +1,25 @@
 ﻿@model DreamJob.ViewModels.JobOfferHeadlineViewModel
-<div class="row">
-    <div class="col-md-2">
-        @Model.CreateDateTime.ToLongDateString()
-    </div>
-    <div class="col-md-3">
-        @Html.ActionLink(@Model.DeveloperDisplayName, "Public", "Profile", new { id = Model.DeveloperId }, null)
-    </div>
-    <div class="col-md-2">
-        @Model.Position
-    </div>
-    <div class="col-md-2">
+@{
+    var boldedStyle = Model.IsBoldedLine ? "bolded-text" : string.Empty;
+}
+<a class="list-group-item row @boldedStyle" href="@Url.Action("Details", "JobOffer", new { id = @Model.Id })">
+    <span class="col-md-3 short-text">
+        @Model.MessageCountToShow
         @Model.CompanyName
-    </div>
-    <div class="col-md-1">
+    </span>
+    <span class="col-md-3 short-text">
+        @Model.Position
+    </span>
+    <span class="col-md-1">
         @Model.Salary
-    </div>
-    <div class="col-md-1">
+    </span>
+    <span class="col-md-2">
+        @Model.DeveloperDisplayName
+    </span>
+    <span class="col-md-1">
         @Model.Status
-    </div>
-    <div class="col-md-1">
-        @Html.ActionLink(string.Format("Deails ({0})", @Model.MessagesCount), "Details", "JobOffer", new { id = @Model.Id }, new { @class = "btn btn-info" })
-    </div>
-</div>
+    </span>
+    <span class="col-md-2">
+        @Model.CreateDateTime.ToLongDateString()
+    </span>
+</a>

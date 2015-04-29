@@ -1,7 +1,7 @@
 ﻿@model DreamJob.ViewModels.DeveloperHeadlineViewModel
-<div class="row">
-    <div class="col-md-4 col-md-offset-1">Name: @Model.DisplayName</div>
-    <div class="col-md-2">Total skills: @Model.SkillsCount</div>
-    <div class="col-md-3">Salary: @Model.Salary</div>
-    <div class="col-md-1">@Html.ActionLink("profile", "Public", "Profile", new { id = @Model.Id }, new { @class = "btn btn-sm btn-default" })</div>
-</div>
+<a class="list-group-item row" href="@Url.Action("Public", "Profile", new { id = @Model.Id })">
+    <span class="col-md-4 short-text">@Model.LookingFor</span>
+    <span class="col-md-4 short-text">@Model.AboutMe</span>
+    <span class="col-md-1">@Model.SkillsCount</span>
+    <span class="col-md-3 text-right">@Model.Salary PLN</span>
+</a>

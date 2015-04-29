@@ -12,3 +12,11 @@
   padding-right: 15px;
   padding-left: 15px;
 }
+.short-text {
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bolded-text {
+    font-weight: bold;
+}
