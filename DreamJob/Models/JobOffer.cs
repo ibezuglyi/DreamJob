@@ -10,6 +10,7 @@
             this.Statuses = new List<JobOfferStatusChange>();
             this.NewMessagesToRead = new List<NewMessageToRead>();
         }
+
         public string JobOfferText { get; set; }
         public string Position { get; set; }
         public decimal Salary { get; set; }

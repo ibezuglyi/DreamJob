@@ -6,6 +6,7 @@
     {
         public DeveloperSkillViewModel():this(new DeveloperSkillDto())
         {}
+
         public DeveloperSkillViewModel(DeveloperSkillDto skill)
         {
             this.Name = skill.Name;

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using DreamJob.Dtos;
+    using Dtos;
 
     public class ProfilePrivateDeveloperViewModel
     {
@@ -20,7 +20,6 @@
         }
 
         public string DisplayName { get; set; }
-        public string Email { get; set; }
 
         public string AboutMe { get; set; }
         public string LookingFor { get; set; }
