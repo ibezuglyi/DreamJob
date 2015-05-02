@@ -20,3 +20,7 @@
 .bolded-text {
     font-weight: bold;
 }
+
+.multiline {
+    white-space: pre-wrap;
+}

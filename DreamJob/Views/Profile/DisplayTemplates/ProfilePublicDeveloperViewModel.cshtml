@@ -3,21 +3,19 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">
-            <span class="pull-left">@Model.LookingFor</span>
+            <span class="pull-left multiline">@Model.LookingFor</span>
             <span class="pull-right">@Html.DisplayFor(m => m.Salary) PLN</span>
             <span class="clearfix"></span>
         </h3>
     </div>
     <div class="panel-body">
-        <p>
-            @Model.AboutMe
-        </p>
+        <p class="multiline">@Model.AboutMe</p>
         @Html.DisplayFor(m => m.SkillsViewModels)
     </div>
 </div>
 
 
 
-    
+
 
 

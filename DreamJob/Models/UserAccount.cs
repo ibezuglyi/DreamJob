@@ -10,7 +10,5 @@
 
         public virtual Developer Developer { get; set; }
         public virtual Recruiter Recruiter { get; set; }
-
-
     }
 }

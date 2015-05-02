@@ -1,4 +1,6 @@
-﻿namespace DreamJob.ViewModels
+﻿using System.Web.Mvc;
+
+namespace DreamJob.ViewModels
 {
     using System;
     using System.Collections.Generic;
