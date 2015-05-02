@@ -1,9 +1,9 @@
-﻿namespace DreamJob.Controllers
+﻿using DreamJob.ExtensionMethods;
+
+namespace DreamJob.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
-
-    using ExtensionMethods;
     using Dtos;
     using Services;
 

@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -157,7 +158,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\ExtensionMethods\ControllersExtensions.cs" />
+    <Compile Include="ExtensionMethods\ControllersExtensions.cs" />
     <Compile Include="Controllers\JobOfferController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SearchController.cs" />

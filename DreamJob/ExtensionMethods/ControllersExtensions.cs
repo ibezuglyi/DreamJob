@@ -1,8 +1,8 @@
-﻿namespace DreamJob.Controllers.ExtensionMethods
-{
-    using System.IO;
-    using System.Web.Mvc;
+﻿using System.IO;
+using System.Web.Mvc;
 
+namespace DreamJob.ExtensionMethods
+{
     public static class ControllersExtensions
     {
         public static string ViewAsString(this Controller controller, string viewPath, object model)
