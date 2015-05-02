@@ -18,6 +18,10 @@
 
         public long UserAccountId { get; set; }
 
+        public string CurrentWorkingLocation { get; set; }
+        public bool WillingToRelocateToDifferentCity { get; set; }
+        public bool WillingToRelocateToDifferentCountry { get; set; }
+
         [Required]
         public UserAccount Account { get; set; }
 

@@ -4,14 +4,17 @@
 
     public class DeveloperSkillViewModel
     {
-        public DeveloperSkillViewModel():this(new DeveloperSkillDto())
-        {}
+        public DeveloperSkillViewModel() : this(string.Empty, -1, -1)
+        { }
 
-        public DeveloperSkillViewModel(DeveloperSkillDto skill)
+        public DeveloperSkillViewModel(DeveloperSkillDto skill) : this(skill.Name, skill.Level, skill.SkillId)
+        { }
+
+        public DeveloperSkillViewModel(string name, long level, long skillId)
         {
-            this.Name = skill.Name;
-            this.Level = skill.Level;
-            this.SkillId = skill.SkillId;
+            this.Name = name;
+            this.Level = level;
+            this.SkillId = skillId;
         }
 
         public string Name { get; set; }

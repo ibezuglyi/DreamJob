@@ -2,7 +2,7 @@
 
 <div class="input-group nocss-skill-row">
     @Html.HiddenFor(m => m.SkillId)
-    @if (@Model.SkillId != 0)
+    @if (@Model.SkillId > 0)
     {
         @Html.HiddenFor(m => m.Name)
         <span class="input-group-addon">@Model.Name</span>

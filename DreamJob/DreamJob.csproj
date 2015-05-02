@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ApplicationMapper.cs" />
+    <Compile Include="App_Start\ValueResolvers\DeveloperToListOfDeveloperSkillsViewModel.cs" />
     <Compile Include="App_Start\ValueResolvers\JobOfferCommentAuthorDisplayNameResolver.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
@@ -195,6 +196,10 @@
     <Compile Include="Migrations\201503162207303_comment-with-author.cs" />
     <Compile Include="Migrations\201503162207303_comment-with-author.Designer.cs">
       <DependentUpon>201503162207303_comment-with-author.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505021129471_candidate_working_location.cs" />
+    <Compile Include="Migrations\201505021129471_candidate_working_location.Designer.cs">
+      <DependentUpon>201505021129471_candidate_working_location.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDatabase.cs" />
@@ -353,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503162207303_comment-with-author.resx">
       <DependentUpon>201503162207303_comment-with-author.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505021129471_candidate_working_location.resx">
+      <DependentUpon>201505021129471_candidate_working_location.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

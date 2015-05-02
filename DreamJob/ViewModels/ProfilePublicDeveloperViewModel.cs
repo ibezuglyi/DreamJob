@@ -14,6 +14,9 @@
             this.Id = 0;
         }
 
+        public string CurrentWorkingLocation { get; set; }
+        public bool WillingToRelocateToDifferentCity { get; set; }
+        public bool WillingToRelocateToDifferentCountry { get; set; }
         public long Id { get; set; }
         public string DisplayName { get; set; }
         public string AboutMe { get; set; }

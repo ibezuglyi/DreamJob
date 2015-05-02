@@ -9,13 +9,26 @@
         </h3>
     </div>
     <div class="panel-body">
-        <p class="multiline">@Model.AboutMe</p>
-        @Html.DisplayFor(m => m.SkillsViewModels)
+        <div>
+            <div>
+                <span>
+                    @Html.LabelFor(m => m.CurrentWorkingLocation)
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    @Html.DisplayFor(m => m.CurrentWorkingLocation)
+                </span>
+                @{
+                    var cityIcon = Model.WillingToRelocateToDifferentCity ? "glyphicon-ok" : "glyphicon-remove";
+                    var countryIcon = Model.WillingToRelocateToDifferentCountry ? "glyphicon-ok" : "glyphicon-remove";
+                }
+                @Html.LabelFor(m => m.WillingToRelocateToDifferentCity)
+                <span class="glyphicon @cityIcon" aria-hidden="true"></span>
+                @Html.LabelFor(m => m.WillingToRelocateToDifferentCountry)
+                <span class="glyphicon @countryIcon" aria-hidden="true"></span>
+            </div>
+            <div>
+                <p class="multiline">@Model.AboutMe</p>
+                @Html.DisplayFor(m => m.SkillsViewModels)
+            </div>
+        </div>
     </div>
 </div>
-
-
-
-
-
-

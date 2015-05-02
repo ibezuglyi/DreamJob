@@ -20,7 +20,9 @@
         }
 
         public string DisplayName { get; set; }
-
+        public string CurrentWorkingLocation { get; set; }
+        public bool WillingToRelocateToDifferentCity { get; set; }
+        public bool WillingToRelocateToDifferentCountry { get; set; }
         public string AboutMe { get; set; }
         public string LookingFor { get; set; }
         public bool IsActive { get; set; }

@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    using DreamJob.Dtos;
+    using Dtos;
 
     public class ProfilePrivateViewModel
     {

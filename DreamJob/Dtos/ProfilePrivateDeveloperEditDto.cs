@@ -30,6 +30,13 @@
         public List<DeveloperSkillDto> Skills { get; set; }
 
         [Required]
+        public string CurrentWorkingLocation { get; set; }
+
+        public bool WillingToRelocateToDifferentCity { get; set; }
+
+        public bool WillingToRelocateToDifferentCountry { get; set; }
+
+        [Required]
         [Range(typeof(decimal), "1", "1000000000")]
         public decimal Salary { get; set; }
 

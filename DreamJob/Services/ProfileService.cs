@@ -153,8 +153,11 @@ namespace DreamJob.Services
             model.Developer.LookingFor = dto.LookingFor;
             model.Developer.Salary = dto.Salary;
             model.Developer.IsActive = dto.IsActive;
+            model.Developer.CurrentWorkingLocation = dto.CurrentWorkingLocation;
+            model.Developer.WillingToRelocateToDifferentCity = dto.WillingToRelocateToDifferentCity;
+            model.Developer.WillingToRelocateToDifferentCountry = dto.WillingToRelocateToDifferentCountry;
 
-            dto.Skills.Where(skillDto => skillDto.SkillId != 0)
+            dto.Skills.Where(skillDto => skillDto.SkillId > 0)
                 .ToList()
                 .ForEach(
                     skillDto =>
@@ -163,7 +166,7 @@ namespace DreamJob.Services
 
             var newSkills =
                 dto.Skills.Where(
-                    skill => skill.SkillId == 0 && string.IsNullOrEmpty(skill.Name) == false && skill.Level > 0);
+                    skill => skill.SkillId <1 && string.IsNullOrEmpty(skill.Name) == false && skill.Level > 0);
 
             newSkills.ToList().ForEach(newSkill =>
             {

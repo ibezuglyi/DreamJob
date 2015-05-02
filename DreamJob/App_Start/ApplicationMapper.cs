@@ -115,10 +115,10 @@ namespace DreamJob
 
 
             Mapper.CreateMap<Developer, ProfilePublicDeveloperViewModel>()
-                .ForMember(d => d.SkillsViewModels, o => o.MapFrom(s => s.Skills.OrderByDescending(r => r.Level)));
+                .ForMember(d => d.SkillsViewModels, o => o.ResolveUsing<DeveloperToListOfDeveloperSkillsViewModel>());
 
             Mapper.CreateMap<Developer, ProfilePrivateDeveloperViewModel>()
-                .ForMember(d => d.Skills, o => o.MapFrom(s => s.Skills))
+                .ForMember(d => d.Skills, o => o.ResolveUsing<DeveloperToListOfDeveloperSkillsViewModel>())
                 .AfterMap((s, d) => d.Skills.Add(new DeveloperSkillViewModel()));
 
             Mapper.CreateMap<Recruiter, ProfilePrivateRecruiterViewModel>();

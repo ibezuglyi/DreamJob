@@ -10,8 +10,22 @@
 </div>
 <div class="form-group">
     @Html.LabelFor(m => m.LookingFor)
-    @Html.TextAreaFor(m => m.LookingFor, new { @class = "form-control", @rows = 5 })
+    @Html.TextAreaFor(m => m.LookingFor, new {@class = "form-control", @rows = 5})
 </div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.CurrentWorkingLocation)
+    @Html.TextBoxFor(m => m.CurrentWorkingLocation, new {@class = "form-control"})
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.WillingToRelocateToDifferentCity)
+    @Html.CheckBoxFor(m => m.WillingToRelocateToDifferentCity)
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.WillingToRelocateToDifferentCountry)
+    @Html.CheckBoxFor(m => m.WillingToRelocateToDifferentCountry)
+</div>
+
 <div class="form-group">
     <div class="input-group">
         <span class="input-group-addon">
