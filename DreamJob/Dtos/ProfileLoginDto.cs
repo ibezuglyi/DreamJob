@@ -15,10 +15,14 @@
         { }
 
         [AllowHtml]
-        [Required(ErrorMessageResourceType = typeof(Resources.Translations), ErrorMessageResourceName = "ProfileLoginDto_EmailRequired")]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations), 
+            ErrorMessageResourceName = "ProfileLogin_Dto_EmailRequired")]
         public string Email { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Resources.Translations), ErrorMessageResourceName = "ProfileLoginDto_PasswordRequired")]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations), 
+            ErrorMessageResourceName = "ProfileLogin_Dto_PasswordRequired")]
         [AllowHtml]
         public string Password { get; set; }
 

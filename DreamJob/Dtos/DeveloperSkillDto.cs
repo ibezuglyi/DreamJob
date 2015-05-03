@@ -18,7 +18,9 @@ namespace DreamJob.Dtos
         [AllowHtml]
         public string Name { get; set; }
 
-        [Range(typeof(long), "1", "10")]
+        [Range(typeof(long), "1", "10",
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "DeveloperSkill_Dto_Level_Range")]
         public long Level { get; set; }
     }
 }

@@ -139,6 +139,21 @@
     <value>Rekruterze załóż konto, uzupelnij swój profil i oznacz się jako aktywny. Uzyskasz dostęp do programistów chcących zmienić swoją pracę.
             Możesz wyszukać intereującą Cię umiejętnośc programisty, przeczytać co chce robić i jeśli będzie on człowiekiem, którego potrzebujesz wysłać mu ofertę.</value>
   </data>
+  <data name="CommentAdd_Dto_TextIsRequired" xml:space="preserve">
+    <value>Text is required</value>
+  </data>
+  <data name="ContactInformation_Dto_Email_Required" xml:space="preserve">
+    <value>Email is required</value>
+  </data>
+  <data name="ContactInformation_Dto_FirstName_Required" xml:space="preserve">
+    <value>First name is required</value>
+  </data>
+  <data name="ContactInformation_Dto_Phone_Required" xml:space="preserve">
+    <value>Phone is required</value>
+  </data>
+  <data name="DeveloperSkill_Dto_Level_Range" xml:space="preserve">
+    <value>Skill level must be between {1} and {2}</value>
+  </data>
   <data name="Error_GeneralErrorHeading" xml:space="preserve">
     <value>Yes, thats embarasing. We promise we will fix that.</value>
   </data>
@@ -165,6 +180,42 @@
   </data>
   <data name="Home_Summary" xml:space="preserve">
     <value>Summary</value>
+  </data>
+  <data name="JobOfferSend_Dto_CompanyName_Length" xml:space="preserve">
+    <value>Job offer company name must be at least {2} characters long</value>
+  </data>
+  <data name="JobOfferSend_Dto_CompanyName_Required" xml:space="preserve">
+    <value>Job offer company name is required.</value>
+  </data>
+  <data name="JobOfferSend_Dto_DeveloperId_Required" xml:space="preserve">
+    <value>Developer Id is required</value>
+  </data>
+  <data name="JobOfferSend_Dto_JobOfferText_Length" xml:space="preserve">
+    <value>Job offer text must be at least {2} characters long</value>
+  </data>
+  <data name="JobOfferSend_Dto_JobOfferText_Required" xml:space="preserve">
+    <value>Job offer text is required.</value>
+  </data>
+  <data name="JobOfferSend_Dto_OfferMatchesProfile" xml:space="preserve">
+    <value>Please confirm that the offer you are sending matches candidate requirements.</value>
+  </data>
+  <data name="JobOfferSend_Dto_Position_Length" xml:space="preserve">
+    <value>Job offer position must be at least {2} characters long</value>
+  </data>
+  <data name="JobOfferSend_Dto_Position_Required" xml:space="preserve">
+    <value>Job offer position is required.</value>
+  </data>
+  <data name="JobOfferSend_Dto_ProfileWasReadBeforeSending" xml:space="preserve">
+    <value>Please confirm that you have read candidate profile before you sends the offer to him.</value>
+  </data>
+  <data name="JobOfferSend_Dto_Requirements_Length" xml:space="preserve">
+    <value>Job offer requirements must be at least {2} characters long</value>
+  </data>
+  <data name="JobOfferSend_Dto_Requirements_Required" xml:space="preserve">
+    <value>Job offer requirements are required.</value>
+  </data>
+  <data name="JobOfferSend_Dto_Salary_Required" xml:space="preserve">
+    <value>Job offer salary is required</value>
   </data>
   <data name="JobOffer_Accept" xml:space="preserve">
     <value>Accept</value>
@@ -217,10 +268,10 @@
   <data name="Menu_NewMessages" xml:space="preserve">
     <value>New messages:</value>
   </data>
-  <data name="ProfileLoginDto_EmailRequired" xml:space="preserve">
+  <data name="ProfileLogin_Dto_EmailRequired" xml:space="preserve">
     <value>Email is required</value>
   </data>
-  <data name="ProfileLoginDto_PasswordRequired" xml:space="preserve">
+  <data name="ProfileLogin_Dto_PasswordRequired" xml:space="preserve">
     <value>Password is required</value>
   </data>
   <data name="Profile_BackToProfile" xml:space="preserve">

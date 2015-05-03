@@ -21,38 +21,64 @@
             this.ProfileWasReadBeforeSending = false;
         }
 
-        [Required]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_DeveloperId_Required")]
         public long DeveloperId { get; set; }
 
-        [Required]
-        [MinLength(10)]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_JobOfferText_Required")]
+        [StringLength(int.MaxValue,
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_JobOfferText_Length",
+            MinimumLength = 3)]
         [AllowHtml]
         public string JobOfferText { get; set; }
 
-        [Required]
-        [MinLength(3)]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations), 
+            ErrorMessageResourceName = "JobOfferSend_Dto_Position_Required")]
+        [StringLength(int.MaxValue,
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_Position_Length",
+            MinimumLength = 3)]
         [AllowHtml]
         public string Position { get; set; }
 
-        [Required]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_Salary_Required")]
         public decimal Salary { get; set; }
 
-        [Required]
-        [MinLength(3)]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_CompanyName_Required")]
+        [StringLength(int.MaxValue,
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_CompanyName_Length",
+            MinimumLength = 3)]
         [AllowHtml]
         public string CompanyName { get; set; }
 
-        [Required]
-        [MinLength(3)]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_Requirements_Required")]
+        [StringLength(int.MaxValue,
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_Requirements_Length",
+            MinimumLength = 3)]
         [AllowHtml]
         public string Requirements { get; set; }
 
-        [Required]
-        [RegularExpression("True")]
+        [RegularExpression("True",
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_OfferMatchesProfile")]
         public bool OfferMatchesProfile { get; set; }
 
-        [Required]
-        [RegularExpression("True")]
+        [RegularExpression("True",
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "JobOfferSend_Dto_ProfileWasReadBeforeSending")]
         public bool ProfileWasReadBeforeSending { get; set; }
     }
 }

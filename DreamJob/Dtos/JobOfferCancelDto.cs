@@ -5,8 +5,8 @@
     public class JobOfferCancelDto
     {
         public long JobOfferId { get; set; }
-        [AllowHtml]
 
+        [AllowHtml]
         public string Text { get; set; }
     }
 }

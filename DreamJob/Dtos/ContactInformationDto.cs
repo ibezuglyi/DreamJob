@@ -5,18 +5,24 @@
 
     public class ContactInformationDto
     {
-        [Required]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "ContactInformation_Dto_FirstName_Required")]
         [AllowHtml]
         public string FirstName { get; set; }
         
         [AllowHtml]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "ContactInformation_Dto_Email_Required")]
         [AllowHtml]
         public string Email { get; set; }
 
-        [Required]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "ContactInformation_Dto_Phone_Required")]
         [AllowHtml]
         public string Phone { get; set; }
         

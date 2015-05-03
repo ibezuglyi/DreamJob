@@ -104,6 +104,51 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Text is required.
+        /// </summary>
+        public static string CommentAdd_Dto_TextIsRequired {
+            get {
+                return ResourceManager.GetString("CommentAdd_Dto_TextIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is required.
+        /// </summary>
+        public static string ContactInformation_Dto_Email_Required {
+            get {
+                return ResourceManager.GetString("ContactInformation_Dto_Email_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First name is required.
+        /// </summary>
+        public static string ContactInformation_Dto_FirstName_Required {
+            get {
+                return ResourceManager.GetString("ContactInformation_Dto_FirstName_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone is required.
+        /// </summary>
+        public static string ContactInformation_Dto_Phone_Required {
+            get {
+                return ResourceManager.GetString("ContactInformation_Dto_Phone_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skill level must be between {1} and {2}.
+        /// </summary>
+        public static string DeveloperSkill_Dto_Level_Range {
+            get {
+                return ResourceManager.GetString("DeveloperSkill_Dto_Level_Range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Yes, thats embarasing. We promise we will fix that..
         /// </summary>
         public static string Error_GeneralErrorHeading {
@@ -271,6 +316,114 @@ namespace Resources {
         public static string JobOffer_ViewProfile {
             get {
                 return ResourceManager.GetString("JobOffer_ViewProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job offer company name must be at least {2} characters long.
+        /// </summary>
+        public static string JobOfferSend_Dto_CompanyName_Length {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_CompanyName_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job offer company name is required..
+        /// </summary>
+        public static string JobOfferSend_Dto_CompanyName_Required {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_CompanyName_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Developer Id is required.
+        /// </summary>
+        public static string JobOfferSend_Dto_DeveloperId_Required {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_DeveloperId_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job offer text must be at least {2} characters long.
+        /// </summary>
+        public static string JobOfferSend_Dto_JobOfferText_Length {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_JobOfferText_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job offer text is required..
+        /// </summary>
+        public static string JobOfferSend_Dto_JobOfferText_Required {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_JobOfferText_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please confirm that the offer you are sending matches candidate requirements..
+        /// </summary>
+        public static string JobOfferSend_Dto_OfferMatchesProfile {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_OfferMatchesProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job offer position must be at least {2} characters long.
+        /// </summary>
+        public static string JobOfferSend_Dto_Position_Length {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_Position_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job offer position is required..
+        /// </summary>
+        public static string JobOfferSend_Dto_Position_Required {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_Position_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please confirm that you have read candidate profile before you sends the offer to him..
+        /// </summary>
+        public static string JobOfferSend_Dto_ProfileWasReadBeforeSending {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_ProfileWasReadBeforeSending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job offer requirements must be at least {2} characters long.
+        /// </summary>
+        public static string JobOfferSend_Dto_Requirements_Length {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_Requirements_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job offer requirements are required..
+        /// </summary>
+        public static string JobOfferSend_Dto_Requirements_Required {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_Requirements_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job offer salary is required.
+        /// </summary>
+        public static string JobOfferSend_Dto_Salary_Required {
+            get {
+                return ResourceManager.GetString("JobOfferSend_Dto_Salary_Required", resourceCulture);
             }
         }
         
@@ -538,18 +691,18 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Email is required.
         /// </summary>
-        public static string ProfileLoginDto_EmailRequired {
+        public static string ProfileLogin_Dto_EmailRequired {
             get {
-                return ResourceManager.GetString("ProfileLoginDto_EmailRequired", resourceCulture);
+                return ResourceManager.GetString("ProfileLogin_Dto_EmailRequired", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Password is required.
         /// </summary>
-        public static string ProfileLoginDto_PasswordRequired {
+        public static string ProfileLogin_Dto_PasswordRequired {
             get {
-                return ResourceManager.GetString("ProfileLoginDto_PasswordRequired", resourceCulture);
+                return ResourceManager.GetString("ProfileLogin_Dto_PasswordRequired", resourceCulture);
             }
         }
         

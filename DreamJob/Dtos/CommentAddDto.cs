@@ -7,7 +7,9 @@
     {
         public long JobOfferId { get; set; }
 
-        [Required]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "CommentAdd_Dto_TextIsRequired")]
         [AllowHtml]
         public string Text { get; set; }
     }
