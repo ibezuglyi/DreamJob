@@ -1,37 +1,48 @@
 ﻿@model DreamJob.ViewModels.DeveloperSkillViewModel
 
-<div class="input-group nocss-skill-row">
+<div class="row">
     @Html.HiddenFor(m => m.SkillId)
     @if (@Model.SkillId > 0)
     {
-        @Html.HiddenFor(m => m.Name)
-        <span class="input-group-addon">@Model.Name</span>
-
-        for (int i = 1; i <= 10; i++)
-        {
-            @Html.RadioButtonFor(m => m.Level, i);
-        }
-
-
-        <span class="input-group-btn">
-            <button value="@Model.SkillId"
-                    name="Action"
-                    class="btn btn-danger nocss-remove-skill"
-                    data-skill-id="@Model.SkillId"
-                    type="submit"
-                    role="button">
-                @Resources.Translations.Profile_RemoveSkillButtonText
-            </button>
-        </span>
+        <div class="input-group nocss-skill-row">
+            <span class="col-md-9">
+                @Html.HiddenFor(m => m.Name)
+                <span class="input-group-addon right-text">@Model.Name</span>
+            </span>
+            <span class="col-md-2">
+                @RadibuttonSet()
+            </span>
+            <span class="col-md-1">
+                <span class="input-group-btn">
+                    <button value="@Model.SkillId"
+                            name="Action"
+                            class="btn btn-danger nocss-remove-skill"
+                            data-skill-id="@Model.SkillId"
+                            type="submit"
+                            role="button">
+                        @Resources.Translations.Profile_RemoveSkillButtonText
+                    </button>
+                </span>
+            </span>
+        </div>
     }
     else
     {
-        <label>@Resources.Translations.Profile_NewSkillName</label>
-        @Html.EditorFor(m => m.Name, new { @class = "form-control" })<br />
-        <label>@Resources.Translations.Profile_NewSkillLevel</label>
-        for (int i = 1; i <= 10; i++)
-        {
-            @Html.RadioButtonFor(m => m.Level, i);
-        }
+        <span class="col-md-9">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control col-md-12 right-text" })
+            
+        </span>
+        <span class="col-md-3">
+            @RadibuttonSet()
+        </span>
+
     }
 </div>
+
+@helper RadibuttonSet()
+{
+    for (int i = 1; i <= 10; i++)
+    {
+        @Html.RadioButtonFor(m => m.Level, i);
+    }
+}

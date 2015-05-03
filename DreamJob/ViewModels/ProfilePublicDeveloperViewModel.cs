@@ -23,6 +23,6 @@
         public string LookingFor { get; set; }
         public decimal Salary { get; set; }
         public List<DeveloperSkillViewModel> SkillsViewModels { get; set; }
-
+        public int ExperienceInYears { get; set; }
     }
 }

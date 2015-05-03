@@ -10,12 +10,12 @@
 </div>
 <div class="form-group">
     @Html.LabelFor(m => m.LookingFor)
-    @Html.TextAreaFor(m => m.LookingFor, new {@class = "form-control", @rows = 5})
+    @Html.TextAreaFor(m => m.LookingFor, new { @class = "form-control", @rows = 5 })
 </div>
 
 <div class="form-group">
     @Html.LabelFor(m => m.CurrentWorkingLocation)
-    @Html.TextBoxFor(m => m.CurrentWorkingLocation, new {@class = "form-control"})
+    @Html.TextBoxFor(m => m.CurrentWorkingLocation, new { @class = "form-control" })
 </div>
 <div class="form-group">
     @Html.LabelFor(m => m.WillingToRelocateToDifferentCity)
@@ -27,21 +27,20 @@
 </div>
 <div class="form-group">
     @Html.LabelFor(m => m.ExperienceInYears)
-    @Html.TextBoxFor(m => m.ExperienceInYears)
+    @Html.TextBoxFor(m => m.ExperienceInYears, new { @class = "form-control" })
 </div>
 
-    <div class="form-group">
-        <div class="input-group">
-            <span class="input-group-addon">
-                @Html.LabelFor(m => m.Salary)
-            </span>
-            @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })
-            <span class="input-group-addon">@Resources.Translations.Profile_Salary</span>
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.CheckBoxFor(m => m.IsActive)
-        @Html.LabelFor(m => m.IsActive)
-    </div>
-    <label>@Resources.Translations.Profile_Skills</label>
-    @Html.EditorFor(m => m.Skills)
+<div class="form-group">
+    @Html.LabelFor(m => m.Salary)
+    <span>@Resources.Translations.Profile_Salary</span>
+    @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })
+    
+
+</div>
+<div class="form-group">
+    @Html.CheckBoxFor(m => m.IsActive)
+    @Html.LabelFor(m => m.IsActive)
+</div>
+<label>@Resources.Translations.Profile_Skills</label>
+@Html.EditorFor(m => m.Skills)
+<div class="clearfix"></div>

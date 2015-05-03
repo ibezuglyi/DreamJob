@@ -24,3 +24,6 @@
 .multiline {
     white-space: pre-wrap;
 }
+.right-text {
+    text-align: right !important;
+}
