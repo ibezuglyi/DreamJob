@@ -274,6 +274,45 @@
   <data name="ProfileLogin_Dto_PasswordRequired" xml:space="preserve">
     <value>Password is required</value>
   </data>
+  <data name="ProfilePrivateDeveloperEdit_Dto_AboutMe_Required" xml:space="preserve">
+    <value>About me section is required</value>
+  </data>
+  <data name="ProfilePrivateDeveloperEdit_Dto_CurrentWorkingLocation_Required" xml:space="preserve">
+    <value>Current working location is required</value>
+  </data>
+  <data name="ProfilePrivateDeveloperEdit_Dto_DisplayName_Required" xml:space="preserve">
+    <value>Display name is required</value>
+  </data>
+  <data name="ProfilePrivateDeveloperEdit_Dto_LookingFor_Required" xml:space="preserve">
+    <value>Looking for section is required</value>
+  </data>
+  <data name="ProfilePrivateDeveloperEdit_Dto_Salary_Range" xml:space="preserve">
+    <value>Salary should be in range between {1} and {2}</value>
+  </data>
+  <data name="ProfilePrivateDeveloperEdit_Dto_Salary_Required" xml:space="preserve">
+    <value>Salary information is required</value>
+  </data>
+  <data name="ProfilePrivateRecruiter_Dto_Email_Required" xml:space="preserve">
+    <value>Recruiter email is required</value>
+  </data>
+  <data name="ProfilePrivateRecruiter_Dto_Employer_Required" xml:space="preserve">
+    <value>Recruiter employer name is required</value>
+  </data>
+  <data name="ProfilePrivateRecruiter_Dto_FirstName_Required" xml:space="preserve">
+    <value>Recruiter first name is required</value>
+  </data>
+  <data name="ProfilePrivateRecruiter_Dto_LastName_Required" xml:space="preserve">
+    <value>Recruiter last name is required</value>
+  </data>
+  <data name="ProfileRegisterDto_Email_Required" xml:space="preserve">
+    <value>Email is required</value>
+  </data>
+  <data name="ProfileRegisterDto_Password_Length" xml:space="preserve">
+    <value>Password must be at least {2} characters long</value>
+  </data>
+  <data name="ProfileRegisterDto_Password_Required" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
   <data name="Profile_BackToProfile" xml:space="preserve">
     <value>Back to profile</value>
   </data>
@@ -339,6 +378,15 @@
   </data>
   <data name="Profile_Warning" xml:space="preserve">
     <value>Warning</value>
+  </data>
+  <data name="SearchSalary_Dto_Maximum_Required" xml:space="preserve">
+    <value>Please specify the maximum salary</value>
+  </data>
+  <data name="SearchSalary_Dto_Minimum_Required" xml:space="preserve">
+    <value>Please specify the minimum salary</value>
+  </data>
+  <data name="SearchSkill_Dto_Skill_Required" xml:space="preserve">
+    <value>Search skill name is required to do the search</value>
   </data>
   <data name="Search_DevelopersWithSalaryInRange" xml:space="preserve">
     <value>Developers with salary in range:</value>

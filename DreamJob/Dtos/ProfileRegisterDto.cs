@@ -3,17 +3,24 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    using DreamJob.ViewModels;
+    using ViewModels;
 
     public class ProfileRegisterDto
     {
-        [Required]
+        [Required(
+          ErrorMessageResourceType = typeof(Resources.Translations),
+          ErrorMessageResourceName = "ProfileRegisterDto_Email_Required")]
         [EmailAddress]
         [AllowHtml]
         public string Email { get; set; }
 
-        [Required]
-        [MinLength(4)]
+        [Required(
+          ErrorMessageResourceType = typeof(Resources.Translations),
+          ErrorMessageResourceName = "ProfileRegisterDto_Password_Required")]
+        [StringLength(int.MaxValue,
+            ErrorMessageResourceType = typeof(Resources.Translations),
+            ErrorMessageResourceName = "ProfileRegisterDto_Password_Length",
+            MinimumLength = 4)]
         [AllowHtml]
         public string Password { get; set; }
 

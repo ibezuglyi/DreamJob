@@ -707,6 +707,123 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About me section is required.
+        /// </summary>
+        public static string ProfilePrivateDeveloperEdit_Dto_AboutMe_Required {
+            get {
+                return ResourceManager.GetString("ProfilePrivateDeveloperEdit_Dto_AboutMe_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current working location is required.
+        /// </summary>
+        public static string ProfilePrivateDeveloperEdit_Dto_CurrentWorkingLocation_Required {
+            get {
+                return ResourceManager.GetString("ProfilePrivateDeveloperEdit_Dto_CurrentWorkingLocation_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display name is required.
+        /// </summary>
+        public static string ProfilePrivateDeveloperEdit_Dto_DisplayName_Required {
+            get {
+                return ResourceManager.GetString("ProfilePrivateDeveloperEdit_Dto_DisplayName_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Looking for section is required.
+        /// </summary>
+        public static string ProfilePrivateDeveloperEdit_Dto_LookingFor_Required {
+            get {
+                return ResourceManager.GetString("ProfilePrivateDeveloperEdit_Dto_LookingFor_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salary should be in range between {1} and {2}.
+        /// </summary>
+        public static string ProfilePrivateDeveloperEdit_Dto_Salary_Range {
+            get {
+                return ResourceManager.GetString("ProfilePrivateDeveloperEdit_Dto_Salary_Range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salary information is required.
+        /// </summary>
+        public static string ProfilePrivateDeveloperEdit_Dto_Salary_Required {
+            get {
+                return ResourceManager.GetString("ProfilePrivateDeveloperEdit_Dto_Salary_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recruiter email is required.
+        /// </summary>
+        public static string ProfilePrivateRecruiter_Dto_Email_Required {
+            get {
+                return ResourceManager.GetString("ProfilePrivateRecruiter_Dto_Email_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recruiter employer name is required.
+        /// </summary>
+        public static string ProfilePrivateRecruiter_Dto_Employer_Required {
+            get {
+                return ResourceManager.GetString("ProfilePrivateRecruiter_Dto_Employer_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recruiter first name is required.
+        /// </summary>
+        public static string ProfilePrivateRecruiter_Dto_FirstName_Required {
+            get {
+                return ResourceManager.GetString("ProfilePrivateRecruiter_Dto_FirstName_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recruiter last name is required.
+        /// </summary>
+        public static string ProfilePrivateRecruiter_Dto_LastName_Required {
+            get {
+                return ResourceManager.GetString("ProfilePrivateRecruiter_Dto_LastName_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is required.
+        /// </summary>
+        public static string ProfileRegisterDto_Email_Required {
+            get {
+                return ResourceManager.GetString("ProfileRegisterDto_Email_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password must be at least {2} characters long.
+        /// </summary>
+        public static string ProfileRegisterDto_Password_Length {
+            get {
+                return ResourceManager.GetString("ProfileRegisterDto_Password_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is required.
+        /// </summary>
+        public static string ProfileRegisterDto_Password_Required {
+            get {
+                return ResourceManager.GetString("ProfileRegisterDto_Password_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Developers with salary in range:.
         /// </summary>
         public static string Search_DevelopersWithSalaryInRange {
@@ -784,6 +901,33 @@ namespace Resources {
         public static string Search_SearchResults {
             get {
                 return ResourceManager.GetString("Search_SearchResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please specify the maximum salary.
+        /// </summary>
+        public static string SearchSalary_Dto_Maximum_Required {
+            get {
+                return ResourceManager.GetString("SearchSalary_Dto_Maximum_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please specify the minimum salary.
+        /// </summary>
+        public static string SearchSalary_Dto_Minimum_Required {
+            get {
+                return ResourceManager.GetString("SearchSalary_Dto_Minimum_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search skill name is required to do the search.
+        /// </summary>
+        public static string SearchSkill_Dto_Skill_Required {
+            get {
+                return ResourceManager.GetString("SearchSkill_Dto_Skill_Required", resourceCulture);
             }
         }
     }

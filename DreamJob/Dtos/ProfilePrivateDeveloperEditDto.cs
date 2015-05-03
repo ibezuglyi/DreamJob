@@ -15,29 +15,41 @@
             this.Salary = 0;
         }
 
-        [Required]
+        [Required(
+           ErrorMessageResourceType = typeof(Resources.Translations),
+           ErrorMessageResourceName = "ProfilePrivateDeveloperEdit_Dto_DisplayName_Required")]
         [AllowHtml]
         public string DisplayName { get; set; }
 
-        [Required]
+        [Required(
+           ErrorMessageResourceType = typeof(Resources.Translations),
+           ErrorMessageResourceName = "ProfilePrivateDeveloperEdit_Dto_AboutMe_Required")]
         [AllowHtml]
         public string AboutMe { get; set; }
 
-        [Required]
+        [Required(
+           ErrorMessageResourceType = typeof(Resources.Translations),
+           ErrorMessageResourceName = "ProfilePrivateDeveloperEdit_Dto_LookingFor_Required")]
         [AllowHtml]
         public string LookingFor { get; set; }
 
         public List<DeveloperSkillDto> Skills { get; set; }
 
-        [Required]
+        [Required(
+           ErrorMessageResourceType = typeof(Resources.Translations),
+           ErrorMessageResourceName = "ProfilePrivateDeveloperEdit_Dto_CurrentWorkingLocation_Required")]
         public string CurrentWorkingLocation { get; set; }
 
         public bool WillingToRelocateToDifferentCity { get; set; }
 
         public bool WillingToRelocateToDifferentCountry { get; set; }
 
-        [Required]
-        [Range(typeof(decimal), "1", "1000000000")]
+        [Required(
+           ErrorMessageResourceType = typeof(Resources.Translations),
+           ErrorMessageResourceName = "ProfilePrivateDeveloperEdit_Dto_Salary_Required")]
+        [Range(typeof(decimal), "1", "1000000000",
+            ErrorMessageResourceType = typeof(Resources.Translations),
+           ErrorMessageResourceName = "ProfilePrivateDeveloperEdit_Dto_Salary_Range")]
         public decimal Salary { get; set; }
 
         public string Action { get; set; }
