@@ -7,7 +7,7 @@
     using ViewModels;
 
     [Authorize]
-    public class SearchController : Controller
+    public class SearchController : DjBaseController
     {
         private readonly IProfileService profileService;
 

@@ -12,13 +12,13 @@
 
         public ProfileLoginDto()
             : this(string.Empty)
-        {}
+        { }
 
-        [Required]
         [AllowHtml]
+        [Required(ErrorMessageResourceType = typeof(Resources.Translations), ErrorMessageResourceName = "ProfileLoginDto_EmailRequired")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources.Translations), ErrorMessageResourceName = "ProfileLoginDto_PasswordRequired")]
         [AllowHtml]
         public string Password { get; set; }
 

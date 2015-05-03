@@ -3,7 +3,7 @@ using DreamJob.Services;
 
 namespace DreamJob.Controllers
 {
-    public class TestController : Controller
+    public class TestController : DjBaseController
     {
         private readonly ITestService testService;
 

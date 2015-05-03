@@ -156,9 +156,12 @@
     <Compile Include="App_Start\ApplicationMapper.cs" />
     <Compile Include="App_Start\ValueResolvers\DeveloperToListOfDeveloperSkillsViewModel.cs" />
     <Compile Include="App_Start\ValueResolvers\JobOfferCommentAuthorDisplayNameResolver.cs" />
+    <Compile Include="Constants\Strings.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\DjBaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="ExtensionMethods\ControllersExtensions.cs" />
     <Compile Include="Controllers\JobOfferController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -365,6 +368,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Comment\DisplayTemplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{25619df0-9697-458a-a0d6-eefa6dfa2b54}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -10,7 +10,7 @@ namespace DreamJob.Controllers
     using ViewModels;
 
     [Authorize]
-    public class JobOfferController : Controller
+    public class JobOfferController : DjBaseController
     {
         private readonly IJobOfferService jobofferService;
 

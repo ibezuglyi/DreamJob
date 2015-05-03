@@ -4,7 +4,7 @@
 
     using Services;
 
-    public class MenuController : Controller
+    public class MenuController : DjBaseController
     {
         private readonly IMenuService menuService;
 

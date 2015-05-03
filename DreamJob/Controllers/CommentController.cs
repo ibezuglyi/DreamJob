@@ -8,7 +8,7 @@ namespace DreamJob.Controllers
     using Services;
 
     [Authorize]
-    public class CommentController : Controller
+    public class CommentController : DjBaseController
     {
         private readonly ICommentService commentService;
 

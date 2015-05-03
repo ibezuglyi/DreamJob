@@ -5,7 +5,7 @@
     using Services;
 
     [Authorize]
-    public class HomeController : Controller
+    public class HomeController : DjBaseController
     {
         private readonly IProfileService profileService;
 

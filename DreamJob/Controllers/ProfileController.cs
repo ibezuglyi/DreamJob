@@ -9,7 +9,7 @@
     using ViewModels;
 
     [Authorize]
-    public class ProfileController : Controller
+    public class ProfileController : DjBaseController
     {
         private readonly IProfileService profileService;
 

@@ -4,7 +4,7 @@
 
     using ViewModels;
 
-    public class ErrorController : Controller
+    public class ErrorController : DjBaseController
     {
         public ActionResult Index()
         {
