@@ -1,7 +1,7 @@
 ﻿@using DreamJob.ViewModels
 @model ProfilePublicViewModel
 <div class="container">
-    @Html.ActionLink("Edit", "Edit", "Profile", null, new { @class = "btn btn-default btn-sm pull-right" })
+    @Html.ActionLink(@Resources.Translations.Profile_Edit, "Edit", "Profile", null, new { @class = "btn btn-default btn-sm pull-right" })
     <div class="clearfix"></div>
     <hr/>
     @Html.Partial("_Public", Model)

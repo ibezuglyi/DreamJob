@@ -1,7 +1,7 @@
 ﻿@model DreamJob.ViewModels.ProfileLoginSuccessViewModel
 <div class="container">
     <div class="jumbotron">
-        <h2>Hey, you made it. Great!</h2>
-        <h4>@Html.ActionLink("Your profile is here", "Me", "Profile", null,new { @class = "btn btn-default" })</h4>
+        <h2>@Resources.Translations.Profile_LoginSuccessHeader</h2>
+        <h4>@Html.ActionLink(@Resources.Translations.Profile_GoToPublicProfile, "Me", "Profile", null,new { @class = "btn btn-default" })</h4>
     </div>
 </div>

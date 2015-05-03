@@ -15,7 +15,7 @@
             @Html.ActionLink("DreamJob", "Index", "Home", null, new { @class = "navbar-brand" })
             <ul class="nav navbar-nav">
                 <li>
-                    @Html.ActionLink("Search", "Index", "Search")
+                    @Html.ActionLink(Resources.Translations.Layout_Search, "Index", "Search")
                 </li>
                 @if (User.Identity.IsAuthenticated)
                 {
@@ -24,7 +24,7 @@
                     </li>
                 }
                 <li>
-                    @Html.ActionLink("About", "Index", "About")
+                    @Html.ActionLink(Resources.Translations.Layout_About, "Index", "About")
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -37,13 +37,13 @@
                 </li>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li>@Html.ActionLink("Me", "Me", "Profile")</li>
-                    <li>@Html.ActionLink("Logout", "Logout", "Profile")</li>
+                    <li>@Html.ActionLink(Resources.Translations.Layout_Me, "Me", "Profile")</li>
+                    <li>@Html.ActionLink(Resources.Translations.Layout_Logout, "Logout", "Profile")</li>
                 }
                 else
                 {
-                    <li>@Html.ActionLink("Register", "Register", "Profile")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Profile")</li>
+                    <li>@Html.ActionLink(Resources.Translations.Layout_Register, "Register", "Profile")</li>
+                    <li>@Html.ActionLink(Resources.Translations.Layout_Login, "Login", "Profile")</li>
                 }
             </ul>
         </div>

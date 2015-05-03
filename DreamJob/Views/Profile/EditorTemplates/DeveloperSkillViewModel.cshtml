@@ -20,15 +20,15 @@
                     data-skill-id="@Model.SkillId"
                     type="submit"
                     role="button">
-                remove
+                @Resources.Translations.Profile_RemoveSkillButtonText
             </button>
         </span>
     }
     else
     {
-        <label>New skill name</label>
+        <label>@Resources.Translations.Profile_NewSkillName</label>
         @Html.EditorFor(m => m.Name, new { @class = "form-control" })<br />
-        <label>New skill level</label>
+        <label>@Resources.Translations.Profile_NewSkillLevel</label>
         for (int i = 1; i <= 10; i++)
         {
             @Html.RadioButtonFor(m => m.Level, i);

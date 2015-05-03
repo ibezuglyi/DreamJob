@@ -117,10 +117,121 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Layout_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Layout_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Layout_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Layout_Me" xml:space="preserve">
+    <value>Me</value>
+  </data>
+  <data name="Layout_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Layout_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
   <data name="ProfileLoginDto_EmailRequired" xml:space="preserve">
     <value>Email is required</value>
   </data>
   <data name="ProfileLoginDto_PasswordRequired" xml:space="preserve">
     <value>Password is required</value>
+  </data>
+  <data name="Profile_BackToProfile" xml:space="preserve">
+    <value>Back to profile</value>
+  </data>
+  <data name="Profile_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Profile_GoToProfileEdit" xml:space="preserve">
+    <value>Go to profile edit</value>
+  </data>
+  <data name="Profile_GoToPublicProfile" xml:space="preserve">
+    <value>Your profile is here</value>
+  </data>
+  <data name="Profile_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Profile_LoginNow" xml:space="preserve">
+    <value>Login now</value>
+  </data>
+  <data name="Profile_LoginSuccessHeader" xml:space="preserve">
+    <value>Hey, you made it. Great!</value>
+  </data>
+  <data name="Profile_NewSkillLevel" xml:space="preserve">
+    <value>New skill level</value>
+  </data>
+  <data name="Profile_NewSkillName" xml:space="preserve">
+    <value>New skill name</value>
+  </data>
+  <data name="Profile_RecruiterProfileIsNotActiveWarning" xml:space="preserve">
+    <value>Your's profile in not active, change that in order to send job offers to best developers like one</value>
+  </data>
+  <data name="Profile_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Profile_RegisterActivationInformation" xml:space="preserve">
+    <value>In order to fully use our application please update your profile and set it as active.&lt;br/&gt;Profiles that are not set as active cannot send any offers and are invisible when searching.</value>
+  </data>
+  <data name="Profile_RegisterAsDeveloper" xml:space="preserve">
+    <value>find a dream job</value>
+  </data>
+  <data name="Profile_RegisterAsRecruiter" xml:space="preserve">
+    <value>find a dream worker</value>
+  </data>
+  <data name="Profile_RegisterHeader" xml:space="preserve">
+    <value>Register and</value>
+  </data>
+  <data name="Profile_RegisterSuccessHeader" xml:space="preserve">
+    <value>Congratulations, you can now login to the system.</value>
+  </data>
+  <data name="Profile_RemoveSkillButtonText" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Profile_Salary" xml:space="preserve">
+    <value>pln monthly netto</value>
+  </data>
+  <data name="Profile_SendJobOffer" xml:space="preserve">
+    <value>Send job offer</value>
+  </data>
+  <data name="Profile_Skills" xml:space="preserve">
+    <value>Skills:</value>
+  </data>
+  <data name="Profile_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Profile_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Search_DevelopersWithSalaryInRange" xml:space="preserve">
+    <value>Developers with salary in range:</value>
+  </data>
+  <data name="Search_EnterSearchSkillHereSeparateByCommandOrSemicolon" xml:space="preserve">
+    <value>Enter skill name below. You can use ',' or ';' or space to enter multiple skills</value>
+  </data>
+  <data name="Search_MatchingSkills" xml:space="preserve">
+    <value>Matching skills:</value>
+  </data>
+  <data name="Search_MaximumSalary" xml:space="preserve">
+    <value>Maximum salary:</value>
+  </data>
+  <data name="Search_MinumumSalary" xml:space="preserve">
+    <value>Minumum salary:</value>
+  </data>
+  <data name="Search_RequestedSkills" xml:space="preserve">
+    <value>Requested skills:</value>
+  </data>
+  <data name="Search_SearchBySalary" xml:space="preserve">
+    <value>Search by salary</value>
+  </data>
+  <data name="Search_SearchBySkill" xml:space="preserve">
+    <value>Search by skill</value>
+  </data>
+  <data name="Search_SearchResults" xml:space="preserve">
+    <value>Here are stars:</value>
   </data>
 </root>

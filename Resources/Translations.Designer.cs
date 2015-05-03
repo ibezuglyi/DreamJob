@@ -61,6 +61,258 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string Layout_About {
+            get {
+                return ResourceManager.GetString("Layout_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Layout_Login {
+            get {
+                return ResourceManager.GetString("Layout_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        public static string Layout_Logout {
+            get {
+                return ResourceManager.GetString("Layout_Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Me.
+        /// </summary>
+        public static string Layout_Me {
+            get {
+                return ResourceManager.GetString("Layout_Me", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string Layout_Register {
+            get {
+                return ResourceManager.GetString("Layout_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string Layout_Search {
+            get {
+                return ResourceManager.GetString("Layout_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back to profile.
+        /// </summary>
+        public static string Profile_BackToProfile {
+            get {
+                return ResourceManager.GetString("Profile_BackToProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Profile_Edit {
+            get {
+                return ResourceManager.GetString("Profile_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go to profile edit.
+        /// </summary>
+        public static string Profile_GoToProfileEdit {
+            get {
+                return ResourceManager.GetString("Profile_GoToProfileEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your profile is here.
+        /// </summary>
+        public static string Profile_GoToPublicProfile {
+            get {
+                return ResourceManager.GetString("Profile_GoToPublicProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Profile_Login {
+            get {
+                return ResourceManager.GetString("Profile_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login now.
+        /// </summary>
+        public static string Profile_LoginNow {
+            get {
+                return ResourceManager.GetString("Profile_LoginNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hey, you made it. Great!.
+        /// </summary>
+        public static string Profile_LoginSuccessHeader {
+            get {
+                return ResourceManager.GetString("Profile_LoginSuccessHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New skill level.
+        /// </summary>
+        public static string Profile_NewSkillLevel {
+            get {
+                return ResourceManager.GetString("Profile_NewSkillLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New skill name.
+        /// </summary>
+        public static string Profile_NewSkillName {
+            get {
+                return ResourceManager.GetString("Profile_NewSkillName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your&apos;s profile in not active, change that in order to send job offers to best developers like one.
+        /// </summary>
+        public static string Profile_RecruiterProfileIsNotActiveWarning {
+            get {
+                return ResourceManager.GetString("Profile_RecruiterProfileIsNotActiveWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string Profile_Register {
+            get {
+                return ResourceManager.GetString("Profile_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In order to fully use our application please update your profile and set it as active.&lt;br/&gt;Profiles that are not set as active cannot send any offers and are invisible when searching..
+        /// </summary>
+        public static string Profile_RegisterActivationInformation {
+            get {
+                return ResourceManager.GetString("Profile_RegisterActivationInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to find a dream job.
+        /// </summary>
+        public static string Profile_RegisterAsDeveloper {
+            get {
+                return ResourceManager.GetString("Profile_RegisterAsDeveloper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to find a dream worker.
+        /// </summary>
+        public static string Profile_RegisterAsRecruiter {
+            get {
+                return ResourceManager.GetString("Profile_RegisterAsRecruiter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register and.
+        /// </summary>
+        public static string Profile_RegisterHeader {
+            get {
+                return ResourceManager.GetString("Profile_RegisterHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Congratulations, you can now login to the system..
+        /// </summary>
+        public static string Profile_RegisterSuccessHeader {
+            get {
+                return ResourceManager.GetString("Profile_RegisterSuccessHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        public static string Profile_RemoveSkillButtonText {
+            get {
+                return ResourceManager.GetString("Profile_RemoveSkillButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pln monthly netto.
+        /// </summary>
+        public static string Profile_Salary {
+            get {
+                return ResourceManager.GetString("Profile_Salary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send job offer.
+        /// </summary>
+        public static string Profile_SendJobOffer {
+            get {
+                return ResourceManager.GetString("Profile_SendJobOffer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skills:.
+        /// </summary>
+        public static string Profile_Skills {
+            get {
+                return ResourceManager.GetString("Profile_Skills", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        public static string Profile_Update {
+            get {
+                return ResourceManager.GetString("Profile_Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Profile_Warning {
+            get {
+                return ResourceManager.GetString("Profile_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email is required.
         /// </summary>
         public static string ProfileLoginDto_EmailRequired {
@@ -75,6 +327,87 @@ namespace Resources {
         public static string ProfileLoginDto_PasswordRequired {
             get {
                 return ResourceManager.GetString("ProfileLoginDto_PasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Developers with salary in range:.
+        /// </summary>
+        public static string Search_DevelopersWithSalaryInRange {
+            get {
+                return ResourceManager.GetString("Search_DevelopersWithSalaryInRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter skill name below. You can use &apos;,&apos; or &apos;;&apos; or space to enter multiple skills.
+        /// </summary>
+        public static string Search_EnterSearchSkillHereSeparateByCommandOrSemicolon {
+            get {
+                return ResourceManager.GetString("Search_EnterSearchSkillHereSeparateByCommandOrSemicolon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Matching skills:.
+        /// </summary>
+        public static string Search_MatchingSkills {
+            get {
+                return ResourceManager.GetString("Search_MatchingSkills", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum salary:.
+        /// </summary>
+        public static string Search_MaximumSalary {
+            get {
+                return ResourceManager.GetString("Search_MaximumSalary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minumum salary:.
+        /// </summary>
+        public static string Search_MinumumSalary {
+            get {
+                return ResourceManager.GetString("Search_MinumumSalary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Requested skills:.
+        /// </summary>
+        public static string Search_RequestedSkills {
+            get {
+                return ResourceManager.GetString("Search_RequestedSkills", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search by salary.
+        /// </summary>
+        public static string Search_SearchBySalary {
+            get {
+                return ResourceManager.GetString("Search_SearchBySalary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search by skill.
+        /// </summary>
+        public static string Search_SearchBySkill {
+            get {
+                return ResourceManager.GetString("Search_SearchBySkill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Here are stars:.
+        /// </summary>
+        public static string Search_SearchResults {
+            get {
+                return ResourceManager.GetString("Search_SearchResults", resourceCulture);
             }
         }
     }

@@ -6,25 +6,25 @@
         <div class="row">
             @using (Html.BeginForm("Skill", "Search", FormMethod.Get))
             {
-                <span class="label label-info">Search by skill</span>
+                <span class="label label-info">@Resources.Translations.Search_SearchBySkill</span>
                 <div class="form-group">
-                    <label for="Skill">Enter skill name below. You can use ',' or ';' or space to enter multiple skills</label><br/>
+                    <label for="Skill">@Resources.Translations.Search_EnterSearchSkillHereSeparateByCommandOrSemicolon</label><br />
                     <input type="text" id="Skill" name="Skill" class="form-control">
                 </div>
-                <input type="submit" class="button button-default pull-right" value="search"/>
+                <input type="submit" class="button button-default pull-right" value="search" />
             }
-        </div><hr/>
+        </div><hr />
         <div class="row">
             @using (Html.BeginForm("Salary", "Search", FormMethod.Get))
             {
-                <span class="label label-info">Search by salary</span>
+                <span class="label label-info">@Resources.Translations.Search_SearchBySalary</span>
                 <div class="form-group">
-                    <label for="Minimum">Minimum salary:</label>
-                    <input type="number" id="Minimum" name="Minimum" class="form-control"/>
-                    <label for="Maximum">Maximum salary:</label>
-                    <input type="number" id="Maximum" name="Maximum" class="form-control"/>
+                    <label for="Minimum">@Resources.Translations.Search_MinumumSalary</label>
+                    <input type="number" id="Minimum" name="Minimum" class="form-control" />
+                    <label for="Maximum">@Resources.Translations.Search_MaximumSalary</label>
+                    <input type="number" id="Maximum" name="Maximum" class="form-control" />
                 </div>
-                <input type="submit" class="button button-default pull-right" value="search"/>
+                <input type="submit" class="button button-default pull-right" value="search" />
             }
         </div>
     </div>

@@ -1,11 +1,11 @@
 ﻿<div class="container col-md-4 col-md-offset-4">
     <div class="panel">
         <div class="panel panel-heading text-center">
-            <p>Register here and</p>
+            <p>@Resources.Translations.Profile_RegisterHeader</p>
         </div>
         <div class="panel-body">
-            @Html.ActionLink("find a dream job", "RegisterDeveloper", "Profile", null, new { @class = "btn btn-primary btn-lg pull-left" })
-            @Html.ActionLink("find a dream worker", "RegisterRecruiter", "Profile", null, new { @class = "btn btn-default btn-lg pull-right" })
+            @Html.ActionLink(Resources.Translations.Profile_RegisterAsDeveloper, "RegisterDeveloper", "Profile", null, new { @class = "btn btn-primary btn-lg pull-left" })
+            @Html.ActionLink(Resources.Translations.Profile_RegisterAsRecruiter, "RegisterRecruiter", "Profile", null, new { @class = "btn btn-default btn-lg pull-right" })
         </div>
     </div>
 </div>

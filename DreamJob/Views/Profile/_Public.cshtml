@@ -12,13 +12,13 @@
 
 @if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.ProfileRole == ApplicationUserRole.Developer && Model.CurrentUserProfileIsActive)
 {
-    @Html.ActionLink("Send job offer", "Send", "JobOffer", new { id = @Model.Developer.Id }, new { @class = "btn btn-default nocss-button-send-job-offer" })
+    @Html.ActionLink(Resources.Translations.Profile_SendJobOffer, "Send", "JobOffer", new { id = @Model.Developer.Id }, new { @class = "btn btn-default nocss-button-send-job-offer" })
 }
 @if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.CurrentUserProfileIsActive == false)
 {
     <div>
-        <span class="label label-warning">Warning</span>
-        <p>Your's profile in not active, change that in order to send job offers to best developers like one</p>
-        @Html.ActionLink("Go to profile edit", "Edit", "Profile", null, new { @class = "btn btn-default btn-sm" })
+        <span class="label label-warning">@Resources.Translations.Profile_Warning</span>
+        <p>@Resources.Translations.Profile_RecruiterProfileIsNotActiveWarning</p>
+        @Html.ActionLink(Resources.Translations.Profile_GoToProfileEdit, "Edit", "Profile", null, new { @class = "btn btn-default btn-sm" })
     </div>
 }

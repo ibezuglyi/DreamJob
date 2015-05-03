@@ -291,7 +291,6 @@
     <Content Include="Views\Profile\LoginSuccess.cshtml" />
     <Content Include="Views\Profile\Me.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
-    <Content Include="Views\Profile\_DeveloperSkill.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
     <Content Include="Views\Profile\Public.cshtml" />
     <Content Include="Views\Profile\_RegisterProfile.cshtml" />

@@ -3,18 +3,18 @@
 <div class="container">
     <div class="col-md-10 col-md-offset-1">
         <div class="row">
-            Requested skills:
+            @Resources.Translations.Search_RequestedSkills
             @foreach (var skillquery in @Model.RequestedSkills)
             {
                 <span class="label label-info">@skillquery</span>
             }
         </div>
         <div class="row">
-            Matching skills:
+            @Resources.Translations.Search_MatchingSkills
             @Html.DisplayFor(m => m.SkillsMatchedFount)
         </div>
         <div class="row">
-            Here are the stars:
+            @Resources.Translations.Search_SearchResults
             @Html.DisplayFor(m => m.Headlines)
         </div>
     </div>

@@ -7,6 +7,6 @@
         @Html.Hidden("Role", ApplicationUserRole.Developer)
         @Html.Partial("_ValidationSummary")
         @Html.Partial("_RegisterProfile", Model)
-        <button class="btn btn-primary pull-right" role="button">register</button>
+        <button class="btn btn-primary pull-right" role="button">@Resources.Translations.Profile_Register</button>
     }
 </div>

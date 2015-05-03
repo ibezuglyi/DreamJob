@@ -3,11 +3,10 @@
 
 <div class="container">
     <div class="jumbotron text-center text-info">
-        <h2>Congratulations, you can now login to the system.</h2>
+        <h2>@Resources.Translations.Profile_RegisterSuccessHeader</h2>
         <h3>
-            <span class="glyphicon glyphicon-info-sign"></span>In order to fully use our application please update your profile and set it as active.<br/>
-            Profiles that are not set as active cannot send any offers and are invisible when searching.
+            <span class="glyphicon glyphicon-info-sign"></span>@Resources.Translations.Profile_RegisterActivationInformation
         </h3>
-        <h4>@Html.ActionLink("Login now", "Login", "Profile",null,new{@class="btn btn-primary"})</h4>
+        <h4>@Html.ActionLink(@Resources.Translations.Profile_LoginNow, "Login", "Profile", null, new { @class = "btn btn-primary" })</h4>
     </div>
 </div>
