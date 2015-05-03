@@ -117,6 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="JobOffer_Accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="JobOffer_AddComment" xml:space="preserve">
+    <value>Add comment</value>
+  </data>
+  <data name="JobOffer_BackToOffer" xml:space="preserve">
+    <value>Back to offers</value>
+  </data>
+  <data name="JobOffer_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="JobOffer_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="JobOffer_Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="JobOffer_Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="JobOffer_StatusHistory" xml:space="preserve">
+    <value>Status history</value>
+  </data>
+  <data name="JobOffer_Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="JobOffer_ViewProfile" xml:space="preserve">
+    <value>(view profile)</value>
+  </data>
   <data name="Layout_About" xml:space="preserve">
     <value>About</value>
   </data>
@@ -134,6 +164,9 @@
   </data>
   <data name="Layout_Search" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="Menu_NewMessages" xml:space="preserve">
+    <value>New messages:</value>
   </data>
   <data name="ProfileLoginDto_EmailRequired" xml:space="preserve">
     <value>Email is required</value>

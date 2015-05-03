@@ -9,16 +9,16 @@
         switch (s)
         {
             case JobOfferStatus.Rejected:
-                @Html.ActionLink("Reject", "Reject", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Rejected.ToString() })
+                @Html.ActionLink(Resources.Translations.JobOffer_Reject, "Reject", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Rejected.ToString() })
                 break;
             case JobOfferStatus.Canceled:
-                @Html.ActionLink("Cancel", "Cancel", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Canceled.ToString() })
+                @Html.ActionLink(Resources.Translations.JobOffer_Cancel, "Cancel", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Canceled.ToString() })
                 break;
             case JobOfferStatus.Accepted:
-                @Html.ActionLink("Accept", "Accept", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Accepted.ToString() })
+                @Html.ActionLink(Resources.Translations.JobOffer_Accept, "Accept", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Accepted.ToString() })
                 break;
             case JobOfferStatus.Confirmed:
-                @Html.ActionLink("Confirm", "Confirm", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Confirmed.ToString() })
+                @Html.ActionLink(Resources.Translations.JobOffer_Confirm, "Confirm", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Confirmed.ToString() })
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -30,5 +30,5 @@
         <textarea name="Text" rows="3" cols="20" class="form-control" value="@Model.Text"></textarea>
 
     </div>
-    <button type="submit" class="btn btn-default pull-right nocss-button-job-offer-add-comment">add comment</button>
+    <button type="submit" class="btn btn-default pull-right nocss-button-job-offer-add-comment">@Resources.Translations.JobOffer_AddComment</button>
 }

@@ -1,2 +1,2 @@
 ﻿@model DreamJob.ViewModels.MenuNewMessagesViewModel
-<a href="@Url.Action("Index", "JobOffer")">Messages <span class="badge">@Model.AllMessagesCount()</span></a>
+<a href="@Url.Action("Index", "JobOffer")">@Resources.Translations.Menu_NewMessages<span class="badge">@Model.AllMessagesCount()</span></a>

@@ -33,16 +33,15 @@
     <div class="checkbox">
         <label>
             @Html.CheckBoxFor(m => m.OfferMatchesProfile)
-            OfferMatchesProfile
+            @Html.LabelFor(m => m.OfferMatchesProfile)
         </label>
     </div>
-
 
     <div class="checkbox">
         <label>
             @Html.CheckBoxFor(m => m.ProfileWasReadBeforeSending)
-            ProfileWasReadBeforeSending
+            @Html.LabelFor(m => m.ProfileWasReadBeforeSending)
         </label>
     </div>
-    <button type="submit" class="btn btn-primary nocss-button-job-offer-submit">send</button>
+    <button type="submit" class="btn btn-primary nocss-button-job-offer-submit">@Resources.Translations.JobOffer_Send</button>
 </form>

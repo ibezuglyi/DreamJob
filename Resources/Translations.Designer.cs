@@ -61,6 +61,96 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accept.
+        /// </summary>
+        public static string JobOffer_Accept {
+            get {
+                return ResourceManager.GetString("JobOffer_Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add comment.
+        /// </summary>
+        public static string JobOffer_AddComment {
+            get {
+                return ResourceManager.GetString("JobOffer_AddComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back to offers.
+        /// </summary>
+        public static string JobOffer_BackToOffer {
+            get {
+                return ResourceManager.GetString("JobOffer_BackToOffer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string JobOffer_Cancel {
+            get {
+                return ResourceManager.GetString("JobOffer_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string JobOffer_Confirm {
+            get {
+                return ResourceManager.GetString("JobOffer_Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reject.
+        /// </summary>
+        public static string JobOffer_Reject {
+            get {
+                return ResourceManager.GetString("JobOffer_Reject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send.
+        /// </summary>
+        public static string JobOffer_Send {
+            get {
+                return ResourceManager.GetString("JobOffer_Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status history.
+        /// </summary>
+        public static string JobOffer_StatusHistory {
+            get {
+                return ResourceManager.GetString("JobOffer_StatusHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string JobOffer_Submit {
+            get {
+                return ResourceManager.GetString("JobOffer_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (view profile).
+        /// </summary>
+        public static string JobOffer_ViewProfile {
+            get {
+                return ResourceManager.GetString("JobOffer_ViewProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string Layout_About {
@@ -111,6 +201,15 @@ namespace Resources {
         public static string Layout_Search {
             get {
                 return ResourceManager.GetString("Layout_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New messages:.
+        /// </summary>
+        public static string Menu_NewMessages {
+            get {
+                return ResourceManager.GetString("Menu_NewMessages", resourceCulture);
             }
         }
         
