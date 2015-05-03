@@ -25,19 +25,23 @@
     @Html.LabelFor(m => m.WillingToRelocateToDifferentCountry)
     @Html.CheckBoxFor(m => m.WillingToRelocateToDifferentCountry)
 </div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ExperienceInYears)
+    @Html.TextBoxFor(m => m.ExperienceInYears)
+</div>
 
-<div class="form-group">
-    <div class="input-group">
-        <span class="input-group-addon">
-            @Html.LabelFor(m => m.Salary)
-        </span>
-        @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })
-        <span class="input-group-addon">@Resources.Translations.Profile_Salary</span>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">
+                @Html.LabelFor(m => m.Salary)
+            </span>
+            @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })
+            <span class="input-group-addon">@Resources.Translations.Profile_Salary</span>
+        </div>
     </div>
-</div>
-<div class="form-group">
-    @Html.CheckBoxFor(m => m.IsActive)
-    @Html.LabelFor(m => m.IsActive)
-</div>
-<label>@Resources.Translations.Profile_Skills</label>
-@Html.EditorFor(m => m.Skills)
+    <div class="form-group">
+        @Html.CheckBoxFor(m => m.IsActive)
+        @Html.LabelFor(m => m.IsActive)
+    </div>
+    <label>@Resources.Translations.Profile_Skills</label>
+    @Html.EditorFor(m => m.Skills)

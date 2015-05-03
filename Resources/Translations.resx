@@ -289,6 +289,12 @@
   <data name="ProfilePrivateDeveloperEdit_Dto_Salary_Range" xml:space="preserve">
     <value>Salary should be in range between {1} and {2}</value>
   </data>
+  <data name="ProfilePrivateDeveloperEdit_Dto_Experience_Required" xml:space="preserve">
+    <value>Experience field is required</value>
+  </data>
+  <data name="ProfilePrivateDeveloperEdit_Dto_Experience_Range" xml:space="preserve">
+    <value>Experience should be in range between {1} and {2}</value>
+  </data>
   <data name="ProfilePrivateDeveloperEdit_Dto_Salary_Required" xml:space="preserve">
     <value>Salary information is required</value>
   </data>

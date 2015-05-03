@@ -26,7 +26,7 @@ namespace DreamJob.Controllers
 
             if (string.IsNullOrWhiteSpace(cultureName))
             {
-                cultureName = "en-US";
+                cultureName = Strings.DefaultCulture;
             }
 
             SetNewCulture(cultureName);

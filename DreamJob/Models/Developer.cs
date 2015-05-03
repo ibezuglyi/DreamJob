@@ -17,7 +17,7 @@
         public bool IsActive { get; set; }
 
         public long UserAccountId { get; set; }
-
+        public int ExperienceInYears { get; set; }
         public string CurrentWorkingLocation { get; set; }
         public bool WillingToRelocateToDifferentCity { get; set; }
         public bool WillingToRelocateToDifferentCountry { get; set; }

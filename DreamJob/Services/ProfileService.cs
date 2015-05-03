@@ -156,6 +156,7 @@ namespace DreamJob.Services
             model.Developer.CurrentWorkingLocation = dto.CurrentWorkingLocation;
             model.Developer.WillingToRelocateToDifferentCity = dto.WillingToRelocateToDifferentCity;
             model.Developer.WillingToRelocateToDifferentCountry = dto.WillingToRelocateToDifferentCountry;
+            model.Developer.ExperienceInYears= dto.ExperienceInYears;
 
             dto.Skills.Where(skillDto => skillDto.SkillId > 0)
                 .ToList()

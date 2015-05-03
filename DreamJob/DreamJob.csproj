@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201505021129471_candidate_working_location.Designer.cs">
       <DependentUpon>201505021129471_candidate_working_location.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505032112511_experience.cs" />
+    <Compile Include="Migrations\201505032112511_experience.Designer.cs">
+      <DependentUpon>201505032112511_experience.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDatabase.cs" />
     <Compile Include="App_Start\ApplicationIocContainer.cs" />
@@ -363,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505021129471_candidate_working_location.resx">
       <DependentUpon>201505021129471_candidate_working_location.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505032112511_experience.resx">
+      <DependentUpon>201505032112511_experience.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

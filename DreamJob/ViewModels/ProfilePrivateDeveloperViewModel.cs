@@ -26,7 +26,8 @@
         public string AboutMe { get; set; }
         public string LookingFor { get; set; }
         public bool IsActive { get; set; }
-
+        public int ExperienceInYears { get; set; }
+        
 
         public List<DeveloperSkillViewModel> Skills { get; set; }
 

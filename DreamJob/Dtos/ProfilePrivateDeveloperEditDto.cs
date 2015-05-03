@@ -52,6 +52,14 @@
            ErrorMessageResourceName = "ProfilePrivateDeveloperEdit_Dto_Salary_Range")]
         public decimal Salary { get; set; }
 
+        [Range(typeof(int), "0", "100",
+            ErrorMessageResourceType = typeof(Resources.Translations),
+           ErrorMessageResourceName = "ProfilePrivateDeveloperEdit_Dto_Experience_Range")]
+        [Required(
+          ErrorMessageResourceType = typeof(Resources.Translations),
+          ErrorMessageResourceName = "ProfilePrivateDeveloperEdit_Dto_Experience_Required")]
+        public int ExperienceInYears { get; set; }
+
         public string Action { get; set; }
 
         public bool IsActive { get; set; }
