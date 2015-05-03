@@ -2,8 +2,8 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h1>We dont have it. You have two options</h1>
-        <h3>@Html.ActionLink("This is new beginning", "Index", "Home")</h3>
-        <h5><a href="http://google.com">Ask google</a></h5>
+        <h1>@Resources.Translations.Error_NotFoundHeading</h1>
+        <h3>@Html.ActionLink(Resources.Translations.Error_StartFromBegining, "Index", "Home")</h3>
+        <h5><a href="http://google.com">@Resources.Translations.Error_NotFoundAskGoogle</a></h5>
     </div>
 </div>

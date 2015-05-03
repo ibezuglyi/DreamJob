@@ -117,6 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About_AboutDevelopers" xml:space="preserve">
+    <value>Jeszcze wiele przed nami, mamy całkiem sporo pomysłów jak możemy poprawić i ulepszyć aplikację - mając na celu oba obozy: programistów i rekruterów.
+            System tworzymy po godzinach pracy, także nie zawsze jest czas i chęci. Jeśli będziemy widzieć, że czegoś bardzo potrzebujecie to dostarczymy takie rozwiązania. Jeśli coś nie będzie działać, lub będzie nie potrzebne czy bez sensu jesteśmy gotowi to zmieć i poprawić.
+            &lt;div&gt;Nasze pomysły i listę zadań można śledzić na trello: &lt;a target="_blank" href="https://trello.com/b/d9vjwPFu/dreamjob-dev"&gt;trello&lt;/a&gt;&lt;/div&gt;
+            &lt;div&gt;
+                Wasze pomysły chętnie przyjmiemy, na trello. Jak tylko uda nam się ustawić jedną kolumnę publiczną dla wszystkich do dodawania. Można także bezpośrednio na maila, a my potem to wrzucimy na trello. Kontakt do nas: &lt;a href="mailto:dreamjob.contact@gmail.com"&gt;dreamjob.contact@gmail.com&lt;/a&gt;
+            &lt;/div&gt;</value>
+  </data>
+  <data name="About_AboutPortal" xml:space="preserve">
+    <value>Dream job - to portal dla programistów poszukujących pracy i dla rekruterów szukających pracowników.
+                Programistom umożliwiamy zachowanie pełnej anonimowości, tak długo jak będą tego chcieli.
+                Rekruterom oferujemy możliwość znalezienia idealnego kandydata.</value>
+  </data>
+  <data name="About_WhyDeveloperShouldJoin" xml:space="preserve">
+    <value>Programisto załóż konto, wypełnij swój profil oraz napisz, co potrafisz i czym chciałbyś się zajmować.
+            Ustaw swój profil jako aktywny i czekaj na oferty. To Ty decydujesz czy oferta jest dopasowana i pasuje do Twoich umiejętności.
+            Ty decydujesz kiedy i jakie dane osobowe przekazujesz rekruterowi.</value>
+  </data>
+  <data name="About_WhyRecruiterShouldJoin" xml:space="preserve">
+    <value>Rekruterze załóż konto, uzupelnij swój profil i oznacz się jako aktywny. Uzyskasz dostęp do programistów chcących zmienić swoją pracę.
+            Możesz wyszukać intereującą Cię umiejętnośc programisty, przeczytać co chce robić i jeśli będzie on człowiekiem, którego potrzebujesz wysłać mu ofertę.</value>
+  </data>
+  <data name="Error_GeneralErrorHeading" xml:space="preserve">
+    <value>Yes, thats embarasing. We promise we will fix that.</value>
+  </data>
+  <data name="Error_NotFoundAskGoogle" xml:space="preserve">
+    <value>Ask google</value>
+  </data>
+  <data name="Error_NotFoundHeading" xml:space="preserve">
+    <value>We dont have it. You have two options</value>
+  </data>
+  <data name="Error_StartFromBegining" xml:space="preserve">
+    <value>This is new beginning</value>
+  </data>
+  <data name="Error_ThisPageAlwaysWorks" xml:space="preserve">
+    <value>This page always works</value>
+  </data>
+  <data name="Home_Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Home_Salary" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="Home_Skills" xml:space="preserve">
+    <value>Skills</value>
+  </data>
+  <data name="Home_Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
   <data name="JobOffer_Accept" xml:space="preserve">
     <value>Accept</value>
   </data>

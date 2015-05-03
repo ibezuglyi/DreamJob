@@ -61,6 +61,130 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jeszcze wiele przed nami, mamy całkiem sporo pomysłów jak możemy poprawić i ulepszyć aplikację - mając na celu oba obozy: programistów i rekruterów.
+        ///            System tworzymy po godzinach pracy, także nie zawsze jest czas i chęci. Jeśli będziemy widzieć, że czegoś bardzo potrzebujecie to dostarczymy takie rozwiązania. Jeśli coś nie będzie działać, lub będzie nie potrzebne czy bez sensu jesteśmy gotowi to zmieć i poprawić.
+        ///            &lt;div&gt;Nasze pomysły i listę zadań można śledzić na trello: &lt;a target=&quot;_ [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string About_AboutDevelopers {
+            get {
+                return ResourceManager.GetString("About_AboutDevelopers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dream job - to portal dla programistów poszukujących pracy i dla rekruterów szukających pracowników.
+        ///                Programistom umożliwiamy zachowanie pełnej anonimowości, tak długo jak będą tego chcieli.
+        ///                Rekruterom oferujemy możliwość znalezienia idealnego kandydata..
+        /// </summary>
+        public static string About_AboutPortal {
+            get {
+                return ResourceManager.GetString("About_AboutPortal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Programisto załóż konto, wypełnij swój profil oraz napisz, co potrafisz i czym chciałbyś się zajmować.
+        ///            Ustaw swój profil jako aktywny i czekaj na oferty. To Ty decydujesz czy oferta jest dopasowana i pasuje do Twoich umiejętności.
+        ///            Ty decydujesz kiedy i jakie dane osobowe przekazujesz rekruterowi..
+        /// </summary>
+        public static string About_WhyDeveloperShouldJoin {
+            get {
+                return ResourceManager.GetString("About_WhyDeveloperShouldJoin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rekruterze załóż konto, uzupelnij swój profil i oznacz się jako aktywny. Uzyskasz dostęp do programistów chcących zmienić swoją pracę.
+        ///            Możesz wyszukać intereującą Cię umiejętnośc programisty, przeczytać co chce robić i jeśli będzie on człowiekiem, którego potrzebujesz wysłać mu ofertę..
+        /// </summary>
+        public static string About_WhyRecruiterShouldJoin {
+            get {
+                return ResourceManager.GetString("About_WhyRecruiterShouldJoin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes, thats embarasing. We promise we will fix that..
+        /// </summary>
+        public static string Error_GeneralErrorHeading {
+            get {
+                return ResourceManager.GetString("Error_GeneralErrorHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ask google.
+        /// </summary>
+        public static string Error_NotFoundAskGoogle {
+            get {
+                return ResourceManager.GetString("Error_NotFoundAskGoogle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We dont have it. You have two options.
+        /// </summary>
+        public static string Error_NotFoundHeading {
+            get {
+                return ResourceManager.GetString("Error_NotFoundHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is new beginning.
+        /// </summary>
+        public static string Error_StartFromBegining {
+            get {
+                return ResourceManager.GetString("Error_StartFromBegining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This page always works.
+        /// </summary>
+        public static string Error_ThisPageAlwaysWorks {
+            get {
+                return ResourceManager.GetString("Error_ThisPageAlwaysWorks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position.
+        /// </summary>
+        public static string Home_Position {
+            get {
+                return ResourceManager.GetString("Home_Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salary.
+        /// </summary>
+        public static string Home_Salary {
+            get {
+                return ResourceManager.GetString("Home_Salary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skills.
+        /// </summary>
+        public static string Home_Skills {
+            get {
+                return ResourceManager.GetString("Home_Skills", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Summary.
+        /// </summary>
+        public static string Home_Summary {
+            get {
+                return ResourceManager.GetString("Home_Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accept.
         /// </summary>
         public static string JobOffer_Accept {

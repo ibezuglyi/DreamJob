@@ -365,9 +365,7 @@
       <DependentUpon>201505021129471_candidate_working_location.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Comment\DisplayTemplates\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{25619df0-9697-458a-a0d6-eefa6dfa2b54}</Project>
