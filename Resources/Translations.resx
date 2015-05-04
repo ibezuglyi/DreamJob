@@ -178,6 +178,9 @@
   <data name="Home_Skills" xml:space="preserve">
     <value>Skills</value>
   </data>
+  <data name="Home_Experience" xml:space="preserve">
+    <value>Experience</value>
+  </data>
   <data name="Home_Summary" xml:space="preserve">
     <value>Summary</value>
   </data>

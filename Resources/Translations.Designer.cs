@@ -194,6 +194,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Experience.
+        /// </summary>
+        public static string Home_Experience {
+            get {
+                return ResourceManager.GetString("Home_Experience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Position.
         /// </summary>
         public static string Home_Position {

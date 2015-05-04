@@ -8,5 +8,6 @@ namespace DreamJob.ViewModels
         public string AboutMe { get; set; }
         public string LookingFor { get; set; }
         public long Salary { get; set; }
+        public int ExperienceInYears { get; set; }
     }
 }

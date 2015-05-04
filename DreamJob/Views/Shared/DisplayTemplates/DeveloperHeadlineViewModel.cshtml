@@ -2,6 +2,7 @@
 <a class="list-group-item row" href="@Url.Action("Public", "Profile", new { id = @Model.Id })">
     <span class="col-md-4 short-text">@Model.LookingFor</span>
     <span class="col-md-4 short-text">@Model.AboutMe</span>
-    <span class="col-md-1">@Model.SkillsCount</span>
-    <span class="col-md-3 text-right">@Model.Salary PLN</span>
+    <span class="col-md-1 text-right">@Model.ExperienceInYears</span>
+    <span class="col-md-1 text-right">@Model.SkillsCount</span>
+    <span class="col-md-2 text-right">@Model.Salary PLN</span>
 </a>
