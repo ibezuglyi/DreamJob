@@ -9,16 +9,18 @@
 {
     @Html.DisplayFor(m => m.Recruiter)
 }
-
-@if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.ProfileRole == ApplicationUserRole.Developer && Model.CurrentUserProfileIsActive)
+@if (Model.CurrentUserRole != ApplicationUserRole.Anonymous)
 {
-    @Html.ActionLink(Resources.Translations.Profile_SendJobOffer, "Send", "JobOffer", new { id = @Model.Developer.Id }, new { @class = "btn btn-default nocss-button-send-job-offer" })
-}
-@if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.CurrentUserProfileIsActive == false)
-{
-    <div>
-        <span class="label label-warning">@Resources.Translations.Profile_Warning</span>
-        <p>@Resources.Translations.Profile_RecruiterProfileIsNotActiveWarning</p>
-        @Html.ActionLink(Resources.Translations.Profile_GoToProfileEdit, "Edit", "Profile", null, new { @class = "btn btn-default btn-sm" })
-    </div>
+    if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.ProfileRole == ApplicationUserRole.Developer && Model.CurrentUserProfileIsActive)
+    {
+        @Html.ActionLink(Resources.Translations.Profile_SendJobOffer, "Send", "JobOffer", new { id = @Model.Developer.Id }, new { @class = "btn btn-default nocss-button-send-job-offer" })
+    }
+    if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.CurrentUserProfileIsActive == false)
+    {
+        <div>
+            <span class="label label-warning">@Resources.Translations.Profile_Warning</span>
+            <p>@Resources.Translations.Profile_RecruiterProfileIsNotActiveWarning</p>
+            @Html.ActionLink(Resources.Translations.Profile_GoToProfileEdit, "Edit", "Profile", null, new { @class = "btn btn-default btn-sm" })
+        </div>
+    }
 }

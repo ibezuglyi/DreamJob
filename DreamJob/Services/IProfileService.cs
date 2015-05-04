@@ -5,9 +5,9 @@
 
     public interface IProfileService
     {
-        ProfilePublicViewModel GetPublicDataForUserId(long id);
-        ProfilePublicViewModel GetPublicDataForLoggedUser();
-        ProfilePrivateViewModel GetPrivateDataForLoggedUser();
+        ProfilePublicViewModel GetPublicProfileForUserId(long id);
+        ProfilePublicViewModel GetPublicProfileForLoggedUser();
+        ProfilePrivateViewModel GetPrivateProfileForLoggedUser();
 
         void UpdateDeveloperProfile(ProfilePrivateDeveloperEditDto dto);
         void UpdateRecruiterProfile(ProfilePrivateRecruiterDto dto);

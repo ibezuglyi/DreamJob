@@ -2,7 +2,7 @@
 {
     public enum ApplicationUserRole
     {
-        None = 0,
+        Anonymous = 0,
         Recruiter = 1,
         Developer = 2,
     }

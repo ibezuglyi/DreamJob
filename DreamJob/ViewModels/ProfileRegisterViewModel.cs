@@ -5,7 +5,7 @@
     public class ProfileRegisterViewModel
     {
         public ProfileRegisterViewModel()
-            : this(string.Empty, ApplicationUserRole.None)
+            : this(string.Empty, ApplicationUserRole.Anonymous)
         { }
 
         public ProfileRegisterViewModel(ProfileRegisterDto dto)

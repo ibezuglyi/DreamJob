@@ -34,7 +34,7 @@ namespace DreamJob.Services
             this.applicationDatabase.SaveChanges();
         }
 
-        public ProfilePublicViewModel GetPublicDataForUserId(long id)
+        public ProfilePublicViewModel GetPublicProfileForUserId(long id)
         {
             var model =
                 this.applicationDatabase.Profiles
@@ -51,17 +51,29 @@ namespace DreamJob.Services
 
             viewmodel.CurrentUserRole = currentLoggedUserRole;
 
-            var currentLoggedInUserModel =
-                this.applicationDatabase.Profiles.Include(r => r.Recruiter)
-                    .Include(r => r.Developer)
-                    .First(p => p.Id == currentLoggedUserId);
-            viewmodel.CurrentUserProfileIsActive = currentLoggedInUserModel.Role == ApplicationUserRole.Developer
-                                                       ? currentLoggedInUserModel.Developer.IsActive
-                                                       : currentLoggedInUserModel.Recruiter.IsActive;
+            var currentUserProfileIsActive = IsCurrentUserProfileActive(currentLoggedUserId);
+            viewmodel.CurrentUserProfileIsActive = currentUserProfileIsActive;
             return viewmodel;
         }
 
-        public ProfilePublicViewModel GetPublicDataForLoggedUser()
+        private bool IsCurrentUserProfileActive(long currentLoggedUserId)
+        {
+            if (currentLoggedUserId == -1)
+            {
+                return false;
+            }
+
+            var currentLoggedInUserModel = this.applicationDatabase.Profiles
+                                                    .Include(r => r.Recruiter)
+                                                    .Include(r => r.Developer)
+                                                    .First(p => p.Id == currentLoggedUserId);
+            var currentUserProfileIsActive = currentLoggedInUserModel.Role == ApplicationUserRole.Developer
+                ? currentLoggedInUserModel.Developer.IsActive
+                : currentLoggedInUserModel.Recruiter.IsActive;
+            return currentUserProfileIsActive;
+        }
+
+        public ProfilePublicViewModel GetPublicProfileForLoggedUser()
         {
             var userId = this.authentication.GetCurrentLoggedUserId();
             var model =
@@ -75,7 +87,7 @@ namespace DreamJob.Services
             return viewmodel;
         }
 
-        public ProfilePrivateViewModel GetPrivateDataForLoggedUser()
+        public ProfilePrivateViewModel GetPrivateProfileForLoggedUser()
         {
             var userId = this.authentication.GetCurrentLoggedUserId();
             var model =

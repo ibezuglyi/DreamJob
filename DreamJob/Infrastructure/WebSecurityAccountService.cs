@@ -46,10 +46,17 @@ namespace DreamJob.Infrastructure
 
         public ApplicationUserRole GetCurrentLoggedUserRole()
         {
-            var roleName = Roles.GetRolesForUser(WebSecurity.CurrentUserName).First();
-            ApplicationUserRole result;
-            Enum.TryParse(roleName, out result);
-            return result;
+            var allRoles = Roles.GetRolesForUser(WebSecurity.CurrentUserName);
+            if (allRoles.Any())
+            {
+                var roleName = allRoles.First();
+                ApplicationUserRole result;
+                if (Enum.TryParse(roleName, out result))
+                {
+                    return result;
+                }
+            }
+            return ApplicationUserRole.Anonymous;
         }
     }
 }

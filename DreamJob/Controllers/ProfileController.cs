@@ -100,23 +100,24 @@
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Public(long id)
         {
-            var viewmodel = this.profileService.GetPublicDataForUserId(id);
+            var viewmodel = this.profileService.GetPublicProfileForUserId(id);
             return this.View("Public", viewmodel);
         }
 
         [HttpGet]
         public ActionResult Me()
         {
-            var viewModel = this.profileService.GetPublicDataForLoggedUser();
+            var viewModel = this.profileService.GetPublicProfileForLoggedUser();
             return this.View("Me", viewModel);
         }
 
         [HttpGet]
         public ActionResult Edit()
         {
-            var viewModel = this.profileService.GetPrivateDataForLoggedUser();
+            var viewModel = this.profileService.GetPrivateProfileForLoggedUser();
             viewModel.FormActionUpdateDeveloper = this.Url.Action("UpdateDeveloper", "Profile");
             viewModel.FormActionUpdateRecruiter = this.Url.Action("UpdateRecruiter", "Profile");
             return this.View("Edit", viewModel);

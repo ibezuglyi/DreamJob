@@ -25,7 +25,7 @@
         }
 
         public ProfilePrivateViewModel()
-            : this(new ProfilePrivateDeveloperEditDto(), new ProfilePrivateRecruiterDto(), ApplicationUserRole.None)
+            : this(new ProfilePrivateDeveloperEditDto(), new ProfilePrivateRecruiterDto(), ApplicationUserRole.Anonymous)
         { }
 
         public ProfilePrivateViewModel(ProfilePrivateDeveloperEditDto dto)

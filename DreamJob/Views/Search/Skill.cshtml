@@ -1,7 +1,7 @@
 ﻿@model DreamJob.ViewModels.SearchResultViewModel
 
 <div class="container">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-12">
         <div class="row">
             @Resources.Translations.Search_RequestedSkills
             @foreach (var skillquery in @Model.RequestedSkills)
@@ -13,8 +13,16 @@
             @Resources.Translations.Search_MatchingSkills
             @Html.DisplayFor(m => m.SkillsMatchedFount)
         </div>
+        @Resources.Translations.Search_SearchResults
+        <div class="row bolded-text">
+            <span class="col-md-4 short-text">@Resources.Translations.Home_Position</span>
+            <span class="col-md-4 short-text">@Resources.Translations.Home_Summary</span>
+            <span class="col-md-1 text-right">@Resources.Translations.Home_Experience</span>
+            <span class="col-md-1 text-right">@Resources.Translations.Home_Skills</span>
+            <span class="col-md-2 text-right">@Resources.Translations.Home_Salary</span>
+        </div>
         <div class="row">
-            @Resources.Translations.Search_SearchResults
+            
             @Html.DisplayFor(m => m.Headlines)
         </div>
     </div>

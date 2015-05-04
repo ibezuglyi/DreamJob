@@ -4,7 +4,7 @@
 
     public class JobOfferStatusChange : DJDbBase
     {
-        public JobOfferStatusChange():this(-1,JobOfferStatus.None,string.Empty, -1, ApplicationUserRole.None)
+        public JobOfferStatusChange():this(-1,JobOfferStatus.None,string.Empty, -1, ApplicationUserRole.Anonymous)
         {}
 
         public JobOfferStatusChange(
