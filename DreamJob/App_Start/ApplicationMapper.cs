@@ -159,8 +159,8 @@ namespace DreamJob
                     o => o.MapFrom(s => s.Statuses.OrderByDescending(status => status.CreateDateTime).First().Status));
 
             Mapper.CreateMap<JobOfferComment, JobOfferCommentViewModel>()
-                .ForMember(d => d.AuthorDisplayName,
-                    o => o.ResolveUsing<JobOfferCommentAuthorDisplayNameResolver>());
+                .ForMember(d => d.AuthorDisplayName, o => o.ResolveUsing<JobOfferCommentAuthorDisplayNameResolver>())
+                .ForMember(d=>d.IsCurrentUserComment, o=>o.Ignore());
         }
     }
 }

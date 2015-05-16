@@ -1,33 +1,22 @@
 ﻿@model DreamJob.ViewModels.JobOfferDetailViewModel
 <h1>
-    @Html.DisplayFor(m => m.Position)
+    @Html.DisplayFor(m => m.Position),
+    @Html.DisplayFor(m => m.Salary) PLN
+    <small>@Html.ActionLink(Model.DeveloperDisplayName, "Public", "Profile", new { id = Model.DeveloperId }, null)</small>
 </h1>
-<h2>
-    <span>@Model.DeveloperDisplayName</span>
-    <span class="small">@Html.ActionLink(Resources.Translations.JobOffer_ViewProfile, "Public", "Profile", new { id = Model.DeveloperId }, null)</span>
-</h2>
-<h5>
-    <span>
-        @Html.DisplayFor(m => m.CreateDateTime) <span class="badge">@Model.Status</span>
-    </span>
-</h5>
-
+<ul class="flow">
+    @Html.DisplayFor(m => m.JobOfferStatusChangeViewModels)
+</ul>
 
 <div>
-    @Html.LabelFor(m => m.CompanyName)
+    <label>@Resources.Translations.RecruitingToText</label>
     @Html.DisplayFor(m => m.CompanyName)
 </div>
 
-<div class="multiline">
+<p class="multiline">
     @Html.LabelFor(m => m.JobOfferText)
     @Html.DisplayFor(m => m.JobOfferText)
-</div>
-
-
-<div>
-    @Html.LabelFor(m => m.Salary)
-    @Html.DisplayFor(m => m.Salary)
-</div>
+</p>
 
 <div>
     @Html.LabelFor(m => m.Requirements)
@@ -35,9 +24,10 @@
 </div>
 
 <div>
-    <label>Comments:</label>
     <div class="nocss-container-job-offer-comments">
-        @Html.DisplayFor(m => m.JobOfferComments)
+        <section class="comment-list">
+            @Html.DisplayFor(m => m.JobOfferComments)
+        </section>
     </div>
 </div>
 

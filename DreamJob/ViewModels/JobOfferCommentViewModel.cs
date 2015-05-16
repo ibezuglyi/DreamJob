@@ -10,5 +10,6 @@
         public ApplicationUserRole AuthorRole { get; set; }
         public long AuthorId { get; set; }
         public string AuthorDisplayName { get; set; }
+        public bool IsCurrentUserComment { get; set; }
     }
 }

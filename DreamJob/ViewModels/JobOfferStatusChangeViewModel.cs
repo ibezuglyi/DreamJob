@@ -13,5 +13,10 @@
         public long AuthorId { get; set; }
 
         public ApplicationUserRole AuthorRole { get; set; }
+
+        public string GetStatusClass()
+        {
+            return string.Format("status-{0}", Status.ToString().ToLower());
+        }
     }
 }

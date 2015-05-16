@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Services
+﻿using System.Web.UI.WebControls;
+
+namespace DreamJob.Services
 {
     using System;
     using System.Collections.Generic;
@@ -50,6 +52,7 @@
 
         public JobOfferCommentsViewModel GetNewComments(long jobOfferId, int commentsCount)
         {
+            var currentUserId = this.authentication.GetCurrentLoggedUserId();
             var models =
                 this.applicationDatabase.JobOffersComments
                     .Include(c => c.JobOffer)
@@ -63,9 +66,18 @@
                     .Skip(commentsCount)
                     .ToList();
 
-            var viewmodel = Mapper.Map<List<JobOfferComment>, List<JobOfferCommentViewModel>>(models);
-            var result = new JobOfferCommentsViewModel(viewmodel);
+            var viewModels = Mapper.Map<List<JobOfferComment>, List<JobOfferCommentViewModel>>(models);
+            UpdateJobOfferCommentViewModels(viewModels, currentUserId);
+            var result = new JobOfferCommentsViewModel(viewModels);
             return result;
+        }
+
+        private void UpdateJobOfferCommentViewModels(List<JobOfferCommentViewModel> viewModels, long currentUserId)
+        {
+            foreach (var jobOfferCommentViewModel in viewModels)
+            {
+                jobOfferCommentViewModel.IsCurrentUserComment = jobOfferCommentViewModel.AuthorId == currentUserId;
+            }
         }
 
         public void AddByAuthorId(CommentAddDto comment, long authorId)

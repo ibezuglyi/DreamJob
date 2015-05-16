@@ -491,7 +491,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New messages:.
+        ///   Looks up a localized string similar to Messages.
         /// </summary>
         public static string Menu_NewMessages {
             get {
@@ -847,6 +847,15 @@ namespace Resources {
         public static string ProfileRegisterDto_Password_Required {
             get {
                 return ResourceManager.GetString("ProfileRegisterDto_Password_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recruiting to:.
+        /// </summary>
+        public static string RecruitingToText {
+            get {
+                return ResourceManager.GetString("RecruitingToText", resourceCulture);
             }
         }
         

@@ -269,7 +269,7 @@
     <value>Search</value>
   </data>
   <data name="Menu_NewMessages" xml:space="preserve">
-    <value>New messages:</value>
+    <value>Messages</value>
   </data>
   <data name="ProfileLogin_Dto_EmailRequired" xml:space="preserve">
     <value>Email is required</value>
@@ -423,5 +423,8 @@
   </data>
   <data name="Search_SearchResults" xml:space="preserve">
     <value>Here are stars:</value>
+  </data>
+  <data name="RecruitingToText" xml:space="preserve">
+    <value>Recruiting to:</value>
   </data>
 </root>
