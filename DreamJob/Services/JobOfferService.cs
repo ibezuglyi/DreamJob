@@ -91,9 +91,9 @@
                     .JobOffers
                     .Include(o => o.Developer)
                     .Include(o => o.JobOfferComments)
-                    .Include(o => o.JobOfferComments.Select(c=>c.Author))
-                    .Include(o => o.JobOfferComments.Select(c=>c.Author.Developer))
-                    .Include(o => o.JobOfferComments.Select(c=>c.Author.Recruiter))
+                    .Include(o => o.JobOfferComments.Select(c => c.Author))
+                    .Include(o => o.JobOfferComments.Select(c => c.Author.Developer))
+                    .Include(o => o.JobOfferComments.Select(c => c.Author.Recruiter))
                     .Include(o => o.Statuses)
                     .Include(o => o.NewMessagesToRead)
                     .First(o => o.Id == id);
@@ -117,15 +117,13 @@
 
             var jobOfferDetailViewModel = Mapper.Map<JobOffer, JobOfferDetailViewModel>(model);
 
-            jobOfferDetailViewModel.JobOfferStatusChangeViewModels
-                .Where(s => s.AuthorRole == ApplicationUserRole.Recruiter)
-                .Each(s => s.AuthorName = string.Format("{0} {1}", recruiterModel.FirstName, recruiterModel.LastName));
+            UpdateJobOfferDetailViewModelWithRoles(jobOfferDetailViewModel, recruiterModel, developerModel, currentLoggedUserId);
+            var result = GetJobOfferDetailsViewModel(id, jobOfferDetailViewModel, model, currentUserRole);
+            return result;
+        }
 
-            jobOfferDetailViewModel.JobOfferStatusChangeViewModels
-                .Where(s => s.AuthorRole == ApplicationUserRole.Developer)
-                .Each(s => s.AuthorName = developerModel.DisplayName);
-
-
+        private JobOfferDetailsViewModel GetJobOfferDetailsViewModel(long id, JobOfferDetailViewModel jobOfferDetailViewModel, JobOffer model, ApplicationUserRole currentUserRole)
+        {
             var result = new JobOfferDetailsViewModel(jobOfferDetailViewModel);
 
             var currentStatus = model.Statuses.OrderByDescending(s => s.CreateDateTime).First().Status;
@@ -133,6 +131,19 @@
 
             result.NewCommentViewModel = new JobOfferNewCommentViewModel(id, actions);
             return result;
+        }
+
+        private static void UpdateJobOfferDetailViewModelWithRoles(JobOfferDetailViewModel jobOfferDetailViewModel,
+            Recruiter recruiterModel, Developer developerModel, long currentLoggedUserId)
+        {
+            jobOfferDetailViewModel.JobOfferStatusChangeViewModels
+                .Where(s => s.AuthorRole == ApplicationUserRole.Recruiter)
+                .Each(s => s.AuthorName = string.Format("{0} {1}", recruiterModel.FirstName, recruiterModel.LastName));
+
+            jobOfferDetailViewModel.JobOfferStatusChangeViewModels
+                .Where(s => s.AuthorRole == ApplicationUserRole.Developer)
+                .Each(s => s.AuthorName = developerModel.DisplayName);
+            jobOfferDetailViewModel.JobOfferComments.Each(c => c.IsCurrentUserComment = c.AuthorId == currentLoggedUserId);
         }
 
         public JobOfferRejectViewModel GetJobOfferRejectViewModel(long id)

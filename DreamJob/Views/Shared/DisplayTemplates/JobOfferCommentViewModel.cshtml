@@ -1,16 +1,48 @@
 ﻿@model DreamJob.ViewModels.JobOfferCommentViewModel
+
+
 <div class="nocss-job-offer-comment">
     <div class="row">
-        <div class="col-md-2">
-            @Model.CreateDateTime
-        </div>
-        <div class="col-md-3 col-md-offset-1">
-            @Model.AuthorDisplayName
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-2 multiline">
-            @Model.Text
-        </div>
+        @if (Model.IsCurrentUserComment)
+        {
+            @DisplayPersonContainer()
+            @DisplayCommentDetails()
+        }
+        else
+        {
+            @DisplayCommentDetails()
+            @DisplayPersonContainer()
+        }
     </div>
 </div>
+
+@helper DisplayPersonContainer()
+{
+    <div class="col-md-2 col-sm-2 hidden-xs">
+        <figure class="thumbnail">
+            <img class="img-responsive" src="~/Content/icons/user.png">
+            <figcaption class="text-center">@Model.AuthorDisplayName</figcaption>
+        </figure>
+    </div>
+}
+@helper DisplayCommentDetails()
+{
+    var arrowDirection = Model.IsCurrentUserComment ? "left" : "right";
+
+    <div class="col-md-10 col-sm-10">
+        <div class="panel panel-default arrow @arrowDirection">
+            <div class="panel-body">
+                <header class="text-left">
+                </header>
+                <div class="comment-post">
+                    <p>
+                        @Model.Text
+                    </p>
+                </div>
+                <footer class="text-left">
+                    <i class="glyphicon glyphicon-calendar"></i><time class="comment-date" datetime="@Model.CreateDateTime">@Model.CreateDateTime</time>
+                </footer>
+            </div>
+        </div>
+    </div>
+}

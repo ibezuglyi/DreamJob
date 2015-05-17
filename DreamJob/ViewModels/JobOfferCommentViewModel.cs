@@ -21,5 +21,6 @@ namespace DreamJob.ViewModels
             ResourceType = typeof(Resources.Translations),
             Name = "JobOfferCommentViewModel_AuthorDisplayName")]
         public string AuthorDisplayName { get; set; }
+        public bool IsCurrentUserComment { get; set; }
     }
 }
