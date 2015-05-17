@@ -1,4 +1,6 @@
-﻿namespace DreamJob.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DreamJob.ViewModels
 {
     using System.Collections.Generic;
 
@@ -17,6 +19,9 @@
         }
 
         public long JobOfferId { get; set; }
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "JobOfferNewCommentViewModel_Text")]
         public string Text { get; set; }
 
         public List<JobOfferStatus> Statuses { get; set; }

@@ -1,7 +1,5 @@
 ﻿namespace DreamJob.ViewModels
 {
-    using System;
-
     public class JobOfferContactDetailsViewModel
     {
         public JobOfferContactDetailsViewModel(ContactInformationViewModel ciViewModel)

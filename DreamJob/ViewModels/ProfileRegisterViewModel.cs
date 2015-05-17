@@ -1,4 +1,6 @@
-﻿namespace DreamJob.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DreamJob.ViewModels
 {
     using DreamJob.Dtos;
 
@@ -20,9 +22,21 @@
             this.Role = role;
         }
 
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfileRegisterViewModel_Email")]
         public string Email { get; set; }
+
+        [Display(
+           ResourceType = typeof(Resources.Translations),
+           Name = "ProfileRegisterViewModel_Password")]
         public string Password { get; set; }
+
+        [Display(
+           ResourceType = typeof(Resources.Translations),
+           Name = "ProfileRegisterViewModel_ConfirmPassword")]
         public string ConfirmPassword { get; set; }
+
         public ApplicationUserRole Role { get; set; }
     }
 }

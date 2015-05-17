@@ -1,5 +1,7 @@
-﻿namespace DreamJob.ViewModels
+﻿
+namespace DreamJob.ViewModels
 {
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
 
     public class ProfilePublicDeveloperViewModel
@@ -14,15 +16,48 @@
             this.Id = 0;
         }
 
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfilePublicDeveloperViewModel_CurrentWorkingLocation")]
         public string CurrentWorkingLocation { get; set; }
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfilePublicDeveloperViewModel_WillingToRelocateToDifferentCity")]
         public bool WillingToRelocateToDifferentCity { get; set; }
+
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfilePublicDeveloperViewModel_WillingToRelocateToDifferentCountry")]
         public bool WillingToRelocateToDifferentCountry { get; set; }
+
+        
         public long Id { get; set; }
+
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfilePublicDeveloperViewModel_DisplayName")]
         public string DisplayName { get; set; }
+
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfilePublicDeveloperViewModel_AboutMe")]
         public string AboutMe { get; set; }
+
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfilePublicDeveloperViewModel_LookingFor")]
         public string LookingFor { get; set; }
+
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfilePublicDeveloperViewModel_Salary")]
         public decimal Salary { get; set; }
+
         public List<DeveloperSkillViewModel> SkillsViewModels { get; set; }
+
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfilePublicDeveloperViewModel_ExperienceInYears")]
         public int ExperienceInYears { get; set; }
     }
 }

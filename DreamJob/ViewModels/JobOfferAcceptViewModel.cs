@@ -1,13 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DreamJob.ViewModels
 {
     using DreamJob.Dtos;
 
     public class JobOfferAcceptViewModel
     {
-        public long JobOfferId { get; set; }
-        public string Text { get; set; }
-        public ContactInformationViewModel ContactInformation { get; set; }
-
         public JobOfferAcceptViewModel(JobOfferAcceptDto dto)
             : this(dto.JobOfferId, dto.Text)
         { }
@@ -22,5 +20,15 @@ namespace DreamJob.ViewModels
             this.Text = text;
             this.ContactInformation = new ContactInformationViewModel();
         }
+
+        public long JobOfferId { get; set; }
+
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "JobOfferAcceptViewModel_Text")]
+        public string Text { get; set; }
+        public ContactInformationViewModel ContactInformation { get; set; }
+
+        
     }
 }

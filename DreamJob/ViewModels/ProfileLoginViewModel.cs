@@ -1,6 +1,8 @@
-﻿namespace DreamJob.ViewModels
+﻿
+namespace DreamJob.ViewModels
 {
-    using DreamJob.Dtos;
+    using System.ComponentModel.DataAnnotations;
+    using Dtos;
 
     public class ProfileLoginViewModel
     {
@@ -18,8 +20,20 @@
         }
 
         public string ReturnUrl { get; set; }
+
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfileLoginViewModel_RememberMe")]
         public bool RememberMe { get; set; }
+
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfileLoginViewModel_Password")]
         public string Password { get; set; }
+
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "ProfileLoginViewModel_Email")]
         public string Email { get; set; }
     }
 }

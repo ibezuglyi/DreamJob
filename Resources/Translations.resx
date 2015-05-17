@@ -424,4 +424,238 @@
   <data name="Search_SearchResults" xml:space="preserve">
     <value>Here are stars:</value>
   </data>
+  <data name="ContactInformationViewModel_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ContactInformationViewModel_FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="ContactInformationViewModel_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="ContactInformationViewModel_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="ContactInformationViewModel_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="DeveloperHeadlineViewModel_AboutMe" xml:space="preserve">
+    <value>About me</value>
+  </data>
+  <data name="DeveloperHeadlineViewModel_DisplayName" xml:space="preserve">
+    <value>Nickname</value>
+  </data>
+  <data name="DeveloperHeadlineViewModel_ExperienceInYears" xml:space="preserve">
+    <value>My experience in years</value>
+  </data>
+  <data name="DeveloperHeadlineViewModel_LookingFor" xml:space="preserve">
+    <value>Im looking for</value>
+  </data>
+  <data name="DeveloperHeadlineViewModel_Salary" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="DeveloperHeadlineViewModel_SkillsCount" xml:space="preserve">
+    <value>Skills count</value>
+  </data>
+  <data name="DeveloperSkillViewModel_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="DeveloperSkillViewModel_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="JobOfferAcceptViewModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="JobOfferCancelViewModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="JobOfferCommentViewModel_AuthorDisplayName" xml:space="preserve">
+    <value>Author name</value>
+  </data>
+  <data name="JobOfferCommentViewModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="JobOfferConfirmViewModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="JobOfferDetailViewModel_CompanyName" xml:space="preserve">
+    <value>Company name</value>
+  </data>
+  <data name="JobOfferDetailViewModel_DeveloperDisplayName" xml:space="preserve">
+    <value>Candidate nick name</value>
+  </data>
+  <data name="JobOfferDetailViewModel_JobOfferText" xml:space="preserve">
+    <value>Job offer informaiton</value>
+  </data>
+  <data name="JobOfferDetailViewModel_OfferMatchesProfile" xml:space="preserve">
+    <value>Offer Im sending matches candidate profile</value>
+  </data>
+  <data name="JobOfferDetailViewModel_Position" xml:space="preserve">
+    <value>Job position</value>
+  </data>
+  <data name="JobOfferDetailViewModel_ProfileWasReadBeforeSending" xml:space="preserve">
+    <value>I have read the candidate profile</value>
+  </data>
+  <data name="JobOfferDetailViewModel_Requirements" xml:space="preserve">
+    <value>Requirements for the job offer</value>
+  </data>
+  <data name="JobOfferDetailViewModel_Salary" xml:space="preserve">
+    <value>Salary offered</value>
+  </data>
+  <data name="JobOfferHeadlineViewModel_CompanyName" xml:space="preserve">
+    <value>Company name</value>
+  </data>
+  <data name="JobOfferHeadlineViewModel_DeveloperDisplayName" xml:space="preserve">
+    <value>Nickname</value>
+  </data>
+  <data name="JobOfferHeadlineViewModel_Position" xml:space="preserve">
+    <value>Job position</value>
+  </data>
+  <data name="JobOfferHeadlineViewModel_Salary" xml:space="preserve">
+    <value>Job salary</value>
+  </data>
+  <data name="JobOfferNewCommentViewModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="JobOfferRejectViewModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="JobOfferSendViewModel_CompanyName" xml:space="preserve">
+    <value>Company name</value>
+  </data>
+  <data name="JobOfferSendViewModel_JobOfferText" xml:space="preserve">
+    <value>Job offer information</value>
+  </data>
+  <data name="JobOfferSendViewModel_OfferMatchesProfile" xml:space="preserve">
+    <value>Offer Im sending matches candidate profile</value>
+  </data>
+  <data name="JobOfferSendViewModel_Position" xml:space="preserve">
+    <value>Job position</value>
+  </data>
+  <data name="JobOfferSendViewModel_ProfileWasReadBeforeSending" xml:space="preserve">
+    <value>I have read the candidate profile</value>
+  </data>
+  <data name="JobOfferSendViewModel_Requirements" xml:space="preserve">
+    <value>Requirements for the job</value>
+  </data>
+  <data name="JobOfferSendViewModel_Salary" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="JobOfferStatusChangeViewModel_AuthorName" xml:space="preserve">
+    <value>Author name</value>
+  </data>
+  <data name="JobOfferStatusChangeViewModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="JobOfferStatus_Accepted" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="JobOfferStatus_Canceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="JobOfferStatus_Confirmed" xml:space="preserve">
+    <value>Confirmed</value>
+  </data>
+  <data name="JobOfferStatus_New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="JobOfferStatus_None" xml:space="preserve">
+    <value>Invalid job status</value>
+  </data>
+  <data name="JobOfferStatus_Read" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="JobOfferStatus_Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="ProfileLoginViewModel_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ProfileLoginViewModel_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="ProfileLoginViewModel_RememberMe" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="ProfilePrivateDeveloperViewModel_AboutMe" xml:space="preserve">
+    <value>About me</value>
+  </data>
+  <data name="ProfilePrivateDeveloperViewModel_CurrentWorkingLocation" xml:space="preserve">
+    <value>Yours current location</value>
+  </data>
+  <data name="ProfilePrivateDeveloperViewModel_DisplayName" xml:space="preserve">
+    <value>Nickname</value>
+  </data>
+  <data name="ProfilePrivateDeveloperViewModel_ExperienceInYears" xml:space="preserve">
+    <value>Number of yarsyears of experience</value>
+  </data>
+  <data name="ProfilePrivateDeveloperViewModel_IsActive" xml:space="preserve">
+    <value>Profile active</value>
+  </data>
+  <data name="ProfilePrivateDeveloperViewModel_LookingFor" xml:space="preserve">
+    <value>Im looking for</value>
+  </data>
+  <data name="ProfilePrivateDeveloperViewModel_Salary" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="ProfilePrivateDeveloperViewModel_WillingToRelocateToDifferentCity" xml:space="preserve">
+    <value>Im willing to relocate to different city</value>
+  </data>
+  <data name="ProfilePrivateDeveloperViewModel_WillingToRelocateToDifferentCountry" xml:space="preserve">
+    <value>Im willing to relocatate to different country</value>
+  </data>
+  <data name="ProfilePrivateRecruiterViewModel_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ProfilePrivateRecruiterViewModel_Employer" xml:space="preserve">
+    <value>Emplyer</value>
+  </data>
+  <data name="ProfilePrivateRecruiterViewModel_FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="ProfilePrivateRecruiterViewModel_IsActive" xml:space="preserve">
+    <value>Profile is active</value>
+  </data>
+  <data name="ProfilePrivateRecruiterViewModel_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="ProfilePrivateRecruiterViewModel_PhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="ProfilePublicDeveloperViewModel_AboutMe" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="ProfilePublicDeveloperViewModel_CurrentWorkingLocation" xml:space="preserve">
+    <value>Currently working location</value>
+  </data>
+  <data name="ProfilePublicDeveloperViewModel_DisplayName" xml:space="preserve">
+    <value>Nickname</value>
+  </data>
+  <data name="ProfilePublicDeveloperViewModel_ExperienceInYears" xml:space="preserve">
+    <value>Years of experience</value>
+  </data>
+  <data name="ProfilePublicDeveloperViewModel_LookingFor" xml:space="preserve">
+    <value>Looking for</value>
+  </data>
+  <data name="ProfilePublicDeveloperViewModel_Salary" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="ProfilePublicDeveloperViewModel_WillingToRelocateToDifferentCity" xml:space="preserve">
+    <value>Is willing to relocatio to different city</value>
+  </data>
+  <data name="ProfilePublicDeveloperViewModel_WillingToRelocateToDifferentCountry" xml:space="preserve">
+    <value>Is willing to relocation to different country</value>
+  </data>
+  <data name="ProfileRegisterViewModel_ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="ProfileRegisterViewModel_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ProfileRegisterViewModel_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SkillViewModel_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
 </root>

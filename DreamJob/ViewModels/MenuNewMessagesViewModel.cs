@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using DreamJob.Models;
+    using Models;
 
     public class MenuNewMessagesViewModel
     {
