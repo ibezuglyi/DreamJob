@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DreamJob.ViewModels
 {
     using System;
@@ -15,13 +17,34 @@ namespace DreamJob.ViewModels
             this.CreateDateTime = DateTime.MinValue;
         }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Note { get; set; }
-        public long Id { get; set; }
         public DateTime CreateDateTime { get; set; }
+
+        [Display(
+           ResourceType = typeof(Resources.Translations),
+           Name = "ContactInformationViewModel_FirstName")]
+        public string FirstName { get; set; }
+
+        [Display(
+           ResourceType = typeof(Resources.Translations),
+           Name = "ContactInformationViewModel_LastName")]
+        public string LastName { get; set; }
+
+        [Display(
+           ResourceType = typeof(Resources.Translations),
+           Name = "ContactInformationViewModel_Email")]
+        public string Email { get; set; }
+
+        [Display(
+           ResourceType = typeof(Resources.Translations),
+           Name = "ContactInformationViewModel_Phone")]
+        public string Phone { get; set; }
+
+        [Display(
+           ResourceType = typeof(Resources.Translations),
+           Name = "ContactInformationViewModel_Note")]
+        public string Note { get; set; }
+
+        public long Id { get; set; }
         public long JobOfferId { get; set; }
     }
 }

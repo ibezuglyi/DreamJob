@@ -1,4 +1,6 @@
-﻿namespace DreamJob.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DreamJob.ViewModels
 {
     using Dtos;
 
@@ -17,8 +19,15 @@
             this.SkillId = skillId;
         }
 
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "DeveloperSkillViewModel_Name")]
         public string Name { get; set; }
+        [Display(
+            ResourceType = typeof(Resources.Translations),
+            Name = "DeveloperSkillViewModel_Level")]
         public long Level { get; set; }
+
         public long SkillId { get; set; }
     }
 }
