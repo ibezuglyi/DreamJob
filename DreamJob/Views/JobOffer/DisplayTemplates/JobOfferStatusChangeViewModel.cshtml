@@ -1,7 +1,7 @@
 ﻿@using DreamJob.ViewModels
 @model JobOfferStatusChangeViewModel
 <li class="status-block @Model.GetStatusClass()">
-    <div>
+    <div title="@Model.Text">
         <h5>
             @Model.Status
             <br />

@@ -22,7 +22,7 @@
 }
 
 .multiline {
-    white-space: pre-wrap;
+    white-space: pre-line;
 }
 .right-text {
     text-align: right !important;

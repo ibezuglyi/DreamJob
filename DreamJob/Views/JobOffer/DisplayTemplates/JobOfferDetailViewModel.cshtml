@@ -12,15 +12,19 @@
     <label>@Resources.Translations.RecruitingToText</label>
     @Html.DisplayFor(m => m.CompanyName)
 </div>
-
-<p class="multiline">
+<div>
     @Html.LabelFor(m => m.JobOfferText)
-    @Html.DisplayFor(m => m.JobOfferText)
-</p>
+    <p class="multiline">
+        @Html.DisplayFor(m => m.JobOfferText)
+    </p>
+</div>
+
 
 <div>
     @Html.LabelFor(m => m.Requirements)
-    @Html.DisplayFor(m => m.Requirements)
+    <p class="multiline">
+        @Html.DisplayFor(m => m.Requirements)
+    </p>
 </div>
 
 <div>

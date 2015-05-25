@@ -3,27 +3,31 @@
 
 @using (Html.BeginForm("Add", "Comment", FormMethod.Post, new { @class = "nocss-form-job-offer-add-comment" }))
 {
-    <input type="hidden" name="JobOfferId" value="@Model.JobOfferId"/>
-    foreach (var s in Model.Statuses)
-    {
-        switch (s)
+    <input type="hidden" name="JobOfferId" value="@Model.JobOfferId" />
+
+    <span class="pull-right">
+        @foreach (var s in Model.Statuses)
         {
-            case JobOfferStatus.Rejected:
-                @Html.ActionLink(Resources.Translations.JobOffer_Reject, "Reject", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Rejected.ToString() })
-                break;
-            case JobOfferStatus.Canceled:
+            switch (s)
+            {
+                case JobOfferStatus.Rejected:
+                    @Html.ActionLink(Resources.Translations.JobOffer_Reject, "Reject", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Rejected.ToString() })
+                    break;
+                case JobOfferStatus.Canceled:
                 @Html.ActionLink(Resources.Translations.JobOffer_Cancel, "Cancel", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-danger nocss-button-status-change", data_job_offer_status = JobOfferStatus.Canceled.ToString() })
-                break;
-            case JobOfferStatus.Accepted:
-                @Html.ActionLink(Resources.Translations.JobOffer_Accept, "Accept", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Accepted.ToString() })
-                break;
-            case JobOfferStatus.Confirmed:
+                    break;
+                case JobOfferStatus.Accepted:
+                @Html.ActionLink(Resources.Translations.JobOffer_Accept, "Accept", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-success nocss-button-status-change", data_job_offer_status = JobOfferStatus.Accepted.ToString() })
+                    break;
+                case JobOfferStatus.Confirmed:
                 @Html.ActionLink(Resources.Translations.JobOffer_Confirm, "Confirm", "JobOffer", new { id = @Model.JobOfferId }, new { @class = "btn btn-primary nocss-button-status-change", data_job_offer_status = JobOfferStatus.Confirmed.ToString() })
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
-    }
+    </span>
+<br/>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Text)
