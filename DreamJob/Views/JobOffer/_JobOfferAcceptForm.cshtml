@@ -1,18 +1,20 @@
 ﻿@model DreamJob.ViewModels.JobOfferAcceptViewModel
+<h2>@Model.Position at @Model.CompanyName, @Model.Salary PLN</h2>
+<p>Please share your personal information with recruter. </p>
 
 @using (Html.BeginForm("Accept", "JobOffer", FormMethod.Post))
 {
     @Html.Partial("_ValidationSummary")
-    @Html.HiddenFor(m => m.JobOfferId)
+    @Html.HiddenFor(m => m.JobOfferAcceptDto.JobOfferId)
     <div class="form-group">
-        @Html.LabelFor(m => m.Text)
-        @Html.TextAreaFor(m => m.Text, new { @class = "form-control" })
+        @Html.LabelFor(m => m.JobOfferAcceptDto.Text)
+        @Html.TextAreaFor(m => m.JobOfferAcceptDto.Text, new { @class = "form-control" })
     </div>
 
-    @Html.EditorFor(m => m.ContactInformation)
+    @Html.EditorFor(m => m.JobOfferAcceptDto.ContactInformation)
 
-    <div>
+    <div class="pull-right">
         <button type="submit" role="button" class="btn btn-primary nocss-button-job-offer-status-change">@Resources.Translations.JobOffer_Submit</button>
-        @Html.ActionLink(Resources.Translations.JobOffer_Cancel, "Details", "JobOffer", new { id = Model.JobOfferId }, new { @class = "btn btn-default" })
+        @Html.ActionLink(Resources.Translations.JobOffer_Cancel, "Details", "JobOffer", new { id = Model.JobOfferAcceptDto.JobOfferId }, new { @class = "btn btn-default" })
     </div>
 }

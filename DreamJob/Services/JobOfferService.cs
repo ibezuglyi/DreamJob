@@ -160,7 +160,14 @@
 
         public JobOfferAcceptViewModel GetJobOfferAcceptViewModel(long id)
         {
-            var viemwodel = new JobOfferAcceptViewModel(id);
+            var offer = applicationDatabase.JobOffers.First(r => r.Id == id);
+            var viemwodel = new JobOfferAcceptViewModel(id, offer.CompanyName, offer.Position, offer.Salary);
+            return viemwodel;
+        }
+        public JobOfferAcceptViewModel GetJobOfferAcceptViewModel(JobOfferAcceptDto dto)
+        {
+            var offer = applicationDatabase.JobOffers.First(r => r.Id == dto.JobOfferId);
+            var viemwodel = new JobOfferAcceptViewModel(dto, offer.CompanyName, offer.Position, offer.Salary);
             return viemwodel;
         }
 
@@ -211,6 +218,21 @@
 
         public void AcceptOffer(JobOfferAcceptDto dto)
         {
+            UpdateJobOfferStatus(dto);
+            AddNewMessageToRead(dto);
+            this.applicationDatabase.SaveChanges();
+        }
+
+        private void AddNewMessageToRead(JobOfferAcceptDto dto)
+        {
+            var jobOfferModel = this.applicationDatabase.JobOffers.First(joboffer => joboffer.Id == dto.JobOfferId);
+            var newMessage = new NewMessageToRead(jobOfferModel.RecruiterId, dto.JobOfferId, ApplicationMessageType.Status);
+            newMessage.CreateDateTime = DateTime.Now;
+            this.applicationDatabase.NewMessagesToRead.Add(newMessage);
+        }
+
+        private void UpdateJobOfferStatus(JobOfferAcceptDto dto)
+        {
             var model = Mapper.Map<JobOfferAcceptDto, JobOfferStatusChange>(dto);
             model.CreateDateTime = DateTime.Now;
             model.AuthorId = this.authentication.GetCurrentLoggedUserId();
@@ -218,16 +240,6 @@
             model.ContactInformation.CreateDateTime = DateTime.Now;
             model.ContactInformation.JobOfferStatusChangeId = model.Id;
             this.applicationDatabase.JobOfferStatusChanges.Add(model);
-
-            var jobOfferModel = this.applicationDatabase.JobOffers.First(joboffer => joboffer.Id == dto.JobOfferId);
-            var newMessage = new NewMessageToRead(
-                jobOfferModel.RecruiterId,
-                dto.JobOfferId,
-                ApplicationMessageType.Status);
-            newMessage.CreateDateTime = DateTime.Now;
-            this.applicationDatabase.NewMessagesToRead.Add(newMessage);
-
-            this.applicationDatabase.SaveChanges();
         }
 
         public void ConfirmOffer(JobOfferConfirmDto dto)
@@ -285,6 +297,8 @@
             var result = new JobOfferContactDetailsViewModel(ciViewModel);
             return result;
         }
+
+
 
         private List<JobOfferStatus> GetOfferActionsForRoleAndOfferStatus(
             ApplicationUserRole currentUserRole,

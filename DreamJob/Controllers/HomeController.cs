@@ -1,7 +1,6 @@
 ﻿namespace DreamJob.Controllers
 {
     using System.Web.Mvc;
-
     using Services;
 
     [Authorize]
@@ -18,7 +17,7 @@
         public ActionResult Index()
         {
             var viewmodel = this.profileService.GetDevelopersHeadlines();
-            return this.View("Index", viewmodel);
+            return this.View(viewmodel);
         }
     }
 }

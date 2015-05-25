@@ -1,9 +1,9 @@
 ﻿@model DreamJob.ViewModels.JobOfferDetailViewModel
-<h1>
+<h2>
     @Html.DisplayFor(m => m.Position),
     @Html.DisplayFor(m => m.Salary) PLN
     <small>@Html.ActionLink(Model.DeveloperDisplayName, "Public", "Profile", new { id = Model.DeveloperId }, null)</small>
-</h1>
+</h2>
 <ul class="flow">
     @Html.DisplayFor(m => m.JobOfferStatusChangeViewModels)
 </ul>
@@ -18,7 +18,6 @@
         @Html.DisplayFor(m => m.JobOfferText)
     </p>
 </div>
-
 
 <div>
     @Html.LabelFor(m => m.Requirements)

@@ -23,5 +23,6 @@
 
         JobOfferContactDetailsViewModel GetContactDetailsById(long id);
 
+        JobOfferAcceptViewModel GetJobOfferAcceptViewModel(JobOfferAcceptDto dto);
     }
 }

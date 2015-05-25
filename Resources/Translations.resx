@@ -449,7 +449,7 @@
     <value>My experience in years</value>
   </data>
   <data name="DeveloperHeadlineViewModel_LookingFor" xml:space="preserve">
-    <value>Im looking for</value>
+    <value>I'm looking for</value>
   </data>
   <data name="DeveloperHeadlineViewModel_Salary" xml:space="preserve">
     <value>Salary</value>
@@ -657,5 +657,20 @@
   </data>
   <data name="SkillViewModel_Name" xml:space="preserve">
     <value>Name</value>
+  </data>
+  <data name="ContactInformation_Dto_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ContactInformation_Dto_FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="ContactInformation_Dto_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="ContactInformation_Dto_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="ContactInformation_Dto_Phone" xml:space="preserve">
+    <value>Phone</value>
   </data>
 </root>

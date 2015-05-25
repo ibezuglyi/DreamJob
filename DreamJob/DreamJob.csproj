@@ -345,6 +345,7 @@
     <Content Include="Views\JobOffer\_JobOfferRejectForm.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Profile\_Public.cshtml" />
+    <Content Include="Views\JobOffer\EditorTemplates\ContactInformationDto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

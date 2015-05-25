@@ -1,6 +1,6 @@
 ﻿@model DreamJob.ViewModels.JobOfferDetailsViewModel
 <div class="container">
-  
+
     <div class="row">
         @Html.DisplayFor(m => m.JobOfferDetailViewModel)
     </div>
@@ -11,7 +11,7 @@
 
 <div class="modal nocss-dialog-job-offer-change-status" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content ">
+        <div class="modal-content">
             <div class="modal-body nocss-content-job-offer-change-status"></div>
         </div>
     </div>
@@ -33,17 +33,6 @@
             selectorComment: ".nocss-job-offer-comment"
         };
 
-        var jobOfferDetailsChangeStatusOptions = {
-            containerJobOfferStatusChangeDialog: ".nocss-dialog-job-offer-change-status",
-            containerJobOfferStatusChangeContent: ".nocss-content-job-offer-change-status",
-            buttonJobOfferStatusChange: ".nocss-button-status-change",
-            buttonJobOfferStatusChangeSubmit: ".nocss-button-job-offer-status-change",
-            dataJobOfferDataAttributeStatus: "job-offer-status",
-            dataJobOfferId: "@Model.JobOfferDetailViewModel.Id",
-            contentHolderValidationError: ".nocss-validation-errors",
-            urlJobOfferStatusChange: '@Url.Action("StatusChange","JobOffer")'
-        };
-
         var jobOfferContactDetailsOptions = {
             buttonContactDetails: ".nocss-contact-details",
             buttonCloseContactDetails: ".nocss-close-contact-details",
@@ -53,10 +42,8 @@
             content: ".nocss-content-job-offer-change-status",
         };
 
-
         $(document).ready(function () {
             jobOfferDetailsComments.initialize(jobOfferDetailsCommentOptions);
-            jobOfferDetailsChangeStatus.initialize(jobOfferDetailsChangeStatusOptions);
             jobOfferContactDetails.initialize(jobOfferContactDetailsOptions);
         });
     </script>

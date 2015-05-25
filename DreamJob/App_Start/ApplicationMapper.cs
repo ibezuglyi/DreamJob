@@ -93,7 +93,7 @@ namespace DreamJob
                 .ForMember(d => d.Status, o => o.UseValue(JobOfferStatus.Accepted))
                 .ForMember(d => d.AuthorId, o => o.Ignore())
                 .ForMember(d => d.AuthorRole, o => o.Ignore())
-                .ForMember(d => d.ContactInformation, o => o.Ignore())
+                .ForMember(d => d.ContactInformation, o => o.MapFrom(s=>s.ContactInformation))
                 .ForMember(d => d.Id, o => o.Ignore())
                 .ForMember(d => d.CreateDateTime, o => o.Ignore());
         }
@@ -102,6 +102,8 @@ namespace DreamJob
         {
             Mapper.CreateMap<ContactInformation, ContactInformationViewModel>()
                 .ForMember(d => d.JobOfferId, o => o.MapFrom(s => s.JobOfferStatusChange.JobOfferId));
+
+
 
             Mapper.CreateMap<JobOfferStatusChange, JobOfferStatusChangeViewModel>()
                 .ForMember(d => d.AuthorName, o => o.Ignore());
