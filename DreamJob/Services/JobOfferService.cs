@@ -171,6 +171,36 @@
             return viemwodel;
         }
 
+        public JobOfferCancelViewModel GetJobOfferCancelViewModel(JobOfferCancelDto dto)
+        {
+            var viewModel =new JobOfferCancelViewModel(dto);
+            return viewModel;
+        }
+
+        public JobOfferRejectViewModel GetJobOfferRejectViewModel(JobOfferRejectDto dto)
+        {
+            var viewModel = new JobOfferRejectViewModel(dto);
+            return viewModel;
+        }
+
+        public JobOfferConfirmViewModel GetJobOfferConfirmViewModel(JobOfferConfirmDto dto)
+        {
+            var viewModel = new JobOfferConfirmViewModel(dto);
+            return viewModel;
+        }
+
+        public JobOfferSendViewModel GetJobOfferSendViewModel(long id)
+        {
+            var viewModel = new JobOfferSendViewModel(id);
+            return viewModel;
+        }
+
+        public JobOfferSendViewModel GetJobOfferSendViewModel(JobOfferSendDto dto)
+        {
+            var viewModel = new JobOfferSendViewModel(dto);
+            return viewModel;
+        }
+
         public JobOfferConfirmViewModel GetJobOfferConfirmViewModel(long id)
         {
             var viemwodel = new JobOfferConfirmViewModel(id);

@@ -29,16 +29,15 @@ namespace DreamJob.Controllers
         [HttpGet]
         public ActionResult Send(long id)
         {
-            var viewmodel = new JobOfferSendViewModel(id);
-            return this.View("Send", viewmodel);
+            var viewModel = this.jobofferService.GetJobOfferSendViewModel(id);
+            return this.View("Send", viewModel);
         }
-
 
         [HttpGet]
         public ActionResult SendJobOfferDialog(long id)
         {
             var result = new DjJsonResultDto<string>();
-            var viewmodel = new JobOfferSendViewModel(id);
+            var viewmodel = this.jobofferService.GetJobOfferSendViewModel(id);
             var viewAsString = this.PartialViewAsString("_SendJobOfferForm", viewmodel);
             result.Success = true;
             result.Data = viewAsString;
@@ -75,7 +74,7 @@ namespace DreamJob.Controllers
                 this.jobofferService.Add(dto);
                 return this.RedirectToAction("Index", "Home");
             }
-            var viewmodel = new JobOfferSendViewModel(dto);
+            var viewmodel = this.jobofferService.GetJobOfferSendViewModel(dto);
             return this.View("Send", viewmodel);
         }
 
@@ -182,7 +181,7 @@ namespace DreamJob.Controllers
                 this.jobofferService.RejectOffer(dto);
                 return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
             }
-            var viewmodel = new JobOfferRejectViewModel(dto);
+            var viewmodel = this.jobofferService.GetJobOfferRejectViewModel(dto);
             return this.View(viewmodel);
 
         }
@@ -195,7 +194,7 @@ namespace DreamJob.Controllers
                 this.jobofferService.CancelOffer(dto);
                 return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
             }
-            var viewmodel = new JobOfferCancelViewModel(dto);
+            var viewmodel = this.jobofferService.GetJobOfferCancelViewModel(dto);
             return this.View("Cancel", viewmodel);
         }
 
@@ -219,7 +218,7 @@ namespace DreamJob.Controllers
                 this.jobofferService.ConfirmOffer(dto);
                 return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
             }
-            var viewmodel = new JobOfferConfirmViewModel(dto);
+            var viewmodel = this.jobofferService.GetJobOfferConfirmViewModel(dto);
             return this.View("Confirm", viewmodel);
         }
 

@@ -1,7 +1,7 @@
 ﻿namespace DreamJob.Services
 {
-    using DreamJob.Dtos;
-    using DreamJob.ViewModels;
+    using Dtos;
+    using ViewModels;
 
     public interface IJobOfferService
     {
@@ -24,5 +24,10 @@
         JobOfferContactDetailsViewModel GetContactDetailsById(long id);
 
         JobOfferAcceptViewModel GetJobOfferAcceptViewModel(JobOfferAcceptDto dto);
+        JobOfferCancelViewModel GetJobOfferCancelViewModel(JobOfferCancelDto dto);
+        JobOfferRejectViewModel GetJobOfferRejectViewModel(JobOfferRejectDto dto);
+        JobOfferConfirmViewModel GetJobOfferConfirmViewModel(JobOfferConfirmDto dto);
+        JobOfferSendViewModel GetJobOfferSendViewModel(long id);
+        JobOfferSendViewModel GetJobOfferSendViewModel(JobOfferSendDto dto);
     }
 }
