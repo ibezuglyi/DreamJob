@@ -18,5 +18,15 @@
 
         SearchResultViewModel GetDevelopersHeadlinesWithSkill(SearchSkillDto dto);
         SearchResultViewModel GetDevelopersHeadlinesWithSalaryInRange(SearchSalaryDto dto);
+
+        ProfileLoginViewModel GetProfileLoginViewModel(string returnUrl);
+        ProfileLoginViewModel GetProfileLoginViewModel(ProfileLoginDto returnUrl);
+        ProfileLoginSuccessViewModel GetProfileLoginSuccessViewModel();
+        ProfileRegisterViewModel GetProfileRegisterViewModel();
+        ProfileRegisterViewModel GetProfileRegisterViewModel(ProfileRegisterDto dto);
+        ProfilePrivateViewModel GetProfilePrivateViewModel(ProfilePrivateDeveloperEditDto dto);
+        ProfilePrivateViewModel GetProfilePrivateViewModel(ProfilePrivateRecruiterDto dto);
+        ProfileRegistrationSuccessViewModel GetProfileRegistrationSuccessViewModel();
+        ProfileRegisterViewModel GetprofileRegisterViewModel();
     }
 }

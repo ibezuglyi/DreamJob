@@ -262,5 +262,59 @@ namespace DreamJob.Services
             var headlines = Mapper.Map<List<Developer>, List<DeveloperHeadlineViewModel>>(developersHeadlines);
             return new SearchResultViewModel(headlines);
         }
+
+        public ProfileLoginViewModel GetProfileLoginViewModel(string returnUrl)
+        {
+            var viewModel = new ProfileLoginViewModel(returnUrl);
+            return viewModel;
+        }
+
+        public ProfileLoginViewModel GetProfileLoginViewModel(ProfileLoginDto dto)
+        {
+            var viewModel = new ProfileLoginViewModel(dto);
+            return viewModel;
+        }
+
+        public ProfileLoginSuccessViewModel GetProfileLoginSuccessViewModel()
+        {
+            var viewModel = new ProfileLoginSuccessViewModel();
+            return viewModel;
+        }
+
+        public ProfileRegisterViewModel GetProfileRegisterViewModel()
+        {
+            var viewmodel = new ProfileRegisterViewModel();
+            return viewmodel;
+        }
+
+        public ProfileRegisterViewModel GetProfileRegisterViewModel(ProfileRegisterDto dto)
+        {
+            var viewmodel = new ProfileRegisterViewModel(dto);
+            return viewmodel;
+        }
+
+        public ProfilePrivateViewModel GetProfilePrivateViewModel(ProfilePrivateDeveloperEditDto dto)
+        {
+            var viewModel = new ProfilePrivateViewModel(dto);
+            return viewModel;
+        }
+
+        public ProfilePrivateViewModel GetProfilePrivateViewModel(ProfilePrivateRecruiterDto dto)
+        {
+            var viewmodel = new ProfilePrivateViewModel(dto);
+            return viewmodel;
+        }
+
+        public ProfileRegistrationSuccessViewModel GetProfileRegistrationSuccessViewModel()
+        {
+            var viewModel = new ProfileRegistrationSuccessViewModel();
+            return viewModel;
+        }
+
+        public ProfileRegisterViewModel GetprofileRegisterViewModel()
+        {
+            var viewmodel = new ProfileRegisterViewModel();
+            return viewmodel;
+        }
     }
 }

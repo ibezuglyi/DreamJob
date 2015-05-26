@@ -32,7 +32,7 @@
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            var viewModel = new ProfileLoginViewModel(returnUrl);
+            var viewModel =this.profileService.GetProfileLoginViewModel(returnUrl);
             return this.View("Login", viewModel);
         }
 
@@ -48,7 +48,7 @@
         {
             if (this.ModelState.IsValid == false)
             {
-                var viewModel = new ProfileLoginViewModel(dto);
+                var viewModel = this.profileService.GetProfileLoginViewModel(dto);
                 return this.View("Login", viewModel);
             }
             var correct = this.accountService.Login(dto);
@@ -66,7 +66,7 @@
             else
             {
                 this.ModelState.AddModelError("", "No user can be logged in using data you entered.");
-                var viewModel = new ProfileLoginViewModel(dto);
+                var viewModel = this.profileService.GetProfileLoginViewModel(dto);
                 return this.View("Login", viewModel);
             }
         }
@@ -74,7 +74,7 @@
         [HttpGet]
         public ActionResult LoginSuccess()
         {
-            var viewModel = new ProfileLoginSuccessViewModel();
+            var viewModel = this.profileService.GetProfileLoginSuccessViewModel();
             return this.View("LoginSuccess", viewModel);
         }
 
@@ -82,7 +82,7 @@
         [AllowAnonymous]
         public ActionResult RegisterDeveloper()
         {
-            var viewmodel = new ProfileRegisterViewModel();
+            var viewmodel = this.profileService.GetProfileRegisterViewModel();
             return this.View("RegisterDeveloper", viewmodel);
         }
 
@@ -92,7 +92,7 @@
         {
             if (this.ModelState.IsValid == false)
             {
-                var viewmodel = new ProfileRegisterViewModel(dto);
+                var viewmodel = this.profileService.GetProfileRegisterViewModel(dto);
                 return this.View("RegisterDeveloper", viewmodel);
             }
             this.accountService.RegisterDeveloper(dto);
@@ -139,7 +139,7 @@
                 }
                 return this.RedirectToAction("Edit", "Profile");
             }
-            var viewmodel = new ProfilePrivateViewModel(dto);
+            var viewmodel = this.profileService.GetProfilePrivateViewModel(dto);
             return this.View("Edit", viewmodel);
         }
 
@@ -151,7 +151,7 @@
                 this.profileService.UpdateRecruiterProfile(dto);
                 return this.RedirectToAction("Edit", "Profile");
             }
-            var viewmodel = new ProfilePrivateViewModel(dto);
+            var viewmodel = this.profileService.GetProfilePrivateViewModel(dto);
             return this.View("Edit", viewmodel);
         }
 
@@ -159,7 +159,7 @@
         [AllowAnonymous]
         public ActionResult RegistrationSuccess()
         {
-            var viewModel = new ProfileRegistrationSuccessViewModel();
+            var viewModel = this.profileService.GetProfileRegistrationSuccessViewModel();
             return this.View("RegistrationSuccess", viewModel);
         }
 
@@ -167,7 +167,7 @@
         [AllowAnonymous]
         public ActionResult RegisterRecruiter()
         {
-            var viewmodel = new ProfileRegisterViewModel();
+            var viewmodel = this.profileService.GetprofileRegisterViewModel();
             return this.View("RegisterRecruiter", viewmodel);
         }
 
@@ -177,7 +177,7 @@
         {
             if (this.ModelState.IsValid == false)
             {
-                var viewmodel = new ProfileRegisterViewModel(dto);
+                var viewmodel = this.profileService.GetProfileRegisterViewModel(dto);
                 return this.View("RegisterRecruiter", viewmodel);
             }
 
