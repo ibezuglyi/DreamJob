@@ -2,8 +2,10 @@
 
 @foreach (object item in Model)
 {
-    using (Html.BeginCollectionItem(Html.ViewData.TemplateInfo.HtmlFieldPrefix))
-    {
+    <div class="nocss-editor">
+        @using (Html.BeginCollectionItem(Html.ViewData.TemplateInfo.HtmlFieldPrefix))
+        {
         @Html.EditorFor(_ => item, null, "")
-    }
+        }
+    </div>
 }

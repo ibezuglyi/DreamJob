@@ -13,7 +13,6 @@
         }
 
         <div class="form-group pull-right">
-            <button name="Action" role="button" type="submit" value="" class="btn btn-primary">update</button>
             <button name="Action" role="button" type="submit" value="" class="btn btn-primary">@Resources.Translations.Profile_Update</button>
             @Html.ActionLink(@Resources.Translations.Profile_BackToProfile, "Me", "Profile", null, new { @class = "btn btn-default" })
         </div>
@@ -26,7 +25,7 @@
     <script type="text/javascript">
         var developerProfileEditOptions = {
             buttonRemoveSkill: ".nocss-remove-skill",
-            skillRow: ".nocss-skill-row",
+            skillRow: ".nocss-editor",
             dataSkillId: "skill-id",
             urlRemoveSkill: "@Url.Action("RemoveDeveloperSkill", "Profile")",
         };
