@@ -3,32 +3,3 @@
 <div class="container">
     @Html.Partial("_Public", Model)
 </div>
-<div class="modal nocss-dialog-send-job-offer" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content ">
-            <div class="modal-body nocss-content-send-job-offer"></div>
-        </div>
-    </div>
-</div>
-
-@section scripts
-{
-    <script src="~/Scripts/sendJobOffer.js"></script>
-    <script type="text/javascript">
-        var sendJobOfferOptions = {
-            formSendJobOffer: ".nocss-form-job-offer",
-            alertSuccess: ".nocss-alert-success",
-            errorError: ".nocss-alert-error",
-            buttonSendJobOfferSubmit: ".nocss-button-job-offer-submit",
-            buttonSendJobOffer: ".nocss-button-send-job-offer",
-            contentSendJobOfferDialog: ".nocss-content-send-job-offer",
-            placeholderSendJobOfferDialog: ".nocss-dialog-send-job-offer",
-            contentHolderValidationError: ".nocss-validation-errors",
-            urlSendJobOfferDialog: "@Url.Action("SendJobOfferDialog","JobOffer",new{id=@Model.Developer.Id})"
-        };
-
-        $(window).ready(function () {
-            sendJobOffer.initialize(sendJobOfferOptions);
-        });
-    </script>
-}

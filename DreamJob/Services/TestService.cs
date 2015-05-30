@@ -68,7 +68,8 @@ namespace DreamJob.Services
                 LookingFor = this.GetSentence(100),
                 Salary = this.random.Next(1000, 20000),
                 Skills = this.GetSkills(2, 1),
-                Action = string.Empty
+                Action = string.Empty,
+                CurrentWorkingLocation = Faker.LocationFaker.City()
             };
 
             TestAccountService.CurrectLoggedUserId = profile.Id;

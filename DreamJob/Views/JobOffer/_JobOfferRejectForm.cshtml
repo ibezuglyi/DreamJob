@@ -1,14 +1,22 @@
 ﻿@model DreamJob.ViewModels.JobOfferRejectViewModel
 
-@using (Html.BeginForm("Reject", "JobOffer", FormMethod.Post))
-{
-    @Html.Partial("_ValidationSummary")
-    @Html.HiddenFor(m => m.JobOfferId)
-    <div class="form-group">
-        @Html.LabelFor(m => m.Text)
-        @Html.TextAreaFor(m => m.Text, new { @class = "form-control" })
-    </div>
-    <button type="submit" role="button" class="btn btn-primary nocss-button-job-offer-status-change">Submit</button>
-    @Html.ActionLink(Resources.Translations.JobOffer_Cancel, "Details", "JobOffer", new { id = Model.JobOfferId }, new { @class = "btn btn-default" })
+<h2>Rejecting</h2>
 
-}
+<h3>
+    @Model.Position at @Model.CompanyName, @Model.Salary PLN
+</h3>
+        @using (Html.BeginForm("Reject", "JobOffer", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.JobOfferRejectDto.JobOfferId)
+            <div class="form-group">
+                @Html.LabelFor(m => m.JobOfferRejectDto.Text)
+                @Html.TextAreaFor(m => m.JobOfferRejectDto.Text, new { @class = "form-control" })
+            </div>
+            
+            <div class="pull-right">
+                <button type="submit" role="button" class="btn btn-primary nocss-button-job-offer-status-change">Submit</button>
+                @Html.ActionLink(Resources.Translations.JobOffer_Cancel, "Details", "JobOffer", new { id = Model.JobOfferRejectDto.JobOfferId }, new { @class = "btn btn-default" })    
+            </div>
+            
+
+        }

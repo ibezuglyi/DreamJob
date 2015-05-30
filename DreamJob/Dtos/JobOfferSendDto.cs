@@ -6,15 +6,16 @@
     public class JobOfferSendDto
     {
         public JobOfferSendDto()
-            : this(0)
-        { }
+        {
+            
+        }
 
-        public JobOfferSendDto(long developerId)
+        public JobOfferSendDto(long developerId, decimal salary)
         {
             this.DeveloperId = developerId;
             this.JobOfferText = string.Empty;
             this.Position = string.Empty;
-            this.Salary = 0;
+            this.Salary = salary;
             this.CompanyName = string.Empty;
             this.Requirements = string.Empty;
             this.OfferMatchesProfile = false;

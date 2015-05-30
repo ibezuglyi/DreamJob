@@ -11,11 +11,11 @@
 }
 @if (Model.CurrentUserRole != ApplicationUserRole.Anonymous)
 {
-    if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.ProfileRole == ApplicationUserRole.Developer && Model.CurrentUserProfileIsActive)
+    if (Model.IsRecruiterAbleToSendOffer)
     {
         @Html.ActionLink(Resources.Translations.Profile_SendJobOffer, "Send", "JobOffer", new { id = @Model.Developer.Id }, new { @class = "btn btn-default nocss-button-send-job-offer" })
     }
-    if (Model.CurrentUserRole == ApplicationUserRole.Recruiter && Model.CurrentUserProfileIsActive == false)
+    if (Model.IsRecruiterInactive)
     {
         <div>
             <span class="label label-warning">@Resources.Translations.Profile_Warning</span>

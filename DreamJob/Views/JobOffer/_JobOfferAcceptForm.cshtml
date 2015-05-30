@@ -6,11 +6,6 @@
 {
     @Html.Partial("_ValidationSummary")
     @Html.HiddenFor(m => m.JobOfferAcceptDto.JobOfferId)
-    <div class="form-group">
-        @Html.LabelFor(m => m.JobOfferAcceptDto.Text)
-        @Html.TextAreaFor(m => m.JobOfferAcceptDto.Text, new { @class = "form-control" })
-    </div>
-
     @Html.EditorFor(m => m.JobOfferAcceptDto.ContactInformation)
 
     <div class="pull-right">

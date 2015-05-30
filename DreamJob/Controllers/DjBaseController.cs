@@ -12,8 +12,14 @@ namespace DreamJob.Controllers
     {
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
-            string cultureName;
+            var cultureName = GetCultureName();
+            SetNewCulture(cultureName);
+            return base.BeginExecuteCore(callback, state);
+        }
 
+        private string GetCultureName()
+        {
+            string cultureName;
             HttpCookie cultureCookie = this.Request.Cookies[Strings.Cookie];
             if (cultureCookie != null)
             {
@@ -28,10 +34,7 @@ namespace DreamJob.Controllers
             {
                 cultureName = Strings.DefaultCulture;
             }
-
-            SetNewCulture(cultureName);
-
-            return base.BeginExecuteCore(callback, state);
+            return cultureName;
         }
 
         private static void SetNewCulture(string cultureName)

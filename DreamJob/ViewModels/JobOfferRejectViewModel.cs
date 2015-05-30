@@ -1,29 +1,26 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace DreamJob.ViewModels
+﻿namespace DreamJob.ViewModels
 {
-    using DreamJob.Dtos;
+    using Dtos;
 
     public class JobOfferRejectViewModel
     {
-        public long JobOfferId { get; set; }
-        [Display(
-            ResourceType = typeof(Resources.Translations),
-            Name = "JobOfferRejectViewModel_Text")]
-        public string Text { get; set; }
+        public JobOfferRejectDto JobOfferRejectDto { get; set; }
+        public string Position { get; set; }
+        public string CompanyName { get; set; }
+        public decimal Salary { get; set; }
 
-        public JobOfferRejectViewModel(JobOfferRejectDto dto)
-            : this(dto.JobOfferId, dto.Text)
-        { }
-
-        public JobOfferRejectViewModel(long jobOfferId, string text)
+        public JobOfferRejectViewModel(JobOfferRejectDto jobOfferRejectDto, string position, string companyName, decimal salary)
         {
-            this.JobOfferId = jobOfferId;
-            this.Text = text;
+            JobOfferRejectDto = jobOfferRejectDto;
+            Position = position;
+            CompanyName = companyName;
+            Salary = salary;
         }
 
-        public JobOfferRejectViewModel(long jobOfferId)
-            : this(jobOfferId, string.Empty)
-        { }
+        public JobOfferRejectViewModel(long jobOfferId, string position,string companyName , decimal salary)
+            : this(new JobOfferRejectDto(jobOfferId), position, companyName, salary)
+        {
+            
+        }
     }
 }

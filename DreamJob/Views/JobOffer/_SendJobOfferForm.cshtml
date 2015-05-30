@@ -1,47 +1,50 @@
 ﻿@model DreamJob.ViewModels.JobOfferSendViewModel
 
 @Html.Partial("_ValidationSummary")
+<h2>@Model.LookingFor  @Model.Salary PLN </h2>
+
 <form action="@Url.Action("Send", "JobOffer")" method="post" class="nocss-form-job-offer">
-    @Html.HiddenFor(m => m.DeveloperId)
+    @Html.HiddenFor(m => m.JobOfferSendDto.DeveloperId)
 
     <div class="form-group">
-        @Html.LabelFor(m => m.Position)
-        @Html.TextBoxFor(m => m.Position, new { @class = "form-control" })
+        @Html.LabelFor(m => m.JobOfferSendDto.Position)
+        @Html.TextBoxFor(m => m.JobOfferSendDto.Position, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.CompanyName)
-        @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+        @Html.LabelFor(m => m.JobOfferSendDto.CompanyName)
+        @Html.TextBoxFor(m => m.JobOfferSendDto.CompanyName, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.JobOfferText)
-        @Html.TextAreaFor(m => m.JobOfferText, new { @class = "form-control", @rows = 5 })
+        @Html.LabelFor(m => m.JobOfferSendDto.JobOfferText)
+        @Html.TextAreaFor(m => m.JobOfferSendDto.JobOfferText, new { @class = "form-control", @rows = 5 })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.Salary)
-        @*<input type="number" value=99 name="Salary" />*@
-        @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })
+        @Html.LabelFor(m => m.JobOfferSendDto.Salary)
+        @Html.TextBoxFor(m => m.JobOfferSendDto.Salary, new { @class = "form-control"})
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.Requirements)
-        @Html.TextAreaFor(m => m.Requirements, new { @class = "form-control", @rows = 5 })
+        @Html.LabelFor(m => m.JobOfferSendDto.Requirements)
+        @Html.TextAreaFor(m => m.JobOfferSendDto.Requirements, new { @class = "form-control", @rows = 5 })
     </div>
 
     <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(m => m.OfferMatchesProfile)
-            @Html.LabelFor(m => m.OfferMatchesProfile)
+            @Html.CheckBoxFor(m => m.JobOfferSendDto.OfferMatchesProfile)
+            @Html.LabelFor(m => m.JobOfferSendDto.OfferMatchesProfile)
         </label>
     </div>
 
     <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(m => m.ProfileWasReadBeforeSending)
-            @Html.LabelFor(m => m.ProfileWasReadBeforeSending)
+            @Html.CheckBoxFor(m => m.JobOfferSendDto.ProfileWasReadBeforeSending)
+            @Html.LabelFor(m => m.JobOfferSendDto.ProfileWasReadBeforeSending)
         </label>
     </div>
-    <button type="submit" class="btn btn-primary nocss-button-job-offer-submit">@Resources.Translations.JobOffer_Send</button>
+    <div class="pull-right">
+        <button type="submit" class="btn btn-primary nocss-button-job-offer-submit">@Resources.Translations.JobOffer_Send</button>
+    </div>
 </form>

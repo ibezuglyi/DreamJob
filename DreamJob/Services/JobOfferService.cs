@@ -12,7 +12,7 @@
     using Models;
     using ViewModels;
 
-    class JobOfferService : IJobOfferService
+    public class JobOfferService : IJobOfferService
     {
         private readonly IAccountService authentication;
 
@@ -148,14 +148,22 @@
 
         public JobOfferRejectViewModel GetJobOfferRejectViewModel(long id)
         {
-            var viemwodel = new JobOfferRejectViewModel(id);
+            var jobOffer = applicationDatabase.JobOffers.Single(r => r.Id == id);
+            var viemwodel = new JobOfferRejectViewModel(id, jobOffer.Position, jobOffer.CompanyName, jobOffer.Salary);
             return viemwodel;
         }
 
         public JobOfferCancelViewModel GetJobOfferCancelViewModel(long id)
         {
-            var viemwodel = new JobOfferCancelViewModel(id);
+            var jobOffer = applicationDatabase.JobOffers.First(r => r.Id == id);
+            var viemwodel = new JobOfferCancelViewModel(id, jobOffer.CompanyName, jobOffer.Position, jobOffer.Salary);
             return viemwodel;
+        }
+        public JobOfferCancelViewModel GetJobOfferCancelViewModel(JobOfferCancelDto dto)
+        {
+            var jobOffer = applicationDatabase.JobOffers.First(r => r.Id == dto.JobOfferId);
+            var viewModel = new JobOfferCancelViewModel(dto, jobOffer.CompanyName, jobOffer.Position, jobOffer.Salary);
+            return viewModel;
         }
 
         public JobOfferAcceptViewModel GetJobOfferAcceptViewModel(long id)
@@ -164,6 +172,7 @@
             var viemwodel = new JobOfferAcceptViewModel(id, offer.CompanyName, offer.Position, offer.Salary);
             return viemwodel;
         }
+
         public JobOfferAcceptViewModel GetJobOfferAcceptViewModel(JobOfferAcceptDto dto)
         {
             var offer = applicationDatabase.JobOffers.First(r => r.Id == dto.JobOfferId);
@@ -171,15 +180,10 @@
             return viemwodel;
         }
 
-        public JobOfferCancelViewModel GetJobOfferCancelViewModel(JobOfferCancelDto dto)
-        {
-            var viewModel =new JobOfferCancelViewModel(dto);
-            return viewModel;
-        }
-
         public JobOfferRejectViewModel GetJobOfferRejectViewModel(JobOfferRejectDto dto)
         {
-            var viewModel = new JobOfferRejectViewModel(dto);
+            var offer = applicationDatabase.JobOffers.First(r => r.Id == dto.JobOfferId);
+            var viewModel = new JobOfferRejectViewModel(dto, offer.Position, offer.CompanyName, offer.Salary);
             return viewModel;
         }
 
@@ -191,13 +195,15 @@
 
         public JobOfferSendViewModel GetJobOfferSendViewModel(long id)
         {
-            var viewModel = new JobOfferSendViewModel(id);
+            var developer = applicationDatabase.Developers.Single(r => r.Id == id);
+            var viewModel = new JobOfferSendViewModel(id, developer.LookingFor, developer.Salary);
             return viewModel;
         }
 
         public JobOfferSendViewModel GetJobOfferSendViewModel(JobOfferSendDto dto)
         {
-            var viewModel = new JobOfferSendViewModel(dto);
+            var developer = applicationDatabase.Developers.Single(r => r.Id == dto.DeveloperId);
+            var viewModel = new JobOfferSendViewModel(dto, developer.LookingFor, developer.Salary);
             return viewModel;
         }
 

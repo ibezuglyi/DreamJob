@@ -500,7 +500,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Text.
+        ///   Looks up a localized string similar to Reason.
         /// </summary>
         public static string JobOfferCancelViewModel_Text {
             get {
@@ -644,7 +644,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Text.
+        ///   Looks up a localized string similar to Comment.
         /// </summary>
         public static string JobOfferNewCommentViewModel_Text {
             get {
@@ -653,7 +653,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Text.
+        ///   Looks up a localized string similar to Reason.
         /// </summary>
         public static string JobOfferRejectViewModel_Text {
             get {

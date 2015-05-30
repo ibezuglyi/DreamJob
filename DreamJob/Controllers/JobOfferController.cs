@@ -23,14 +23,14 @@ namespace DreamJob.Controllers
         public ActionResult Index()
         {
             var viewmodel = this.jobofferService.GetJobOffers();
-            return this.View("Index", viewmodel);
+            return this.View(viewmodel);
         }
 
         [HttpGet]
         public ActionResult Send(long id)
         {
             var viewModel = this.jobofferService.GetJobOfferSendViewModel(id);
-            return this.View("Send", viewModel);
+            return this.View(viewModel);
         }
 
         [HttpGet]
@@ -67,15 +67,15 @@ namespace DreamJob.Controllers
         }
 
         [HttpPost]
-        public ActionResult Send(JobOfferSendDto dto)
+        public ActionResult Send(JobOfferSendDto jobOfferSendDto)
         {
             if (this.ModelState.IsValid)
             {
-                this.jobofferService.Add(dto);
+                this.jobofferService.Add(jobOfferSendDto);
                 return this.RedirectToAction("Index", "Home");
             }
-            var viewmodel = this.jobofferService.GetJobOfferSendViewModel(dto);
-            return this.View("Send", viewmodel);
+            var viewmodel = this.jobofferService.GetJobOfferSendViewModel(jobOfferSendDto);
+            return this.View(viewmodel);
         }
 
         [HttpGet]
@@ -86,7 +86,7 @@ namespace DreamJob.Controllers
             {
                 return new HttpUnauthorizedResult();
             }
-            return this.View("Details", viewmodel);
+            return this.View(viewmodel);
         }
 
         [HttpGet]
@@ -169,33 +169,33 @@ namespace DreamJob.Controllers
         public ActionResult Confirm(long id)
         {
             var viewmodel = this.jobofferService.GetJobOfferConfirmViewModel(id);
-            return this.View( viewmodel);
+            return this.View(viewmodel);
         }
 
 
         [HttpPost]
-        public ActionResult Reject(JobOfferRejectDto dto)
+        public ActionResult Reject(JobOfferRejectDto jobOfferRejectDto)
         {
             if (this.ModelState.IsValid)
             {
-                this.jobofferService.RejectOffer(dto);
-                return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
+                this.jobofferService.RejectOffer(jobOfferRejectDto);
+                return this.RedirectToAction("Details", "JobOffer", new { id = jobOfferRejectDto.JobOfferId });
             }
-            var viewmodel = this.jobofferService.GetJobOfferRejectViewModel(dto);
+            var viewmodel = this.jobofferService.GetJobOfferRejectViewModel(jobOfferRejectDto);
             return this.View(viewmodel);
 
         }
 
         [HttpPost]
-        public ActionResult Cancel(JobOfferCancelDto dto)
+        public ActionResult Cancel(JobOfferCancelDto jobOfferCancelDto)
         {
             if (this.ModelState.IsValid)
             {
-                this.jobofferService.CancelOffer(dto);
-                return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
+                this.jobofferService.CancelOffer(jobOfferCancelDto);
+                return this.RedirectToAction("Details", "JobOffer", new { id = jobOfferCancelDto.JobOfferId });
             }
-            var viewmodel = this.jobofferService.GetJobOfferCancelViewModel(dto);
-            return this.View("Cancel", viewmodel);
+            var viewmodel = this.jobofferService.GetJobOfferCancelViewModel(jobOfferCancelDto);
+            return this.View(viewmodel);
         }
 
         [HttpPost]
@@ -207,7 +207,7 @@ namespace DreamJob.Controllers
                 return this.RedirectToAction("Details", "JobOffer", new { id = jobOfferAcceptDto.JobOfferId });
             }
             var viewmodel = jobofferService.GetJobOfferAcceptViewModel(jobOfferAcceptDto);
-            return this.View("Accept", viewmodel);
+            return this.View(viewmodel);
         }
 
         [HttpPost]
@@ -219,14 +219,14 @@ namespace DreamJob.Controllers
                 return this.RedirectToAction("Details", "JobOffer", new { id = dto.JobOfferId });
             }
             var viewmodel = this.jobofferService.GetJobOfferConfirmViewModel(dto);
-            return this.View("Confirm", viewmodel);
+            return this.View(viewmodel);
         }
 
         [HttpGet]
         public ActionResult ContactDetails(long id)
         {
             var viewmodel = this.jobofferService.GetContactDetailsById(id);
-            return this.View("ContactDetails", viewmodel);
+            return this.View(viewmodel);
         }
 
         [HttpGet]

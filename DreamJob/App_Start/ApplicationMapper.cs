@@ -94,6 +94,7 @@ namespace DreamJob
                 .ForMember(d => d.AuthorId, o => o.Ignore())
                 .ForMember(d => d.AuthorRole, o => o.Ignore())
                 .ForMember(d => d.ContactInformation, o => o.MapFrom(s=>s.ContactInformation))
+                .ForMember(d=>d.Text, o=>o.MapFrom(s=>s.ContactInformation.ToMessage()))
                 .ForMember(d => d.Id, o => o.Ignore())
                 .ForMember(d => d.CreateDateTime, o => o.Ignore());
         }

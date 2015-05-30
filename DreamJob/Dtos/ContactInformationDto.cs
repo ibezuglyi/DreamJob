@@ -1,4 +1,6 @@
-﻿namespace DreamJob.Dtos
+﻿using System.Text;
+
+namespace DreamJob.Dtos
 {
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
@@ -27,5 +29,14 @@
         [Display(ResourceType = typeof(Resources.Translations),Name = "ContactInformation_Dto_Note")]
         [AllowHtml]
         public string Note { get; set; }
+
+        public string ToMessage()
+        {
+            var message = new StringBuilder();
+            message.AppendFormat("{0} {1}/n", FirstName, LastName);
+            message.AppendFormat("{0} {1}/n", Email, Phone);
+            message.AppendFormat("{0}/n", Note);
+            return message.ToString();
+        }
     }
 }

@@ -467,7 +467,7 @@
     <value>Text</value>
   </data>
   <data name="JobOfferCancelViewModel_Text" xml:space="preserve">
-    <value>Text</value>
+    <value>Reason</value>
   </data>
   <data name="JobOfferCommentViewModel_AuthorDisplayName" xml:space="preserve">
     <value>Author name</value>
@@ -515,10 +515,10 @@
     <value>Job salary</value>
   </data>
   <data name="JobOfferNewCommentViewModel_Text" xml:space="preserve">
-    <value>Text</value>
+    <value>Comment</value>
   </data>
   <data name="JobOfferRejectViewModel_Text" xml:space="preserve">
-    <value>Text</value>
+    <value>Reason</value>
   </data>
   <data name="JobOfferSendViewModel_CompanyName" xml:space="preserve">
     <value>Company name</value>
